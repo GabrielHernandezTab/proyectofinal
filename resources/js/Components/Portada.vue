@@ -1,29 +1,31 @@
 <template>
-    <div class="portada-container text-white text-center d-flex align-items-center justify-content-center">
+    <div class="portada-container image-container text-white text-center d-flex align-items-center justify-content-center">
       <div class="container position-relative" style="z-index: 2; margin-top: -50px;">
-        
+              <img :src="'/imagenes/ejemploinversion.jpg'" alt="Descripción" class="background-image">
+
         <div class="mb-4 d-inline-block p-2 rounded-circle shadow-lg" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255,255,255,0.1);">
           <div class="rounded-circle d-flex align-items-center justify-content-center" 
                style="width: 90px; height: 90px; background-color: #0d1b2a; border: 2px solid #00d1b2;">
             <span class="text-white fs-1 fw-bold" style="text-shadow: 0 0 10px #00d1b2;">G</span>
           </div>
         </div>
-  
-        <h1 class="display-2 fw-bold mb-3" style="letter-spacing: -1px;">Gen Trading</h1>
-        <p class="fs-4 fw-light mb-5 mx-auto opacity-75" style="max-width: 750px; line-height: 1.4;">
-          Aprende a invertir de forma inteligente y segura con nuestros cursos profesionales
-        </p>
-  
-        <div class="d-flex justify-content-center gap-3 mt-4">
-          <button class="btn btn-lg rounded-pill px-5 py-3 fw-bold d-flex align-items-center" 
-                  style="background-color: #00a878; color: white; border: none; font-size: 1rem;">
-             <i class="bi bi-bar-chart-fill me-2"></i> Ver Planes
-          </button>
-          
-          <button class="btn btn-lg rounded-pill px-5 py-3 fw-bold border-white" 
-                  style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.4); font-size: 1rem;">
-            Conocer Más
-          </button>
+        <div class="overlay-text">
+          <h1 class="display-2 fw-bold mb-3" style="letter-spacing: -1px;">Gen Trading</h1>
+          <p class="fs-4 fw-light mb-5 mx-auto opacity-75" style="max-width: 750px; line-height: 1.4;">
+            Aprende a invertir de forma inteligente y segura con nuestros cursos profesionales
+          </p>
+
+          <div class="d-flex justify-content-center gap-3 mt-4">
+            <button class="btn btn-lg rounded-pill px-5 py-3 fw-bold d-flex align-items-center" 
+                    style="background-color: #00a878; color: white; border: none; font-size: 1rem;">
+              <i class="bi bi-bar-chart-fill me-2"></i> Ver Planes
+            </button>
+            
+            <button class="btn btn-lg rounded-pill px-5 py-3 fw-bold border-white" 
+                    style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.4); font-size: 1rem;">
+              Conocer Más
+            </button>
+          </div>
         </div>
       </div>
   
@@ -39,7 +41,7 @@
   .portada-container {
     min-height: 90vh;
     /* El degradado azul oscuro de la foto */
-    background: radial-gradient(circle at center, #1e3a8a 0%, #0d1b2a 100%);
+    background: img;
     position: relative;
     overflow: hidden;
   }
@@ -61,4 +63,31 @@
     width: 100%;
     line-height: 0;
   }
+
+  .image-container {
+  position: relative; /* Importante: sirve de ancla para el texto */
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.background-image {
+  width: 100%;
+  display: block; /* Elimina espacios en blanco extraños */
+  height: auto;
+}
+
+.overlay-text {
+  position: absolute; /* Se posiciona respecto al contenedor */
+  top: 50%;           /* Lo centra verticalmente */
+  left: 50%;          /* Lo centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajuste perfecto al centro */
+  
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente para legibilidad */
+  padding: 20px;
+  width: 80%;
+}
   </style>
