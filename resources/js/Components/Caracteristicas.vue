@@ -24,11 +24,11 @@
   
   <script setup>
   const items = [
-    { titulo: 'Cursos Estructurados', icon: 'bi-book', color: '#1a237e', desc: 'Contenido organizado de menor a mayor dificultad para un aprendizaje progresivo' },
-    { titulo: 'Clases Personalizadas', icon: 'bi-people', color: '#283593', desc: 'Videollamadas individuales en el pack supremo para resolver tus dudas' },
-    { titulo: 'Ejemplos Reales', icon: 'bi-trophy', color: '#3949ab', desc: 'Casos prácticos y ejemplos aplicados a situaciones reales del mercado' },
-    { titulo: 'Inversión Segura', icon: 'bi-shield-check', color: '#1a237e', desc: 'Aprende a minimizar riesgos y a invertir de manera responsable' },
-    { titulo: 'Análisis Técnico', icon: 'bi-graph-up-arrow', color: '#283593', desc: 'Domina gráficos, patrones de mercado y estrategias profesionales' },
-    { titulo: 'Educación Financiera', icon: 'bi-mortarboard', color: '#3949ab', desc: 'Conocimientos sobre fiscalidad y gestión financiera personal' }
+    { titulo: 'Cursos Estructurados', icon: 'bi-book', color: '#042747ff', desc: 'Contenido organizado de menor a mayor dificultad para un aprendizaje progresivo' },
+    { titulo: 'Clases Personalizadas', icon: 'bi-people', color: '#042747ff', desc: 'Videollamadas individuales en el pack supremo para resolver tus dudas' },
+    { titulo: 'Ejemplos Reales', icon: 'bi-trophy', color: '#042747ff', desc: 'Casos prácticos y ejemplos aplicados a situaciones reales del mercado' },
+    { titulo: 'Inversión Segura', icon: 'bi-shield-check', color: '#042747ff', desc: 'Aprende a minimizar riesgos y a invertir de manera responsable' },
+    { titulo: 'Análisis Técnico', icon: 'bi-graph-up-arrow', color: '#042747ff', desc: 'Domina gráficos, patrones de mercado y estrategias profesionales' },
+    { titulo: 'Educación Financiera', icon: 'bi-mortarboard', color: '#042747ff', desc: 'Conocimientos sobre fiscalidad y gestión financiera personal' }
   ];
   </script>
