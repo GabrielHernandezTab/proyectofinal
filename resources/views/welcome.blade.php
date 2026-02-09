@@ -1,6 +1,11 @@
 @extends('layout')
-@section('title', 'Formulario de libro')
+@section('titulo', 'GeN Trading')
 @section('contenido')
 
-<h2>Página de bienvenida de Gen Trading</h2>
+<portada-section></portada-section>
+
+<div class="container mt-5">
+    <planes-inversion></planes-inversion>
+</div>
+
 @endsection
