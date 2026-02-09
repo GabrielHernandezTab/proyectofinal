@@ -52,6 +52,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'juan@cifpzonzamas.es',
             'password' => Hash::make('12345678'),
         ]);
+        $userGabriel = User::factory()->create([
+            'name' => 'Gabriel',
+            'email' => 'gabriel@cifpzonzamas.es',
+            'password' => Hash::make('12345678'),
+        ]);
 
         // CREAR LIBROS 
         $libros = [
