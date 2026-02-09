@@ -3,19 +3,18 @@
       <div class="container">
         <div class="row g-4">
           
-          <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6">
             <div class="d-flex align-items-center mb-3">
-              <div class="rounded-circle d-flex align-items-center justify-content-center me-2" 
-                   style="width: 30px; height: 30px; background-color: #00d1b2;">
-                <span class="text-white fw-bold small">G</span>
-              </div>
-              <h5 class="mb-0 fw-bold">Gen Trading</h5>
+                <img :src="'/imagenes/logo.png'" alt="Logo Footer" 
+                    class="rounded-circle me-2"
+                    style="width: 40px; height: 40px; object-fit: cover; border: 1px solid rgba(0,209,178,0.3);">
+                <h5 class="mb-0 fw-bold">Gen Trading</h5>
             </div>
             <p class="text-secondary small" style="line-height: 1.6;">
-              Tu academia de formación en inversiones y trading profesional. 
-              Aprende a invertir de forma segura e inteligente.
+                Tu academia de formación en inversiones y trading profesional. 
+                Aprende a invertir de forma segura e inteligente.
             </p>
-          </div>
+        </div>
   
           <div class="col-lg-4 col-md-6">
             <h5 class="mb-3 fw-bold">Contacto</h5>

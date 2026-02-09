@@ -2,13 +2,13 @@
     <div class="portada-container text-white text-center d-flex align-items-center justify-content-center">
       <div class="container position-relative" style="z-index: 2; margin-top: -50px;">
         
-        <div class="mb-4 d-inline-block p-2 rounded-circle shadow-lg" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255,255,255,0.1);">
-          <div class="rounded-circle d-flex align-items-center justify-content-center" 
-               style="width: 90px; height: 90px; background-color: #0d1b2a; border: 2px solid #00d1b2;">
-            <span class="text-white fs-1 fw-bold" style="text-shadow: 0 0 10px #00d1b2;">G</span>
-          </div>
+        <div class="mb-4 d-inline-block p-2 rounded-circle shadow-lg" 
+            style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255,255,255,0.1);">
+            <img :src="'/imagenes/logo.png'" alt="Logo Central" 
+            style="width: 90px; height: 90px; object-fit: cover; border: 2px solid #00d1b2;" 
+            class="rounded-circle">
         </div>
-  
+        
         <h1 class="display-2 fw-bold mb-3" style="letter-spacing: -1px;">Gen Trading</h1>
         <p class="fs-4 fw-light mb-5 mx-auto opacity-75" style="max-width: 750px; line-height: 1.4;">
           Aprende a invertir de forma inteligente y segura con nuestros cursos profesionales
