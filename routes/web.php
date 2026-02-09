@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/planes', function () {
+    return view('planes');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -32,7 +36,11 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/admin', function () {
-return view('admin.dashboard');
+return view('dashboard');
+})->middleware('auth');
+
+Route::get('/dashboard/usuarios', function () {
+return view('usuario');
 })->middleware('auth');
 
 
@@ -54,42 +62,9 @@ Route::get('/usuario/store', [UsuarioController::class, 'store'])->name('usuario
 
 // Solo usuarios logueados Y que sean 'admin' pueden entrar
 Route::middleware(['auth'])->group(function () {
-    
-    Route::get('/libro', [LibroController::class, 'index'])->name('libro.index');
-    Route::get('/libro/create', [LibroController::class, 'create'])->name('libro.create');
-    Route::post('/libro/create', [LibroController::class, 'create']);
-    Route::get('/libro/edit/{id}', [LibroController::class, 'edit'])->name('libro.edit');
-    Route::post('/libro/edit', [LibroController::class, 'edit']);
-    Route::get('/libro/show/{id}', [LibroController::class, 'show'])->name('libro.show');
-    Route::get('/libro/destroy/{id}', [LibroController::class, 'destroy'])->name('libro.destroy');
-    Route::post('/libro/destroy', [LibroController::class, 'destroy']);
-    
+    Route::get('dashboard/usuario', [UsuarioController::class, 'index'])->name('usuarios.index');
 });
 
-// Solo usuarios logueados Y que sean 'admin' pueden entrar
-Route::middleware(['auth'])->group(function () {
-    Route::get('/socio', [SocioController::class, 'index'])->name('socio.index');
-    Route::get('/socio/create', [SocioController::class, 'create'])->name('socio.create');
-    Route::post('/socio/create', [SocioController::class, 'create']);
-    Route::get('/socio/edit/{id}', [SocioController::class, 'edit'])->name('socio.edit');
-    Route::post('/socio/edit', [SocioController::class, 'edit']);
-    Route::get('/socio/show/{id}', [SocioController::class, 'show'])->name('socio.show');
-    Route::get('/socio/destroy/{id}', [SocioController::class, 'destroy'])->name('socio.destroy');
-    Route::post('/socio/destroy', [SocioController::class, 'destroy']);
-});
-
-
-// Solo usuarios logueados Y que sean 'admin' pueden entrar
-Route::middleware(['auth'])->group(function () {
-    Route::get('/vehiculo', [VehiculoController::class, 'index'])->name('vehiculo.index');
-    Route::get('/vehiculo/create', [VehiculoController::class, 'create'])->name('vehiculo.create');
-    Route::post('/vehiculo/create', [VehiculoController::class, 'create']);
-    Route::get('/vehiculo/edit/{id}', [VehiculoController::class, 'edit'])->name('vehiculo.edit');
-    Route::post('/vehiculo/edit', [VehiculoController::class, 'edit']);
-    Route::get('/vehiculo/show/{id}', [VehiculoController::class, 'show'])->name('vehiculo.show');
-    Route::get('/vehiculo/destroy/{id}', [VehiculoController::class, 'destroy'])->name('vehiculo.destroy');
-    Route::post('/vehiculo/destroy', [VehiculoController::class, 'destroy']);
-});
 
 /*
 // Solo usuarios logueados Y que sean 'admin' pueden entrar

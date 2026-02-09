@@ -16,7 +16,7 @@
         
         <a class="navbar-brand d-flex align-items-center fw-bold fs-3" href="/">
             <div class="rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px; background-color: #00d1b2;">
-                <span class="text-white">G</span>
+                <span>G</span>
             </div>
             Gen Trading
         </a>
@@ -25,9 +25,7 @@
             <ul class="nav me-auto mb-2 mb-lg-0 gap-3">
                 <li class="nav-item"><a class="nav-link text-white" href="#caracteristicas">Características</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">¿Por qué elegirnos?</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Punto Muerto</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Comunicación</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold" href="#">Planes</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-bold" href="/planes">Planes</a></li>
             </ul>
         </div>
 
@@ -36,13 +34,19 @@
                 @auth
                     <a href="{{ url('/dashboard') }}" class="btn btn-outline-light rounded-pill px-4">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="nav-link text-white-50 px-2">Log in</a>
+                   
                     @if (Route::has('register'))
+                        <a href="{{ route('login') }}" 
+                           class="btn fw-bold rounded-pill px-4 py-2" 
+                           style="background-color: #ffffffff; color: black; border: none;">
+                           Log in
+                        </a>
                         <a href="{{ route('register') }}" 
                            class="btn fw-bold rounded-pill px-4 py-2" 
                            style="background-color: #00a878; color: white; border: none;">
                            Registro
                         </a>
+                        
                     @endif
                 @endauth
             @endif
