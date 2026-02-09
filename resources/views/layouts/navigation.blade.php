@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}">
-                    <img src="{{ asset('imagenes/logoEmpresaII.jpg') }}" style="border-radius:50%; width:50px"></a>
+                        <img src="{{ asset('imagenes/logo.png') }}" style="border-radius:50%; width:50px">
+                    </a>
                 </div>
 
                 <!-- Navigation Links -->
