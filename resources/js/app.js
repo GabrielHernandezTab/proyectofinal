@@ -2,6 +2,7 @@ import './bootstrap';
 import { createApp } from 'vue';
 import PlanesInversion from './Components/PlanesInversion.vue';
 import Portada from './Components/Portada.vue';
+import Caracteristicas from './Components/Caracteristicas.vue';
 
 // Importar Alpine por si Gabriel lo usa
 import Alpine from 'alpinejs';
@@ -13,5 +14,6 @@ const app = createApp({});
 // Asegúrate de que el nombre coincida con la etiqueta que usas en Blade
 app.component('planes-inversion', PlanesInversion);
 app.component('portada-section', Portada);
+app.component('caracteristicas-section', Caracteristicas);
 
 app.mount('#app');

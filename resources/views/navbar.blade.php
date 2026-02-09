@@ -23,7 +23,7 @@
 
         <div class="d-flex align-items-center">
             <ul class="nav me-auto mb-2 mb-lg-0 gap-3">
-                <li class="nav-item"><a class="nav-link text-white" href="#">Características</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#caracteristicas">Características</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">¿Por qué elegirnos?</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">Punto Muerto</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">Comunicación</a></li>
