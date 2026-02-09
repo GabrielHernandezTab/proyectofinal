@@ -16,9 +16,9 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">name</th>
-                        <th scope="col">dni</th>
-                        <th scope="col">Edad</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Correo Electrónico</th>
+                        <th scope="col">Contraseña</th>
                     </tr>
                 </thead>
                 <tbody>

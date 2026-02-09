@@ -16,7 +16,7 @@ use App\Http\Controllers\VehiculoController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/planes', function () {
     return view('planes');
