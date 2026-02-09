@@ -4,6 +4,8 @@
 
 <portada-section></portada-section>
 
+<caracteristicas-section></caracteristicas-section>
+
 <div class="container mt-5">
     <planes-inversion></planes-inversion>
 </div>
