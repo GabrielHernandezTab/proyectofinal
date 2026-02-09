@@ -15,15 +15,17 @@
         </p>
   
         <div class="d-flex justify-content-center gap-3 mt-4">
-          <button class="btn btn-lg rounded-pill px-5 py-3 fw-bold d-flex align-items-center" 
-                  style="background-color: #00a878; color: white; border: none; font-size: 1rem;">
-             <i class="bi bi-bar-chart-fill me-2"></i> Ver Planes
-          </button>
-          
-          <button class="btn btn-lg rounded-pill px-5 py-3 fw-bold border-white" 
-                  style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.4); font-size: 1rem;">
-            Conocer Más
-          </button>
+            <a href="#planes" 
+                class="btn btn-lg rounded-pill px-5 py-3 fw-bold d-flex align-items-center text-decoration-none" 
+                style="background-color: #00a878; color: white; border: none; font-size: 1rem;">
+                <i class="bi bi-bar-chart-fill me-2"></i> Ver Planes
+            </a>
+            
+            <a href="#caracteristicas" 
+                class="btn btn-lg rounded-pill px-5 py-3 fw-bold border-white text-decoration-none" 
+                style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.4); font-size: 1rem;">
+                Conocer Más
+            </a>
         </div>
       </div>
   

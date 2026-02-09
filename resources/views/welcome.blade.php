@@ -4,10 +4,20 @@
 
 <portada-section></portada-section>
 
+<div style="background-color: white; height: 100px; width: 100%;"></div>
+
 <caracteristicas-section></caracteristicas-section>
 
-<div class="container mt-5">
-    <planes-inversion></planes-inversion>
-</div>
+<div style="background-color: white; height: 100px; width: 100%;"></div>
+
+<elegirnos-section></elegirnos-section>
+
+<div style="background-color: white; height: 100px; width: 100%;"></div>
+
+<planes-section></planes-section>
+
+<div style="background-color: white; height: 100px; width: 100%;"></div>
+
+<footer-section></footer-section>
 
 @endsection
