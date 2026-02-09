@@ -2,5 +2,5 @@
 @section('title', 'Formulario de libro')
 @section('contenido')
 
-<h2>Página de bienvenida</h2>
+<h2>Página de bienvenida de Gen Trading</h2>
 @endsection
