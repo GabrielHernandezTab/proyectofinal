@@ -18,6 +18,7 @@ return new class extends Migration
             // Relación con la tabla usuarios (asegúrate de que tu tabla se llame 'usuarios' y no 'users')
             $table->foreignId('usuario_id')->constrained('usuarios')->onDelete('cascade');
                         
+            $table->string('edad'); 
             $table->string('iban'); // Cambiado de divisa a IBAN
             
             // Valoración de la experiencia (1 a 5 estrellas)

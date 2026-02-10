@@ -1,85 +1,134 @@
+{{-- Cargamos Bootstrap y los Iconos para que se vea igual que antes --}}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Listado de Donaciones') }}
+            {{ __('Listado de donantes') }}
         </h2>
     </x-slot>
 
-    <div class="container pt-4 text-gray-900 dark:text-gray-100">
-        <table class="table table-striped dark:text-white">
-            <thead>
-                <tr>
-                    <th scope="col">Acciones</th>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">IBAN</th>
-                    <th scope="col">Valoración</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($donantes as $donante)       
+    <div class="container pt-4">
+        @role('admin')
+            {{-- TABLA ORIGINAL CALCADA --}}
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>
-                            <button onclick="cargarOperacion('{{ $donante->id }}', 'destroy')" class="btn btn-danger btn-sm">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </td>
-                        <td>{{ $donante->usuario->nombre ?? 'N/A' }}</td>
-                        <td>{{ $donante->iban }}</td>
-                        <td>
-                            @for($i=1; $i<=5; $i++)
-                                <i class="bi bi-star{{ $i <= $donante->valoracion ? '-fill' : '' }} text-warning"></i>
-                            @endfor
-                        </td>
+                        <th scope="col">#</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Iban</th>
+                        <th scope="col">Valoración</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-
-    <div class="modal fade" id="ventanaModal" tabindex="-1" aria-hidden="true" style="z-index: 9999;">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content dark:bg-gray-800">
-                <div id="contenidoModal" class="modal-body">
-                    </div>
+                </thead>
+                <tbody>
+                    @foreach ($donantes as $donante)       
+                        <tr>
+                            <th>
+                                <a onclick="cargarOperacion('{{ $donante->id }}', 'show')" class="btn btn-primary"><i class="bi bi-search"></i></a>
+                                <a onclick="cargarOperacion('{{ $donante->id }}', 'edit')" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                                <a onclick="cargarOperacion('{{ $donante->id }}', 'destroy')" class="btn btn-danger"><i class="bi bi-trash"></i></a>                           
+                             </th>
+                             {{-- Mostramos datos del modelo Usuario relacionado --}}
+                            <td>{{ $donante->usuario->nombre ?? 'Sin Usuario' }}</td>
+                            <td>{{ $donante->usuario->email ?? 'N/A' }}</td>
+                            <td>{{ $donante->edad }}</td>
+                            <td>{{ $valoracion[trim($donante->valoracion)] ?? 'Error con la clave: ['.$donante->valoracion.']' }}</td>
+                            <td>{{ $donante->iban }}</td>
+                        </tr>
+                    @endforeach
+                    {{ $donantes->links() }}
+                </tbody>
+            </table>
+        <button type="button" class="btn btn-primary mt-3" onclick="cargarOperacion('', 'create')">Nuevo Donante</button>
+        @else
+            {{-- Mensaje para usuarios no admin (para que no vean la tabla vacía) --}}
+            <div class="alert alert-info mt-4">
+                No tienes permisos para gestionar donantes.
             </div>
-        </div>
+        @endrole
     </div>
+<div class="modal fade" id="ventanaModal" tabindex="-1" style="z-index: 9999;">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        {{-- Aquí es donde metemos la clase modal-body y text-dark --}}
+        <div id="contenidoModal" class="modal-body text-dark">
+            </div>
+    </div>
+</div>
+</div>
 
-    <script>
-    function cargarOperacion(id, operacion) {
-        // Ajustamos la URL a la ruta de donantes
-        let url = `/donante/${operacion}/${id}`;
-        
-        fetch(url + '?modo=ajax')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('contenidoModal').innerHTML = html;
-                var myModal = new bootstrap.Modal(document.getElementById('ventanaModal'));
-                myModal.show();
-            })
-            .catch(error => console.error('Error:', error));
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Guardamos el token en una constante para no usar llaves de Blade dentro del fetch
+const CSRF_TOKEN = '{{ csrf_token() }}';
+
+function cargarOperacion(id, operacion) {
+    let url = '';
+    
+    // Ajuste de URLs según TUS rutas en web.php
+    switch(operacion) {
+        case 'show':    
+            url = `/donante/show/${id}`; 
+            break;
+        case 'edit':    
+            url = `/donante/edit/${id}`; 
+            break;
+        case 'destroy': 
+            url = `/donante/destroy/${id}`; 
+            break;
+        case 'create':  
+            url = `/donante/create`; 
+            break;
     }
 
-    document.addEventListener('submit', function(e) {
-        if (e.target && e.target.closest('#contenidoModal')) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            formData.append('modo', 'ajax');
+    console.log("Intentando cargar:", url);
 
-            fetch(form.action, {
-                method: 'POST',
-                headers: { 
-                    'X-Requested-With': 'XMLHttpRequest', 
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}' 
-                },
-                body: formData
-            })
-            .then(response => response.text())
-            .then(html => { 
-                document.getElementById('contenidoModal').innerHTML = html; 
-            });
-        }
-    });
-    </script>
+    fetch(url + '?modo=ajax')
+        .then(response => {
+            if (!response.ok) throw new Error('Error ' + response.status + ' en ruta: ' + url);
+            return response.text();
+        })
+        .then(html => {
+            document.getElementById('contenidoModal').innerHTML = html;
+            
+            // Abrimos el modal
+            var elModal = document.getElementById('ventanaModal');
+            var instancia = bootstrap.Modal.getOrCreateInstance(elModal);
+            instancia.show();
+        })
+        .catch(error => {
+            console.error("Error en el fetch:", error);
+        });
+}
+
+document.addEventListener('submit', function(e) {
+    if (e.target && e.target.closest('#contenidoModal')) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+        formData.append('modo', 'ajax');
+
+        fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': CSRF_TOKEN
+            },
+            body: formData
+        })
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('contenidoModal').innerHTML = html;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+});
+</script>
 </x-app-layout>
+
+
+
+

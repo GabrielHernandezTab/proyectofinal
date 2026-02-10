@@ -93,5 +93,9 @@ class DatabaseSeeder extends Seeder
             'usuario_id' => $userGabriel->id,
             'rol' => 'Súper Admin'
         ]);
+
+
+
+
     }
 }

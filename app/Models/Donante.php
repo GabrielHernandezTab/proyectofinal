@@ -14,15 +14,19 @@ class Donante extends Model
     use HasFactory, Notifiable;
 
 
-    protected $fillable = ['usuario_id', 'iban', 'valoracion'];
+    protected $fillable = ['usuario_id', 'edad', 'iban', 'valoracion'];
 
     public static $valoraciones = [
-        '★★★★★' => '★★★★★',
-        '★★★★' => '★★★★',
-        '★★★' => '★★★',
-        '★★' => '★★',
-        '★' => '★'
+        'PR' => '★★★★★', // Premium
+        'OR' => '★★★★',  // Oro
+        'PL' => '★★★',   // Plata
+        'ST' => '★★',    // Estándar
+        'BA' => '★'      // Básico
     ];
 
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class, 'usuario_id');
+    }
 }
 

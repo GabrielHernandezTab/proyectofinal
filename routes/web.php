@@ -28,14 +28,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
  
-
-
-
-    // DONAR (Estructura AJAX: un solo método para mostrar y guardar)
-    Route::match(['get', 'post'], '/donar', [DonanteController::class, 'create'])->name('donantes.create');
-
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -47,6 +39,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
+
 /* --- SECCIÓN CURSOS (Admin) --- */
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/ver-cursos', [CursoController::class, 'index'])->name('cursos.index');
@@ -55,11 +48,41 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::match(['get', 'post'], '/curso/edit/{id}', [CursoController::class, 'edit']);
     Route::match(['get', 'post'], '/curso/destroy/{id}', [CursoController::class, 'destroy']);
 
-    /* --- SECCIÓN DONANTES (Admin) --- */
-    Route::get('/admin/donantes', [DonanteController::class, 'index'])->name('admin.donantes.index');
-    // Si necesitas borrar donaciones desde la tabla:
-    Route::match(['get', 'post'], '/donante/destroy/{id}', [DonanteController::class, 'destroy']);
 });
+
+
+/* --- SECCIÓN DONANTES (Admin) --- */
+/* --- SECCIÓN DONANTES (Admin) --- */
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/donantes', [DonanteController::class, 'index'])->name('admin.donantes.index');
+    
+    // Asignamos los nombres que Laravel está buscando
+    Route::match(['get', 'post'], '/donante/create', [DonanteController::class, 'create'])->name('donantes.create');
+    Route::match(['get', 'post'], '/donante/show/{id}', [DonanteController::class, 'show'])->name('donantes.show');
+    Route::match(['get', 'post'], '/donante/edit/{id}', [DonanteController::class, 'edit'])->name('donantes.edit');
+    Route::match(['get', 'post'], '/donante/destroy/{id}', [DonanteController::class, 'destroy'])->name('donantes.destroy');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* --- RUTAS ADMINISTRADORES (Middleware Spatie) --- */
 Route::middleware(['auth', 'role:admin'])->group(function () {
