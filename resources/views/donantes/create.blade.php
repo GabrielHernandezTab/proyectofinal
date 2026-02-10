@@ -8,20 +8,29 @@
         <p class="alert alert-success">{{ $datos['exito'] }}</p>
     @endif
 
-<form action="/donante/{{ $oper }}{{ $donante->id ? '/' . $donante->id : '' }}" method="POST">        @csrf
+    {{-- LÓGICA DEL ACTION: Si la operación es 'publico', enviamos a la ruta de guardar donación --}}
+    <form action="{{ $oper == 'publico' ? route('donacion.store') : '/donante/'.$oper.($donante->id ? '/'.$donante->id : '') }}" method="POST">
+        @csrf
         <input name="id_actual" type="hidden" value="{{ $donante->id }}" />
 
         <div class="mb-3">
             <label class="form-label text-dark">Usuario</label>
-            <select {{ $disabled }} name="usuario_id" class="form-select @error('usuario_id') is-invalid @enderror">
-                <option value="">Seleccione un usuario...</option>
-                @foreach ($usuarios as $usuario)
-                    <option value="{{ $usuario->id }}" {{ old('usuario_id', $donante->usuario_id) == $usuario->id ? 'selected' : '' }}>
-                        {{ $usuario->nombre }} ({{ $usuario->email }})
-                    </option>
-                @endforeach
-            </select>
-            @error('usuario_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
+            @if($oper == 'publico')
+                {{-- VISTA PÚBLICA: No hay select, solo texto y un campo oculto --}}
+                <input type="text" class="form-control" value="{{ auth()->user()->nombre }} ({{ auth()->user()->email }})" disabled>
+                <input type="hidden" name="usuario_id" value="{{ auth()->id() }}">
+            @else
+                {{-- VISTA ADMIN: El select que ya tenías --}}
+                <select {{ $disabled }} name="usuario_id" class="form-select @error('usuario_id') is-invalid @enderror">
+                    <option value="">Seleccione un usuario...</option>
+                    @foreach ($usuarios as $usuario)
+                        <option value="{{ $usuario->id }}" {{ old('usuario_id', $donante->usuario_id) == $usuario->id ? 'selected' : '' }}>
+                            {{ $usuario->nombre }} ({{ $usuario->email }})
+                        </option>
+                    @endforeach
+                </select>
+                @error('usuario_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
+            @endif
         </div>
 
         <div class="mb-3">
@@ -43,23 +52,24 @@
 
         <div class="mb-3">
             <label class="form-label text-dark">IBAN</label>
-            <input {{ $disabled }} value="{{ old('iban', $donante->iban) }}" type="text" name="iban" class="form-control @error('iban') is-invalid @enderror">
+            <input {{ $disabled }} value="{{ old('iban', $donante->iban) }}" type="text" name="iban" class="form-control @error('iban') is-invalid @enderror" placeholder="ES0011223344556677889900">
             @error('iban') <div class="invalid-feedback">{{ $message }}</div> @enderror
         </div>
 
-        @if (!$disabled)
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        @endif
-
-        @if ($oper == 'destroy' && $donante->id)
-            <button type="submit" class="btn btn-danger">Borrar</button>
-        @endif
-
-        @if(request()->input('modo') == 'ajax')
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    Volver
+        <div class="mt-4">
+            @if ($oper == 'destroy' && $donante->id)
+                <div class="alert alert-warning">¿Confirmas que deseas eliminar este registro?</div>
+                <button type="submit" class="btn btn-danger">Borrar</button>
+            @elseif (!$disabled || $oper == 'publico')
+                <button type="submit" class="btn btn-success">
+                    {{ $oper == 'publico' ? 'Confirmar Donación' : 'Guardar' }}
                 </button>
-        @endif
+            @endif
+
+            @if(request()->input('modo') == 'ajax')
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+            @endif
+        </div>
     </form>
 </div>
 

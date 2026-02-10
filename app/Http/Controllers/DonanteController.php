@@ -169,4 +169,53 @@ class DonanteController extends Controller
             'datos' => ['exito' => '']
         ]);
     }
+
+
+
+
+    public function realizarDonacion(Request $request)
+    {
+        // 1. Validamos los datos
+        $request->validate([
+            'edad'       => 'required|numeric|min:18|max:120',
+            'iban'       => ['required', 'regex:/^ES\d{22}$/'],
+            'valoracion' => 'required|in:PR,OR,PL,ST,BA',
+        ], [
+            'edad.required' => 'La edad es obligatoria.',
+            'edad.min'      => 'Debes ser mayor de edad.',
+            'iban.required' => 'El IBAN es obligatorio.',
+            'iban.regex'    => 'El IBAN debe tener el formato ES seguido de 22 números.',
+            'valoracion.required' => 'Por favor, selecciona una valoración.',
+        ]);
+    
+        try {
+            // 2. Creamos el registro
+            $donante = new Donante();
+            $donante->usuario_id = auth()->id(); 
+            $donante->edad = $request->input('edad');
+            $donante->iban = $request->input('iban');
+            $donante->valoracion = $request->input('valoracion');
+            $donante->save();
+    
+            // 3. Redirigimos al dashboard con mensaje de ÉXITO
+            return redirect()->route('dashboard')->with('exito', '¡Donación realizada correctamente! Muchas gracias.');
+    
+        } catch (\Exception $e) {
+            // Si hay un error de base de datos, volvemos atrás con el error
+            return back()->withInput()->withErrors(['error' => 'No se pudo guardar la donación: ' . $e->getMessage()]);
+        }
+    }
+
+
+    public function formularioPublico()
+    {
+        return view('donantes.create', [
+            'donante' => new Donante(),
+            'usuarios' => [], 
+            'valoraciones' => Donante::$valoraciones,
+            'oper' => 'publico', // Esto nos servirá para saber que es la vista de usuario
+            'disabled' => '',
+            'datos' => ['exito' => '']
+        ]);
+    }
     }

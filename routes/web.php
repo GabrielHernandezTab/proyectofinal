@@ -9,108 +9,71 @@ use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\Datos;
 use App\Http\Controllers\PlanController;
 
-/* --- RUTAS PÚBLICAS --- */
+/*
+|--------------------------------------------------------------------------
+| RUTAS PÚBLICAS
+|--------------------------------------------------------------------------
+*/
 Route::get('/', fn() => view('welcome'))->name('welcome');
-Route::get('/planes', fn() => view('planes'))->name('planes');
+Route::get('/planes', [PlanController::class, 'index'])->name('planes');
 
-/* --- RUTAS USUARIOS AUTENTICADOS --- */
+/*
+|--------------------------------------------------------------------------
+| RUTAS PARA USUARIOS AUTENTICADOS
+|--------------------------------------------------------------------------
+*/
 Route::middleware(['auth', 'verified'])->group(function () {
     
     Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
 
-    // Perfil
-    Route::controller(ProfileController::class)->group(function () {
-        Route::get('/profile', 'edit')->name('profile.edit');
-        Route::patch('/profile', 'update')->name('profile.update');
-        Route::delete('/profile', 'destroy')->name('profile.destroy');
-    });
-
-    });
-
- 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
+    // Perfil de usuario
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-});
-
-
-/* --- SECCIÓN CURSOS (Admin) --- */
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/ver-cursos', [CursoController::class, 'index'])->name('cursos.index');
-    Route::match(['get', 'post'], '/curso/create', [CursoController::class, 'create']);
-    Route::match(['get', 'post'], '/curso/show/{id}', [CursoController::class, 'show']);
-    Route::match(['get', 'post'], '/curso/edit/{id}', [CursoController::class, 'edit']);
-    Route::match(['get', 'post'], '/curso/destroy/{id}', [CursoController::class, 'destroy']);
-
-});
-
-
-/* --- SECCIÓN DONANTES (Admin) --- */
-/* --- SECCIÓN DONANTES (Admin) --- */
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/donantes', [DonanteController::class, 'index'])->name('admin.donantes.index');
+    // --- SECCIÓN: REALIZAR DONACIÓN ---
+    Route::get('/realizar-donacion', [DonanteController::class, 'formularioPublico'])->name('donacion.formulario');
+    Route::post('/realizar-donacion', [DonanteController::class, 'realizarDonacion'])->name('donacion.store');
     
-    // Asignamos los nombres que Laravel está buscando
-    Route::match(['get', 'post'], '/donante/create', [DonanteController::class, 'create'])->name('donantes.create');
-    Route::match(['get', 'post'], '/donante/show/{id}', [DonanteController::class, 'show'])->name('donantes.show');
-    Route::match(['get', 'post'], '/donante/edit/{id}', [DonanteController::class, 'edit'])->name('donantes.edit');
-    Route::match(['get', 'post'], '/donante/destroy/{id}', [DonanteController::class, 'destroy'])->name('donantes.destroy');
+    // Ver planes (usuario normal)
+    Route::get('/mis-planes', [PlanController::class, 'index'])->name('usuarios.planes');
+
+
+
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- RUTAS ADMINISTRADORES (Middleware Spatie) --- */
+/*
+|--------------------------------------------------------------------------
+| RUTAS PARA ADMINISTRADORES (Role: admin)
+|--------------------------------------------------------------------------
+*/
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
-    // 1. Usuarios (Basado en tu estructura AJAX)
+    // 1. GESTIÓN DE CURSOS (Cambiado el nombre para que funcione tu menú)
+    Route::get('/admin/gestion-cursos', [CursoController::class, 'index'])->name('cursos.index');
+    Route::match(['get', 'post'], '/curso/create', [CursoController::class, 'create']);
+    Route::match(['get', 'post'], '/curso/show/{id?}', [CursoController::class, 'show']);
+    Route::match(['get', 'post'], '/curso/edit/{id?}', [CursoController::class, 'edit']);
+    Route::match(['get', 'post'], '/curso/destroy/{id?}', [CursoController::class, 'destroy']);
+
+    // 2. GESTIÓN DE DONANTES
+    Route::get('/admin/donantes', [DonanteController::class, 'index'])->name('admin.donantes.index');
+    Route::match(['get', 'post'], '/donante/create', [DonanteController::class, 'create'])->name('donantes.create');
+    Route::match(['get', 'post'], '/donante/show/{id?}', [DonanteController::class, 'show'])->name('donantes.show');
+    Route::match(['get', 'post'], '/donante/edit/{id?}', [DonanteController::class, 'edit'])->name('donantes.edit');
+    Route::match(['get', 'post'], '/donante/destroy/{id?}', [DonanteController::class, 'destroy'])->name('donantes.destroy');
+
+    // 3. GESTIÓN DE USUARIOS
     Route::get('/admin/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
     Route::match(['get', 'post'], '/usuario/{oper}/{id?}', [UsuarioController::class, 'operacion']);
 
-
-    // 2. Administradores
+    // 4. GESTIÓN DE ADMINISTRADORES
     Route::get('/admin/administradores', [AdministradorController::class, 'index'])->name('administradores.index');
     Route::match(['get', 'post'], '/administrador/{oper}/{id?}', [AdministradorController::class, 'operacion']);
 
-Route::get('/planes', [PlanController::class, 'index'])
-    ->name('usuarios.planes')   // 👈 Este nombre debe coincidir con tu Blade
-    ->middleware(['auth']);
-
-
-
-
-    // 3. Cursos (Gestión completa con AJAX)
-    // Sustituimos el Resource por tu ruta de "operacion" para que funcione el modal
-    Route::get('/admin/gestion-cursos', [CursoController::class, 'index'])->name('admin.cursos.index');
-    Route::match(['get', 'post'], '/curso/{oper}/{id?}', [CursoController::class, 'operacion']);
-
-    // 4. Donantes (Ver listado)
-    Route::get('/admin/donantes', [DonanteController::class, 'index'])->name('admin.donantes.index');
 });
 
+/* --- OTRAS RUTAS --- */
 Route::post('/procesar-datos', [Datos::class, 'procesar']);
+
 require __DIR__.'/auth.php';
