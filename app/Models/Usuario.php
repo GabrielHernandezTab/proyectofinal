@@ -8,19 +8,20 @@ use Illuminate\Notifications\Notifiable;
 
 class Usuario extends Model
 {
+    protected $table = 'usuarios'; // Forzamos el nombre de la tabla
     use HasFactory, Notifiable;
 
     protected $fillable = [
          'nombre'
-        ,'apellido'
         ,'email'
-        ,'genero'
+        ,'password'
     ];
 
-    //
-    static $cods_genero = [
-         '' => ''
-        ,'M' => 'Masculino'
-        ,'F' => 'Femenino'
-    ];
+    /*
+    // Relación: Un usuario tiene muchas donaciones
+    public function donaciones() {
+        return $this->hasMany(Donante::class, 'usuario_id');
+    }
+    */
+
 }

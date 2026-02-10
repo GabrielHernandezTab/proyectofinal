@@ -6,17 +6,12 @@ http://127.0.0.1:8001/login
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Libro;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Vehiculo;
-
-
-use App\Models\Socio;
 
 class DatabaseSeeder extends Seeder
 {
@@ -59,7 +54,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // CREAR LIBROS 
-        $libros = [
+        /*
+                $libros = [
             ['titulo' => 'El eco del silencio', 'autor' => 'María López', 'anho' => '2001', 'genero' => 'NV', 'descripcion' => 'Una H íntima sobre recuerdos y decisiones pasadas.'],
             ['titulo' => 'Sombras del futuro', 'autor' => 'Carlos Méndez', 'anho' => '2015', 'genero' => 'CF', 'descripcion' => 'La humanidad enfrenta las consecuencias de sus avances tecnológicos.'],
             ['titulo' => 'El último reino', 'autor' => 'Laura Fernández', 'anho' => '1998', 'genero' => 'FN', 'descripcion' => 'Un mundo mágico al borde de la destrucción.'],
@@ -96,6 +92,8 @@ class DatabaseSeeder extends Seeder
             Libro::create($item);
         }
 
+        */
+
         // CONFIGURAR ROLES Y PERMISOS
         $adminRole = Role::create(['name' => 'admin']);
         $editorRole = Role::create(['name' => 'editor']);
@@ -107,13 +105,14 @@ class DatabaseSeeder extends Seeder
         $adminRole->givePermissionTo([$createPermission, $editPermission, $deletePermission]);
         $editorRole->givePermissionTo($editPermission);
 
-        // ASIGNAR ROL ADMIN A NEREA Y A JUAN
+        // ASIGNAR ROL ADMIN A NEREA, A JUAN Y A GABRIEL
         $userNerea->assignRole($adminRole);
         $userJuan->assignRole($adminRole);
-
+        $userGabriel->assignRole($adminRole);
 
         //SOCIOS
-        $socios = [
+        /*
+                $socios = [
             ['nombre' => 'Ana García', 'dni' => '12345678A', 'edad' => 25, 'categoria' => 'OR', 'iban' => 'ES1234567890123456789012'],
             ['nombre' => 'Juan Pérez', 'dni' => '87654321B', 'edad' => 42, 'categoria' => 'PL', 'iban' => 'ES9876543210987654321098'],
             ['nombre' => 'Elena Blanes', 'dni' => '11223344C', 'edad' => 31, 'categoria' => 'PR', 'iban' => 'ES1111222233334444555566'],
@@ -129,9 +128,12 @@ class DatabaseSeeder extends Seeder
         foreach ($socios as $socio) {
             Socio::create($socio);
         }
+        */
+
 
         //VEHICULOS
-        $vehiculos = [
+        /*
+                $vehiculos = [
             ['marca' => 'Toyota', 'modelo' => 'Corolla', 'matricula' => '1234ABC', 'combustible' => 'EL', 'estado' => 'DI', 'anho' => '2021'],
             ['marca' => 'Seat', 'modelo' => 'Ibiza', 'matricula' => '5678DEF', 'combustible' => 'GA', 'estado' => 'AL', 'anho' => '2022'],
             ['marca' => 'Hyundai', 'modelo' => 'Tucson', 'matricula' => '9012GHI', 'combustible' => 'DI', 'estado' => 'TA', 'anho' => '2023'],
@@ -152,6 +154,8 @@ class DatabaseSeeder extends Seeder
         foreach ($vehiculos as $vehiculo) {
             Vehiculo::create($vehiculo);
         }
+        */
+
 
 
         
