@@ -6,21 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Datos;
 use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\LibroController;
+use App\Http\Controllers\ProfileController; 
 
-use App\Http\Controllers\ProfileController; //para poder ver el perfil
+use App\Http\Controllers\PlanController; 
 
-use App\Http\Controllers\SocioController;
-
-use App\Http\Controllers\VehiculoController;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/planes', function () {
-    return view('planes');
-})->name('planes');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -42,6 +36,11 @@ return view('dashboard');
 Route::get('/dashboard/usuarios', function () {
 return view('usuario');
 })->middleware('auth');
+
+Route::get('/planes', [PlanController::class, 'index'])
+    ->name('usuarios.planes')   // 👈 Este nombre debe coincidir con tu Blade
+    ->middleware(['auth']);
+
 
 
 
