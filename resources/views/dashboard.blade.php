@@ -14,7 +14,7 @@
                 <a href="{{ route('usuarios.planes') }}" class="btn btn-primary px-4 py-2 rounded-lg">Ver planes</a>
 
     @role('admin')
-        <div class="mt-4 p-4 bg-yellow-100 dark:bg-yellow-800 text-yellow-900 dark:text-yellow-200 rounded">
+        <div class="mt-4 p-4 bg-yellow-100 dark: text-yellow-900 dark:text-yellow-200 rounded">
             <strong>Administrador:</strong> Puedes gestionar usuarios y planes desde el panel.
         </div>
     @endrole
