@@ -1,10 +1,8 @@
-# Imagen base PHP con Apache
 FROM php:8.2-apache
 
-# Evitar preguntas interactivas
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Instalar dependencias del sistema
+# Instalar dependencias
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         libpng-dev \
@@ -20,29 +18,35 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Activar mod_rewrite
+RUN a2enmod rewrite
+
+# 🔥 ESTA ES LA PARTE QUE FALTABA
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
+    /etc/apache2/sites-available/000-default.conf \
+    /etc/apache2/apache2.conf
+
 # Instalar Composer
 COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
 
-# Configurar Apache para servir /public
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-RUN a2enmod rewrite
-
-# Directorio de trabajo
 WORKDIR /var/www/html
 
-# Copiar archivos de la app
 COPY . .
 
-# Instalar dependencias de PHP
+# Instalar dependencias Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Instalar Node y construir assets de Vite
+# Construir Vite
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && npm install \
     && npm run build
 
+# Permisos (MUY IMPORTANTE en Render)
+RUN chown -R www-data:www-data storage bootstrap/cache
+
 EXPOSE 80
 
-# Comando para iniciar Apache
 CMD ["apache2-foreground"]
