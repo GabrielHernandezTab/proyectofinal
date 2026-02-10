@@ -8,6 +8,7 @@ class PlanController extends Controller
 {
     public function index()
     {
-        return view('layouts.usuarios.planes'); // tu Blade de planes
+        return view('layouts.usuarios.planes'); 
     }
 }
+//Ejemplo de Modelo-Vista-Controllador

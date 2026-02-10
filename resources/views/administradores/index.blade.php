@@ -1,3 +1,7 @@
+{{-- Cargamos Bootstrap e Iconos --}}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -5,90 +9,91 @@
         </h2>
     </x-slot>
 
-    <div class="container pt-4 text-gray-900 dark:text-gray-100">
-        <table class="table table-striped dark:text-white">
-            <thead>
-                <tr>
-                    <th>Acciones</th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Rol</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($administradores as $admin)       
+    <div class="container pt-4">
+        @role('admin')
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>
-                            <button onclick="cargarOperacion('{{ $admin->id }}', 'edit')" class="btn btn-success btn-sm">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                            <button onclick="cargarOperacion('{{ $admin->id }}', 'destroy')" class="btn btn-danger btn-sm">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </td>
-                        <td>{{ $admin->usuario->nombre }}</td>
-                        <td>{{ $admin->usuario->email }}</td>
-                        <td>
-                            <span class="badge bg-info text-dark">{{ $admin->rol }}</span>
-                        </td>
+                        <th>Acciones</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-        
-        <button type="button" class="btn btn-primary mt-3" onclick="cargarOperacion('', 'create')">
-            Nuevo Administrador
-        </button>
+                </thead>
+                <tbody>
+                    @foreach ($administradores as $admin)
+                        <tr>
+                            <td>
+                                <button onclick="cargarOperacion('{{ $admin->id }}', 'edit')" class="btn btn-success btn-sm">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button onclick="cargarOperacion('{{ $admin->id }}', 'destroy')" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                            <td>{{ $admin->usuario->nombre }}</td>
+                            <td>{{ $admin->usuario->email }}</td>
+                            <td><span class="badge bg-info text-dark">{{ $admin->rol }}</span></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+            {{ $administradores->links() }}
+
+            <button type="button" class="btn btn-primary mt-3" onclick="cargarOperacion('', 'create')">
+                Nuevo Administrador
+            </button>
+        @else
+            <div class="alert alert-info mt-4">
+                No tienes permisos para gestionar administradores.
+            </div>
+        @endrole
     </div>
 
-    <div class="modal fade" id="ventanaModal" tabindex="-1" aria-hidden="true" style="z-index: 9999;">
+    {{-- Modal AJAX --}}
+    <div class="modal fade" id="ventanaModal" tabindex="-1" style="z-index: 9999;">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content dark:bg-gray-800">
-                <div id="contenidoModal" class="modal-body">
-                    </div>
+            <div class="modal-content">
+                <div id="contenidoModal" class="modal-body"></div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-    function cargarOperacion(id, operacion) {
-        // Generamos la URL manualmente según tu estructura
-        let url = (operacion === 'create') 
-                  ? `/administrador/create` 
-                  : `/administrador/${operacion}/${id}`;
-        
-        fetch(url + '?modo=ajax')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('contenidoModal').innerHTML = html;
-                // Mostrar modal
-                var myModal = new bootstrap.Modal(document.getElementById('ventanaModal'));
-                myModal.show();
-            })
-            .catch(error => console.error('Error:', error));
-    }
+        const CSRF_TOKEN = '{{ csrf_token() }}';
 
-    // Escuchador para los envíos de formulario dentro del modal
-    document.addEventListener('submit', function(e) {
-        if (e.target && e.target.closest('#contenidoModal')) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            formData.append('modo', 'ajax');
+        function cargarOperacion(id, operacion) {
+            let url = (operacion === 'create') 
+                      ? `/administrador/create` 
+                      : `/administrador/${operacion}/${id}`;
 
-            fetch(form.action, {
-                method: 'POST',
-                headers: { 
-                    'X-Requested-With': 'XMLHttpRequest', 
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}' 
-                },
-                body: formData
-            })
-            .then(response => response.text())
-            .then(html => { 
-                document.getElementById('contenidoModal').innerHTML = html; 
-            });
+            fetch(url + '?modo=ajax')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('contenidoModal').innerHTML = html;
+                    new bootstrap.Modal(document.getElementById('ventanaModal')).show();
+                })
+                .catch(e => console.error('Error fetch:', e));
         }
-    });
+
+        document.addEventListener('submit', function(e) {
+            if (e.target && e.target.closest('#contenidoModal')) {
+                e.preventDefault();
+                const form = e.target;
+                const formData = new FormData(form);
+                formData.append('modo', 'ajax');
+
+                fetch(form.action, {
+                    method: 'POST',
+                    headers: { 'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-TOKEN': CSRF_TOKEN },
+                    body: formData
+                })
+                .then(r => r.text())
+                .then(html => document.getElementById('contenidoModal').innerHTML = html)
+                .catch(e => console.error('Error:', e));
+            }
+        });
     </script>
 </x-app-layout>

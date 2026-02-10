@@ -8,41 +8,37 @@ use Illuminate\Http\Request;
 
 class AdministradorController extends Controller
 {
+    // Mostrar listado de administradores
     public function index()
     {
-        $administradores = Administrador::with('usuario')->get();
+        $administradores = Administrador::with('usuario')->paginate(10);
         return view('administradores.index', compact('administradores'));
     }
 
     public function operacion(Request $request, $oper, $id = null)
     {
         $admin = $id ? Administrador::find($id) : new Administrador();
-        $usuarios = Usuario::all(); // Para el select en el create
+        $usuarios = Usuario::all(); // Para select en create/edit
         $datos = ['exito' => ''];
         $disabled = ($oper == 'show' || $oper == 'destroy') ? 'disabled' : '';
 
         if ($request->isMethod('post')) {
-            try {
-                if ($oper == 'destroy') {
-                    $admin->delete();
-                    $datos['exito'] = 'Administrador revocado.';
-                    $disabled = 'disabled';
-                } else {
-                    $request->validate([
-                        'usuario_id' => 'required|exists:usuarios,id',
-                        'rol' => 'required'
-                    ]);
+            $request->validate([
+                'usuario_id' => 'required|exists:usuarios,id',
+                'rol' => 'required'
+            ]);
 
-                    $admin->usuario_id = $request->input('usuario_id');
-                    $admin->rol = $request->input('rol');
-                    $admin->save();
+            if ($oper == 'destroy') {
+                $admin->delete();
+                $datos['exito'] = 'Administrador eliminado.';
+                $disabled = 'disabled';
+            } else {
+                $admin->usuario_id = $request->input('usuario_id');
+                $admin->rol = $request->input('rol');
+                $admin->save();
 
-                    $datos['exito'] = 'Datos de administrador guardados.';
-                    $disabled = 'disabled';
-                }
-            } catch (\Illuminate\Validation\ValidationException $e) {
-                return view('administradores.create', compact('admin', 'usuarios', 'datos', 'disabled', 'oper'))
-                       ->withErrors($e->validator)->render();
+                $datos['exito'] = 'Administrador guardado.';
+                $disabled = 'disabled';
             }
         }
 
