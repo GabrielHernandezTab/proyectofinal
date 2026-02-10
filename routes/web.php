@@ -1,19 +1,39 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use Illuminate\Http\Request;
-
-use App\Http\Controllers\Datos;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\ProfileController; 
+use App\Http\Controllers\DonanteController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\Datos;
+use App\Http\Controllers\PlanController;
 
-use App\Http\Controllers\PlanController; 
+/* --- RUTAS PÚBLICAS --- */
+Route::get('/', fn() => view('welcome'))->name('welcome');
+Route::get('/planes', fn() => view('planes'))->name('planes');
+
+/* --- RUTAS USUARIOS AUTENTICADOS --- */
+Route::middleware(['auth', 'verified'])->group(function () {
+    
+    Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
+
+    // Perfil
+    Route::controller(ProfileController::class)->group(function () {
+        Route::get('/profile', 'edit')->name('profile.edit');
+        Route::patch('/profile', 'update')->name('profile.update');
+        Route::delete('/profile', 'destroy')->name('profile.destroy');
+    });
+
+    });
+
+ 
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+
+    // DONAR (Estructura AJAX: un solo método para mostrar y guardar)
+    Route::match(['get', 'post'], '/donar', [DonanteController::class, 'create'])->name('donantes.create');
+
 
 
 Route::get('/dashboard', function () {
@@ -24,18 +44,34 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
-require __DIR__.'/auth.php';
+/* --- SECCIÓN CURSOS (Admin) --- */
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/ver-cursos', [CursoController::class, 'index'])->name('cursos.index');
+    Route::match(['get', 'post'], '/curso/create', [CursoController::class, 'create']);
+    Route::match(['get', 'post'], '/curso/show/{id}', [CursoController::class, 'show']);
+    Route::match(['get', 'post'], '/curso/edit/{id}', [CursoController::class, 'edit']);
+    Route::match(['get', 'post'], '/curso/destroy/{id}', [CursoController::class, 'destroy']);
+
+    /* --- SECCIÓN DONANTES (Admin) --- */
+    Route::get('/admin/donantes', [DonanteController::class, 'index'])->name('admin.donantes.index');
+    // Si necesitas borrar donaciones desde la tabla:
+    Route::match(['get', 'post'], '/donante/destroy/{id}', [DonanteController::class, 'destroy']);
+});
+
+/* --- RUTAS ADMINISTRADORES (Middleware Spatie) --- */
+Route::middleware(['auth', 'role:admin'])->group(function () {
+
+    // 1. Usuarios (Basado en tu estructura AJAX)
+    Route::get('/admin/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
+    Route::match(['get', 'post'], '/usuario/{oper}/{id?}', [UsuarioController::class, 'operacion']);
 
 
-Route::get('/admin', function () {
-return view('dashboard');
-})->middleware('auth');
-
-Route::get('/dashboard/usuarios', function () {
-return view('usuario');
-})->middleware('auth');
+    // 2. Administradores
+    Route::get('/admin/administradores', [AdministradorController::class, 'index'])->name('administradores.index');
+    Route::match(['get', 'post'], '/administrador/{oper}/{id?}', [AdministradorController::class, 'operacion']);
 
 Route::get('/planes', [PlanController::class, 'index'])
     ->name('usuarios.planes')   // 👈 Este nombre debe coincidir con tu Blade
@@ -44,68 +80,14 @@ Route::get('/planes', [PlanController::class, 'index'])
 
 
 
+    // 3. Cursos (Gestión completa con AJAX)
+    // Sustituimos el Resource por tu ruta de "operacion" para que funcione el modal
+    Route::get('/admin/gestion-cursos', [CursoController::class, 'index'])->name('admin.cursos.index');
+    Route::match(['get', 'post'], '/curso/{oper}/{id?}', [CursoController::class, 'operacion']);
+
+    // 4. Donantes (Ver listado)
+    Route::get('/admin/donantes', [DonanteController::class, 'index'])->name('admin.donantes.index');
+});
+
 Route::post('/procesar-datos', [Datos::class, 'procesar']);
-
-
-
-Route::get('/procesar-datos', [Datos::class, 'procesar']);
-
-
-Route::get('/usuario', [UsuarioController::class, 'index']);
-//Route::get('/usuario/{id}', [UsuarioController::class, 'show'])->name('usuario.show');
-
-
-Route::get('/usuario/store', [UsuarioController::class, 'store'])->name('usuario.store');
-
-
-
-// Solo usuarios logueados Y que sean 'admin' pueden entrar
-Route::middleware(['auth'])->group(function () {
-    Route::get('dashboard/usuario', [UsuarioController::class, 'index'])->name('usuarios.index');
-});
-
-
-/*
-// Solo usuarios logueados Y que sean 'admin' pueden entrar
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    
-    Route::get('/libro', [LibroController::class, 'index'])->name('libro.index');
-    Route::get('/libro/create', [LibroController::class, 'create'])->name('libro.create');
-    Route::post('/libro/create', [LibroController::class, 'create']);
-    Route::get('/libro/edit/{id}', [LibroController::class, 'edit'])->name('libro.edit');
-    Route::post('/libro/edit', [LibroController::class, 'edit']);
-    Route::get('/libro/show/{id}', [LibroController::class, 'show'])->name('libro.show');
-    Route::get('/libro/destroy/{id}', [LibroController::class, 'destroy'])->name('libro.destroy');
-    Route::post('/libro/destroy', [LibroController::class, 'destroy']);
-    
-});
-*/
-
-/*
-
-Los roles se gestionan con middlewares aquí en las rutas
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    // Otras rutas protegidas para administradores
-});
-
-Esa sería un ruta protegida para administradores únicamente, un ejemplo.
-
-
-Los permisos al contrario se gestionan en los controladores con:
-$this->authorize('permission-name');
-Ejemplo para el LibroController:
-    public function create()
-    {
-        $this->authorize('create-libro');
-
-        // Lógica para mostrar el formulario de creación de libro
-    }
-
-Y así en cada método que queramos proteger con permisos específicos.
-
-También se pueden poner en las rutas con middlewares personalizados para permisos, pero es más común hacerlo en los controladores.
-También se pueden poner en views con directivas blade @can y @cannot
-
-
-*/
+require __DIR__.'/auth.php';
