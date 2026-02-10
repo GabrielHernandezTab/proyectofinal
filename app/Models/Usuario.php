@@ -11,17 +11,12 @@ class Usuario extends Model
     protected $table = 'usuarios'; // Forzamos el nombre de la tabla
     use HasFactory, Notifiable;
 
-    protected $fillable = [
-         'nombre'
-        ,'email'
-        ,'password'
-    ];
+    protected $fillable = ['nombre','email','password'];
 
-    /*
+
     // Relación: Un usuario tiene muchas donaciones
     public function donaciones() {
         return $this->hasMany(Donante::class, 'usuario_id');
     }
-    */
 
 }
