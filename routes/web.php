@@ -7,6 +7,7 @@ use App\Http\Controllers\DonanteController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\Datos;
+use App\Http\Controllers\PlanController;
 
 /* --- RUTAS PÚBLICAS --- */
 Route::get('/', fn() => view('welcome'))->name('welcome');
@@ -24,11 +25,26 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/profile', 'destroy')->name('profile.destroy');
     });
 
+    });
+
+ 
+
+
+
     // DONAR (Estructura AJAX: un solo método para mostrar y guardar)
     Route::match(['get', 'post'], '/donar', [DonanteController::class, 'create'])->name('donantes.create');
 
-    // CURSOS (Solo ver lista)
-    Route::get('/ver-cursos', [CursoController::class, 'index'])->name('cursos.index');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
 /* --- SECCIÓN CURSOS (Admin) --- */
@@ -52,9 +68,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
     Route::match(['get', 'post'], '/usuario/{oper}/{id?}', [UsuarioController::class, 'operacion']);
 
+
     // 2. Administradores
     Route::get('/admin/administradores', [AdministradorController::class, 'index'])->name('administradores.index');
     Route::match(['get', 'post'], '/administrador/{oper}/{id?}', [AdministradorController::class, 'operacion']);
+
+Route::get('/planes', [PlanController::class, 'index'])
+    ->name('usuarios.planes')   // 👈 Este nombre debe coincidir con tu Blade
+    ->middleware(['auth']);
+
+
+
 
     // 3. Cursos (Gestión completa con AJAX)
     // Sustituimos el Resource por tu ruta de "operacion" para que funcione el modal
