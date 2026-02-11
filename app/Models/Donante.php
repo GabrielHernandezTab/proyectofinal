@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Models;
+use App\Models\Usuario;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+
 
 
 class Donante extends Model
@@ -14,7 +16,7 @@ class Donante extends Model
     use HasFactory, Notifiable;
 
 
-    protected $fillable = ['usuario_id', 'edad', 'iban', 'valoracion'];
+    protected $fillable = ['usuario_id', 'edad', 'importe', 'iban', 'valoracion'];
 
     public static $valoraciones = [
         'PR' => '★★★★★', // Premium

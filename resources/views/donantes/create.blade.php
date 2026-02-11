@@ -2,7 +2,6 @@
     @extends('layout')
     @section('contenido')
 @endif
-
 <div class="container pt-4 text-dark">
     @if(isset($datos['exito']) && $datos['exito'])
         <p class="alert alert-success">{{ $datos['exito'] }}</p>
@@ -37,6 +36,12 @@
             <label class="form-label text-dark">Edad</label>
             <input {{ $disabled }} value="{{ old('edad', $donante->edad) }}" type="number" name="edad" class="form-control @error('edad') is-invalid @enderror">
             @error('edad') <div class="invalid-feedback">{{ $message }}</div> @enderror       
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-dark">Importe</label>
+            <input {{ $disabled }} value="{{ old('importe', $donante->importe) }}" type="number" name="importe" class="form-control @error('importe') is-invalid @enderror">
+            @error('importe') <div class="invalid-feedback">{{ $message }}</div> @enderror       
         </div>
 
         <div class="mb-3">

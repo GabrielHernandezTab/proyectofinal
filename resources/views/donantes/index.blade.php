@@ -11,13 +11,13 @@
 
     <div class="container pt-4">
         @role('admin')
-            {{-- TABLA ORIGINAL CALCADA --}}
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Usuario</th>
                         <th scope="col">Edad</th>
+                        <th scope="col">Importe</th>
                         <th scope="col">Iban</th>
                         <th scope="col">Valoración</th>
                     </tr>
@@ -26,87 +26,81 @@
                     @foreach ($donantes as $donante)       
                         <tr>
                             <th>
-                                <a onclick="cargarOperacion('{{ $donante->id }}', 'show')" class="btn btn-primary"><i class="bi bi-search"></i></a>
-                                <a onclick="cargarOperacion('{{ $donante->id }}', 'edit')" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
-                                <a onclick="cargarOperacion('{{ $donante->id }}', 'destroy')" class="btn btn-danger"><i class="bi bi-trash"></i></a>                           
+                                <div class="btn-group btn-group-sm">
+                                    <a onclick="cargarOperacion('{{ $donante->id }}', 'show')" class="btn btn-primary"><i class="bi bi-search"></i></a>
+                                    <a onclick="cargarOperacion('{{ $donante->id }}', 'edit')" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                                    <a onclick="cargarOperacion('{{ $donante->id }}', 'destroy')" class="btn btn-danger"><i class="bi bi-trash"></i></a> 
+                                </div>
                              </th>
-                             {{-- Mostramos datos del modelo Usuario relacionado --}}
-                            <td>{{ $donante->usuario->nombre ?? 'Sin Usuario' }}</td>
-                            <td>{{ $donante->usuario->email ?? 'N/A' }}</td>
+                            {{-- Unificamos Nombre y Email para respetar las 6 columnas de la cabecera --}}
+                            <td>
+                                <strong>{{ $donante->usuario->nombre ?? 'Sin Usuario' }}</strong><br>
+                                <small class="text-muted">{{ $donante->usuario->email ?? 'N/A' }}</small>
+                            </td>
                             <td>{{ $donante->edad }}</td>
-                            <td>{{ $valoracion[trim($donante->valoracion)] ?? 'Error con la clave: ['.$donante->valoracion.']' }}</td>
+                            <td>{{ $donante->importe }} €</td>
                             <td>{{ $donante->iban }}</td>
+                            {{-- Corrección de la clave de valoración --}}
+                            <td class="text-warning">
+                                @php $clave = trim($donante->valoracion); @endphp
+                                {{ $valoracion[$clave] ?? 'Sin valorar' }}
+                            </td>
                         </tr>
                     @endforeach
-                    {{ $donantes->links() }}
                 </tbody>
             </table>
-        <button type="button" class="btn btn-primary mt-3" onclick="cargarOperacion('', 'create')">Nuevo Donante</button>
+            <div class="mt-3">
+                {{ $donantes->links() }}
+            </div>
+            <button type="button" class="btn btn-primary mt-3" onclick="cargarOperacion('', 'create')">Nuevo Donante</button>
         @else
-            {{-- Mensaje para usuarios no admin (para que no vean la tabla vacía) --}}
             <div class="alert alert-info mt-4">
                 No tienes permisos para gestionar donantes.
             </div>
         @endrole
     </div>
-<div class="modal fade" id="ventanaModal" tabindex="-1" style="z-index: 9999;">
-<div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        {{-- Aquí es donde metemos la clase modal-body y text-dark --}}
-        <div id="contenidoModal" class="modal-body text-dark">
+
+    {{-- Modal --}}
+    <div class="modal fade" id="ventanaModal" tabindex="-1" style="z-index: 9999;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div id="contenidoModal" class="modal-body text-dark">
+                    {{-- Contenido cargado por AJAX --}}
+                </div>
             </div>
+        </div>
     </div>
-</div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Guardamos el token en una constante para no usar llaves de Blade dentro del fetch
 const CSRF_TOKEN = '{{ csrf_token() }}';
 
 function cargarOperacion(id, operacion) {
     let url = '';
-    
-    // Ajuste de URLs según TUS rutas en web.php
     switch(operacion) {
-        case 'show':    
-            url = `/donante/show/${id}`; 
-            break;
-        case 'edit':    
-            url = `/donante/edit/${id}`; 
-            break;
-        case 'destroy': 
-            url = `/donante/destroy/${id}`; 
-            break;
-        case 'create':  
-            url = `/donante/create`; 
-            break;
+        case 'show':    url = `/donante/show/${id}`; break;
+        case 'edit':    url = `/donante/edit/${id}`; break;
+        case 'destroy': url = `/donante/destroy/${id}`; break;
+        case 'create':  url = `/donante/create`; break;
     }
-
-    console.log("Intentando cargar:", url);
 
     fetch(url + '?modo=ajax')
         .then(response => {
-            if (!response.ok) throw new Error('Error ' + response.status + ' en ruta: ' + url);
+            if (!response.ok) throw new Error('Error ' + response.status);
             return response.text();
         })
         .then(html => {
             document.getElementById('contenidoModal').innerHTML = html;
-            
-            // Abrimos el modal
             var elModal = document.getElementById('ventanaModal');
             var instancia = bootstrap.Modal.getOrCreateInstance(elModal);
             instancia.show();
         })
-        .catch(error => {
-            console.error("Error en el fetch:", error);
-        });
+        .catch(error => console.error("Error:", error));
 }
 
 document.addEventListener('submit', function(e) {
     if (e.target && e.target.closest('#contenidoModal')) {
         e.preventDefault();
-
         const form = e.target;
         const formData = new FormData(form);
         formData.append('modo', 'ajax');
@@ -122,13 +116,16 @@ document.addEventListener('submit', function(e) {
         .then(response => response.text())
         .then(html => {
             document.getElementById('contenidoModal').innerHTML = html;
+            
+            // CORRECCIÓN: Si detectamos éxito, recargamos la lista para ver el cambio
+            if (html.includes('alert-success') || html.includes('correctamente') || html.includes('¡Donante dado de alta!')) {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            }
         })
         .catch(error => console.error('Error:', error));
     }
 });
 </script>
 </x-app-layout>
-
-
-
-

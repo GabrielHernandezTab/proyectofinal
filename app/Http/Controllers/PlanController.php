@@ -8,7 +8,7 @@ class PlanController extends Controller
 {
     public function index()
     {
-        return view('layouts.usuarios.planes'); 
+        return view('usuarios.planes'); 
     }
 }
 //Ejemplo de Modelo-Vista-Controllador

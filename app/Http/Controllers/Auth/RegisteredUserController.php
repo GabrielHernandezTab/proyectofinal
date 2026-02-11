@@ -15,7 +15,7 @@ use Illuminate\View\View;
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+     * Muestra la vista de registro.
      */
     public function create(): View
     {
@@ -23,21 +23,21 @@ class RegisteredUserController extends Controller
     }
 
     /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * Maneja la solicitud de registro entrante.
      */
     public function store(Request $request): RedirectResponse
     {
+        // El formulario de Breeze envía el campo como 'name'
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'nombre' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // Mapeamos 'name' del formulario a 'nombre' de tu base de datos
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'nombre'   => $request->nombre, 
+            'email'    => $request->email,
             'password' => Hash::make($request->password),
         ]);
 

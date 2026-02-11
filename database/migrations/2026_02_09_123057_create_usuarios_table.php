@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->timestamps();
+            $table->string('rol')->default('Usuario');
+            $table->rememberToken(); // Necesario para la opción "Recordarme"
+            $table->timestamps();    // Crea 'created_at' y 'updated_at'
         });
     }
 
