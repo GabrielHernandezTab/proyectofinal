@@ -34,9 +34,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // --- SECCIÓN: REALIZAR DONACIÓN (Visible para usuario normal) ---
 // Cambia estas dos líneas dentro del grupo 'auth' general:
 Route::get('/quiero-donar', [DonanteController::class, 'formularioPublico'])->name('donacion.formulario');
-Route::post('/quiero-donar', [DonanteController::class, 'realizarDonacion'])->name('donacion.store');    
-    // Ver planes (usuario normal)
-    Route::get('/mis-planes', [PlanController::class, 'index'])->name('usuarios.planes');
+Route::post('/quiero-donar', [DonanteController::class, 'store'])->name('donacion.store');    // Ver planes (usuario normal)
+Route::get('/mis-planes', [PlanController::class, 'index'])->name('usuarios.planes');
+
 });
 
 /*
