@@ -95,59 +95,33 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    const CSRF_TOKEN = '{{ csrf_token() }}';
-
-    function cargarOperacion(id, operacion) {
-        let url = '';
-        switch(operacion) {
-            case 'show':    url = `/donante/show/${id}`; break;
-            case 'edit':    url = `/donante/edit/${id}`; break;
-            case 'destroy': url = `/donante/destroy/${id}`; break;
-            case 'create':  url = `/donante/create`; break;
-        }
-
-        fetch(url + '?modo=ajax')
-            .then(response => {
-                if (!response.ok) throw new Error('Error ' + response.status);
-                return response.text();
-            })
-            .then(html => {
-                document.getElementById('contenidoModal').innerHTML = html;
-                var elModal = document.getElementById('ventanaModal');
-                var instancia = bootstrap.Modal.getOrCreateInstance(elModal);
-                instancia.show();
-            })
-            .catch(error => console.error("Error:", error));
+<script>
+function cargarOperacion(id, operacion) {
+    // Definimos la URL según la operación
+    let url = '';
+    if (operacion === 'create') {
+        url = '/donante/create';
+    } else {
+        url = `/donante/${operacion}/${id}`;
     }
 
-    document.addEventListener('submit', function(e) {
-        if (e.target && e.target.closest('#contenidoModal')) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            formData.append('modo', 'ajax');
+    // Hacemos la petición AJAX
+    fetch(url + '?modo=ajax')
+        .then(response => response.text())
+        .then(html => {
+            // 1. Inyectamos el HTML en el cuerpo del modal (NO en el content entero)
+            document.getElementById('contenidoModal').innerHTML = html;
+            
+            // 2. Quitamos el fondo blanco por defecto de Bootstrap para que se vea tu negro
+            document.querySelector('#ventanaModal .modal-content').style.backgroundColor = 'transparent';
+            document.querySelector('#ventanaModal .modal-content').style.border = 'none';
 
-            fetch(form.action, {
-                method: 'POST',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRF-TOKEN': CSRF_TOKEN
-                },
-                body: formData
-            })
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('contenidoModal').innerHTML = html;
-                
-                if (html.includes('alert-success') || html.includes('correctamente') || html.includes('¡Donante dado de alta!')) {
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000);
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    });
-    </script>
+            // 3. Abrimos el modal
+            var elModal = document.getElementById('ventanaModal');
+            var instancia = bootstrap.Modal.getOrCreateInstance(elModal);
+            instancia.show();
+        })
+        .catch(error => console.error("Error cargando el modal:", error));
+}
+</script>
 </x-app-layout>
