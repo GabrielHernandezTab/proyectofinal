@@ -46,21 +46,21 @@ Route::post('/quiero-donar', [DonanteController::class, 'realizarDonacion'])->na
 */
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
-    // 1. GESTIÓN DE CURSOS
+    // GESTIÓN DE CURSOS
     Route::get('/admin/gestion-cursos', [CursoController::class, 'index'])->name('cursos.index');
     Route::match(['get', 'post'], '/curso/create', [CursoController::class, 'create']);
     Route::match(['get', 'post'], '/curso/show/{id?}', [CursoController::class, 'show']);
     Route::match(['get', 'post'], '/curso/edit/{id?}', [CursoController::class, 'edit']);
     Route::match(['get', 'post'], '/curso/destroy/{id?}', [CursoController::class, 'destroy']);
 
-    // 2. GESTIÓN DE DONANTES (Aquí solo el admin ve el listado completo)
+    // GESTIÓN DE DONANTES (Aquí solo el admin ve el listado completo)
     Route::get('/admin/donantes', [DonanteController::class, 'index'])->name('admin.donantes.index');
     Route::match(['get', 'post'], '/donante/create', [DonanteController::class, 'create'])->name('donantes.create');
     Route::match(['get', 'post'], '/donante/show/{id?}', [DonanteController::class, 'show'])->name('donantes.show');
     Route::match(['get', 'post'], '/donante/edit/{id?}', [DonanteController::class, 'edit'])->name('donantes.edit');
     Route::match(['get', 'post'], '/donante/destroy/{id?}', [DonanteController::class, 'destroy'])->name('donantes.destroy');
 
-    // 3. GESTIÓN DE USUARIOS
+    // GESTIÓN DE USUARIOS
     Route::get('/admin/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
     
     Route::match(['get', 'post'], '/usuario/create', [UsuarioController::class, 'create']);
@@ -68,9 +68,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::match(['get', 'post'], '/usuario/edit/{id}', [UsuarioController::class, 'edit']);
     Route::match(['get', 'post'], '/usuario/destroy/{id}', [UsuarioController::class, 'destroy']);
     
-    // 4. GESTIÓN DE ADMINISTRADORES
+    // GESTIÓN DE ADMINISTRADORES
     Route::get('/admin/administradores', [AdministradorController::class, 'index'])->name('administradores.index');
     Route::match(['get', 'post'], '/administrador/{oper}/{id?}', [AdministradorController::class, 'operacion']);
+
+
+    // PLANES
+    Route::get('mis-planes/basico',[PlanController::class, 'basico']);
+    Route::get('mis-planes/avanzado',[PlanController::class, 'avanzado']);
+    Route::get('mis-planes/supremo',[PlanController::class, 'supremo']);
+
+
 });
 
 /* --- OTRAS RUTAS --- */
