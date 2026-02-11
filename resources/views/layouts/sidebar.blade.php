@@ -37,6 +37,9 @@
   <a href="{{ route('donacion.formulario') }}" class="w3-bar-item w3-button">
       Realizar Donación
   </a>
+  <a href="{{ route('welcome') }}" class="w3-bar-item w3-button">
+      Página Principal
+  </a>
 
   @role('admin')
       <hr style="border-color:#555;">

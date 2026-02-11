@@ -4,7 +4,7 @@
         
         <div class="mb-4 d-inline-block p-2 rounded-circle shadow-lg" 
             style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255,255,255,0.1);">
-            <img :src="'/imagenes/logo.png'" alt="Logo Central" 
+            <img :src="'/imagenes/logo.png'" alt="Logo Central"  loading="lazy" >
             style="width: 90px; height: 90px; object-fit: cover; border: 2px solid #00d1b2;" 
             class="rounded-circle">
         </div>
