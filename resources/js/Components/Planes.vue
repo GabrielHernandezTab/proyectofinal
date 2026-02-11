@@ -37,10 +37,10 @@
                   </li>
                 </ul>
   
-                <button :class="['btn w-100 py-3 fw-bold', plan.destacado ? 'btn-success' : 'btn-primary']"
+                <a :class="['btn w-100 py-3 fw-bold', plan.destacado ? 'btn-success' : 'btn-primary' ]"
                         style="border-radius: 12px;">
                   {{ plan.btnText }}
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
         <br><br>
           <p class="text-muted">* Los descuentos se aplican presentando documentación acreditativa</p>
         </div>
-  
+        
     </section>
   </template>
   
@@ -81,7 +81,7 @@
       icon: 'bi-lightning-charge',
       descuento: '15% descuento para jubilados/estudiantes/discapacitados',
       horas: '60 horas de curso',
-      btnText: 'Comenzar Ahora',
+      btnText: '',
       destacado: true,
       features: [
         'Videos cada dos semanas (2 horas c/u)',

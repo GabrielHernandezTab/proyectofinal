@@ -51,8 +51,8 @@
     <div class="container py-5">
 
         <div class="text-center mb-5">
-            <h1 class="display-4 fw-bold">Planes de Inversión</h1>
-            <p class="lead text-muted">Elige el plan que mejor se adapte a tus objetivos financieros y nivel de experiencia.</p>
+            <h1 class="display-4 fw-bold">Accede a tu curso</h1>
+            <p class="lead text-muted">Selecciona el plan que mejor se adapte a tus objetivos financieros y nivel de experiencia.</p>
             <div class="d-flex justify-content-center gap-3">
                 <span class="badge bg-light text-dark border"><i class="bi bi-shield-check text-primary"></i> Pago Seguro</span>
                 <span class="badge bg-light text-dark border"><i class="bi bi-clock-history text-primary"></i> Acceso 24/7</span>
@@ -77,7 +77,7 @@
                             <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Sesiones personalizadas</li>
                         </ul>
                         <div class="d-grid mt-auto">
-                            <button class="btn btn-outline-primary rounded-pill btn-animate">Empezar Gratis</button>
+                            <a href="mis-planes/basico"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Comunidad privada Discord</li>
                         </ul>
                         <div class="d-grid mt-auto">
-                            <button class="btn btn-primary rounded-pill shadow-sm btn-animate">Suscribirme</button>
+                            <a href="mis-planes/avanzado"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                             <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Acceso Vitalicio a materiales</li>
                         </ul>
                         <div class="d-grid mt-auto">
-                            <button class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Elegir Supremo</button>
+                            <a href="mis-planes/supremo"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
                         </div>
                     </div>
                 </div>

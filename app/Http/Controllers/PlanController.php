@@ -10,5 +10,23 @@ class PlanController extends Controller
     {
         return view('usuarios.planes'); 
     }
-}
+
 //Ejemplo de Modelo-Vista-Controllador
+
+public function basico()
+        {
+            return view('cursos.basico'); 
+        }
+public function avanzado()
+        {
+            return view('cursos.avanzado'); 
+        }
+
+public function supremo()
+        {
+            return view('cursos.supremo'); 
+        }
+
+
+
+}

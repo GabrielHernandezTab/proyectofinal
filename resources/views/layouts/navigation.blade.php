@@ -16,40 +16,9 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-
-                    <x-nav-link :href="route('usuarios.planes')" :active="request()->routeIs('plan')">
-
-                        {{ __('Planes') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('donacion.formulario')" :active="request()->routeIs('donacion.formulario')">
-                        {{ __('Realizar Donación') }}
-                    </x-nav-link>
-                </div>
-                @role('admin')
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')">
-                        {{ __('Usuarios') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('administradores.index')" :active="request()->routeIs('administradores.index')">
-                        {{ __('Administradores') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('cursos.index')" :active="request()->routeIs('cursos.index')">
-                        {{ __('Cursos') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('admin.donantes.index')" :active="request()->routeIs('admin.donantes.index')">
-                        {{ __('Donantes') }}
-                    </x-nav-link>
-                </div>
-                @endrole
+                
+                
+                
             </div>
 
             <!-- Settings Dropdown -->
