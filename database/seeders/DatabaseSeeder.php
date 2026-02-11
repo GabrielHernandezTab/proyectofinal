@@ -9,6 +9,7 @@ use App\Models\User;
 // Eliminamos el uso de App\Models\Usuario porque User ya escribe en esa tabla
 use App\Models\Administrador;
 use App\Models\Curso;
+use App\Models\Donante;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -106,5 +107,34 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         foreach ($cursos as $curso) {
             Curso::create($curso);
         }
-    }
-}
+    
+
+
+        // Donante 1
+        Donante::create([
+            'usuario_id' => 4,        // Reemplaza con el ID de usuario correspondiente
+            'edad'       => 28,
+            'importe'    => 150,
+            'iban'       => 'ES9121000418450200051332',
+            'valoracion' => 'PR', // 5 estrellas
+        ]);
+
+        // Donante 2
+        Donante::create([
+            'usuario_id' => 5,
+            'edad'       => 35,
+            'importe'    => 200,
+            'iban'       => 'ES7921000813610123456789',
+            'valoracion' => 'PL', // 3 estrellas
+        ]);
+
+        // Donante 3
+        Donante::create([
+            'usuario_id' => 7,
+            'edad'       => 42,
+            'importe'    => 500,
+            'iban'       => 'ES9821000418401234567891',
+            'valoracion' => 'OR', // 4 estrellas
+        ]);
+
+}}
