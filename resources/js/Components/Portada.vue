@@ -41,7 +41,8 @@
   .portada-container {
     min-height: 90vh;
     /* El degradado azul oscuro de la foto */
-    background: radial-gradient(circle at center, #1e3a8a 0%, #0d1b2a 100%);
+    background-image: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.6)), 
+    url("/imagenes/ejemploinversion.jpg");
     position: relative;
     overflow: hidden;
   }
@@ -51,7 +52,6 @@
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
     opacity: 0.1;
     pointer-events: none;
   }

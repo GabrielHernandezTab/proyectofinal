@@ -27,24 +27,22 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // El formulario de Breeze envía el campo como 'name'
         $request->validate([
-            'nombre' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'name'     => ['required', 'string', 'max:255'], // Validamos 'name' que es lo que viene del HTML
+            'email'    => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
-        // Mapeamos 'name' del formulario a 'nombre' de tu base de datos
+    
         $user = User::create([
-            'nombre'   => $request->nombre, 
+            'nombre'   => $request->name, // Mapeamos el input 'name' a tu columna 'nombre'
             'email'    => $request->email,
             'password' => Hash::make($request->password),
+            'rol'      => 'usuario', // Evitamos el error de campo 'rol' vacío que vimos en Tinker
         ]);
-
+    
         event(new Registered($user));
-
         Auth::login($user);
-
+    
         return redirect(route('dashboard', absolute: false));
     }
 }

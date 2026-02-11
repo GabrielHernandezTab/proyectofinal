@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donante;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DonanteController extends Controller
@@ -16,7 +16,7 @@ class DonanteController extends Controller
 
     public function create(Request $request) {
         $donante = new Donante();
-        $usuarios = Usuario::all(); 
+        $usuarios = User::all(); 
         $datos = ['exito' => ''];
         $disabled = '';
         $valoraciones = Donante::$valoraciones;
@@ -71,7 +71,7 @@ class DonanteController extends Controller
     {
         $id_Donante = $id ?: $request->input('id_actual');
         $donante = Donante::find($id_Donante);
-        $usuarios = Usuario::all(); 
+        $usuarios = User::all(); 
         $valoraciones = Donante::$valoraciones;
         $datos = ['exito' => ''];
         $disabled = '';
@@ -127,7 +127,7 @@ class DonanteController extends Controller
     {
         $id_Donante = $id ?: $request->input('id_actual');
         $donante = Donante::find($id_Donante);
-        $usuarios = Usuario::all(); 
+        $usuarios = User::all(); 
         $valoraciones = Donante::$valoraciones;
         $datos = ['exito' => ''];
         $oper = "destroy"; 
@@ -153,7 +153,7 @@ class DonanteController extends Controller
     public function show(string $id, Request $request)
     {
         $donante = Donante::find($id);
-        $usuarios = Usuario::all(); 
+        $usuarios = User::all(); 
         $valoraciones = Donante::$valoraciones;
         $vars = [
             'donante' => $donante, 'datos' => ['exito' => ''], 
@@ -191,7 +191,7 @@ class DonanteController extends Controller
             $idLogueado = auth()->id();
 
             // 2. Buscamos a ese usuario exclusivamente en TU tabla 'usuarios'
-            $miUsuario = \App\Models\Usuario::find($idLogueado);
+            $miUsuario = User::find($idLogueado);
 
             // 3. Si por algún motivo no estuviera en tu tabla personalizada, lo insertamos
             // usando los datos de la sesión para que la base de datos no rechace la donación

@@ -74,6 +74,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 /* --- OTRAS RUTAS --- */
-Route::post('/procesar-datos', [Datos::class, 'procesar']);
+//Route::post('/procesar-datos', [Datos::class, 'procesar']);
 
 require __DIR__.'/auth.php';

@@ -39,13 +39,6 @@
                 <div class="modal-header border-b dark:border-gray-700">
                     <button type="button" class="btn-close dark:invert" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div id="contenidoModal" class="modal-body">
-                    <div class="text-center p-3">
-                        <div class="spinner-border text-warning" role="status">
-                            <span class="visually-hidden">Cargando...</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
