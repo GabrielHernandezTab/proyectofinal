@@ -4,6 +4,7 @@ import Portada from './Components/Portada.vue';
 import Caracteristicas from './Components/Caracteristicas.vue';
 import Elegirnos from './Components/Elegirnos.vue';
 import Planes from './Components/Planes.vue';
+import Donaciones from './Components/Donaciones.vue';
 import Footer from './Components/Footer.vue';
 
 
@@ -21,6 +22,7 @@ app.component('caracteristicas-section', Caracteristicas);
 app.component('elegirnos-section', Elegirnos);
 app.component('planes-section', Planes);
 app.component('footer-section', Footer);
+app.component('donaciones-section', Donaciones);
 
 
 

@@ -21,6 +21,15 @@
                     
                     <div class="flex space-x-4">
                         <a href="{{ route('usuarios.planes') }}" class="btn btn-primary px-4 py-2 rounded-lg bg-blue-600 text-white">Ver planes</a>
+
+                        {{-- Botón de Donación con la ruta correcta --}}
+                        <a href="{{ route('donacion.formulario') }}" class="px-4 py-2 rounded-lg text-white font-bold shadow-sm transition" 
+                        style="background-color: #449d44;" 
+                        onmouseover="this.style.backgroundColor='#367c36'" 
+                        onmouseout="this.style.backgroundColor='#449d44'">
+                            Realizar Donación
+                        </a>
+
                     </div>
 
                     @role('admin')

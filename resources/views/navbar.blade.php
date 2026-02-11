@@ -29,7 +29,8 @@
                     <li class="nav-item"><a class="nav-link text-white" href="#caracteristicas">Características</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#elegirnos">¿Por qué elegirnos?</a></li>
                     <li class="nav-item"><a class="nav-link text-white fw-bold" href="#planes">Planes</a></li>
-                </ul>
+                    <li class="nav-item"><a class="nav-link text-white" href="#donaciones">Donaciones</a></li>
+                    </ul>
             </div>
 
             <div class="d-flex align-items-center gap-3">
