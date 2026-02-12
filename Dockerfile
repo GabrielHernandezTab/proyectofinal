@@ -1,25 +1,16 @@
-FROM php:8.2-apache
+# Base PHP con FPM
+FROM php:8.2-fpm
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
-# Dependencias del sistema
+# Instalar dependencias
 RUN apt-get update && apt-get install -y \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    libzip-dev \
-    zip unzip git curl \
+    libpng-dev libonig-dev libxml2-dev libzip-dev \
+    zip unzip git curl nginx supervisor \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Activar mod_rewrite
-RUN a2enmod rewrite
-
-# Cambiar DocumentRoot
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-
-# Composer
+# Instalar Composer
 COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
@@ -27,15 +18,21 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-# Build Vite
+# Build frontend si usas Vite
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && npm install \
     && npm run build
 
-# Permisos correctos para Laravel
+# Permisos Laravel
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 storage bootstrap/cache
 
+# Configurar Nginx
+COPY default.conf /etc/nginx/sites-available/default
+
+# Supervisord para correr PHP-FPM + Nginx
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 EXPOSE 80
-CMD ["apache2-foreground"]
+CMD ["/usr/bin/supervisord"]
