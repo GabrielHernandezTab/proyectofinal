@@ -77,7 +77,7 @@
                             <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Sesiones personalizadas</li>
                         </ul>
                         <div class="d-grid mt-auto">
-                            <a href="mis-planes/basico"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
+                            <a href="./mis-planes/basico"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Comunidad privada Discord</li>
                         </ul>
                         <div class="d-grid mt-auto">
-                            <a href="mis-planes/avanzado"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
+                            <a href="./mis-planes/avanzado"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                             <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Acceso Vitalicio a materiales</li>
                         </ul>
                         <div class="d-grid mt-auto">
-                            <a href="mis-planes/supremo"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
+                            <a href="./mis-planes/supremo"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
                         </div>
                     </div>
                 </div>
