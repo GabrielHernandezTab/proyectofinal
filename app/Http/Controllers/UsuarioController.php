@@ -14,7 +14,7 @@ class UsuarioController extends Controller
         return view('usuarios.index', compact('usuarios'));
     }
 
-public function create(Request $request) {
+    public function create(Request $request) {
     $usuario = new User();
     $oper = 'create';
     $disabled = ''; 
@@ -105,3 +105,14 @@ public function edit(Request $request, $id) {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+

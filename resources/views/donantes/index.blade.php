@@ -30,9 +30,6 @@
                     @role('admin')
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h3 class="text-lg font-bold text-gray-700">Listado de Donantes Registrados</h3>
-                            <button type="button" class="btn btn-primary d-flex align-items-center shadow-sm" onclick="cargarOperacion(0, 'create')">
-                                <i class="bi bi-plus-circle me-2"></i> Nuevo Donante
-                            </button>
                         </div>
 
                         <div class="table-responsive">
@@ -53,8 +50,6 @@
                                             <td>
                                                 <div class="btn-group shadow-sm">
                                                     <button onclick="cargarOperacion('{{ $donante->id }}', 'show')" class="btn btn-sm btn-outline-primary" title="Ver"><i class="bi bi-search"></i></button>
-                                                    <button onclick="cargarOperacion('{{ $donante->id }}', 'edit')" class="btn btn-sm btn-outline-success" title="Editar"><i class="bi bi-pencil-square"></i></button>
-                                                    <button onclick="cargarOperacion('{{ $donante->id }}', 'destroy')" class="btn btn-sm btn-outline-danger" title="Eliminar"><i class="bi bi-trash"></i></button> 
                                                 </div>
                                             </td>
                                             <td>
@@ -91,16 +86,17 @@
         </div>
     </div>
 
-    {{-- Modal al final del layout pero antes de los scripts --}}
-    <div class="modal fade" id="ventanaModal" tabindex="-1" aria-labelledby="ventanaModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content bg-transparent border-0">
-                <div id="contenidoModal">
-                    {{-- Aquí se inyecta el form negro --}}
-                </div>
+{{-- Modal corregido sin recuadros azules --}}
+<div class="modal fade" id="ventanaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        {{-- Forzamos transparencia total en los contenedores de Bootstrap --}}
+        <div class="modal-content" style="background: transparent !important; border: none !important; box-shadow: none !important;">
+            <div id="contenidoModal">
+                {{-- Aquí se inyectará el modoAdmin.blade.php (que ya trae su tarjeta negra) --}}
             </div>
         </div>
     </div>
+</div>
 
     {{-- Scripts --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
