@@ -149,4 +149,5 @@
         <p class="mb-0">El mercado de valores conlleva riesgos significativos. La información proporcionada en estos cursos es con fines meramente educativos y no constituye asesoramiento financiero personalizado. El rendimiento pasado no es un indicador fiable de resultados futuros. Nunca invierta dinero que no pueda permitirse perder.</p>
     </div>
 </div>
+
 @endsection

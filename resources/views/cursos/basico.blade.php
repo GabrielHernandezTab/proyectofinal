@@ -63,7 +63,7 @@
         <div class="row g-4 mb-5">
             
             <div class="col-md-4">
-                <div class="card h-100 p-3 shadow-lg border-0 bg-light">
+                <div class="card h-100 p-3 shadow-lg  border-primary position-relative bg-light">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-primary fw-bold">Introducción</h5>
                         <p class="text-muted small mb-3 flex-grow-1">Introducción a la inversión</p>
@@ -98,7 +98,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card h-100 p-3 shadow-lg border-0  ">
+                <div class="card h-100 p-3 shadow-lg border-primary position-relative  ">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-primary fw-bold">Guías y plantillas básicas</h5>
                         <p class="text-light small mb-3 flex-grow-1">
@@ -114,9 +114,12 @@
                 </div>
             </div>
         </div>
+                <a href="./" style="float:right" >Volver a los planes</a>
 
     </div>
+
 </x-app-layout>
+
 
 <script>
 var acc = document.getElementsByClassName("accordion");

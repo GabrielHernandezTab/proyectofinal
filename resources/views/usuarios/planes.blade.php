@@ -77,7 +77,7 @@
                             <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Sesiones personalizadas</li>
                         </ul>
                         <div class="d-grid mt-auto">
-                            <a href="mis-planes/basico"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
+                            <a href="./basico"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Comunidad privada Discord</li>
                         </ul>
                         <div class="d-grid mt-auto">
-                            <a href="mis-planes/avanzado"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
+                            <a href="./avanzado"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
                         </div>
                     </div>
                 </div>
@@ -109,10 +109,10 @@
 
             <!-- Pack Supremo -->
             <div class="col">
-                <div class="card h-100 shadow-sm border-0 bg-dark text-white">
+                <div class="card h-100 shadow-sm border-0">
                     <div class="card-body p-4 d-flex flex-column">
                         <h5 class="card-title text-uppercase text-secondary">Pack Supremo</h5>
-                        <h2 class="card-price fw-bold text-white">60€ <span class="fs-6 fw-normal text-secondary">/ mes</span></h2>
+                        <h2 class="card-price fw-bold text">60€ <span class="fs-6 fw-normal text-secondary">/ mes</span></h2>
                         <p class="text-info small fw-bold">30% dto. colectivos especiales*</p>
                         <hr class="border-secondary">
                         <ul class="list-unstyled mb-4">
@@ -122,7 +122,7 @@
                             <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Acceso Vitalicio a materiales</li>
                         </ul>
                         <div class="d-grid mt-auto">
-                            <a href="mis-planes/supremo"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
+                            <a href="./supremo"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
                         </div>
                     </div>
                 </div>

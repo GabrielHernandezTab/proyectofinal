@@ -116,7 +116,7 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
             'edad'       => 28,
             'importe'    => 150,
             'iban'       => 'ES9121000418450200051332',
-            'valoracion' => 'PR', // 5 estrellas
+            'valoracion' => 'PR',
         ]);
 
         // Donante 2
@@ -125,7 +125,7 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
             'edad'       => 35,
             'importe'    => 200,
             'iban'       => 'ES7921000813610123456789',
-            'valoracion' => 'PL', // 3 estrellas
+            'valoracion' => 'PL',
         ]);
 
         // Donante 3
@@ -134,7 +134,7 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
             'edad'       => 42,
             'importe'    => 500,
             'iban'       => 'ES9821000418401234567891',
-            'valoracion' => 'OR', // 4 estrellas
+            'valoracion' => 'OR', 
         ]);
 
 }}

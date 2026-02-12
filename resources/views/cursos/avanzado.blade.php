@@ -49,18 +49,17 @@
 
     <div class="container py-5">
 
-        <!-- Sección de Pack Avanzado -->
+        
         <div class="text-center mb-5 p-5 rounded-3xl shadow-lg bg-gradient-to-r from-purple-400 to-indigo-600 text">
             <h1 class="display-4 fw-bold mb-3">Pack Avanzado</h1>
             <p class="lead mb-2">35€ / mes <span class="text-warning fw-bold">15% de descuento para colectivos especiales*</span></p>
             <p class="text-white-50 mb-4">Todo lo que necesitas para llevar tus inversiones al siguiente nivel.</p>
         </div>
 
-        <!-- Módulos del Pack Avanzado -->
+        
         <div class="row g-4 mb-5">
-            <!-- Módulo 1 -->
             <div class="col-md-3">
-                <div class="card h-100 p-3 shadow-lg border-0 bg-light">
+                <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-primary fw-bold">Curso Extendido</h5>
                         <p class="text-muted small mb-3 flex-grow-1">60 horas de contenido avanzado</p>
@@ -71,8 +70,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Módulo 2 -->
             <div class="col-md-3">
                 <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
                     <div class="card-body d-flex flex-column">
@@ -85,10 +82,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Módulo 3 -->
             <div class="col-md-3">
-                <div class="card h-100 p-3 shadow-lg border-0  text">
+                <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-primary fw-bold">Comunidad Privada</h5>
                         <p class="text-light small mb-3 flex-grow-1">Accede a nuestro Discord exclusivo para alumnos</p>
@@ -99,10 +94,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Módulo 4 -->
             <div class="col-md-3">
-                <div class="card h-100 p-3 shadow-lg border-0 bg-light">
+                <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-primary fw-bold">Extras Avanzados</h5>
                         <p class="text-muted small mb-3 flex-grow-1">Herramientas y recursos para tu crecimiento</p>
@@ -113,28 +106,55 @@
                     </div>
                 </div>
             </div>
-            <div class="md-6">
-                <div class="card h-100 p-3 shadow-lg border-0 bg-light">
-                    El Curso Extendido del Pack Avanzado es una experiencia de aprendizaje integral diseñada para quienes buscan no solo conocer los fundamentos de la inversión, sino dominar técnicas avanzadas y herramientas profesionales que les permitan tomar decisiones financieras sólidas y estratégicas. Con 60 horas de contenido avanzado, este curso combina teoría rigurosa, práctica aplicada y recursos tecnológicos que permiten a los alumnos adentrarse de manera profunda en el mundo de los mercados financieros, desde la inversión a largo plazo hasta las operaciones de corto plazo.
-    
-                    Uno de los pilares del curso es el Value Investing, un enfoque que enseña a los inversores a analizar empresas desde sus fundamentos, identificando oportunidades que el mercado podría estar subvalorando. Los alumnos aprenden a interpretar estados financieros, evaluar la salud económica de una compañía, comprender ratios financieros clave y determinar el verdadero valor de sus activos. Esta metodología permite construir carteras diversificadas, con inversiones que ofrecen estabilidad y crecimiento sostenido, enfocándose en estrategias que generan retornos a largo plazo de manera segura y eficiente. La comprensión del Value Investing no solo prepara para invertir en acciones, sino también para tomar decisiones financieras más inteligentes en cualquier tipo de activo, desde bonos hasta fondos mutuos y ETFs.
-                    
-                    A la par, el curso aborda Day Trading, un enfoque más dinámico y práctico que enseña cómo operar con movimientos de precios en plazos cortos. Se estudian patrones de comportamiento del mercado, gráficos de velas, indicadores técnicos, análisis de volumen y tendencias, así como estrategias de entrada y salida de posiciones. El objetivo es que los alumnos puedan identificar oportunidades de ganancia inmediata, aprendiendo a equilibrar riesgo y retorno en situaciones donde la volatilidad es alta. Este enfoque permite combinar la visión de largo plazo del Value Investing con la capacidad de reaccionar y aprovechar oportunidades en tiempo real, generando así un perfil de inversor completo y versátil.
-                    
-                    Para garantizar que el aprendizaje sea práctico y aplicable, el curso incluye un simulador de inversiones, una herramienta que replica de manera realista las operaciones del mercado sin poner dinero real en riesgo. Los estudiantes pueden practicar compras y ventas, probar distintas estrategias, analizar resultados y tomar decisiones informadas basadas en datos reales del mercado. Esta simulación permite aprender de los errores sin consecuencias económicas, consolidando la confianza y la habilidad para operar en condiciones reales una vez finalizado el curso. Además, se enseña cómo interpretar métricas de desempeño, evaluar la eficiencia de cada operación y ajustar estrategias para optimizar resultados, asegurando que cada alumno pueda experimentar y aprender de manera autónoma y segura.
-                    
-                    El aprendizaje no se limita a la teoría y la práctica individual. Los alumnos tienen acceso a una comunidad privada en Discord, un espacio exclusivo donde pueden interactuar con otros inversores, intercambiar experiencias, debatir estrategias y recibir asesoramiento directo de mentores expertos. Esta comunidad funciona como un ecosistema de networking que potencia el aprendizaje colaborativo, permitiendo que cada estudiante amplíe sus conocimientos, reciba retroalimentación inmediata y participe en discusiones sobre casos reales de inversión. Los mentores brindan orientación, recomendaciones personalizadas y consejos estratégicos que ayudan a los alumnos a superar obstáculos, gestionar riesgos y aplicar de manera efectiva las herramientas y técnicas aprendidas.
-                    
-                    Además, el curso ofrece herramientas y recursos avanzados que van mucho más allá del contenido en vídeo. Se proporcionan plantillas para la planificación financiera, guías especializadas para seguimiento de inversiones, sistemas para monitorear el rendimiento de la cartera y metodologías para ajustar estrategias según los objetivos y el perfil de riesgo de cada inversor. Estas herramientas permiten a los alumnos organizar su aprendizaje, medir su progreso y aplicar de forma práctica los conceptos estudiados, asegurando que cada conocimiento se traduzca en decisiones reales y efectivas.
-                    
-                    El enfoque del curso está diseñado para desarrollar no solo conocimientos técnicos, sino también habilidades estratégicas y de análisis crítico. Los alumnos aprenden a tomar decisiones basadas en datos, evaluar riesgos de manera consciente y equilibrar sus inversiones según objetivos financieros personales. También se fomenta la disciplina, la planificación y la constancia, cualidades esenciales para alcanzar el éxito en el mundo de la inversión. Gracias a esta metodología integral, quienes completan el Curso Extendido no solo adquieren herramientas y conocimientos, sino que también desarrollan una mentalidad de inversor profesional, capaz de enfrentar la volatilidad del mercado con seguridad y criterio.
-                    
-                    En síntesis, el Curso Extendido del Pack Avanzado es mucho más que un conjunto de lecciones. Es un camino completo hacia la profesionalización en inversión, combinando contenido profundo, práctica simulada, interacción con expertos, recursos avanzados y herramientas de seguimiento que permiten a los alumnos crecer como inversores confiables, preparados para gestionar sus propias carteras, maximizar oportunidades y minimizar riesgos. Con esta experiencia, el alumno no solo entiende cómo funciona el mercado, sino que se convierte en un actor capaz de actuar estratégicamente, planificar a largo plazo y aplicar cada conocimiento de manera práctica, segura y eficiente.
+            <div class="col-md-12++ col-lg mx-auto">
+    <div class="card h-100 p-4 shadow-lg border-0 bg-white" style="border-radius: 20px;">
+        <div class="card-body">
+            <h2 class="fw-bold text-primary mb-4" style="letter-spacing: -1px;">
+                Domina el Mercado: Curso Extendido Pack Avanzado
+            </h2>
+            
+            <p class="lead text-secondary mb-5">
+                Una experiencia de aprendizaje integral diseñada para quienes no se conforman con los fundamentos. Con <strong>60 horas de contenido especializado</strong>, transformamos la teoría rigurosa en una ejecución impecable.
+            </p>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-dark"><i class="bi bi-graph-up-arrow text-success me-2"></i>Análisis Fundamental</h5>
+                    <p class="text-muted small">Domina el <strong>Value Investing</strong>. Aprende a identificar "joyas ocultas", interpretar estados financieros y determinar el valor real de activos para construir carteras de crecimiento sostenido.</p>
+                </div>
+
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-dark"><i class="bi bi-lightning-charge-fill text-warning me-2"></i>Day Trading</h5>
+                    <p class="text-muted small">Agilidad pura. Opera en tiempo real con patrones de velas y análisis de volumen. Aprende a capitalizar la volatilidad con entradas y salidas estratégicas en segundos.</p>
+                </div>
+
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-dark"><i class="bi bi-cpu text-info me-2"></i>Simulador de Élite</h5>
+                    <p class="text-muted small">Practica sin riesgo. Nuestra herramienta replica el mercado real para que perfecciones tu sistema de inversión y ganes confianza antes de usar capital propio.</p>
+                </div>
+
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-dark"><i class="bi bi-discord text-primary me-2"></i>Comunidad VIP</h5>
+                    <p class="text-muted small">Acceso exclusivo a Discord. Mentoría directa, análisis de casos reales y networking con una red de inversores que comparten tu mismo nivel de ambición.</p>
                 </div>
             </div>
+
+            <hr class="my-4 opactiy-10">
+
+            <div class="bg-light p-3 rounded-3 border-start border-primary border-4">
+                <h6 class="fw-bold mb-2">Tu Transformación Profesional</h6>
+                <p class="small text-muted mb-0">
+                    No solo enseñamos técnica; forjamos la <strong>mentalidad del 1%</strong>. Disciplina, gestión de riesgo y autonomía para que dejes de seguir consejos y empieces a liderar tu propio patrimonio.
+                </p>
+            </div>
         </div>
+    </div>
+            </div>
+
 
     </div>
+        <a href="./" style="float:right" >Volver a los planes</a>
+
 </x-app-layout>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
