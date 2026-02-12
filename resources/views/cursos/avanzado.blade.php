@@ -153,7 +153,7 @@
 
 
     </div>
-        <a href="./" style="float:right" >Volver a los planes</a>
+        <a href="/mis-planes" style="float:right" >Volver a los planes</a>
 
 </x-app-layout>
 

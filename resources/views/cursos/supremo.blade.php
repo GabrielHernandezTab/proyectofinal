@@ -262,7 +262,7 @@
         </div>
         <!-- Estrategias de Inversores Exitosos -->
 <div class="details-card">
-    <h2>Estrategias de los Inversores Más Exitosos</h2>
+    <h2>Estrateg/mis-planesias de los Inversores Más Exitosos</h2>
     <p class="lead">Conoce los hábitos, técnicas y mentalidades que permiten a los inversores de élite maximizar sus ingresos y proteger su capital.</p>
 
     <div class="details-row">
@@ -277,7 +277,7 @@
         <div class="details-item">
             <h5><i class="bi bi-search"></i>Investigación Profunda</h5>
             <p>Estudian el negocio, balances y tendencias del sector antes de invertir. Priorizan valor intrínseco sobre precios temporales.</p>
-        </div>
+        </div>/mis-planes
         <div class="details-item">
             <h5><i class="bi bi-shield-lock-fill"></i>Gestión de Riesgos</h5>
             <p>Definen límites de pérdida, equilibran la cartera y evitan decisiones impulsivas basadas en emociones.</p>
@@ -293,7 +293,7 @@
         <div class="details-item">
             <h5><i class="bi bi-people-fill"></i>Networking y Mentoría</h5>
             <p>Aprenden de otros inversores, comparten información y aprovechan insights exclusivos de comunidades de élite.</p>
-        </div>
+        </div>/mis-planes
         <div class="details-item">
             <h5><i class="bi bi-wallet2"></i>Mantener Liquidez</h5>
             <p>Tener efectivo disponible para aprovechar oportunidades cuando el mercado cae o surgen inversiones atractivas.</p>
@@ -310,7 +310,7 @@
 </div>
 
         <div class="d-grid mt-auto">        
-            <a href="./" style="float:right" class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Volver a los planes</a>
+            <a href="/mis-planes" style="float:right" class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Volver a los planes</a>
         </div>
     </div>
 
