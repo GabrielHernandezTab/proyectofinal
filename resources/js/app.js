@@ -6,6 +6,7 @@ import Elegirnos from './Components/Elegirnos.vue';
 import Planes from './Components/Planes.vue';
 import Donaciones from './Components/Donaciones.vue';
 import Footer from './Components/Footer.vue';
+import Anuncios from './Components/Anuncios.vue';
 
 
 
@@ -23,7 +24,9 @@ app.component('elegirnos-section', Elegirnos);
 app.component('planes-section', Planes);
 app.component('footer-section', Footer);
 app.component('donaciones-section', Donaciones);
-
+app.component('anuncios-section', Anuncios);
 
 
 app.mount('#app');
+
+

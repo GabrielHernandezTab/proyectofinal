@@ -2,28 +2,33 @@
 @section('titulo', 'GeN Trading')
 @section('contenido')
 
-<portada-section></portada-section>
+<div id="app">
+    <portada-section></portada-section>
 
-<div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
 
-<caracteristicas-section></caracteristicas-section>
+    <caracteristicas-section></caracteristicas-section>
 
-<div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
 
-<elegirnos-section></elegirnos-section>
+    <elegirnos-section></elegirnos-section>
 
-<div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
 
-<planes-section></planes-section>
+    <planes-section></planes-section>
 
-<div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
 
-<donaciones-section></donaciones-section>
+    <donaciones-section></donaciones-section>
 
-<div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
 
-<footer-section></footer-section>
+    <anuncios-section></anuncios-section>
 
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
 
+    <footer-section></footer-section>
+</div>
 
+@vite('resources/js/app.js')
 @endsection
