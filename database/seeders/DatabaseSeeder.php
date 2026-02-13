@@ -34,7 +34,8 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         'nombre' => 'Nerea Fernandez',
         'email' => 'nerea_fernandez@cifpzonzamas.es',
         'password' => Hash::make('12345678'),
-        'rol' => 'Súper Admin', // <--- IMPORTANTE
+        'rol' => 'Súper Admin', // 
+        'created_at' => '2026-01-10 12:00:00'
     ]);
     $authNerea->assignRole($adminRole);
 
@@ -42,7 +43,8 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         'nombre' => 'Juan',
         'email' => 'juan@cifpzonzamas.es',
         'password' => Hash::make('12345678'),
-        'rol' => 'Admin', // <--- IMPORTANTE
+        'rol' => 'Admin', 
+        'created_at' => '2026-01-10 12:00:00'
     ]);
     $authJuan->assignRole($adminRole);
 
@@ -50,16 +52,17 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         'nombre' => 'Gabriel',
         'email' => 'gabriel@cifpzonzamas.es',
         'password' => Hash::make('12345678'),
-        'rol' => 'Súper Admin', // <--- IMPORTANTE
+        'rol' => 'Súper Admin',
+        'created_at' => '2026-01-10 12:00:00'
     ]);
     $authGabriel->assignRole($adminRole);
 
-    // 6. USUARIOS DE PRUEBA (También necesitan el campo 'rol')
+    // 6. USUARIOS DE PRUEBA
     User::create([
         'nombre' => 'Test User',
         'email' => 'test@example.com',
         'password' => Hash::make('12345678'),
-        'rol' => 'Usuario', // <--- O el valor que quieras por defecto
+        'rol' => 'Usuario', 
     ]);
 
     User::create([
@@ -74,6 +77,7 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         'email' => 'federico@cifpzonzamas.es',
         'password' => Hash::make('12345678'),
         'rol' => 'Usuario',
+        'created_at' => '2026-01-10 12:00:00'
     ]);
 
     User::create([
