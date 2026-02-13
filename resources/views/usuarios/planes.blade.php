@@ -53,6 +53,8 @@
         <div class="text-center mb-5">
             <h1 class="display-4 fw-bold">Accede a tu curso</h1>
             <p class="lead text-muted">Selecciona el plan que mejor se adapte a tus objetivos financieros y nivel de experiencia.</p>
+            <p class="text-muted small">Se ruega que cada alumno se adapte a su nivel</p>
+
             <div class="d-flex justify-content-center gap-3">
                 <span class="badge bg-light text-dark border"><i class="bi bi-shield-check text-primary"></i> Pago Seguro</span>
                 <span class="badge bg-light text-dark border"><i class="bi bi-clock-history text-primary"></i> Acceso 24/7</span>
@@ -66,10 +68,9 @@
             <div class="col">
                 <div class="card h-100 shadow-sm border-0">
                     <div class="card-body p-4 d-flex flex-column">
-                        <h5 class="card-title text-uppercase text-muted">Pack Gratuito</h5>
-                        <h2 class="card-price fw-bold">0€</h2>
+                        <h5 class="card-title text-uppercase text-muted">Pack Inicial</h5>
                         <p class="text-muted small">Ideal para conocer los fundamentos sin compromiso.</p>
-                        <hr>
+                        <hr class="border-secondary">
                         <ul class="list-unstyled mb-4">
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Introducción a la inversión</li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Conceptos de Riesgo y Retorno</li>
@@ -91,9 +92,9 @@
                     </span>
                     <div class="card-body p-4 d-flex flex-column">
                         <h5 class="card-title text-uppercase text-muted">Pack Avanzado</h5>
-                        <h2 class="card-price fw-bold">35€ <span class="fs-6 fw-normal text-muted">/ mes</span></h2>
-                        <p class="text-primary small fw-bold">15% dto. colectivos especiales*</p>
-                        <hr>
+                        <p class="text-muted small">Ideal para personas que ya tienen conocimientos en el tema.</p>
+
+                        <hr class="border-secondary">
                         <ul class="list-unstyled mb-4">
                             <li class="mb-2"><i class="bi bi-check2-all text-primary me-2"></i><strong>60 horas de curso</strong></li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Value Investing & Day Trading</li>
@@ -112,11 +113,9 @@
                 <div class="card h-100 shadow-sm border-0">
                     <div class="card-body p-4 d-flex flex-column">
                         <h5 class="card-title text-uppercase text-secondary">Pack Supremo</h5>
-                        <h2 class="card-price fw-bold text">60€ <span class="fs-6 fw-normal text-secondary">/ mes</span></h2>
-                        <p class="text-info small fw-bold">30% dto. colectivos especiales*</p>
                         <hr class="border-secondary">
                         <ul class="list-unstyled mb-4">
-                            <li class="mb-2"><i class="bi bi-star-fill text-warning me-2"></i><strong>Mentoría 1 a 1 semanal</strong></li>
+                            <li class="mb-2"><i class="bi bi-star-fill text-warning me-2"></i><strong>Mentorías con expertos</strong></li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Alertas de trading en vivo</li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Planificación fiscal avanzada</li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Acceso Vitalicio a materiales</li>

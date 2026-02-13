@@ -52,7 +52,6 @@
         
         <div class="text-center mb-5 p-5 rounded-3xl shadow-lg bg-gradient-to-r from-purple-400 to-indigo-600 text">
             <h1 class="display-4 fw-bold mb-3">Pack Avanzado</h1>
-            <p class="lead mb-2">35€ / mes <span class="text-warning fw-bold">15% de descuento para colectivos especiales*</span></p>
             <p class="text-white-50 mb-4">Todo lo que necesitas para llevar tus inversiones al siguiente nivel.</p>
         </div>
 

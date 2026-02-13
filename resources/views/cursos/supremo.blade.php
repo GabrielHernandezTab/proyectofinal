@@ -198,7 +198,6 @@
         <div class="header-section">
             <span class="badge-custom">NIVEL EXCELENCIA</span>
             <h1>Pack Supremo</h1>
-            <p>60€ / mes <strong style="color:#1e3a8a;">30% de descuento para colectivos especiales*</strong></p>
             <p>La experiencia definitiva con acompañamiento personalizado y alertas en tiempo real.</p>
         </div>
 
@@ -277,7 +276,7 @@
         <div class="details-item">
             <h5><i class="bi bi-search"></i>Investigación Profunda</h5>
             <p>Estudian el negocio, balances y tendencias del sector antes de invertir. Priorizan valor intrínseco sobre precios temporales.</p>
-        </div>/mis-planes
+        </div>
         <div class="details-item">
             <h5><i class="bi bi-shield-lock-fill"></i>Gestión de Riesgos</h5>
             <p>Definen límites de pérdida, equilibran la cartera y evitan decisiones impulsivas basadas en emociones.</p>
@@ -293,7 +292,7 @@
         <div class="details-item">
             <h5><i class="bi bi-people-fill"></i>Networking y Mentoría</h5>
             <p>Aprenden de otros inversores, comparten información y aprovechan insights exclusivos de comunidades de élite.</p>
-        </div>/mis-planes
+        </div>
         <div class="details-item">
             <h5><i class="bi bi-wallet2"></i>Mantener Liquidez</h5>
             <p>Tener efectivo disponible para aprovechar oportunidades cuando el mercado cae o surgen inversiones atractivas.</p>
