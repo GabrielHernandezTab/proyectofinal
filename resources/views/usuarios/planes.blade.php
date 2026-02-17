@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </div>
-
+            @hasanyrole('Usuario Avanzado|Usuario Experto')
             <!-- Pack Avanzado -->
             <div class="col">
                 <div class="card h-100 shadow border-primary position-relative">
@@ -107,7 +107,8 @@
                     </div>
                 </div>
             </div>
-
+            @endhasanyrole
+            @role('Usuario Experto')
             <!-- Pack Supremo -->
             <div class="col">
                 <div class="card h-100 shadow-sm border-0">
@@ -127,7 +128,7 @@
                 </div>
             </div>
         </div>
-
+        @endrole
         <!-- Tabla comparativa -->
         <div class="mt-5 pt-5">
             <h3 class="text-center mb-4">Compara las características</h3>

@@ -70,6 +70,8 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         'email' => 'juancarlos@cifpzonzamas.es',
         'password' => Hash::make('12345678'),
         'rol' => 'Usuario',
+        'created_at' => '2025-01-10 12:00:00'
+
     ]);
 
     User::create([
