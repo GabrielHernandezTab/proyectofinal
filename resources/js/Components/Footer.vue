@@ -5,7 +5,7 @@
           
         <div class="col-lg-4 col-md-6">
             <div class="d-flex align-items-center mb-3">
-                <img :src="'/imagenes/logo.png'" alt="Logo Footer" 
+                <img :src="'/imagenes/logo.webp'" alt="Logo Footer" 
                     class="rounded-circle me-2"
                     style="width: 40px; height: 40px; object-fit: cover; border: 1px solid rgba(0,209,178,0.3);">
                 <h5 class="mb-0 fw-bold">Gen Trading</h5>

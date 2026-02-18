@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}">
-                        <img src="{{ asset('imagenes/logo.png') }}" style="border-radius:50%; width:50px">
+                        <img src="{{ asset('imagenes/logo.webp') }}" style="border-radius:50%; width:50px">
                     </a>
                 </div>
 

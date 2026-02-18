@@ -31,7 +31,7 @@ export default {
             descripcion: "Aprovecha hasta un 50% de descuento en planes de hosting con IONOS. Ideal para tu web o proyecto Laravel.",
             enlace: "https://www.ionos.es/alojamiento/deploy-now#packs",
             botonTexto: "Ver oferta",
-            imagen: "/imagenes/ionos.png"
+            imagen: "/imagenes/ionos.webp"
         },
         { 
             id: 2, 
@@ -39,7 +39,7 @@ export default {
             descripcion: "Descubre Docker desde cero y aprende a crear, ejecutar y gestionar contenedores para desplegar aplicaciones de forma rápida, segura y profesional. Ideal para desarrolladores que quieren mejorar su flujo de trabajo y preparar proyectos reales.",
             enlace: "https://openwebinars.net/cursos/docker-introduccion/",
             botonTexto: "Inscribirme",
-            imagen: "/imagenes/docker.png"
+            imagen: "/imagenes/docker.webp"
         },
         { 
             id: 3, 
@@ -47,7 +47,7 @@ export default {
             descripcion: "Curso avanzado de Vue 3 y Laravel, práctica real con proyectos.", 
             enlace: "https://www.mdigital.es/cursos-coding-programacion?piloto=640&utm_source=google&utm_medium=cpc&utm_campaign=22997541332&utm_content=773158757433&utm_term=p_curso%20de%20programacion&adgrp=185582121976&adpos=&adpos=&extension=&locphisical=9048993&placement=&gad_source=1&gad_campaignid=22997541332&gbraid=0AAAAADvbdMjTciP75rzwGs2u49XQZn0R2&gclid=CjwKCAiAkbbMBhB2EiwANbxtbYYO0wAJUSZ7A1XOd1pxQEcHmsxp9aEViu8ukkqprv9R5JfyWLVPQxoC0kIQAvD_BwE",
             botonTexto: "Inscribirme",
-            imagen: "/imagenes/mdigital.png"
+            imagen: "/imagenes/mdigital.webp"
         },
       ],
     };

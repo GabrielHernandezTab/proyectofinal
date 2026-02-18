@@ -19,7 +19,7 @@
         <div class="container d-flex justify-content-between">
             
         <a class="navbar-brand d-flex align-items-center fw-bold fs-3" href="/">
-            <img src="/imagenes/logo.png" alt="Logo" 
+            <img src="/imagenes/logo.webp" alt="Logo" 
                 class="rounded-circle me-2" 
                 style="width: 45px; height: 45px; object-fit: cover; border: 1px solid rgba(255,255,255,0.2);">
             Gen Trading

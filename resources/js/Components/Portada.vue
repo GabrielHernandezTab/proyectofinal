@@ -4,7 +4,7 @@
         
         <div class="mb-4 d-inline-block p-2 rounded-circle shadow-lg" 
             style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255,255,255,0.1);">
-            <img :src="'/imagenes/logo.png'" 
+            <img :src="'/imagenes/logo.webp'" 
               alt="Logo Central" 
               loading="lazy"
               style="width: 90px; height: 90px; object-fit: cover; border: 2px solid #00d1b2;" 
@@ -44,7 +44,7 @@
     min-height: 90vh;
     /* El degradado azul oscuro de la foto */
     background-image: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.6)), 
-    url("/imagenes/ejemploinversion.jpg");
+    url("/imagenes/ejemploinversion.webp");
     position: relative;
     overflow: hidden;
   }

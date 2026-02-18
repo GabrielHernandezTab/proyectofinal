@@ -84,7 +84,7 @@
     { nombre: 'Instituto BME', precio: '45-75€', enfoque: 'Criptos', limite: 'Requiere asistencia presencial' },
     { 
       nombre: 'Gen Trading', 
-      precio: 'Gratis / 35-60€', subPrecio: 'Sin trampa',
+      precio: 'Gratis', subPrecio: 'Sin trampa',
       enfoque: 'Bolsa e Inmuebles', subEnfoque: 'Bajo riesgo',
       limite: 'Sin limitaciones',
       isMain: true 
@@ -95,7 +95,7 @@
     { titulo: '1. Gratis de Verdad', icon: 'bi-check2-circle', competencia: '"Curso gratis" pero solo 20 plazas, luego 500-1130€.', nosotros: 'Pack gratuito ilimitado para siempre. Sin trampas.' },
     { titulo: '2. Inversión Segura', icon: 'bi-shield-check', competencia: 'Trading de criptos, Forex volátil, riesgo alto.', nosotros: 'Bolsa e inmuebles, estrategias probadas, bajo riesgo.' },
     { titulo: '3. Atención Personal', icon: 'bi-people', competencia: 'Clases presenciales obligatorias o videos pregrabados.', nosotros: 'Videoconferencias 1 a 1, análisis personalizados, 100% online.' },
-    { titulo: '4. Precio Justo', icon: 'bi-currency-dollar', competencia: '500-1130€ por cursos básicos.', nosotros: '35-60€/mes con 15-30% descuento para estudiantes/jubilados.' }
+    { titulo: '4. Precio Justo', icon: 'bi-currency-dollar', competencia: '500-1130€ por cursos básicos.', nosotros: 'Gratuito 100 por ciento' }
   ];
   </script>
   

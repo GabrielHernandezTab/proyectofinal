@@ -76,10 +76,8 @@
     },
     {
       nombre: 'Pack Avanzado',
-      precio: '35€',
-      subtitulo: 'por mes',
+      precio: 'Gratis',
       icon: 'bi-lightning-charge',
-      descuento: '15% descuento para jubilados/estudiantes/discapacitados',
       horas: '60 horas de curso',
       btnText: '',
       destacado: true,
@@ -96,15 +94,12 @@
     },
     {
       nombre: 'Pack Supremo',
-      precio: '60€',
-      subtitulo: 'por mes',
+      precio: 'Gratis',
       icon: 'bi-crown',
-      descuento: '30% descuento para jubilados/estudiantes/discapacitados',
       horas: '100 horas de curso',
       btnText: 'Acceso Premium',
       destacado: false,
       features: [
-        'Después de 2 meses: 45€/mes',
         '3 videos nuevos cada semana',
         'Clase personalizada por videoconferencia semanal',
         'Análisis profundo de datos e información',
