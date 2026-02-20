@@ -37,6 +37,12 @@ Route::get('/quiero-donar', [DonanteController::class, 'formularioPublico'])->na
 Route::post('/quiero-donar', [DonanteController::class, 'store'])->name('donacion.store');    // Ver planes (usuario normal)
 Route::get('/mis-planes', [PlanController::class, 'index'])->name('usuarios.planes');
 
+
+ // PLANES
+    Route::get('mis-planes/basico',[PlanController::class, 'basico']);
+    Route::get('mis-planes/avanzado',[PlanController::class, 'avanzado']);
+    Route::get('mis-planes/supremo',[PlanController::class, 'supremo']);
+
 });
 
 /*
@@ -72,14 +78,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/administradores', [AdministradorController::class, 'index'])->name('administradores.index');
     Route::match(['get', 'post'], '/administrador/{oper}/{id?}', [AdministradorController::class, 'operacion']);
 
-
-    // PLANES
-    Route::get('mis-planes/basico',[PlanController::class, 'basico']);
-    Route::get('mis-planes/avanzado',[PlanController::class, 'avanzado']);
-    Route::get('mis-planes/supremo',[PlanController::class, 'supremo']);
-
-
 });
+   
+
+
 
 /* --- OTRAS RUTAS --- */
 //Route::post('/procesar-datos', [Datos::class, 'procesar']);

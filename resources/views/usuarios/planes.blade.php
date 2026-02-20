@@ -83,7 +83,8 @@
                     </div>
                 </div>
             </div>
-            @hasanyrole('Usuario Avanzado|Usuario Experto')
+            <br>
+            @hasanyrole('Usuario Avanzado|Usuario Experto|admin')
             <!-- Pack Avanzado -->
             <div class="col">
                 <div class="card h-100 shadow border-primary position-relative">
@@ -108,7 +109,7 @@
                 </div>
             </div>
             @endhasanyrole
-            @role('Usuario Experto')
+            @hasanyrole('Usuario Experto|admin')
             <!-- Pack Supremo -->
             <div class="col">
                 <div class="card h-100 shadow-sm border-0">
@@ -128,44 +129,8 @@
                 </div>
             </div>
         </div>
-        @endrole
-        <!-- Tabla comparativa -->
-        <div class="mt-5 pt-5">
-            <h3 class="text-center mb-4">Compara las características</h3>
-            <div class="table-responsive">
-                <table class="table table-hover text-center align-middle border">
-                    <thead class="table-light">
-                        <tr>
-                            <th style="width: 40%;" class="text-start ps-4">Característica</th>
-                            <th style="width: 20%;">Gratis</th>
-                            <th style="width: 20%;">Avanzado</th>
-                            <th style="width: 20%;">Supremo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-start ps-4">Acceso a lecciones en vídeo</td>
-                            <td>Básico</td>
-                            <td>Completo</td>
-                            <td>Ilimitado</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start ps-4">Soporte técnico</td>
-                            <td>Email</td>
-                            <td>Prioritario</td>
-                            <td>24/7 (WhatsApp)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start ps-4">Certificado de finalización</td>
-                            <td><i class="bi bi-x text-danger"></i></td>
-                            <td><i class="bi bi-check-lg text-success"></i></td>
-                            <td><i class="bi bi-check-lg text-success"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <br><br>
+        @endhasanyrole
+      
         <!-- Accordeon simple -->
          <div class="container">
             <h2 class="mb-4 text-center">Preguntas Frecuentes</h2>

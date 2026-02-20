@@ -38,7 +38,8 @@
                 </ul>
   
                 <a :class="['btn w-100 py-3 fw-bold', plan.destacado ? 'btn-success' : 'btn-primary' ]"
-                        style="border-radius: 12px;">
+                        style="border-radius: 12px;"
+                        href="/login";>
                   {{ plan.btnText }}
                 </a>
               </div>
@@ -79,7 +80,7 @@
       precio: 'Gratis',
       icon: 'bi-lightning-charge',
       horas: '60 horas de curso',
-      btnText: '',
+      btnText: 'Empieza ya!',
       destacado: true,
       features: [
         'Videos cada dos semanas (2 horas c/u)',
