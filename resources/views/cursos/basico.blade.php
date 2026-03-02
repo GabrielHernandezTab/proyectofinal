@@ -54,9 +54,11 @@
             <h1 class="display-4 fw-bold text-dark">Estrategias y Planes de Inversión</h1>
             <p class="lead mb-4 text-dark">Aprende los fundamentos para construir tu libertad financiera y toma decisiones inteligentes sobre tu dinero.</p>
             <div class="d-flex justify-content-center">
-                <iframe width="720" height="405" src="https://youtu.be/2ibqfxEAESo?si=WmBVNhPycHwDEsUq" 
+                <iframe width="720" height="405" 
+                        src="https://www.youtube.com/watch?v=2ibqfxEAESo" 
                         title="Introducción a la inversión" frameborder="0" 
-                        class="rounded-3 shadow-lg" allowfullscreen></iframe>
+                        class="rounded-3 shadow-lg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
             </div>
         </div>
 
