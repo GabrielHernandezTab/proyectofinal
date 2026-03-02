@@ -9,7 +9,7 @@
                 <span class="d-none d-lg-inline"><i class="bi bi-geo-alt me-2"></i>Arrecife, Lanzarote, España</span>
             </div>
             <div class="d-none d-md-block text-white-50">
-                Descuentos del 15-30% para jubilados y estudiantes
+                SIN DESCUENTOS
             </div>
         </div>
     </div>
