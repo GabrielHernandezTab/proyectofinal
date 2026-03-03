@@ -20,7 +20,7 @@
             <h5 class="mb-3 fw-bold">Contacto</h5>
             <ul class="list-unstyled">
               <li class="mb-2 d-flex align-items-center text-secondary small">
-                <i class="bi bi-envelope me-2 text-info"></i> info@gentrading.com
+                <i class="bi bi-envelope me-2 text-info"></i> info@gentrading.es
               </li>
               <li class="mb-2 d-flex align-items-center text-secondary small">
                 <i class="bi bi-telephone me-2 text-info"></i> +34 928 45 54 21
