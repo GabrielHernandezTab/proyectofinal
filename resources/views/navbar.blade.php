@@ -4,7 +4,7 @@
          style="background-color: #0e2f53; font-size: 0.85rem; width: 100%; border: none !important;">
         <div class="container d-flex justify-content-between align-items-center flex-wrap">
             <div class="d-flex gap-4">
-                <span><i class="bi bi-envelope me-2"></i>info@gentrading.es</span>
+                <span><i class="bi bi-envelope me-2"></i>info@gentrading.ES</span>
                 <span><i class="bi bi-telephone me-2"></i>+34 228 45 54 21</span>
                 <span class="d-none d-lg-inline"><i class="bi bi-geo-alt me-2"></i>Arrecife, Lanzarote, España</span>
             </div>
