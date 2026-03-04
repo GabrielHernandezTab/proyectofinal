@@ -87,3 +87,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 //Route::post('/procesar-datos', [Datos::class, 'procesar']);
 
 require __DIR__.'/auth.php';
+
+
+use Illuminate\Support\Facades\Artisan;
+Route::get('/force-clear', function() {
+    Artisan::call('optimize:clear');
+    return "Caché limpiada con éxito";
+});
