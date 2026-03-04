@@ -3,7 +3,7 @@
       <div class="container mt-4">
         <div class="text-center mb-5">
           <h2 class="display-5 fw-bold" style="color: #0d1b2a;">Características</h2>
-          <p class="text-muted fs-5">OFRECEMOS formación completa y profesional para todos los niveles de inversión</p>
+          <p class="text-muted fs-5">Ofrecemos formación completa y profesional para todos los niveles de inversión</p>
         </div>
   
         <div class="row g-4">
