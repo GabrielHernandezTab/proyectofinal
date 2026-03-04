@@ -52,7 +52,7 @@
         <!-- Sección de Bienvenida -->
         <div class="text-center mb-5 p-5 rounded-3xl shadow-lg bg-gradient-to-r from-blue-400 to-indigo-500 text-white">
             <h1 class="display-4 fw-bold text-dark">Estrategias y Planes de Inversión</h1>
-            <p class="lead mb-4 text-dark">APRENDE los fundamentos para construir tu libertad financiera y toma decisiones inteligentes sobre tu dinero.</p>
+            <p class="lead mb-4 text-dark">Aprende los fundamentos para construir tu libertad financiera y toma decisiones inteligentes sobre tu dinero.</p>
             <div class="d-flex justify-content-center">
                 <iframe width="720" height="405" 
                         src="https://www.youtube.com/watch?v=2ibqfxEAESo" 
