@@ -32,9 +32,14 @@ class ActualizarUsuariosPorAntiguedad extends Command
         | 3️⃣ USUARIOS EXPERTOS (> 2 meses)
         |--------------------------------------------------------------------------
         */
-        $usuariosExperto = User::where('created_at', '<=', $fechaExperto)
+        /*
+                $usuariosExperto = User::where('created_at', '<=', $fechaExperto)
             ->whereNotIn('rol', ['Admin', 'Súper Admin'])
             ->get();
+        */
+            $usuariosExperto = User::whereIn('rol', ['Usuario', 'usuario']) // Acepta ambas versiones
+                ->whereNotIn('rol', ['Admin', 'Súper Admin'])
+                ->get();
 
         foreach ($usuariosExperto as $usuario) {
 
@@ -57,8 +62,13 @@ class ActualizarUsuariosPorAntiguedad extends Command
         | 4️⃣ USUARIOS AVANZADOS (> 2 semanas y < 2 meses)
         |--------------------------------------------------------------------------
         */
-        $usuariosAvanzado = User::where('created_at', '<=', $fechaAvanzado)
+        /*
+                $usuariosAvanzado = User::where('created_at', '<=', $fechaAvanzado)
             ->where('created_at', '>', $fechaExperto) // Para que no pille expertos
+            ->whereNotIn('rol', ['Admin', 'Súper Admin'])
+            ->get();
+        */
+        $usuariosAvanzado = User::whereIn('rol', ['Usuario', 'usuario'])
             ->whereNotIn('rol', ['Admin', 'Súper Admin'])
             ->get();
 
