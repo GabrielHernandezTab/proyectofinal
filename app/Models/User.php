@@ -36,4 +36,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    protected function setRolAttribute($value)
+    {
+        // Esto hace que si entra "usuario", se guarde como "Usuario" siempre.
+        $this->attributes['rol'] = ucfirst(strtolower($value));
+    }
 }
