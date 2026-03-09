@@ -24,8 +24,8 @@ class ActualizarUsuariosPorAntiguedad extends Command
         //$fechaAvanzado = Carbon::now()->subWeeks(2);
         //$fechaExperto = Carbon::now()->subMonths(2);
 
-        $fechaAvanzado = Carbon::now()->subWeeks(2);
-        $fechaExperto = Carbon::now()->subMonths(2);
+        $fechaAvanzado = Carbon::now()->subMinutes(2);
+        $fechaExperto = Carbon::now()->subMinutes(5);
 
         /*
         |--------------------------------------------------------------------------
