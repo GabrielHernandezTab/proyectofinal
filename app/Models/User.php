@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles; // Importante para que funcione @role
 
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasRoles;
@@ -42,4 +43,7 @@ class User extends Authenticatable
         // Esto hace que si entra "usuario", se guarde como "Usuario" siempre.
         $this->attributes['rol'] = ucfirst(strtolower($value));
     }
+
+
+    
 }

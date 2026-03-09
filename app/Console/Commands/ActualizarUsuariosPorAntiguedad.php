@@ -41,7 +41,6 @@ class ActualizarUsuariosPorAntiguedad extends Command
                 ->whereNotIn('rol', ['Admin', 'Súper Admin'])
                 ->get();
 
-$this->info("He encontrado " . $usuariosExperto->count() . " usuarios para procesar.");
         
             foreach ($usuariosExperto as $usuario) {
 
