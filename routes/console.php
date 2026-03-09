@@ -11,4 +11,4 @@ Artisan::command('inspire', function () {
 
 
 
-Schedule::command('users:upgrade-roles')->daily();
+Schedule::command('usuarios:actualizar-roles')->daily();
