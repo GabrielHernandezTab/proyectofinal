@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles; // Importante para que funcione @role
+use Spatie\Permission\Traits\HasRoles; 
 
 
 class User extends Authenticatable
@@ -22,7 +22,7 @@ class User extends Authenticatable
         'nombre',
         'email',
         'password',
-        'rol', // Tu columna personalizada
+        'rol',
     ];
 
     protected $hidden = [
@@ -44,6 +44,6 @@ class User extends Authenticatable
         $this->attributes['rol'] = ucfirst(strtolower($value));
     }
 
-
+    
     
 }

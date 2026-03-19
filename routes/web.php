@@ -32,10 +32,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // --- SECCIÓN: REALIZAR DONACIÓN (Visible para usuario normal) ---
-// Cambia estas dos líneas dentro del grupo 'auth' general:
-Route::get('/quiero-donar', [DonanteController::class, 'formularioPublico'])->name('donacion.formulario');
-Route::post('/quiero-donar', [DonanteController::class, 'store'])->name('donacion.store');    // Ver planes (usuario normal)
-Route::get('/mis-planes', [PlanController::class, 'index'])->name('usuarios.planes');
+    // Cambia estas dos líneas dentro del grupo 'auth' general:
+    Route::get('/quiero-donar', [DonanteController::class, 'formularioPublico'])->name('donacion.formulario');
+    Route::post('/quiero-donar', [DonanteController::class, 'store'])->name('donacion.store');    // Ver planes (usuario normal)
+    Route::get('/mis-planes', [PlanController::class, 'index'])->name('usuarios.planes');
 
 
  // PLANES
@@ -85,5 +85,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 //Route::post('/procesar-datos', [Datos::class, 'procesar']);
 
 require __DIR__.'/auth.php';
+
 
 

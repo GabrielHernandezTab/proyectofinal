@@ -37,9 +37,11 @@ class RegisteredUserController extends Controller
             'nombre'   => $request->name, // Mapeamos el input 'name' a tu columna 'nombre'
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'rol'      => 'usuario', // Evitamos el error de campo 'rol' vacío que vimos en Tinker
+            'rol'      => 'Usuario', 
         ]);
-    
+        
+        $user->refresh();
+
         event(new Registered($user));
         Auth::login($user);
     

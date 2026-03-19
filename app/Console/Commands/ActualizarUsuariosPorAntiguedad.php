@@ -21,46 +21,14 @@ class ActualizarUsuariosPorAntiguedad extends Command
         $rolExperto = Role::firstOrCreate(['name' => 'Usuario Experto']);
 
         // 2️⃣ Calcular fechas límite
-        //$fechaAvanzado = Carbon::now()->subWeeks(2);
-        //$fechaExperto = Carbon::now()->subMonths(2);
-
-        $fechaAvanzado = Carbon::now()->subMinutes(2);
-        $fechaExperto = Carbon::now()->subMinutes(5);
-
-        /*
-        |--------------------------------------------------------------------------
-        | 3️⃣ USUARIOS EXPERTOS (> 2 meses)
-        |--------------------------------------------------------------------------
-        */
-        /*
-                $usuariosExperto = User::where('created_at', '<=', $fechaExperto)
-            ->whereNotIn('rol', ['Admin', 'Súper Admin'])
-            ->get();
-        */
-            $usuariosExperto = User::whereIn('rol', ['Usuario', 'usuario']) // Acepta ambas versiones
-                ->whereNotIn('rol', ['Admin', 'Súper Admin'])
-                ->get();
+        $fechaAvanzado = Carbon::now()->subWeeks(2);
+        $fechaExperto = Carbon::now()->subMonths(2);
 
         
-            foreach ($usuariosExperto as $usuario) {
-
-            // Si ya es experto, lo saltamos
-            if ($usuario->rol === 'Usuario Experto') {
-                continue;
-            }
-
-            $usuario->rol = 'Usuario Experto';
-            $usuario->save();
-
-            // IMPORTANTE: reemplaza cualquier rol anterior
-            $usuario->syncRoles([$rolExperto]);
-
-            $this->info("✔ {$usuario->nombre} ahora es Usuario Experto.");
-        }
-
+        
         /*
         |--------------------------------------------------------------------------
-        | 4️⃣ USUARIOS AVANZADOS (> 2 semanas y < 2 meses)
+        |  4️⃣USUARIOS AVANZADOS (> 2 semanas y < 2 meses)
         |--------------------------------------------------------------------------
         */
         /*
@@ -90,5 +58,37 @@ class ActualizarUsuariosPorAntiguedad extends Command
         }
 
         $this->info('Proceso completado correctamente.');
+        /*
+        |--------------------------------------------------------------------------
+        | x4️⃣ USUARIOS EXPERTOS (> 2 meses)
+        |--------------------------------------------------------------------------
+        */
+        /*
+                $usuariosExperto = User::where('created_at', '<=', $fechaExperto)
+            ->whereNotIn('rol', ['Admin', 'Súper Admin'])
+            ->get();
+        */
+            $usuariosExperto = User::whereIn('rol', ['Usuario', 'usuario']) // Acepta ambas versiones
+                ->whereNotIn('rol', ['Admin', 'Súper Admin'])
+                ->get();
+
+        
+            foreach ($usuariosExperto as $usuario) {
+
+            // Si ya es experto, lo saltamos
+            if ($usuario->rol === 'Usuario Experto') {
+                continue;
+            }
+
+            $usuario->rol = 'Usuario Experto';
+            $usuario->save();
+
+            // IMPORTANTE: reemplaza cualquier rol anterior
+            $usuario->syncRoles([$rolExperto]);
+
+            $this->info("✔ {$usuario->nombre} ahora es Usuario Experto.");
+        }
+
+        
     }
 }

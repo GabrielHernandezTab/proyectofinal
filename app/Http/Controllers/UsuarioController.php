@@ -36,7 +36,6 @@ class UsuarioController extends Controller
         $datos['exito'] = "Operación realizada con éxito";
     }
 
-    // Si es AJAX, devolvemos la vista SIN el layout (para que no salga la barra de navegación)
     if ($request->ajax()) {
         return view('usuarios.create', compact('usuario', 'oper', 'disabled', 'datos'));
     }

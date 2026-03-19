@@ -11,4 +11,4 @@ Artisan::command('inspire', function () {
 
 
 
-Schedule::command('usuarios:actualizar-roles')->daily();
+Schedule::command('usuarios:actualizar-roles')->everyFiveMinutes();

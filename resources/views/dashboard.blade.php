@@ -37,6 +37,10 @@
                             <strong>Administrador:</strong> Puedes gestionar usuarios y planes desde el panel.
                         </div>
                     @endrole
+
+                    @role('Usuario')
+                        <p>Bienvenido a tu panel de usuario.</p>
+                    @endrole
                 </div>
             </div>
         </div>
