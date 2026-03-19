@@ -30,7 +30,7 @@ class DonanteController extends Controller
             'edad.regex'    => 'Debes ser mayor de edad',
             'edad.min'      => 'Debes ser mayor de edad',
             'importe.required' => 'El importe es obligatorio.',
-            'iban.regex'       => 'Formato IBAN incorrecto (ES...)',
+            'iban.regex'       => 'Formato IBAN incorrecto (ES...)segudio por 22 números',
             'iban.required'       => 'El IBAN es obligatorio',
             'valoracion.required' => 'Por favor, valora el servicio.'
         ]);

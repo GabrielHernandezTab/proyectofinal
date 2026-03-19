@@ -49,23 +49,21 @@
 
     <div class="container py-5">
 
-        <!-- Sección de Bienvenida -->
         <div class="text-center mb-5 p-5 rounded-3xl shadow-lg bg-gradient-to-r from-blue-400 to-indigo-500 text-white">
             <h1 class="display-4 fw-bold text-dark">Estrategias y Planes de Inversión</h1>
             <p class="lead mb-4 text-dark">Aprende los fundamentos para construir tu libertad financiera y toma decisiones inteligentes sobre tu dinero.</p>
             <div class="d-flex justify-content-center">
                 <iframe width="720" height="405" 
-                        src="https://www.youtube.com/watch?v=2ibqfxEAESo" 
+                        src="https://www.youtube.com/embed/r2e-Nf2Vemc" 
                         title="Introducción a la inversión" frameborder="0" 
                         class="rounded-3 shadow-lg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
             </div>
         </div>
 
-        <div class="row g-4 mb-5">
-            
+        <div class="row g-4 mb-4">
             <div class="col-md-4">
-                <div class="card h-100 p-3 shadow-lg  border-primary position-relative bg-light">
+                <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-primary fw-bold">Introducción</h5>
                         <p class="text-muted small mb-3 flex-grow-1">Introducción a la inversión</p>
@@ -74,54 +72,97 @@
                                 Básicamente, se trata de <strong>poner tu dinero a trabajar</strong> en lugar de solo guardarlo.
                             </li>
                             <li><i class="bi bi-check2-circle text-success me-2"></i>
-                                    Aprendes la diferencia entre <strong>ahorrar</strong> (guardar dinero, normalmente seguro pero con poco crecimiento) e <strong>invertir</strong> (arriesgar un poco más para obtener más ganancias a largo plazo).                            </li>
+                                Aprendes la diferencia entre <strong>ahorrar</strong> e <strong>invertir</strong>.
+                            </li>
                             <li><i class="bi bi-check2-circle text-success me-2"></i>
-                                    La idea es que tu dinero <strong>crezca con el tiempo</strong>, aprovechando intereses, dividendos o la valorización de activos.                            </li>
+                                La idea es que tu dinero <strong>crezca con el tiempo</strong> aprovechando el mercado.
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-       
             <div class="col-md-4">
                 <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-primary fw-bold">Conceptos de Riesgo y Retorno</h5>
                         <p class="text-muted small mb-3 flex-grow-1">
-                            Todo tipo de inversión tiene un <strong>riesgo</strong> (posibilidad de perder dinero) y un <strong>retorno</strong> (ganancia potencial).
+                            Todo tipo de inversión tiene un <strong>riesgo</strong> y un <strong>retorno</strong>.
                         </p>
-                        <ul class="list-unstyled mb-3">Aprendes a <strong>equilibrar riesgo y beneficio</strong> según tu estilo de inversión:
-                            <li><i class="bi bi-check2-circle text-success me-2"></i>Conservador → bajo riesgo, retorno moderado</li>
-                            <li><i class="bi bi-check2-circle text-success me-2"></i>Moderado → riesgo medio, retorno razonable</li>
-                            <li><i class="bi bi-check2-circle text-success me-2"></i>Agresivo → riesgo alto, posible retorno alto</li>
+                        <ul class="list-unstyled mb-3">Aprendes a <strong>equilibrar riesgo y beneficio</strong>:
+                            <li><i class="bi bi-check2-circle text-success me-2"></i>Conservador → bajo riesgo</li>
+                            <li><i class="bi bi-check2-circle text-success me-2"></i>Moderado → riesgo medio</li>
+                            <li><i class="bi bi-check2-circle text-success me-2"></i>Agresivo → riesgo alto</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="card h-100 p-3 shadow-lg border-primary position-relative  ">
+                <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-primary fw-bold">Guías y plantillas básicas</h5>
-                        <p class="text-light small mb-3 flex-grow-1">
-                            Son <strong>herramientas prácticas</strong> para planificar tus inversiones:
+                        <p class="text-muted small mb-3 flex-grow-1">
+                            Son <strong>herramientas prácticas</strong> para planificar:
                         </p>
                         <ul class="list-unstyled mb-3">
                             <li><i class="bi bi-star-fill text-warning me-2"></i>Cómo establecer metas financieras</li>
-                            <li><i class="bi bi-check2-circle text-info me-2"></i>Cómo distribuir tu dinero en distintas inversiones</li>
-                            <li><i class="bi bi-check2-circle text-info me-2"></i>Cómo seguir y controlar tu progreso</li>                        </ul>
-                        <div class="d-grid mt-auto">
-                        </div>
+                            <li><i class="bi bi-check2-circle text-info me-2"></i>Cómo distribuir tu dinero</li>
+                            <li><i class="bi bi-check2-circle text-info me-2"></i>Cómo seguir tu progreso</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-                <a href="/mis-planes" style="float:right" >Volver a los planes</a>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-primary fw-bold">Tipos de Activos</h5>
+                        <p class="text-muted small mb-3 flex-grow-1">Conoce dónde puedes colocar tu capital:</p>
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="bi bi-check2-circle text-success me-2"></i><strong>Acciones:</strong> Ser dueño de una parte de una empresa.</li>
+                            <li><i class="bi bi-check2-circle text-success me-2"></i><strong>Bonos:</strong> Prestar dinero a cambio de intereses fijos.</li>
+                            <li><i class="bi bi-check2-circle text-success me-2"></i><strong>ETFs:</strong> Fondos que agrupan muchos activos a la vez.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-primary fw-bold">El Interés Compuesto</h5>
+                        <p class="text-muted small mb-3 flex-grow-1">La clave para multiplicar tu patrimonio a largo plazo:</p>
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="bi bi-check2-circle text-success me-2"></i>No retires tus ganancias; <strong>reinvierte</strong>.</li>
+                            <li><i class="bi bi-check2-circle text-success me-2"></i>El tiempo es tu mejor aliado (efecto bola de nieve).</li>
+                            <li><i class="bi bi-check2-circle text-success me-2"></i>Pequeñas cantidades hoy son fortunas mañana.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 p-3 shadow-lg border-primary position-relative bg-light">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-primary fw-bold">Diversificación</h5>
+                        <p class="text-muted small mb-3 flex-grow-1">La regla de oro para no perderlo todo:</p>
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="bi bi-check2-circle text-success me-2"></i>No pongas "todos los huevos en una sola canasta".</li>
+                            <li><i class="bi bi-check2-circle text-success me-2"></i>Invierte en diferentes sectores y países.</li>
+                            <li><i class="bi bi-check2-circle text-success me-2"></i>Reduce el impacto si a una empresa le va mal.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/mis-planes" style="float:right">Volver a los planes</a>
 
     </div>
-
 </x-app-layout>
-
 
 <script>
 var acc = document.getElementsByClassName("accordion");
