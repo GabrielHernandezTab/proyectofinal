@@ -21,8 +21,10 @@ class ActualizarUsuariosPorAntiguedad extends Command
         $rolExperto = Role::firstOrCreate(['name' => 'Usuario Experto']);
 
         // 2️⃣ Calcular fechas límite
-        $fechaAvanzado = Carbon::now()->subWeeks(2);
-        $fechaExperto = Carbon::now()->subMonths(2);
+        //$fechaAvanzado = Carbon::now()->subWeeks(2);
+        //$fechaExperto = Carbon::now()->subMonths(2);
+        $fechaAvanzado = Carbon::now()->subMinutes(2);
+        $fechaExperto = Carbon::now()->subMinutes(4);
 
         
         
