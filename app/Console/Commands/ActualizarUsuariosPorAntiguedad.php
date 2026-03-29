@@ -23,8 +23,8 @@ class ActualizarUsuariosPorAntiguedad extends Command
         // 2️⃣ Calcular fechas límite
         //$fechaAvanzado = Carbon::now()->subWeeks(2);
         //$fechaExperto = Carbon::now()->subMonths(2);
-        $fechaAvanzado = Carbon::now()->subMinutes(2);
-        $fechaExperto = Carbon::now()->subMinutes(4);
+        $fechaAvanzado = Carbon::now()->subMinutes(1);
+        $fechaExperto = Carbon::now()->subMinutes(2);
 
         
         
@@ -37,15 +37,11 @@ class ActualizarUsuariosPorAntiguedad extends Command
                 $usuariosAvanzado = User::where('created_at', '<=', $fechaAvanzado)
             ->where('created_at', '>', $fechaExperto) // Para que no pille expertos
             ->whereNotIn('rol', ['Admin', 'Súper Admin'])
-            ->get(); 
-                   $usuariosAvanzado = User::whereIn('rol', ['Usuario', 'usuario'])
-            ->whereNotIn('rol', ['Admin', 'Súper Admin'])
             ->get();
         */
-$usuariosAvanzado = User::where('created_at', '<=', $fechaAvanzado)
-    ->where('created_at', '>', $fechaExperto) 
-    ->whereNotIn('rol', ['Admin', 'Súper Admin', 'Usuario Avanzado', 'Usuario Experto'])
-    ->get();
+        $usuariosAvanzado = User::whereIn('rol', ['Usuario', 'usuario'])
+            ->whereNotIn('rol', ['Admin', 'Súper Admin'])
+            ->get();
 
         foreach ($usuariosAvanzado as $usuario) {
 
@@ -76,15 +72,11 @@ $usuariosAvanzado = User::where('created_at', '<=', $fechaAvanzado)
                 $usuariosExperto = User::where('created_at', '<=', $fechaExperto)
             ->whereNotIn('rol', ['Admin', 'Súper Admin'])
             ->get();
-            
+        */
             $usuariosExperto = User::whereIn('rol', ['Usuario', 'usuario']) // Acepta ambas versiones
                 ->whereNotIn('rol', ['Admin', 'Súper Admin'])
                 ->get();
 
-        */
-       $usuariosExperto = User::where('created_at', '<=', $fechaExperto)
-    ->whereNotIn('rol', ['Admin', 'Súper Admin', 'Usuario Experto'])
-    ->get();
         
             foreach ($usuariosExperto as $usuario) {
 
