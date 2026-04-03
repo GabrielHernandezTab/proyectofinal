@@ -84,6 +84,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 /* --- OTRAS RUTAS --- */
 //Route::post('/procesar-datos', [Datos::class, 'procesar']);
 
+
+
+use Illuminate\Support\Facades\Artisan;
+
+// Ruta secreta para ejecutar el comando en la presentación del TFG
+Route::get('/forzar-roles', function () {
+    Artisan::call('usuarios:actualizar-roles');
+    return '¡Comando ejecutado con éxito! Revisa los usuarios.';
+});
+
 require __DIR__.'/auth.php';
 
 
