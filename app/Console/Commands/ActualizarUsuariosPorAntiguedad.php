@@ -20,12 +20,15 @@ class ActualizarUsuariosPorAntiguedad extends Command
     $rolExperto = Role::firstOrCreate(['name' => 'Usuario Experto']);
 
     // Tiempos (Usando tus minutos de prueba)
-    $fechaAvanzado = Carbon::now()->subMinutes(1);
-    $fechaExperto = Carbon::now()->subMinutes(5);
+    //$fechaAvanzado = Carbon::now()->subMinutes(1);
+    //$fechaExperto = Carbon::now()->subMinutes(5);
+
+    $fechaAvanzado = Carbon::now()->subWeeks(2);
+    $fechaExperto = Carbon::now()->subMonths(2);
 
     /*
     |--------------------------------------------------------------------------
-    | 1️⃣ PRIMERO: USUARIOS EXPERTOS (> 5 minutos)
+    | 1️⃣ PRIMERO: USUARIOS EXPERTO (> 2 meses)
     |--------------------------------------------------------------------------
     | Buscamos a los que YA son Avanzados y cumplen el tiempo para ser Expertos.
     */
@@ -43,7 +46,7 @@ class ActualizarUsuariosPorAntiguedad extends Command
 
     /*
     |--------------------------------------------------------------------------
-    | 2️⃣ SEGUNDO: USUARIOS AVANZADOS (> 1 minuto)
+    | 2️⃣ SEGUNDO: USUARIOS AVANZADOS (> 2 semanas)
     |--------------------------------------------------------------------------
     | Buscamos a los que son "Usuario" base y cumplen el tiempo.
     */
