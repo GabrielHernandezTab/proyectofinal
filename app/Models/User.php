@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles; 
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable, HasRoles;
 
@@ -44,6 +45,11 @@ class User extends Authenticatable
         $this->attributes['rol'] = ucfirst(strtolower($value));
     }
 
+    // Necesario porque la tabla es 'usuarios' en lugar de 'users' para usar la lógica de restablecimiento de contraseña de Laravel
+    public function getEmailForPasswordReset(): string
+    {
+        return $this->email;
+    }
     
     
 }
