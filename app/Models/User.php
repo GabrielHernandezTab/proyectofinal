@@ -50,6 +50,11 @@ class User extends Authenticatable
     {
         return $this->email;
     }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new \App\Notifications\RestablecerContrasena($token));
+    }
     
     
 }

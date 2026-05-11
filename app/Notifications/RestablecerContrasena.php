@@ -7,20 +7,12 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 class RestablecerContrasena extends ResetPassword
 {
-    protected function buildMailMessage($url)
+    public function toMail($notifiable)
     {
+        $url = $this->resetUrl($notifiable);
+
         return (new MailMessage)
             ->subject('Restablece tu contraseña — GeN Trading')
             ->view('emails.restablecer', ['url' => $url]);
-    }
-
-    public function sendPasswordResetNotification($token)
-    {
-        $url = url(route('password.reset', [
-            'token' => $token,
-            'email' => $this->email,
-        ], false));
-
-        $this->notify(new \App\Notifications\RestablecerContrasena($token));
     }
 }
