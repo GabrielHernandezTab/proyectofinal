@@ -33,7 +33,7 @@
             <div class="d-flex align-items-center gap-3">
                 @if (Route::has('login'))
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="btn btn-outline-light rounded-pill px-4">Dashboard</a>
+                        <a href="{{ url('/dashboard') }}" class="btn btn-outline-light rounded-pill px-4">Panel de control</a>
                     @else
                         @if (Route::has('register'))
                             <a href="{{ route('login') }}" 
