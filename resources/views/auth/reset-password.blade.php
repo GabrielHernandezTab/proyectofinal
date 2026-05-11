@@ -1,10 +1,10 @@
 <x-guest-layout>
 
     <div style="text-align:center; margin-bottom:24px;">
-        <h2 style="color:#ffffff; font-size:20px; font-weight:700; margin:0 0 6px;">
+        <h2 style="color:#111827; font-size:20px; font-weight:700; margin:0 0 6px;">
             Nueva contraseña
         </h2>
-        <p style="color:#a8b8c8; font-size:14px; margin:0;">
+        <p style="color:#374151; font-size:14px; margin:0;">
             Introduce y confirma tu nueva contraseña para acceder a GeN Trading.
         </p>
     </div>
@@ -17,8 +17,7 @@
 
         <!-- Email -->
         <div style="margin-bottom:16px;">
-            <label style="display:block; color:#a8b8c8; font-size:13px;
-                           font-weight:600; margin-bottom:6px;">
+        <label style="display:block; color:#111827; font-size:13px; font-weight:700; margin-bottom:6px;">
                 Email
             </label>
             <input type="email" name="email"
@@ -34,8 +33,8 @@
 
         <!-- Nueva contraseña -->
         <div style="margin-bottom:16px;">
-            <label style="display:block; color:#a8b8c8; font-size:13px;
-                           font-weight:600; margin-bottom:6px;">
+            <label style="display:block; color:#111827; font-size:13px;
+                           font-weight:700; margin-bottom:6px;">
                 Nueva contraseña
             </label>
             <input type="password" name="password"
@@ -50,8 +49,8 @@
 
         <!-- Confirmar contraseña -->
         <div style="margin-bottom:24px;">
-            <label style="display:block; color:#a8b8c8; font-size:13px;
-                           font-weight:600; margin-bottom:6px;">
+            <label style="display:block; color:#111827; font-size:13px;
+                           font-weight:700; margin-bottom:6px;">
                 Confirmar nueva contraseña
             </label>
             <input type="password" name="password_confirmation"
