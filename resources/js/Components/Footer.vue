@@ -35,13 +35,13 @@
             <h5 class="mb-3 fw-bold">Legal</h5>
             <ul class="list-unstyled">
               <li class="mb-2">
-                <a href="#" class="text-secondary small text-decoration-none hover-link">Términos y Condiciones</a>
+                <a href="/terminos-y-condiciones" class="text-secondary small text-decoration-none hover-link">Términos y Condiciones</a>
               </li>
               <li class="mb-2">
-                <a href="#" class="text-secondary small text-decoration-none hover-link">Política de Privacidad</a>
+                <a href="/politica-de-privacidad" class="text-secondary small text-decoration-none hover-link">Política de Privacidad</a>
               </li>
               <li>
-                <a href="#" class="text-secondary small text-decoration-none hover-link">Aviso Legal</a>
+                <a href="/aviso-legal" class="text-secondary small text-decoration-none hover-link">Aviso Legal</a>
               </li>
             </ul>
           </div>

@@ -66,20 +66,29 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
     ]);
 
     User::create([
+        'nombre' => 'Gabriel', 
+        'email' => 'gabrielhdeztab@gmail.com',
+        'password' => Hash::make('12345678'),
+        'rol' => 'Usuario',
+        'created_at' => '2025-04-10 12:00:00'
+
+    ]);
+
+    User::create([
         'nombre' => 'Juan Carlos', 
         'email' => 'juancarlos@cifpzonzamas.es',
         'password' => Hash::make('12345678'),
         'rol' => 'Usuario',
-        'created_at' => '2025-01-10 12:00:00'
-
-    ]);
+        'created_at' => '2026-04-10 12:00:00',
+        'updated_at' => '2026-04-10 12:00:00'
+        ]);
 
     User::create([
         'nombre' => 'Federico', 
         'email' => 'federico@cifpzonzamas.es',
         'password' => Hash::make('12345678'),
         'rol' => 'Usuario',
-        'created_at' => '2026-01-10 12:00:00'
+        'created_at' => '2026-05-10 12:00:00'
     ]);
 
     User::create([

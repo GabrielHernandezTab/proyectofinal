@@ -16,7 +16,9 @@ use App\Http\Controllers\PlanController;
 */
 Route::get('/', fn() => view('welcome'))->name('welcome');
 Route::get('/planes', [PlanController::class, 'index'])->name('planes');
-
+Route::get('/terminos-y-condiciones', function () {return view('legal.terminos'); });
+Route::get('/politica-de-privacidad', function () {return view('legal.privacidad'); });
+Route::get('/aviso-legal', function () {return view('legal.aviso'); });
 /*
 |--------------------------------------------------------------------------
 | RUTAS PARA USUARIOS AUTENTICADOS (Cualquier Rol)
@@ -43,6 +45,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('mis-planes/avanzado',[PlanController::class, 'avanzado']);
     Route::get('mis-planes/supremo',[PlanController::class, 'supremo']);
 
+
+    
 });
 
 /*
@@ -95,6 +99,8 @@ Route::get('/cron-automatico-tfg', function () {
 });
 
 require __DIR__.'/auth.php';
+
+
 
 
 

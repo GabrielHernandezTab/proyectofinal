@@ -162,19 +162,61 @@
 
         <!-- ACORDEÓN -->
         <div class="mb-5">
-            <h3 class="fw-bold text-primary mb-3">Contenido del Programa</h3>
+            <h3 class="fw-bold text-primary mb-4">Contenido Detallado del Programa</h3>
 
-            <button class="accordion">Estrategias</button>
-            <div class="panel"><p class="small mt-2">Scalping, swing trading y setups avanzados.</p></div>
+            <button class="accordion">Módulo 1: Análisis Técnico Avanzado</button>
+            <div class="panel">
+                <div class="py-3">
+                    <ul class="small list-group list-group-flush">
+                        <li class="list-group-item"><strong>Price Action profundo:</strong> Lectura de velas institucionales y zonas de oferta/demanda.</li>
+                        <li class="list-group-item"><strong>Estructura de Mercado:</strong> Identificación de rangos, tendencias y quiebres de estructura (BOS/CHoCH).</li>
+                        <li class="list-group-item"><strong>Indicadores Pro:</strong> Configuración avanzada de RSI, MACD y uso de Fibonacci para entradas precisas.</li>
+                    </ul>
+                </div>
+            </div>
 
-            <button class="accordion">Gestión de capital</button>
-            <div class="panel"><p class="small mt-2">Control del riesgo y diversificación.</p></div>
+            <button class="accordion">Módulo 2: Estrategias de Trading Operativas</button>
+            <div class="panel">
+                <div class="py-3">
+                    <ul class="small list-group list-group-flush">
+                        <li class="list-group-item"><strong>Day Trading:</strong> Setups de alta probabilidad para aperturas de mercado.</li>
+                        <li class="list-group-item"><strong>Swing Trading:</strong> Gestión de posiciones a medio plazo y captura de ciclos económicos.</li>
+                        <li class="list-group-item"><strong>Scalping Consciente:</strong> Operativa en temporalidades menores (1m/5m) con gestión de spreads.</li>
+                    </ul>
+                </div>
+            </div>
 
-            <button class="accordion">Psicología</button>
-            <div class="panel"><p class="small mt-2">Evita errores comunes del inversor.</p></div>
+            <button class="accordion">Módulo 3: Gestión de Capital e Interés Compuesto</button>
+            <div class="panel">
+                <div class="py-3">
+                    <ul class="small list-group list-group-flush">
+                        <li class="list-group-item"><strong>Matemática del Trading:</strong> Cálculo de lotaje según el riesgo porcentual (1% regla de oro).</li>
+                        <li class="list-group-item"><strong>Drawdown:</strong> Cómo recuperar una racha negativa sin arriesgar la cuenta.</li>
+                        <li class="list-group-item"><strong>Plan de Trading:</strong> Creación de una bitácora profesional y objetivos de rentabilidad realistas.</li>
+                    </ul>
+                </div>
+            </div>
 
-            <button class="accordion">Automatización</button>
-            <div class="panel"><p class="small mt-2">Introducción a bots y trading automático.</p></div>
+            <button class="accordion">Módulo 4: Psicotrading y Control Emocional</button>
+            <div class="panel">
+                <div class="py-3">
+                    <ul class="small list-group list-group-flush">
+                        <li class="list-group-item"><strong>Sesgos Cognitivos:</strong> El miedo a perder (FOMO) y la avaricia en la toma de decisiones.</li>
+                        <li class="list-group-item"><strong>Rutina del Trader:</strong> Preparación pre-market y desconexión post-market.</li>
+                        <li class="list-group-item"><strong>Disciplina Operativa:</strong> Cómo seguir tu plan cuando el mercado está volátil.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button class="accordion">Módulo 5: Análisis Fundamental y Macroeconomía</button>
+            <div class="panel">
+                <div class="py-3">
+                    <ul class="small list-group list-group-flush">
+                        <li class="list-group-item"><strong>Calendario Económico:</strong> Impacto de tipos de interés, inflación (IPC) y nóminas no agrícolas (NFP).</li>
+                        <li class="list-group-item"><strong>Correlaciones:</strong> Relación entre el Oro, el Dólar (DXY) y los índices bursátiles.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <a href="/mis-planes" style="float:right">Volver a los planes</a>
