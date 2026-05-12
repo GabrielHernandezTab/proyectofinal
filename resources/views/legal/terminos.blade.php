@@ -140,7 +140,7 @@
                                 <h2 class="h4 mb-0 text-dark fw-bold text-uppercase">Propiedad de los Algoritmos</h2>
                             </div>
                             <p class="text-justify">
-                                Todo el código fuente, lógica de indicadores, estrategias automatizadas y la arquitectura de la plataforma son propiedad exclusiva de <strong>Gen Trading</strong>. Queda estrictamente prohibida la ingeniería inversa, copia de estrategias para su reventa o el uso de "web scrapers" para extraer datos de señales sin consentimiento expreso por escrito.
+                                -Todo el código fuente, lógica de indicadores, estrategias automatizadas y la arquitectura de la plataforma son propiedad exclusiva de <strong>Gen Trading</strong>. Queda estrictamente prohibida la ingeniería inversa, copia de estrategias para su reventa o el uso de "web scrapers" para extraer datos de señales sin consentimiento expreso por escrito.
                             </p>
                         </section>
 
