@@ -2,7 +2,7 @@
 @section('titulo', 'GeN Trading')
 @section('contenido')
 
-<div id="app">
+
     <portada-section></portada-section>
 
     <div style="background-color: white; height: 100px; width: 100%;"></div>
@@ -28,7 +28,6 @@
     <div style="background-color: white; height: 100px; width: 100%;"></div>
 
     <footer-section></footer-section>
-</div>
 
 @vite('resources/js/app.js')
 @endsection
