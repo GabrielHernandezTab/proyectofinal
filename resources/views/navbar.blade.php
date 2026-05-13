@@ -28,12 +28,20 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-3">
-                <li class="nav-item"><a class="nav-link text-white" href="#caracteristicas">Características</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#elegirnos">¿Por qué elegirnos?</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold" href="#planes">Planes</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#donaciones">Donaciones</a></li>
-            </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ url('/') }}#caracteristicas">Características</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ url('/') }}#elegirnos">¿Por qué elegirnos?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-bold" href="{{ url('/') }}#planes">Planes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ url('/') }}#donaciones">Donaciones</a>
+                    </li>
+                </ul>
 
             <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-2 mt-3 mt-lg-0">
                 @if (Route::has('login'))
