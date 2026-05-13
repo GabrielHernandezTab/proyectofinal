@@ -11,20 +11,16 @@
               class="rounded-circle">        
     </div>
         
-        <h1 class="display-2 fw-bold mb-3" style="letter-spacing: -1px;">Gen Trading</h1>
-        <p class="fs-4 fw-light mb-5 mx-auto opacity-75" style="max-width: 750px; line-height: 1.4;">
+        <h1 class="display-4 display-md-2 fw-bold mb-3" style="letter-spacing: -1px;">Gen Trading</h1>
+        <p class="fs-5 fs-md-4 fw-light mb-5 mx-auto opacity-75" style="max-width: 750px; line-height: 1.4;">
           Aprende a invertir de forma inteligente y segura con nuestros cursos profesionales
         </p>
   
-        <div class="d-flex justify-content-center gap-3 mt-4">
-            <a href="#planes" 
-                class="btn btn-lg rounded-pill px-5 py-3 fw-bold d-flex align-items-center text-decoration-none" 
-                style="background-color: #00a878; color: white; border: none; font-size: 1rem;">
-                <i class="bi bi-bar-chart-fill me-2"></i> Ver Planes
-            </a>
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+            <a href="#planes"class="btn btn-lg rounded-pill px-4 py-3 fw-bold d-flex align-items-center text-decoration-none"style="background-color: #00a878; color: white; border: none; font-size: 1rem;"><i class="bi bi-bar-chart-fill me-2"></i> Ver Planes</a>
             
             <a href="#caracteristicas" 
-                class="btn btn-lg rounded-pill px-5 py-3 fw-bold border-white text-decoration-none" 
+                class="btn btn-lg rounded-pill px-4 py-3 fw-bold border-white text-decoration-none" 
                 style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.4); font-size: 1rem;">
                 Conocer Más
             </a>

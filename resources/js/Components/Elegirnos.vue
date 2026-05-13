@@ -48,8 +48,8 @@
       </div>
   
       <div class="container">
-        <div class="py-5 px-4 px-md-5 text-white shadow-lg" 
-             style="background-color: #0d1b2a; border-radius: 50px;">
+        <div class="py-4 px-3 px-md-5 py-md-5 text-white shadow-lg" 
+             style="background-color: #0d1b2a; border-radius: 20px;">
           
           <h3 class="text-center fw-bold mb-5" style="color: #00d1b2;">Las 4 Razones Para Elegirnos</h3>
   

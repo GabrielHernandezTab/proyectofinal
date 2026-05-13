@@ -4,7 +4,7 @@
 
     <div class="row g-3">
       <!-- Generar anuncios desde el array -->
-      <div v-for="anuncio in anuncios" :key="anuncio.id" class="col-md-4">
+      <div v-for="anuncio in anuncios" :key="anuncio.id" class="col-12 col-sm-6 col-md-4">
         <div class="card h-100 shadow-sm p-3 text-center">
           <!-- Imagen del anuncio -->
           <img v-if="anuncio.imagen" :src="anuncio.imagen" class="card-img-top mb-3 rounded" alt="Imagen del anuncio">

@@ -7,7 +7,7 @@
         </div>
   
         <div class="row g-4 align-items-center">
-          <div v-for="(plan, index) in planes" :key="index" class="col-lg-4">
+          <div v-for="(plan, index) in planes" :key="index" class="col-12 col-md-6 col-lg-4">
             <div :class="['card h-100 shadow-lg border-0 position-relative', plan.destacado ? 'bg-primary-dark text-white' : 'bg-white']" 
                  :style="plan.destacado ? 'background-color: #1a237e; border-radius: 20px; transform: scale(1.05); z-index: 10;' : 'border-radius: 20px;'">
               
@@ -129,4 +129,10 @@
     background-color: #00a878 !important;
     border: none;
   }
+
+  @media (min-width: 992px) {
+  .plan-destacado {
+    transform: scale(1.05);
+  }
+}
   </style>

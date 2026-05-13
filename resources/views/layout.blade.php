@@ -23,6 +23,12 @@ html {
 .hero-section, #portada {
     padding-top: 160px !important; 
 }
+
+@media (max-width: 991px) {
+  .hero-section, #portada {
+    padding-top: 100px !important;
+  }
+}
 </style>
 </head>
 <body class="bg-light">
