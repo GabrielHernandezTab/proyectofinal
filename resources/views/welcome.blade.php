@@ -8,4 +8,8 @@
 
     <caracteristicas-section></caracteristicas-section>
 
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
+
+    <elegirnos-section></elegirnos-section>
+
 @endsection
