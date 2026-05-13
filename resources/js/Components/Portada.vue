@@ -38,11 +38,19 @@
   <style scoped>
   .portada-container {
     min-height: 90vh;
+    min-height: 90svb; /* Soporte para unidades de viewport dinámicas en móviles */
     /* El degradado azul oscuro de la foto */
     background-image: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.6)), 
     url("/imagenes/ejemploinversion.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* Evita problemas en móviles */
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   /* Efecto de líneas de trading suaves de fondo */

@@ -15,6 +15,8 @@ import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 Alpine.start();
 
+//Evita doble montaje (problema en Safari/IOS)
+if(!document.getElementById('app').__vue_app__) {
 const app = createApp({});
 
 // Asegúrate de que el nombre coincida con la etiqueta que usas en Blade
@@ -29,4 +31,4 @@ app.component('anuncios-section', Anuncios);
 
 app.mount('#app');
 
-
+}

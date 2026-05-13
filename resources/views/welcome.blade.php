@@ -29,5 +29,4 @@
 
     <footer-section></footer-section>
 
-@vite('resources/js/app.js')
 @endsection
