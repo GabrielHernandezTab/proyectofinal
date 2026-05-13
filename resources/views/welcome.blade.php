@@ -20,8 +20,4 @@
 
     <donaciones-section></donaciones-section>
 
-    <div style="background-color: white; height: 100px; width: 100%;"></div>
-
-    <anuncios-section></anuncios-section>
-
 @endsection
