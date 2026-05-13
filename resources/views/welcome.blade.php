@@ -2,31 +2,24 @@
 @section('titulo', 'GeN Trading')
 @section('contenido')
 
+<div id="test-vue" style="padding: 100px; text-align: center; font-size: 2rem;">
+    Cargando Vue...
+</div>
 
-    <portada-section></portada-section>
-
-    <div class="section-spacer" style="background-color: white; height: 100px; width: 100%;"></div>
-
-    <caracteristicas-section></caracteristicas-section>
-
-    <div class="section-spacer" style="background-color: white; height: 100px; width: 100%;"></div>
-
-    <elegirnos-section></elegirnos-section>
-
-    <div class="section-spacer" style="background-color: white; height: 100px; width: 100%;"></div>
-
-    <planes-section></planes-section>
-
-    <div class="section-spacer" style="background-color: white; height: 100px; width: 100%;"></div>
-
-    <donaciones-section></donaciones-section>
-
-    <div class="section-spacer" style="background-color: white; height: 100px; width: 100%;"></div>
-
-    <anuncios-section></anuncios-section>
-
-    <div class="section-spacer" style="background-color: white; height: 100px; width: 100%;"></div>
-
-    <footer-section></footer-section>
+<script>
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        var el = document.getElementById('test-vue');
+        var appEl = document.getElementById('app');
+        if (appEl && appEl.__vue_app__) {
+            el.innerHTML = '✅ Vue está funcionando';
+            el.style.color = 'green';
+        } else {
+            el.innerHTML = '❌ Vue NO está montado - Error en JS';
+            el.style.color = 'red';
+        }
+    }, 3000);
+});
+</script>
 
 @endsection
