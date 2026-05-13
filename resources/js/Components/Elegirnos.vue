@@ -13,8 +13,7 @@
           <p class="text-secondary">Hemos analizado las principales academias de trading en España. Aquí está la comparación real sin filtros:</p>
         </div>
         
-        <div class="table-responsive shadow-sm" style="border-radius: 15px; overflow: hidden;">
-          <table class="table align-middle mb-0">
+    <div class="table-responsive shadow-sm" style="border-radius: 15px; overflow: hidden; -webkit-overflow-scrolling: touch;">          <table class="table align-middle mb-0">
             <thead style="background-color: #0d1b2a; color: white;">
               <tr>
                 <th class="py-3 ps-4">Academia</th>
@@ -104,4 +103,19 @@
     background-color: #e8f5e9 !important;
     border: 2px solid #00a878 !important;
   }
+
+  /* Mobile First: reducir tamaño de texto en tablas en móvil */
+@media (max-width: 767px) {
+  .table td,
+  .table th {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.4rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .table thead th {
+    font-size: 0.75rem;
+  }
+}
   </style>

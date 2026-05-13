@@ -23,10 +23,25 @@ html {
 .hero-section, #portada {
     padding-top: 160px !important; 
 }
-
+/*
 @media (max-width: 991px) {
   .hero-section, #portada {
     padding-top: 100px !important;
+  }
+}
+
+*/
+
+
+/* Mobile First - tablas responsivas */
+@media (max-width: 767px) {
+  .table-responsive {
+    font-size: 0.8rem;
+  }
+
+  /* Espaciadores entre secciones más pequeños en móvil */
+  .section-spacer {
+    height: 40px !important;
   }
 }
 </style>
