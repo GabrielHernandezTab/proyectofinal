@@ -1,10 +1,6 @@
 {
-  "imagenes/ejemploinversion.webp": {
-    "file": "assets/ejemploinversion-CEuJrYjO.webp",
-    "src": "imagenes/ejemploinversion.webp"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-BQoODv89.css",
+    "file": "assets/app-C7SgasUw.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -13,15 +9,12 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-BfxV0YAd.js",
+    "file": "assets/app-A4OVQ4RB.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-Bv8KWBY5.css"
-    ],
-    "assets": [
-      "assets/ejemploinversion-CEuJrYjO.webp"
+      "assets/app-CnxJt0Sq.css"
     ]
   }
 }
