@@ -16,8 +16,6 @@
 
     <planes-section></planes-section>
 
-    <div style="background-color: white; height: 100px; width: 100%;"></div>
 
-    <donaciones-section></donaciones-section>
 
 @endsection
