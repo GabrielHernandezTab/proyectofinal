@@ -246,7 +246,6 @@
 
         <div class="d-flex justify-content-between align-items-center mt-4">
             <a href="/mis-planes" class="btn btn-outline-secondary rounded-pill px-4">← Volver a los planes</a>
-            <a href="/mis-planes/supremo" class="btn btn-primary rounded-pill px-4">Descubrir Pack Supremo →</a>
         </div>
 
     </div>
