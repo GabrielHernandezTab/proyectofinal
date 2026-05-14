@@ -8,24 +8,21 @@
         </p>
     </header>
 
-   
+
     {{-- Modal Bootstrap --}}
     <div class="modal fade" id="modalEliminarCuenta" tabindex="-1" aria-labelledby="modalEliminarCuentaLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content text-dark">
-                <p class="mt-1 text-sm" style="color: #111827;">
-                    Escribe tu contraseña para eliminar la cuenta:
-                </p>
+
                 <form method="POST" action="{{ route('profile.destroy') }}">
                     @csrf
                     @method('DELETE')
 
-                 
-
                     <div class="modal-body">
-                        
+                        <p class="text-sm mb-3" style="color: #111827;">
+                            Escribe tu contraseña para confirmar que deseas eliminar tu cuenta permanentemente:
+                        </p>
 
-                        
                         <input
                             type="password"
                             id="password_delete"
@@ -41,12 +38,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button"
-                            class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none transition ease-in-out duration-150"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modalEliminarCuenta">
-                            Eliminar mi cuenta
-                        </button>
+                        <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none transition ease-in-out duration-150">Sí, eliminar mi cuenta</button>
                     </div>
                 </form>
             </div>
