@@ -24,7 +24,7 @@ class UsuarioController extends Controller
         $request->validate([
             'nombre'   => 'required|string|max:255',
             'email'    => 'required|email|unique:usuarios,email',
-            'password' => 'required|min:6',
+            'password' => ['required', \Illuminate\Validation\Rules\Password::defaults()],
         ]);
 
         User::create([
@@ -104,14 +104,3 @@ public function edit(Request $request, $id) {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-

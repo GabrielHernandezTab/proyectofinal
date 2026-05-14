@@ -8,8 +8,6 @@
         </p>
     </header>
 
-
-    {{-- Modal Bootstrap --}}
     <div class="modal fade" id="modalEliminarCuenta" tabindex="-1" aria-labelledby="modalEliminarCuentaLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content text-dark">
@@ -45,7 +43,6 @@
         </div>
     </div>
 
-    {{-- Reabre el modal si hubo error de validación --}}
     @if ($errors->userDeletion->isNotEmpty())
     <script>
         document.addEventListener('DOMContentLoaded', function () {

@@ -12,28 +12,30 @@ class UserController extends Controller
 {
     public function store(Request $request)
     {
-        // 1. Validamos apuntando a la tabla 'usuarios'
+        $mensajePassword = 'El campo contraseña debe tener al menos una letra mayúscula, una minúscula, un número y un símbolo.';
+
         $request->validate([
             'nombre'   => 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:usuarios,email',
-            'password' => 'required|string|min:8',
+            'password' => ['required', 'string', \Illuminate\Validation\Rules\Password::defaults()],
+        ], [
+            'password.min'     => $mensajePassword,
+            'password.mixed'   => $mensajePassword,
+            'password.numbers' => $mensajePassword,
+            'password.symbols' => $mensajePassword,
         ]);
 
-        // 2. Creamos el usuario
         $user = User::create([
             'nombre'   => $request->nombre,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'rol'      => 'Usuario', // Valor inicial
+            'rol'      => 'Usuario',
         ]);
 
-        // 3. DISPARAMOS EL EVENTO (Esto activa tu Listener AsignarRolPorAntiguedad)
         event(new Registered($user));
 
-        // 4. Logueamos al usuario automáticamente tras registrarse
         Auth::login($user);
 
-        // 5. Redirigimos al dashboard
         return redirect()->route('dashboard');
     }
 }

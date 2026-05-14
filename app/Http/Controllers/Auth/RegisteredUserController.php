@@ -14,37 +14,39 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Muestra la vista de registro.
-     */
     public function create(): View
     {
         return view('auth.register');
     }
 
-    /**
-     * Maneja la solicitud de registro entrante.
-     */
     public function store(Request $request): RedirectResponse
     {
+        $mensajePassword = 'El campo contraseña debe tener al menos una letra mayúscula, una minúscula, un número y un símbolo.';
+
         $request->validate([
-            'name'     => ['required', 'string', 'max:255'], // Validamos 'name' que es lo que viene del HTML
+            'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ], [
+            'password.min'      => $mensajePassword,
+            'password.mixed'    => $mensajePassword,
+            'password.numbers'  => $mensajePassword,
+            'password.symbols'  => $mensajePassword,
+            'password.confirmed'=> 'Las contraseñas no coinciden.',
         ]);
-    
+
         $user = User::create([
-            'nombre'   => $request->name, // Mapeamos el input 'name' a tu columna 'nombre'
+            'nombre'   => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'rol'      => 'Usuario', 
+            'rol'      => 'Usuario',
         ]);
-        
+
         $user->refresh();
 
         event(new Registered($user));
         Auth::login($user);
-    
+
         return redirect(route('dashboard', absolute: false));
     }
 }
