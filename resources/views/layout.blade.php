@@ -8,42 +8,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2Ces2017%2Ces2019%2CglobalThis"></script>
-    
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
-body {
-    padding-top: 0; /* Quitamos el hueco blanco arriba */
-}
+/* Neutralizar Preflight de Tailwind que rompe Bootstrap */
+*, *::before, *::after { box-sizing: border-box; }
 
-html {
-    scroll-behavior: smooth;
+/* Restaurar comportamiento correcto del navbar Bootstrap */
+@media (min-width: 992px) {
+    .navbar-collapse { display: flex !important; flex-basis: auto; }
 }
-
-/* Le damos aire a la portada para que el texto no quede justo debajo del menú flotante */
-.hero-section, #portada {
-    padding-top: 160px !important; 
-}
-/*
 @media (max-width: 991px) {
-  .hero-section, #portada {
-    padding-top: 100px !important;
-  }
+    .navbar-collapse { display: none !important; }
+    .navbar-collapse.show { display: block !important; }
 }
 
-*/
+body { padding-top: 0; }
+html { scroll-behavior: smooth; }
 
+.hero-section, #portada { padding-top: 160px !important; }
 
-/* Mobile First - tablas responsivas */
 @media (max-width: 767px) {
-  .table-responsive {
-    font-size: 0.8rem;
-  }
-
-  /* Espaciadores entre secciones más pequeños en móvil */
-  .section-spacer {
-    height: 40px !important;
-  }
+  .table-responsive { font-size: 0.8rem; }
+  .section-spacer { height: 40px !important; }
 }
 </style>
 </head>
