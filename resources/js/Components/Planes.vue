@@ -47,10 +47,7 @@
           </div>
         </div>
       </div>
-      <div class="text-center mb-5">
-        <br><br>
-          <p class="text-muted">* Los descuentos se aplican presentando documentación acreditativa</p>
-        </div>
+      
         
     </section>
   </template>
@@ -58,12 +55,13 @@
   <script setup>
   const planes = [
     {
-      nombre: 'Pack Gratuito',
+      nombre: 'Pack incial',
       precio: 'Gratis',
-      subtitulo: 'Siempre gratuito - Acceso básico',
+      subtitulo: 'Acceso básico',
       icon: 'bi-gift',
+      horas: '30 horas de curso',
       horas: '',
-      btnText: 'Empezar Gratis',
+      btnText: 'Empieza ya!',
       destacado: false,
       features: [
         'Introducción sobre qué es invertir',

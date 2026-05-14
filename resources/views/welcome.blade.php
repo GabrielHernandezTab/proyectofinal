@@ -4,27 +4,27 @@
 
     <portada-section></portada-section>
 
-    <div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white;"></div>
 
     <caracteristicas-section></caracteristicas-section>
 
-    <div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white;"></div>
 
     <elegirnos-section></elegirnos-section>
 
-    <div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white;"></div>
 
     <planes-section></planes-section>
 
-    <div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white;"></div>
 
     <donaciones-section></donaciones-section>
 
-    <div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white;"></div>
 
     <anuncios-section></anuncios-section>
 
-    <div style="background-color: white; height: 100px; width: 100%;"></div>
+    <div style="background-color: white;"></div>
 
     <footer-section></footer-section>
 

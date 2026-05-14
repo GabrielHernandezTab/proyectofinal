@@ -164,7 +164,7 @@
                     <div class="mt-5 pt-4 border-top d-flex flex-column flex-sm-row justify-content-between align-items-center gap-4">
                         <div class="text-center text-sm-start">
                             <p class="mb-0 text-muted small fw-bold text-uppercase">Protección de Datos</p>
-                            <a href="mailto:privacidad@gentrading.es" class="text-primary text-decoration-none small">privacidad@gentrading.es</a>
+                            <a href="mailto:info@gentrading.es" class="text-primary text-decoration-none small">privacidad@gentrading.es</a>
                         </div>
                         <a href="{{ url('/') }}" class="btn btn-dark rounded-pill px-5 py-3 fw-bold shadow hover-lift transition-all w-100 w-sm-auto text-uppercase tracking-tighter">
                             Aceptar y Volver

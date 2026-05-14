@@ -49,7 +49,7 @@
                         <a href="{{ url('/dashboard') }}" class="btn btn-outline-light rounded-pill px-4">Panel de control</a>
                     @else
                         @if (Route::has('register'))
-                            <a href="{{ route('login') }}" class="btn fw-bold rounded-pill px-4 py-2" style="background-color: #ffffff; color: black; border: none;">Log in</a>
+                            <a href="{{ route('login') }}" class="btn fw-bold rounded-pill px-4 py-2" style="background-color: #ffffff; color: black; border: none;">Iniciar sesión</a>
                             <a href="{{ route('register') }}" class="btn fw-bold rounded-pill px-4 py-2" style="background-color: #00a878; color: white; border: none;">Registro</a>
                         @endif
                     @endauth
