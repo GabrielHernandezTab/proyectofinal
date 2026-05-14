@@ -16,6 +16,16 @@
 
     <planes-section></planes-section>
 
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
 
+    <donaciones-section></donaciones-section>
+
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
+
+    <anuncios-section></anuncios-section>
+
+    <div style="background-color: white; height: 100px; width: 100%;"></div>
+
+    <footer-section></footer-section>
 
 @endsection
