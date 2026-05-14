@@ -39,7 +39,7 @@
   
                 <a :class="['btn w-100 py-3 fw-bold', plan.destacado ? 'btn-success' : 'btn-primary' ]"
                         style="border-radius: 12px;"
-                        href="/login";>
+                        href="/login">
                   {{ plan.btnText }}
                 </a>
               </div>

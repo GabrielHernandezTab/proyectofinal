@@ -11,5 +11,8 @@
     <div style="background-color: white; height: 100px; width: 100%;"></div>
 
     <elegirnos-section></elegirnos-section>
+    
+    <div class="section-spacer" style="background-color: white; height: 100px; width: 100%;"></div>
 
+    <planes-section></planes-section>
 @endsection
