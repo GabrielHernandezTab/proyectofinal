@@ -7,7 +7,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2Ces2017%2Ces2019%2CglobalThis"></script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
