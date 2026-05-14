@@ -3,53 +3,63 @@
         <h2 class="text-lg font-bold text-gray-900">
             Eliminar cuenta
         </h2>
-
         <p class="mt-1 text-sm" style="color: #111827;">
-            Una vez que tu cuenta sea eliminada, todos sus recursos y datos se borrarán permanentemente. Antes de eliminar tu cuenta, por favor descarga cualquier dato o información que desees conservar.
+            Una vez que tu cuenta sea eliminada, todos sus recursos y datos se borrarán permanentemente.
         </p>
     </header>
 
-    <x-danger-button
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >Eliminar cuenta</x-danger-button>
+   
+    {{-- Modal Bootstrap --}}
+    <div class="modal fade" id="modalEliminarCuenta" tabindex="-1" aria-labelledby="modalEliminarCuentaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content text-dark">
+                <p class="mt-1 text-sm" style="color: #111827;">
+                    Escribe tu contraseña para eliminar la cuenta:
+                </p>
+                <form method="POST" action="{{ route('profile.destroy') }}">
+                    @csrf
+                    @method('DELETE')
 
-    <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-        <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
-            @csrf
-            @method('delete')
+                 
 
-            <h2 class="text-lg font-bold text-gray-900">
-                ¿Estás seguro de que quieres eliminar tu cuenta?
-            </h2>
+                    <div class="modal-body">
+                        
 
-            <p class="mt-1 text-sm" style="color: #111827;">
-                Una vez que tu cuenta sea eliminada, todos sus recursos y datos se borrarán permanentemente. Por favor, introduce tu contraseña para confirmar que deseas eliminar tu cuenta de forma permanente.
-            </p>
+                        
+                        <input
+                            type="password"
+                            id="password_delete"
+                            name="password"
+                            class="form-control"
+                            placeholder="Tu contraseña actual"
+                            required
+                        />
 
-            <div class="mt-6">
-                <x-input-label for="password" value="Contraseña" class="sr-only" />
+                        @if ($errors->userDeletion->has('password'))
+                            <p class="text-danger mt-1 small">{{ $errors->userDeletion->first('password') }}</p>
+                        @endif
+                    </div>
 
-                <x-text-input
-                    id="password"
-                    name="password"
-                    type="password"
-                    class="mt-1 block w-3/4"
-                    placeholder="Contraseña"
-                />
-
-                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+                    <div class="modal-footer">
+                        <button type="button"
+                            class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none transition ease-in-out duration-150"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEliminarCuenta">
+                            Eliminar mi cuenta
+                        </button>
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
 
-            <div class="mt-6 flex justify-end">
-                <x-secondary-button x-on:click="$dispatch('close')">
-                    Cancelar
-                </x-secondary-button>
-
-                <x-danger-button class="ms-3">
-                    Eliminar cuenta
-                </x-danger-button>
-            </div>
-        </form>
-    </x-modal>
+    {{-- Reabre el modal si hubo error de validación --}}
+    @if ($errors->userDeletion->isNotEmpty())
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal = new bootstrap.Modal(document.getElementById('modalEliminarCuenta'));
+            modal.show();
+        });
+    </script>
+    @endif
 </section>
