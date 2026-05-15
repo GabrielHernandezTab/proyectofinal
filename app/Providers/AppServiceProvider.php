@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Auth\Events\Registered;
+use App\Listeners\AsignarRolPorAntiguedad;
+use Illuminate\Support\Facades\Event;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,12 +17,15 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-    
+        // Reglas de contraseña globales
         Password::defaults(function () {
             return Password::min(8)
-                ->mixedCase()   // al menos 1 mayúscula y 1 minúscula
-                ->numbers()     // al menos 1 número
-                ->symbols();    // al menos 1 carácter especial (., _, @, !, etc.)
+                ->mixedCase()
+                ->numbers()
+                ->symbols();
         });
+
+        // Registrar eventos manualmente (Laravel 12 no autodescubre EventServiceProvider)
+        Event::listen(Registered::class, AsignarRolPorAntiguedad::class);
     }
 }
