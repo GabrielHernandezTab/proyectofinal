@@ -43,11 +43,47 @@
         .tag-orange { background: #ffedd5; color: #9a3412; }
         .comparison-bar { height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin-top: 0.5rem; }
         .comparison-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
+        
+        /* ACORDEÓN CUSTOM CORREGIDO */
         .accordion-custom { border: none; background: none; }
-        .accordion-custom .accordion-item { border: none; margin-bottom: 0.75rem; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-        .accordion-custom .accordion-button { background: #f8fafc; padding: 1.25rem 1.5rem; font-weight: 600; color: #334155; border: none; }
-        .accordion-custom .accordion-button:not(.collapsed) { background: #e0f2fe; color: #0369a1; box-shadow: none; }
-        .accordion-custom .accordion-body { background: white; padding: 1.5rem; }
+        .accordion-custom .accordion-item { border: none; margin-bottom: 0.75rem; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); background: white; }
+        .accordion-custom .accordion-button { 
+            background: #f8fafc; 
+            padding: 1.25rem 1.5rem; 
+            font-weight: 600; 
+            color: #334155; 
+            border: none; 
+            width: 100%; 
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .accordion-custom .accordion-button:hover { background: #e0f2fe; color: #0369a1; }
+        .accordion-custom .accordion-button.active { background: #e0f2fe; color: #0369a1; box-shadow: none; }
+        .accordion-custom .accordion-button::after { 
+            content: '\F282'; 
+            font-family: 'bootstrap-icons'; 
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            margin-left: auto;
+        }
+        .accordion-custom .accordion-button.active::after { transform: rotate(180deg); }
+        .accordion-custom .accordion-body { 
+            background: white; 
+            padding: 1.5rem; 
+            display: none;
+            border-top: 1px solid #f1f5f9;
+        }
+        .accordion-custom .accordion-body.show { display: block; animation: fadeIn 0.3s ease; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         .highlight-number { font-size: 2.5rem; font-weight: 800; color: #0ea5e9; line-height: 1; }
     </style>
 
@@ -240,7 +276,7 @@
                                 <div class="col-4"><div class="bg-white rounded p-2"><div class="fw-bold text-success">+1.847€</div><small class="text-muted">Rentabilidad</small></div></div>
                                 <div class="col-4"><div class="bg-white rounded p-2"><div class="fw-bold text-dark">6.347€</div><small class="text-muted">Total actual</small></div></div>
                             </div>
-                            <small class="text-muted d-block mt-2"><i class="bi bi-info-circle me-1"></i> Datos basados en rentabilidad media del MSCI World últimos 5 años: 10.7% anualizado citeweb_search:7#8</small>
+                            <small class="text-muted d-block mt-2"><i class="bi bi-info-circle me-1"></i> Datos basados en rentabilidad media del MSCI World últimos 5 años: 10.7% anualizado.</small>
                         </div>
                     </div>
                 </div>
@@ -252,39 +288,39 @@
                         <h4 class="fw-bold mb-2">Introducción Ampliada sobre Inversiones</h4>
                         <p class="text-muted mb-3">Los mercados financieros explicados como si tuvieras 10 años. Sin jerga, sin complicaciones.</p>
 
-                        <div class="accordion accordion-custom" id="accordionIntro">
+                        <div class="accordion-custom" id="accordionIntro">
                             <div class="accordion-item">
-                                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">¿Qué es un Mercado Financiero?</button></h2>
-                                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionIntro">
-                                    <div class="accordion-body">
-                                        <p>Un mercado financiero es un espacio (físico o digital) donde se intercambian activos financieros: acciones, bonos, divisas, materias primas... Es como un mercado de frutas, pero en lugar de manzanas, se compran y venden "pedacitos" de empresas.</p>
-                                        <div class="row g-2 mt-2">
-                                            <div class="col-md-6"><div class="p-2 bg-light rounded"><strong>Bolsa de Valores</strong><br><small class="text-muted">Donde se negocian acciones públicas</small></div></div>
-                                            <div class="col-md-6"><div class="p-2 bg-light rounded"><strong>Mercado Forex</strong><br><small class="text-muted">Intercambio de divisas (5.3 billones $/día)</small></div></div>
-                                        </div>
+                                <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                                    ¿Qué es un Mercado Financiero?
+                                </button>
+                                <div class="accordion-body">
+                                    <p>Un mercado financiero es un espacio (físico o digital) donde se intercambian activos financieros: acciones, bonos, divisas, materias primas... Es como un mercado de frutas, pero en lugar de manzanas, se compran y venden "pedacitos" de empresas.</p>
+                                    <div class="row g-2 mt-2">
+                                        <div class="col-md-6"><div class="p-2 bg-light rounded"><strong>Bolsa de Valores</strong><br><small class="text-muted">Donde se negocian acciones públicas</small></div></div>
+                                        <div class="col-md-6"><div class="p-2 bg-light rounded"><strong>Mercado Forex</strong><br><small class="text-muted">Intercambio de divisas (5.3 billones $/día)</small></div></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
-                                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">¿Qué es una Acción?</button></h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionIntro">
-                                    <div class="accordion-body">
-                                        <p>Comprar una acción es convertirte en propietario de una pequeña parte de una empresa. Si Apple tiene 15.000 millones de acciones y tú compras 1, posees 1/15.000.000.000 de Apple.</p>
-                                        <div class="warning-box mb-0"><strong>Ejemplo práctico:</strong> Si compraste 10 acciones de Apple en 2010 a 10$ (100$ total), hoy valdrían ~2.000$. Tu inversión se multiplicó por 20.</div>
-                                    </div>
+                                <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                                    ¿Qué es una Acción?
+                                </button>
+                                <div class="accordion-body">
+                                    <p>Comprar una acción es convertirte en propietario de una pequeña parte de una empresa. Si Apple tiene 15.000 millones de acciones y tú compras 1, posees 1/15.000.000.000 de Apple.</p>
+                                    <div class="warning-box mb-0"><strong>Ejemplo práctico:</strong> Si compraste 10 acciones de Apple en 2010 a 10$ (100$ total), hoy valdrían ~2.000$. Tu inversión se multiplicó por 20.</div>
                                 </div>
                             </div>
                             <div class="accordion-item">
-                                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">¿Qué es un Bono?</button></h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionIntro">
-                                    <div class="accordion-body">
-                                        <p>Un bono es un préstamo que le haces a una empresa o gobierno. A cambio, te pagan intereses periódicos (cupones) y al final te devuelven el capital.</p>
-                                        <ul class="small list-unstyled mb-0">
-                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>Bonos corporativos:</strong> Empresas como Telefónica o Repsol</li>
-                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>Bonos soberanos:</strong> Gobiernos (España, Alemania, USA)</li>
-                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>Letras del Tesoro:</strong> A corto plazo (3, 6, 12 meses)</li>
-                                        </ul>
-                                    </div>
+                                <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                                    ¿Qué es un Bono?
+                                </button>
+                                <div class="accordion-body">
+                                    <p>Un bono es un préstamo que le haces a una empresa o gobierno. A cambio, te pagan intereses periódicos (cupones) y al final te devuelven el capital.</p>
+                                    <ul class="small list-unstyled mb-0">
+                                        <li><i class="bi bi-check2 text-success me-2"></i><strong>Bonos corporativos:</strong> Empresas como Telefónica o Repsol</li>
+                                        <li><i class="bi bi-check2 text-success me-2"></i><strong>Bonos soberanos:</strong> Gobiernos (España, Alemania, USA)</li>
+                                        <li><i class="bi bi-check2 text-success me-2"></i><strong>Letras del Tesoro:</strong> A corto plazo (3, 6, 12 meses)</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -364,7 +400,7 @@
                                             <div class="app-rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><small class="text-muted ms-1">4.1</small></div>
                                         </div>
                                     </div>
-                                    <p class="small text-muted mb-2">Bróker holandés registrado CNMV. ETFs sin comisión en algunos casos. Más de 50 mercados. citeweb_search:7#0</p>
+                                    <p class="small text-muted mb-2">Bróker holandés registrado CNMV. ETFs sin comisión en algunos casos. Más de 50 mercados.</p>
                                     <div class="d-flex gap-1 flex-wrap">
                                         <span class="tag tag-green">CNMV</span>
                                         <span class="tag tag-blue">50+ mercados</span>
@@ -410,7 +446,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <small class="text-muted">citeweb_search:7#7</small>
                     </div>
                 </div>
 
@@ -569,39 +604,39 @@
         {{-- FAQ --}}
         <div class="mb-5">
             <h4 class="fw-bold mb-4" style="color:#0369a1;"><i class="bi bi-question-circle me-2"></i>Preguntas Frecuentes</h4>
-            <div class="accordion accordion-custom" id="faqAccordion">
+            <div class="accordion-custom" id="faqAccordion">
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">¿Con cuánto dinero puedo empezar?</button></h2>
-                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p>Puedes empezar con tan solo <strong>1€</strong> en plataformas como Trade Republic o Indexa Capital. Lo importante no es la cantidad inicial sino la <strong>constancia</strong>. Con 50-100€/mes invertidos de forma regular durante años se construyen patrimonios sólidos.</p>
-                            <div class="success-box mb-0"><strong>Ejemplo:</strong> 50€/mes a 7% anual = 12.920€ en 10 años (6.000€ aportados + 6.920€ ganancia).</div>
-                        </div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿Con cuánto dinero puedo empezar?
+                    </button>
+                    <div class="accordion-body">
+                        <p>Puedes empezar con tan solo <strong>1€</strong> en plataformas como Trade Republic o Indexa Capital. Lo importante no es la cantidad inicial sino la <strong>constancia</strong>. Con 50-100€/mes invertidos de forma regular durante años se construyen patrimonios sólidos.</p>
+                        <div class="success-box mb-0"><strong>Ejemplo:</strong> 50€/mes a 7% anual = 12.920€ en 10 años (6.000€ aportados + 6.920€ ganancia).</div>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">¿Es seguro invertir? ¿Puedo perder todo?</button></h2>
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p>Toda inversión conlleva riesgo, pero se gestiona. Invirtiendo en un ETF global diversificado nunca has perdido dinero en cualquier período de <strong>15+ años</strong> históricamente. La clave: diversificar, largo plazo, no vender en pánico.</p>
-                            <div class="warning-box mb-0"><strong>Regla de oro:</strong> Nunca inviertas dinero que puedas necesitar en los próximos 3-5 años.</div>
-                        </div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿Es seguro invertir? ¿Puedo perder todo?
+                    </button>
+                    <div class="accordion-body">
+                        <p>Toda inversión conlleva riesgo, pero se gestiona. Invirtiendo en un ETF global diversificado nunca has perdido dinero en cualquier período de <strong>15+ años</strong> históricamente. La clave: diversificar, largo plazo, no vender en pánico.</p>
+                        <div class="warning-box mb-0"><strong>Regla de oro:</strong> Nunca inviertas dinero que puedas necesitar en los próximos 3-5 años.</div>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">¿Qué es un ETF y por qué se recomienda?</button></h2>
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p>Un ETF (Exchange Traded Fund) agrupa cientos de acciones en un solo producto. El ETF del S&P 500 te da exposición a las 500 empresas más grandes de EE.UU. con una sola compra. Son baratos (comisiones desde 0.03% anual), diversificados y muy fáciles de comprar.</p>
-                        </div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿Qué es un ETF y por qué se recomienda?
+                    </button>
+                    <div class="accordion-body">
+                        <p>Un ETF (Exchange Traded Fund) agrupa cientos de acciones en un solo producto. El ETF del S&P 500 te da exposición a las 500 empresas más grandes de EE.UU. con una sola compra. Son baratos (comisiones desde 0.03% anual), diversificados y muy fáciles de comprar.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">¿Cómo se desbloquea el Pack Avanzado?</button></h2>
-                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p>El Pack Avanzado se desbloquea automáticamente <strong>2 semanas después</strong> de tu registro. Recibirás una notificación por email. No requiere pago ni acción adicional por tu parte.</p>
-                        </div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿Cómo se desbloquea el Pack Avanzado?
+                    </button>
+                    <div class="accordion-body">
+                        <p>El Pack Avanzado se desbloquea automáticamente <strong>2 semanas después</strong> de tu registro. Recibirás una notificación por email. No requiere pago ni acción adicional por tu parte.</p>
                     </div>
                 </div>
             </div>
@@ -614,9 +649,33 @@
         </div>
 
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Función para acordeones personalizados (evita conflicto con Alpine.js)
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const body = button.nextElementSibling;
+            const isOpen = body.classList.contains('show');
+            
+            // Cerrar todos los del mismo grupo (opcional - quitar si quieres múltiples abiertos)
+            const parent = item.parentElement;
+            parent.querySelectorAll('.accordion-body.show').forEach(openBody => {
+                if (openBody !== body) {
+                    openBody.classList.remove('show');
+                    openBody.previousElementSibling.classList.remove('active');
+                }
+            });
+            
+            // Toggle actual
+            if (isOpen) {
+                body.classList.remove('show');
+                button.classList.remove('active');
+            } else {
+                body.classList.add('show');
+                button.classList.add('active');
+            }
+        }
+
         // Calculadora de interés compuesto
         function calculateCompound() {
             const monthly = parseFloat(document.getElementById('monthlyInput').value) || 0;
@@ -639,7 +698,7 @@
         });
         calculateCompound();
     </script>
-
+   
 <script>
 (function() {
     const inicio = Date.now();
@@ -666,3 +725,5 @@
 </script>
 
 </x-app-layout>
+
+
