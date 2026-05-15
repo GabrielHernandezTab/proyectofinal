@@ -1472,70 +1472,67 @@
 
         {{-- FAQ --}}
         <div class="mb-5">
-            <h4 class="fw-bold mb-4" style="color:#991b1b;"><i class="bi bi-question-circle me-2"></i>Preguntas Frecuentes del Pack Supremo</h4>
-            <div class="accordion accordion-custom" id="faqAccordion">
+            <h4 class="fw-bold mb-4" style="color:#991b1b;">
+                <i class="bi bi-question-circle me-2"></i>Preguntas Frecuentes del Pack Supremo
+            </h4>
+            <div class="accordion-custom" id="faqAccordion">
                 <div class="accordion-item">
-                    <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" 
-                                    data-bs-toggle="collapse" data-bs-target="#faq1" 
-                                    aria-expanded="false">
-                                ¿Cuándo se desbloquea el Pack Supremo?
-                            </button>
-                        </h2>
-                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p>El Pack Supremo se desbloquea automáticamente <strong>2 meses después</strong> de tu registro en GeN Trading. Recibirás una notificación por email y SMS. No requiere pago ni acción adicional.</p>
-                            <div class="tip-box mb-0"><strong>Recomendación:</strong> Aprovecha estos 2 meses para dominar el Pack Avanzado. El Supremo asume conocimientos sólidos de análisis técnico, gestión de riesgo y fiscalidad básica.</div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿Cuándo se desbloquea el Pack Supremo?
+                    </button>
+                    <div class="accordion-body">
+                        <p>El Pack Supremo se desbloquea automáticamente <strong>2 meses después</strong> de tu registro en GeN Trading. Recibirás una notificación por email y SMS. No requiere pago ni acción adicional.</p>
+                        <div class="tip-box mb-0">
+                            <strong>Recomendación:</strong> Aprovecha estos 2 meses para dominar el Pack Avanzado. El Supremo asume conocimientos sólidos de análisis técnico, gestión de riesgo y fiscalidad básica.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">¿La mentoría 1:1 es real con una persona?</button></h2>
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p><strong>Sí.</strong> Cada miembro del Pack Supremo tiene asignado un mentor senior real (no un bot ni un asistente). Son traders e inversores profesionales con años de experiencia en gestión de carteras.</p>
-                            <p class="mb-0">Las sesiones son por videollamada (Google Meet, Zoom o Teams a tu elección), duran 60 minutos y son semanales. Puedes contactar a tu mentor por email/WhatsApp entre sesiones para dudas urgentes.</p>
-                        </div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿La mentoría 1:1 es real con una persona?
+                    </button>
+                    <div class="accordion-body">
+                        <p><strong>Sí.</strong> Cada miembro del Pack Supremo tiene asignado un mentor senior real (no un bot ni un asistente). Son traders e inversores profesionales con años de experiencia en gestión de carteras.</p>
+                        <p class="mb-0">Las sesiones son por videollamada (Google Meet, Zoom o Teams a tu elección), duran 60 minutos y son semanales. Puedes contactar a tu mentor por email/WhatsApp entre sesiones para dudas urgentes.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">¿Las alertas VIP garantizan beneficios?</button></h2>
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p><strong>No.</strong> Ninguna alerta, señal o estrategia garantiza beneficios. Las alertas VIP son <strong>educativas</strong>: te mostramos en tiempo real cómo analizamos el mercado y qué operaríamos nosotros.</p>
-                            <p class="mb-0">Tú decides si operas, con qué tamaño y si sigues el plan completo. Nunca arriesgues más del 1-2% de tu capital en una sola operación, incluso si es nuestra alerta.</p>
-                        </div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿Las alertas VIP garantizan beneficios?
+                    </button>
+                    <div class="accordion-body">
+                        <p><strong>No.</strong> Ninguna alerta, señal o estrategia garantiza beneficios. Las alertas VIP son <strong>educativas</strong>: te mostramos en tiempo real cómo analizamos el mercado y qué operaríamos nosotros.</p>
+                        <p class="mb-0">Tú decides si operas, con qué tamaño y si sigues el plan completo. Nunca arriesgues más del 1-2% de tu capital en una sola operación, incluso si es nuestra alerta.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">¿Tengo que pagar algo por el Pack Supremo?</button></h2>
-                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p class="mb-0"><strong>Absolutamente no.</strong> Todos los packs de GeN Trading son <strong>100% gratuitos</strong> para usuarios registrados. No hay costes ocultos, no hay suscripciones premium, no hay upsells. Nuestro modelo de negocio se basa en otros servicios profesionales (asesoría, gestión de carteras institucional). Tu única inversión es tu tiempo, dedicación y disciplina.</p>
-                        </div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿Tengo que pagar algo por el Pack Supremo?
+                    </button>
+                    <div class="accordion-body">
+                        <p class="mb-0"><strong>Absolutamente no.</strong> Todos los packs de GeN Trading son <strong>100% gratuitos</strong> para usuarios registrados. No hay costes ocultos, no hay suscripciones premium, no hay upsells. Nuestro modelo de negocio se basa en otros servicios profesionales (asesoría, gestión de carteras institucional). Tu única inversión es tu tiempo, dedicación y disciplina.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">¿Puedo saltarme el Pack Avanzado e ir directo al Supremo?</button></h2>
-                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p>No. Los packs se desbloquean secuencialmente por tiempo, no por elección. Esto garantiza que todos los miembros del Pack Supremo tengan una base sólida.</p>
-                            <p class="mb-0">Sin embargo, puedes acelerar tu aprendizaje: completa los vídeos del Pack Inicial rápidamente y empieza el Avanzado en cuanto se desbloquee (2 semanas). Así llegarás al Supremo con mejor preparación.</p>
-                        </div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿Puedo saltarme el Pack Avanzado e ir directo al Supremo?
+                    </button>
+                    <div class="accordion-body">
+                        <p>No. Los packs se desbloquean secuencialmente por tiempo, no por elección. Esto garantiza que todos los miembros del Pack Supremo tengan una base sólida.</p>
+                        <p class="mb-0">Sin embargo, puedes acelerar tu aprendizaje: completa los vídeos del Pack Inicial rápidamente y empieza el Avanzado en cuanto se desbloquee (2 semanas). Así llegarás al Supremo con mejor preparación.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">¿Qué pasa si no puedo asistir a la videollamada semanal?</button></h2>
-                    <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p>Si no puedes asistir a tu sesión programada, avisa con <strong>mínimo 24 horas de antelación</strong> por email o WhatsApp. Reprogramamos para la siguiente semana sin problema.</p>
-                            <p class="mb-0">Si faltas sin avisar, la sesión se considera consumida. Tienes derecho a <strong>1 reprogramación de emergencia al mes</strong> (aviso con menos de 24h por causas justificadas).</p>
-                        </div>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
+                        ¿Qué pasa si no puedo asistir a la videollamada semanal?
+                    </button>
+                    <div class="accordion-body">
+                        <p>Si no puedes asistir a tu sesión programada, avisa con <strong>mínimo 24 horas de antelación</strong> por email o WhatsApp. Reprogramamos para la siguiente semana sin problema.</p>
+                        <p class="mb-0">Si faltas sin avisar, la sesión se considera consumida. Tienes derecho a <strong>1 reprogramación de emergencia al mes</strong> (aviso con menos de 24h por causas justificadas).</p>
                     </div>
                 </div>
             </div>
         </div>
-
         {{-- NAVEGACIÓN --}}
         <div class="d-flex justify-content-between align-items-center mt-4 pt-4 border-top">
             <a href="/mis-planes" class="btn btn-outline-secondary rounded-pill px-4"><i class="bi bi-arrow-left me-2"></i>Volver a los planes</a>
