@@ -53,15 +53,67 @@
         .portfolio-item:hover { border-color: #dc2626; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
         .chart-placeholder { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: 12px; padding: 2rem; text-align: center; border: 2px dashed #cbd5e1; }
         /* === ACORDEÓN CORREGIDO === */
-        .accordion-custom .accordion-item { border: none; margin-bottom: 0.75rem; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .accordion-custom .accordion-button { background: linear-gradient(135deg, #fef2f2, #fff5f5); padding: 1.25rem 1.5rem; font-weight: 700; color: #7f1d1d; border: none; font-size: 1rem; border-radius: 12px; }
-        .accordion-custom .accordion-button:not(.collapsed) { background: linear-gradient(135deg, #fee2e2, #fecaca); color: #991b1b; box-shadow: none; border-radius: 12px 12px 0 0; }
-        .accordion-custom .accordion-button:focus { box-shadow: none; border-color: transparent; }
-        .accordion-custom .accordion-button::after { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%237f1d1d'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); }
-        .accordion-custom .accordion-button:not(.collapsed)::after { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23991b1b'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); transform: rotate(-180deg); }
-        .accordion-custom .accordion-collapse { border: none; }
-        .accordion-custom .accordion-collapse.show { border-radius: 0 0 12px 12px; }
-        .accordion-custom .accordion-body { background: white; padding: 1.5rem; }
+        .accordion-custom { border: none; background: none; }
+        .accordion-custom .accordion-item { 
+            border: none; 
+            margin-bottom: 0.75rem; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            background: white; 
+        }
+        .accordion-custom .accordion-button { 
+            background: linear-gradient(135deg, #fef2f2, #fff5f5); 
+            padding: 1.25rem 1.5rem; 
+            font-weight: 700; 
+            color: #7f1d1d; 
+            border: none; 
+            width: 100%; 
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+            border-radius: 12px;
+        }
+        .accordion-custom .accordion-button:hover { 
+            background: linear-gradient(135deg, #fee2e2, #fecaca); 
+            color: #991b1b; 
+        }
+        .accordion-custom .accordion-button.active { 
+            background: linear-gradient(135deg, #fee2e2, #fecaca); 
+            color: #991b1b; 
+            box-shadow: none; 
+            border-radius: 12px 12px 0 0;
+        }
+        .accordion-custom .accordion-button::after { 
+            content: '\F282'; 
+            font-family: 'bootstrap-icons'; 
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            margin-left: auto;
+        }
+        .accordion-custom .accordion-button.active::after { 
+            transform: rotate(180deg); 
+        }
+        .accordion-custom .accordion-body { 
+            background: white; 
+            padding: 1.5rem; 
+            display: none;
+            border-top: 1px solid #f1f5f9;
+            border-radius: 0 0 12px 12px;
+        }
+        .accordion-custom .accordion-body.show { 
+            display: block; 
+            animation: fadeInAccordion 0.3s ease; 
+        }
+
+        @keyframes fadeInAccordion {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         .progress-ring { width: 120px; height: 120px; }
         .mentor-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #ea580c); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 800; border: 3px solid #fbbf24; }
         .weekly-schedule { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; }
@@ -1541,10 +1593,31 @@
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
                 // Función para acordeones personalizados (evita conflicto con Alpine.js)
-
+            function toggleAccordion(button) {
+                const item = button.parentElement;
+                const body = button.nextElementSibling;
+                const isOpen = body.classList.contains('show');
+                
+                // Cerrar todos los del mismo grupo (comportamiento acordeón)
+                const parent = item.parentElement;
+                parent.querySelectorAll('.accordion-body.show').forEach(openBody => {
+                    if (openBody !== body) {
+                        openBody.classList.remove('show');
+                        openBody.previousElementSibling.classList.remove('active');
+                    }
+                });
+                
+                // Toggle actual
+                if (isOpen) {
+                    body.classList.remove('show');
+                    button.classList.remove('active');
+                } else {
+                    body.classList.add('show');
+                    button.classList.add('active');
+                }
+            }
         function showModule(index) {
             document.querySelectorAll('.content-panel').forEach(panel => {
                 panel.classList.remove('active');
