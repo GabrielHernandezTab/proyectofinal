@@ -62,6 +62,17 @@
         .accordion-custom .accordion-collapse { border: none; }
         .accordion-custom .accordion-collapse.show { border-radius: 0 0 12px 12px; }
         .accordion-custom .accordion-body { background: white; padding: 1.5rem; }
+        /* Transición suave para el acordeón */
+        .accordion-custom .accordion-collapse {
+            transition: height 0.35s ease;
+        }
+        .accordion-custom .accordion-collapse.collapsing {
+            height: 0;
+            overflow: hidden;
+        }
+        .accordion-custom .accordion-collapse.show {
+            display: block;
+        }
         .progress-ring { width: 120px; height: 120px; }
         .mentor-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #ea580c); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 800; border: 3px solid #fbbf24; }
         .weekly-schedule { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; }
@@ -1475,8 +1486,14 @@
             <h4 class="fw-bold mb-4" style="color:#991b1b;"><i class="bi bi-question-circle me-2"></i>Preguntas Frecuentes del Pack Supremo</h4>
             <div class="accordion accordion-custom" id="faqAccordion">
                 <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">¿Cuándo se desbloquea el Pack Supremo?</button></h2>
-                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#faq1" 
+                                    aria-expanded="false">
+                                ¿Cuándo se desbloquea el Pack Supremo?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             <p>El Pack Supremo se desbloquea automáticamente <strong>2 meses después</strong> de tu registro en GeN Trading. Recibirás una notificación por email y SMS. No requiere pago ni acción adicional.</p>
                             <div class="tip-box mb-0"><strong>Recomendación:</strong> Aprovecha estos 2 meses para dominar el Pack Avanzado. El Supremo asume conocimientos sólidos de análisis técnico, gestión de riesgo y fiscalidad básica.</div>
@@ -1541,30 +1558,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
                 // Función para acordeones personalizados (evita conflicto con Alpine.js)
-        function toggleAccordion(button) {
-            const item = button.parentElement;
-            const body = button.nextElementSibling;
-            const isOpen = body.classList.contains('show');
-            
-            // Cerrar todos los del mismo grupo (comportamiento acordeón)
-            const parent = item.parentElement;
-            parent.querySelectorAll('.accordion-body.show').forEach(openBody => {
-                if (openBody !== body) {
-                    openBody.classList.remove('show');
-                    openBody.previousElementSibling.classList.remove('active');
-                }
-            });
-            
-            // Toggle actual
-            if (isOpen) {
-                body.classList.remove('show');
-                button.classList.remove('active');
-            } else {
-                body.classList.add('show');
-                button.classList.add('active');
-            }
-        }
-        
+    function showModule(index) {
+        document.querySelectorAll('.content-panel').forEach(panel => {
+            panel.classList.remove('active');
+        });
+        document.querySelectorAll('.module-nav-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById('module-' + index).classList.add('active');
+        document.querySelectorAll('.module-nav-btn')[index].classList.add('active');
+    }
+
         function showModule(index) {
             document.querySelectorAll('.content-panel').forEach(panel => {
                 panel.classList.remove('active');
@@ -1604,14 +1608,4 @@
 
 </x-app-layout>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    const acc = document.getElementsByClassName("accordion-btn");
-    for (let i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            let panel = this.nextElementSibling;
-            panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
-        });
-    }
-</script>
+
