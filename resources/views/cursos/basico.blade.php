@@ -640,7 +640,6 @@
         calculateCompound();
     </script>
 
-@push("scripts")
 <script>
 (function() {
     const inicio = Date.now();
@@ -665,5 +664,5 @@
     setInterval(enviarProgreso, 300000);
 })();
 </script>
-@endpush
+
 </x-app-layout>
