@@ -114,9 +114,8 @@
         <div class="hero-avanzado">
             <div class="row align-items-center position-relative">
                 <div class="col-lg-8">
-                    <div class="lock-badge mb-3"><i class="bi bi-clock-fill"></i> SE DESBLOQUEA EN 2 SEMANAS</div>
                     <h1 class="display-4 fw-bold mb-3">Pack Avanzado</h1>
-                    <p class="lead mb-4 opacity-90">Vídeos cada 2 semanas (2h cada uno), curso progresivo de menos a más. Estrategias operativas, fiscalidad, diferentes servicios de inversión y educación financiera personalizada.</p>
+                    <p class="lead mb-4 opacity-90">Curso progresivo de menos a más. Estrategias operativas, fiscalidad, diferentes servicios de inversión y educación financiera personalizada.</p>
                     <div class="row g-3 mb-4">
                         <div class="col-6 col-md-3"><div class="stat-box"><div class="num">6</div><div class="label">Módulos</div></div></div>
                         <div class="col-6 col-md-3"><div class="stat-box"><div class="num">2h</div><div class="label">Por vídeo</div></div></div>
@@ -854,12 +853,7 @@
                         </div>
                         <div class="resource-tile mb-0">
                             <i class="bi bi-youtube fs-5 text-danger"></i>
-                            <div>
-                                <strong>Patrick Boyle</strong>
-                                <small class="d-block text-muted">Finanzas cuantitativas y an El archivo se cortó al final. Déjame completar el código con la parte que falta (desde donde se interrumpió el glosario, FAQ, recursos, navegación y scripts finales):
-
-```blade
-                            <div>
+                                    <div>
                                 <strong>Patrick Boyle</strong>
                                 <small class="d-block text-muted">Finanzas cuantitativas y análisis profundo</small>
                             </div>
@@ -1000,7 +994,7 @@
                             <h6 class="fw-bold text-primary mb-2">Caso 1: Dividendos Anuales</h6>
                             <p class="small text-muted mb-2">Recibes 2.500€ en dividendos de acciones españolas y 1.200€ de acciones USA.</p>
                             <div class="bg-light rounded p-2 mb-2">
-                                <small class="text-muted"><strong>Total:</strong> 3.700€<br><strong>Retención:</strong> 19% = 703€<br><strong>En declaración:</strong> Se incluye, ya retenido</small>
+                                <small class="text-muted"><strong>Total:</strong> 3.700€<<br><strong>Retención:</strong> 19% = 703€<<br><strong>En declaración:</strong> Se incluye, ya retenido</small>
                             </div>
                             <small class="text-muted"><i class="bi bi-info-circle me-1"></i> Los dividendos de USA tienen retención del 15% por convenio. Se compensa en España.</small>
                         </div>
@@ -1010,7 +1004,7 @@
                             <h6 class="fw-bold text-primary mb-2">Caso 2: Venta de Acciones</h6>
                             <p class="small text-muted mb-2">Compraste 100 acciones de Apple a 150$. Las vendes a 200$. Tipo de cambio: 1€ = 1.08$.</p>
                             <div class="bg-light rounded p-2 mb-2">
-                                <small class="text-muted"><strong>Compra:</strong> 100 × 150$ / 1.08 = 13.889€<br><strong>Venta:</strong> 100 × 200$ / 1.08 = 18.519€<br><strong>Ganancia:</strong> 4.630€<br><strong>Impuesto (19%):</strong> 880€</small>
+                                <small class="text-muted"><strong>Compra:</strong> 100 × 150$ / 1.08 = 13.889€<<br><strong>Venta:</strong> 100 × 200$ / 1.08 = 18.519€<<br><strong>Ganancia:</strong> 4.630€<<br><strong>Impuesto (19%):</strong> 880€</small>
                             </div>
                             <small class="text-muted"><i class="bi bi-info-circle me-1"></i> Se aplica el tipo de cambio del día de compra y del día de venta.</small>
                         </div>
@@ -1020,7 +1014,7 @@
                             <h6 class="fw-bold text-primary mb-2">Caso 3: Pérdidas Compensables</h6>
                             <p class="small text-muted mb-2">En 2026 pierdes 4.000€ en una operación de trading. En 2027 ganas 8.000€.</p>
                             <div class="bg-light rounded p-2 mb-2">
-                                <small class="text-muted"><strong>2026:</strong> Pérdida 4.000€ (nada que pagar)<br><strong>2027:</strong> Ganancia 8.000€ - Pérdida 4.000€ = 4.000€<br><strong>Impuesto 2027:</strong> 4.000€ × 19% = 760€</small>
+                                <small class="text-muted"><strong>2026:</strong> Pérdida 4.000€ (nada que pagar)<br><strong>2027:</strong> Ganancia 8.000€ - Pérdida 4.000€ = 4.000€<<br><strong>Impuesto 2027:</strong> 4.000€ × 19% = 760€</small>
                             </div>
                             <small class="text-muted"><i class="bi bi-info-circle me-1"></i> Plazo para compensar: 4 años siguientes.</small>
                         </div>
@@ -1030,7 +1024,7 @@
                             <h6 class="fw-bold text-primary mb-2">Caso 4: Criptomonedas</h6>
                             <p class="small text-muted mb-2">Compraste Bitcoin a 20.000€ y lo vendes a 35.000€. Ganancia: 15.000€.</p>
                             <div class="bg-light rounded p-2 mb-2">
-                                <small class="text-muted"><strong>Ganancia:</strong> 15.000€<br><strong>Tramo:</strong> 19% (hasta 6.000€) + 21% (6.000€ a 15.000€)<br><strong>Cálculo:</strong> 6.000×19% + 9.000×21% = 1.140 + 1.890 = 3.030€<br><strong>Impuesto total:</strong> 3.030€ (20.2% efectivo)</small>
+                                <small class="text-muted"><strong>Ganancia:</strong> 15.000€<<br><strong>Tramo:</strong> 19% (hasta 6.000€) + 21% (6.000€ a 15.000€)<br><strong>Cálculo:</strong> 6.000×19% + 9.000×21% = 1.140 + 1.890 = 3.030€<<br><strong>Impuesto total:</strong> 3.030€ (20.2% efectivo)</small>
                             </div>
                             <small class="text-muted"><i class="bi bi-info-circle me-1"></i> Obligatorio declarar si la ganancia supera 2.000€ anuales.</small>
                         </div>
@@ -1186,7 +1180,6 @@
         </div>
 
     </div>
-
     <script>
         // Función para acordeones personalizados (evita conflicto con Alpine.js)
         function toggleAccordion(button) {

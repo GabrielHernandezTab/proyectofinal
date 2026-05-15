@@ -81,7 +81,6 @@
       btnText: 'Empieza ya!',
       destacado: true,
       features: [
-        'Videos cada dos semanas (2 horas c/u)',
         'Curso progresivo de menos a más',
         'Diferentes servicios de inversión (eToro recomendado)',
         'Páginas fiables de información financiera',
@@ -99,7 +98,6 @@
       btnText: 'Acceso Premium',
       destacado: false,
       features: [
-        '3 videos nuevos cada semana',
         'Clase personalizada por videoconferencia semanal',
         'Análisis profundo de datos e información',
         'Gráfico de inversión mensual',
