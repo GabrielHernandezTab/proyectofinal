@@ -62,12 +62,6 @@
             <div class="p-4 p-md-5">
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="display-5 fw-bold text-primary mb-3">35€ <small class="fs-6 text-muted">/mes</small></div>
-                        <div class="card bg-light border-0 mb-3">
-                            <div class="card-body p-3">
-                                <p class="mb-0 small"><strong>Descuento Especial:</strong> 15% para estudiantes, jubilados y personas con discapacidad acreditada mediante el panel de usuario.</p>
-                            </div>
-                        </div>
                         <p class="fw-bold text-primary">Contenido técnico de alto impacto (60h+)</p>
                     </div>
                     <div class="col-lg-8 border-start ps-lg-5">
@@ -106,12 +100,10 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="display-5 fw-bold text-info mb-2">60€ <small class="fs-6 text-secondary">/mes</small></div>
-                        <p class="text-info fw-bold small text-uppercase mb-4">Fidelización: 45€ desde el 3er mes</p>
                         <div class="p-3 border border-secondary rounded">
                             <h6>Incluye:</h6>
                             <ul class="list-unstyled small">
                                 <li><i class="bi bi-check2-all text-info me-2"></i>100 Horas de material élite</li>
-                                <li><i class="bi bi-check2-all text-info me-2"></i>3 Vídeos nuevos por semana</li>
                                 <li><i class="bi bi-check2-all text-info me-2"></i>Llamadas de urgencia de mercado</li>
                             </ul>
                         </div>

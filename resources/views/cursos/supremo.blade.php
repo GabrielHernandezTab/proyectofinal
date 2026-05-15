@@ -3656,9 +3656,33 @@ Reemplaza toda la sección del FAQ por este código:
             </div>
         </div>
             {{-- SCRIPTS --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // === NAVEGACIÓN DE MÓDULOS ===
+        // Función para acordeones personalizados (evita conflicto con Alpine.js)
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const body = button.nextElementSibling;
+            const isOpen = body.classList.contains('show');
+            
+            // Cerrar todos los del mismo grupo (comportamiento acordeón)
+            const parent = item.parentElement;
+            parent.querySelectorAll('.accordion-body.show').forEach(openBody => {
+                if (openBody !== body) {
+                    openBody.classList.remove('show');
+                    openBody.previousElementSibling.classList.remove('active');
+                }
+            });
+            
+            // Toggle actual
+            if (isOpen) {
+                body.classList.remove('show');
+                button.classList.remove('active');
+            } else {
+                body.classList.add('show');
+                button.classList.add('active');
+            }
+        }
+
+        // Navegación de módulos
         function showModule(index) {
             document.querySelectorAll('.content-panel').forEach(panel => {
                 panel.classList.remove('active');
@@ -3669,53 +3693,43 @@ Reemplaza toda la sección del FAQ por este código:
             document.getElementById('module-' + index).classList.add('active');
             document.querySelectorAll('.module-nav-btn')[index].classList.add('active');
         }
-
-        // === ACORDEÓN FAQ (Vanilla JS - sin conflictos con Alpine) ===
-        function toggleFaq(button) {
-            const item = button.closest('.faq-item');
-            const body = item.querySelector('.faq-body');
-            const isOpen = body.classList.contains('open');
-            
-            // Cerrar todos los demás
-            document.querySelectorAll('.faq-body.open').forEach(openBody => {
-                if (openBody !== body) {
-                    openBody.classList.remove('open');
-                    openBody.closest('.faq-item').querySelector('.faq-header').classList.remove('active');
-                }
-            });
-            
-            // Toggle el actual
-            if (isOpen) {
-                body.classList.remove('open');
-                button.classList.remove('active');
-            } else {
-                body.classList.add('open');
-                button.classList.add('active');
-            }
-        }
-
-        // === PROGRESO DEL CURSO ===
-        (function() {
-            const inicio = Date.now();
-            const curso  = "supremo";
-            const token  = document.querySelector("meta[name=\"csrf-token\"]")?.getAttribute("content");
-
-            function enviarProgreso() {
-                const segundos = Math.round((Date.now() - inicio) / 1000);
-                if (segundos < 5) return;
-                fetch("/progreso-curso", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": token,
-                    },
-                    body: JSON.stringify({ curso: curso, segundos: segundos }),
-                    keepalive: true,
-                });
-            }
-
-            window.addEventListener("beforeunload", enviarProgreso);
-            setInterval(enviarProgreso, 300000);
-        })();
     </script>
+
+<script>
+(function() {
+    const inicio = Date.now();
+    const curso  = "supremo";
+    const token  = document.querySelector("meta[name=\"csrf-token\"]")?.getAttribute("content");
+
+    function enviarProgreso() {
+        const segundos = Math.round((Date.now() - inicio) / 1000);
+        if (segundos < 5) return;
+        fetch("/progreso-curso", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": token,
+            },
+            body: JSON.stringify({ curso: curso, segundos: segundos }),
+            keepalive: true,
+        });
+    }
+
+    window.addEventListener("beforeunload", enviarProgreso);
+    setInterval(enviarProgreso, 300000);
+})();
+</script>
+
 </x-app-layout>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const acc = document.getElementsByClassName("accordion-btn");
+    for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            let panel = this.nextElementSibling;
+            panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+        });
+    }
+</script>
