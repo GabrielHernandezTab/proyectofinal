@@ -3655,34 +3655,8 @@ Reemplaza toda la sección del FAQ por este código:
 
             </div>
         </div>
-            {{-- SCRIPTS --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Función para acordeones personalizados (evita conflicto con Alpine.js)
-        function toggleAccordion(button) {
-            const item = button.parentElement;
-            const body = button.nextElementSibling;
-            const isOpen = body.classList.contains('show');
-            
-            // Cerrar todos los del mismo grupo (comportamiento acordeón)
-            const parent = item.parentElement;
-            parent.querySelectorAll('.accordion-body.show').forEach(openBody => {
-                if (openBody !== body) {
-                    openBody.classList.remove('show');
-                    openBody.previousElementSibling.classList.remove('active');
-                }
-            });
-            
-            // Toggle actual
-            if (isOpen) {
-                body.classList.remove('show');
-                button.classList.remove('active');
-            } else {
-                body.classList.add('show');
-                button.classList.add('active');
-            }
-        }
-
-        // Navegación de módulos
         function showModule(index) {
             document.querySelectorAll('.content-panel').forEach(panel => {
                 panel.classList.remove('active');
