@@ -45,7 +45,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('mis-planes/avanzado',[PlanController::class, 'avanzado']);
     Route::get('mis-planes/supremo',[PlanController::class, 'supremo']);
 
-
+    // PROGRESO DE CURSOS
+    Route::post('/progreso-curso', [\App\Http\Controllers\ProgresoCursoController::class, 'guardar'])->name('progreso.guardar');
     
 });
 
@@ -55,9 +56,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'role:admin'])->group(function () {
-
-    // PROGRESO DE CURSOS
-    Route::post('/progreso-curso', [\App\Http\Controllers\ProgresoCursoController::class, 'guardar'])->name('progreso.guardar');
 
     // GESTIÓN DE CURSOS
     Route::get('/admin/gestion-cursos', [CursoController::class, 'index'])->name('cursos.index');

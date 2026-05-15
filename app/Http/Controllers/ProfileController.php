@@ -17,8 +17,13 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $progresos = \App\Models\ProgresoCurso::where('usuario_id', $request->user()->id)
+            ->get()
+            ->keyBy('curso');
+
         return view('profile.edit', [
-            'user' => $request->user(),
+            'user'      => $request->user(),
+            'progresos' => $progresos,
         ]);
     }
 
