@@ -62,17 +62,6 @@
         .accordion-custom .accordion-collapse { border: none; }
         .accordion-custom .accordion-collapse.show { border-radius: 0 0 12px 12px; }
         .accordion-custom .accordion-body { background: white; padding: 1.5rem; }
-        /* Transición suave para el acordeón */
-        .accordion-custom .accordion-collapse {
-            transition: height 0.35s ease;
-        }
-        .accordion-custom .accordion-collapse.collapsing {
-            height: 0;
-            overflow: hidden;
-        }
-        .accordion-custom .accordion-collapse.show {
-            display: block;
-        }
         .progress-ring { width: 120px; height: 120px; }
         .mentor-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #ea580c); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 800; border: 3px solid #fbbf24; }
         .weekly-schedule { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; }
@@ -1558,16 +1547,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
                 // Función para acordeones personalizados (evita conflicto con Alpine.js)
-    function showModule(index) {
-        document.querySelectorAll('.content-panel').forEach(panel => {
-            panel.classList.remove('active');
-        });
-        document.querySelectorAll('.module-nav-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        document.getElementById('module-' + index).classList.add('active');
-        document.querySelectorAll('.module-nav-btn')[index].classList.add('active');
-    }
 
         function showModule(index) {
             document.querySelectorAll('.content-panel').forEach(panel => {
