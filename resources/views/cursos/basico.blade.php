@@ -649,7 +649,7 @@
         </div>
 
     </div>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         // Función para acordeones personalizados (evita conflicto con Alpine.js)
         function toggleAccordion(button) {
@@ -698,7 +698,9 @@
         });
         calculateCompound();
     </script>
-   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
 (function() {
     const inicio = Date.now();
@@ -725,5 +727,3 @@
 </script>
 
 </x-app-layout>
-
-
