@@ -334,6 +334,33 @@
         </div>
 
     </div>
+
+@push("scripts")
+<script>
+(function() {
+    const inicio = Date.now();
+    const curso  = "supremo";
+    const token  = document.querySelector("meta[name=\"csrf-token\"]")?.getAttribute("content");
+
+    function enviarProgreso() {
+        const segundos = Math.round((Date.now() - inicio) / 1000);
+        if (segundos < 5) return;
+        fetch("/progreso-curso", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": token,
+            },
+            body: JSON.stringify({ curso: curso, segundos: segundos }),
+            keepalive: true,
+        });
+    }
+
+    window.addEventListener("beforeunload", enviarProgreso);
+    setInterval(enviarProgreso, 300000);
+})();
+</script>
+@endpush
 </x-app-layout>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -346,24 +373,4 @@
             panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
         });
     }
-</script>
-{{-- Tracking de tiempo de estudio --}}
-<script>
-(function() {
-    const inicio = Date.now();
-    const curso  = 'supremo';
-    const token  = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-
-    function enviarProgreso() {
-        const segundos = Math.round((Date.now() - inicio) / 1000);
-        if (segundos < 5) return;
-        navigator.sendBeacon(
-            '/progreso-curso',
-            new Blob([JSON.stringify({ curso, segundos, _token: token })], { type: 'application/json' })
-        );
-    }
-
-    window.addEventListener('beforeunload', enviarProgreso);
-    setInterval(enviarProgreso, 300000);
-})();
 </script>

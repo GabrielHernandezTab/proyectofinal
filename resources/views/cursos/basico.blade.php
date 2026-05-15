@@ -639,25 +639,31 @@
         });
         calculateCompound();
     </script>
-</x-app-layout>
-{{-- Tracking de tiempo de estudio --}}
+
+@push("scripts")
 <script>
 (function() {
     const inicio = Date.now();
-    const curso  = 'basico';
-    const token  = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    const curso  = "basico";
+    const token  = document.querySelector("meta[name=\"csrf-token\"]")?.getAttribute("content");
 
     function enviarProgreso() {
         const segundos = Math.round((Date.now() - inicio) / 1000);
         if (segundos < 5) return;
-        navigator.sendBeacon(
-            '/progreso-curso',
-            new Blob([JSON.stringify({ curso, segundos, _token: token })], { type: 'application/json' })
-        );
+        fetch("/progreso-curso", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": token,
+            },
+            body: JSON.stringify({ curso: curso, segundos: segundos }),
+            keepalive: true,
+        });
     }
 
-    window.addEventListener('beforeunload', enviarProgreso);
-    // También cada 5 minutos si el usuario se queda mucho tiempo
+    window.addEventListener("beforeunload", enviarProgreso);
     setInterval(enviarProgreso, 300000);
 })();
 </script>
+@endpush
+</x-app-layout>
