@@ -347,3 +347,23 @@
         });
     }
 </script>
+{{-- Tracking de tiempo de estudio --}}
+<script>
+(function() {
+    const inicio = Date.now();
+    const curso  = 'supremo';
+    const token  = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
+    function enviarProgreso() {
+        const segundos = Math.round((Date.now() - inicio) / 1000);
+        if (segundos < 5) return;
+        navigator.sendBeacon(
+            '/progreso-curso',
+            new Blob([JSON.stringify({ curso, segundos, _token: token })], { type: 'application/json' })
+        );
+    }
+
+    window.addEventListener('beforeunload', enviarProgreso);
+    setInterval(enviarProgreso, 300000);
+})();
+</script>
