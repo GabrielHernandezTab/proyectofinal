@@ -95,7 +95,7 @@
       precio: 'Gratis',
       icon: 'bi-crown',
       horas: '100 horas de curso',
-      btnText: 'Acceso Premium',
+      btnText: 'Empieza ya!',
       destacado: false,
       features: [
         'Clase personalizada por videoconferencia semanal',
