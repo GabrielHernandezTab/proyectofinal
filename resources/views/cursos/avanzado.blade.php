@@ -276,7 +276,141 @@
                     <div class="col-md-6"><div class="p-2 bg-white rounded border"><strong class="text-danger"><i class="bi bi-shield-x me-2"></i>Señales de alerta:</strong><br><small class="text-muted">Promesas de rentabilidad fija, sin licencia visible, solo aceptan cripto</small></div></div>
                 </div>
             </div>
+            {{-- ============================================================
+     ELEMENTO INTERACTIVO 1: COMPARADOR DE PLATAFORMAS
+     Insertar al FINAL del módulo "Servicios de Inversión" (module-1)
+     justo antes del </div> que cierra ese content-panel
+     ============================================================ --}}
+ 
+<div class="strategy-card mt-4" style="border-top: 4px solid #7c3aed;">
+    <h5 class="fw-bold mb-2" style="color:#581c87;">
+        <i class="bi bi-sliders me-2"></i>¿Qué plataforma es mejor para ti? — Comparador Interactivo
+    </h5>
+    <p class="text-muted small mb-4">Selecciona lo que más te importa y te diremos qué plataforma encaja mejor con tu perfil.</p>
+ 
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <label class="form-label small fw-bold" style="color:#581c87;">¿Qué tipo de inversor eres?</label>
+            <select id="cmp-tipo" class="form-select" onchange="calcularPlataforma()">
+                <option value="">Selecciona...</option>
+                <option value="principiante">Principiante — quiero empezar desde cero</option>
+                <option value="pasivo">Inversor pasivo — ETFs y largo plazo</option>
+                <option value="activo">Trader activo — opero con frecuencia</option>
+                <option value="social">Me gusta copiar a otros traders</option>
+            </select>
         </div>
+        <div class="col-md-6">
+            <label class="form-label small fw-bold" style="color:#581c87;">¿Qué mercados te interesan?</label>
+            <select id="cmp-mercado" class="form-select" onchange="calcularPlataforma()">
+                <option value="">Selecciona...</option>
+                <option value="acciones">Acciones y ETFs</option>
+                <option value="forex">Forex y CFDs</option>
+                <option value="cripto">Criptomonedas</option>
+                <option value="todo">Todo tipo de activos</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label small fw-bold" style="color:#581c87;">¿Cuánto capital tienes para empezar?</label>
+            <select id="cmp-capital" class="form-select" onchange="calcularPlataforma()">
+                <option value="">Selecciona...</option>
+                <option value="bajo">Menos de 500€</option>
+                <option value="medio">500€ — 5.000€</option>
+                <option value="alto">Más de 5.000€</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label small fw-bold" style="color:#581c87;">¿Las comisiones son tu prioridad?</label>
+            <select id="cmp-comisiones" class="form-select" onchange="calcularPlataforma()">
+                <option value="">Selecciona...</option>
+                <option value="si">Sí, quiero las más bajas posibles</option>
+                <option value="no">No me importa si hay más funciones</option>
+            </select>
+        </div>
+    </div>
+ 
+    <div id="cmp-resultado" style="display:none;" class="p-4 rounded-3" style="background:#f3e8ff;">
+    </div>
+</div>
+ 
+    <script>
+    function calcularPlataforma() {
+        const tipo = document.getElementById('cmp-tipo').value;
+        const mercado = document.getElementById('cmp-mercado').value;
+        const capital = document.getElementById('cmp-capital').value;
+        const comisiones = document.getElementById('cmp-comisiones').value;
+    
+        if (!tipo || !mercado || !capital || !comisiones) return;
+    
+        const plataformas = {
+            etoro: { nombre: 'eToro', color: '#00C853', icon: 'bi-people-fill', puntos: 0, motivos: [] },
+            degiro: { nombre: 'DEGIRO', color: '#FF6B00', icon: 'bi-bar-chart-fill', puntos: 0, motivos: [] },
+            ib: { nombre: 'Interactive Brokers', color: '#1565C0', icon: 'bi-graph-up-arrow', puntos: 0, motivos: [] },
+            xtb: { nombre: 'XTB', color: '#E53935', icon: 'bi-lightning-charge-fill', puntos: 0, motivos: [] },
+            tr: { nombre: 'Trade Republic', color: '#4CAF50', icon: 'bi-piggy-bank-fill', puntos: 0, motivos: [] },
+        };
+    
+        if (tipo === 'principiante') { plataformas.etoro.puntos += 3; plataformas.etoro.motivos.push('Interfaz muy intuitiva para principiantes'); plataformas.tr.puntos += 2; plataformas.tr.motivos.push('App sencilla ideal para empezar'); }
+        if (tipo === 'pasivo') { plataformas.degiro.puntos += 3; plataformas.degiro.motivos.push('ETFs gratuitos en su lista core'); plataformas.tr.puntos += 2; plataformas.tr.motivos.push('Perfecta para aportaciones periódicas'); }
+        if (tipo === 'activo') { plataformas.ib.puntos += 3; plataformas.ib.motivos.push('Herramientas profesionales de trading'); plataformas.xtb.puntos += 2; plataformas.xtb.motivos.push('Spreads bajos para operar frecuente'); }
+        if (tipo === 'social') { plataformas.etoro.puntos += 4; plataformas.etoro.motivos.push('CopyTrading exclusivo de eToro'); }
+    
+        if (mercado === 'acciones') { plataformas.degiro.puntos += 2; plataformas.degiro.motivos.push('Acceso a más de 50 bolsas mundiales'); plataformas.ib.puntos += 2; plataformas.ib.motivos.push('Mayor selección de acciones globales'); }
+        if (mercado === 'forex') { plataformas.xtb.puntos += 3; plataformas.xtb.motivos.push('Spreads muy competitivos en Forex'); plataformas.ib.puntos += 2; plataformas.ib.motivos.push('Forex profesional con acceso interbancario'); }
+        if (mercado === 'cripto') { plataformas.etoro.puntos += 2; plataformas.etoro.motivos.push('Amplia selección de criptomonedas'); }
+        if (mercado === 'todo') { plataformas.etoro.puntos += 2; plataformas.etoro.motivos.push('Acciones, ETFs, cripto y CFDs en una sola plataforma'); plataformas.ib.puntos += 2; plataformas.ib.motivos.push('La gama de activos más amplia del mercado'); }
+    
+        if (capital === 'bajo') { plataformas.etoro.puntos += 2; plataformas.etoro.motivos.push('Sin mínimo real para empezar'); plataformas.tr.puntos += 3; plataformas.tr.motivos.push('Desde 1€ por operación'); }
+        if (capital === 'medio') { plataformas.degiro.puntos += 2; plataformas.degiro.motivos.push('Ideal para carteras de tamaño medio'); plataformas.etoro.puntos += 1; }
+        if (capital === 'alto') { plataformas.ib.puntos += 3; plataformas.ib.motivos.push('Optimizado para carteras grandes, fiscalidad avanzada'); plataformas.degiro.puntos += 2; }
+    
+        if (comisiones === 'si') { plataformas.degiro.puntos += 2; plataformas.degiro.motivos.push('De las más baratas del mercado europeo'); plataformas.xtb.puntos += 2; plataformas.xtb.motivos.push('0% comisión en acciones y ETFs'); plataformas.etoro.puntos += 1; plataformas.etoro.motivos.push('0% comisión en compra de acciones reales'); }
+        if (comisiones === 'no') { plataformas.ib.puntos += 1; plataformas.etoro.puntos += 1; }
+    
+        const ranking = Object.values(plataformas).sort((a, b) => b.puntos - a.puntos);
+        const ganador = ranking[0];
+        const segundo = ranking[1];
+    
+        const links = { etoro: 'https://www.etoro.com', degiro: 'https://www.degiro.es', ib: 'https://www.interactivebrokers.com', xtb: 'https://www.xtb.com/es', tr: 'https://www.traderepublic.com/es-es' };
+        const keys = { eToro: 'etoro', DEGIRO: 'degiro', 'Interactive Brokers': 'ib', XTB: 'xtb', 'Trade Republic': 'tr' };
+    
+        document.getElementById('cmp-resultado').style.display = 'block';
+        document.getElementById('cmp-resultado').style.background = '#f3e8ff';
+        document.getElementById('cmp-resultado').innerHTML = `
+            <div class="row g-3">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="width:50px;height:50px;background:${ganador.color};font-size:1.2rem;">1</div>
+                        <div>
+                            <div class="fw-bold fs-5" style="color:${ganador.color}">${ganador.nombre} <span class="badge ms-2" style="background:${ganador.color}">Recomendada</span></div>
+                            <small class="text-muted">Puntuación: ${ganador.puntos} puntos para tu perfil</small>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled small mb-3">
+                        ${ganador.motivos.map(m => `<li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>${m}</li>`).join('')}
+                    </ul>
+                    <a href="${links[keys[ganador.nombre]] || '#'}" target="_blank" class="btn btn-sm rounded-pill text-white px-3" style="background:${ganador.color}">
+                        <i class="bi bi-box-arrow-up-right me-1"></i>Visitar ${ganador.nombre}
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-white rounded-3 p-3 border">
+                        <div class="small fw-bold text-muted mb-2">También considera:</div>
+                        <div class="fw-bold" style="color:${segundo.color}">${segundo.nombre}</div>
+                        <small class="text-muted">${segundo.motivos[0] || 'Buena alternativa para tu perfil'}</small>
+                    </div>
+                    <div class="mt-2 p-2 rounded" style="background:rgba(124,58,237,0.08)">
+                        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>Basado en tus respuestas. Compara siempre antes de decidir.</small>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    </script>
+    
+    
+        </div>
+
+
 
         {{-- MÓDULO 2: TIPOS DE INVERSIÓN --}}
         <div class="content-panel" id="module-1">
@@ -605,6 +739,123 @@
                     <div class="col-md-4"><div class="p-2 bg-white rounded border text-center"><div class="fw-bold text-danger">Compro más</div><small class="text-muted">Perfil: Agresivo</small></div></div>
                 </div>
             </div>
+            {{-- ============================================================
+     ELEMENTO INTERACTIVO 2: SIMULADOR DE ESTRATEGIA
+     Insertar al FINAL del módulo "Rentabilidad por Nivel" (module-3)
+     justo antes del </div> que cierra ese content-panel
+     ============================================================ --}}
+ 
+<div class="strategy-card mt-4" style="border-top: 4px solid #7c3aed;">
+    <h5 class="fw-bold mb-2" style="color:#581c87;">
+        <i class="bi bi-calculator me-2"></i>Simulador de Estrategia de Inversión — Interactivo
+    </h5>
+    <p class="text-muted small mb-4">Ajusta los parámetros y compara en tiempo real cómo crecería tu dinero con cada perfil de inversión.</p>
+ 
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <label class="small fw-bold mb-1" style="color:#581c87;">Capital inicial</label>
+            <div class="d-flex align-items-center gap-2">
+                <input type="range" id="sim-capital" min="1000" max="100000" step="500" value="10000" class="form-range flex-grow-1" oninput="actualizarSimulador()">
+                <span id="sim-capital-val" class="fw-bold small" style="min-width:70px;color:#581c87;">10.000€</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label class="small fw-bold mb-1" style="color:#581c87;">Aportación mensual</label>
+            <div class="d-flex align-items-center gap-2">
+                <input type="range" id="sim-mensual" min="0" max="2000" step="50" value="200" class="form-range flex-grow-1" oninput="actualizarSimulador()">
+                <span id="sim-mensual-val" class="fw-bold small" style="min-width:70px;color:#581c87;">200€/mes</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label class="small fw-bold mb-1" style="color:#581c87;">Años de inversión</label>
+            <div class="d-flex align-items-center gap-2">
+                <input type="range" id="sim-anos" min="1" max="30" step="1" value="10" class="form-range flex-grow-1" oninput="actualizarSimulador()">
+                <span id="sim-anos-val" class="fw-bold small" style="min-width:50px;color:#581c87;">10 años</span>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="row g-3" id="sim-resultados">
+        <div class="col-md-4">
+            <div class="card border-0 h-100" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-left:4px solid #22c55e !important;">
+                <div class="card-body text-center p-3">
+                    <div class="small fw-bold text-success mb-1"><i class="bi bi-shield-check me-1"></i>CONSERVADOR (4%)</div>
+                    <div class="fs-3 fw-bold text-success" id="res-conservador">—</div>
+                    <div class="small text-muted" id="res-conservador-ganancia">—</div>
+                    <div class="mt-2">
+                        <div class="small text-muted mb-1">Riesgo</div>
+                        <div class="progress" style="height:6px;"><div class="progress-bar bg-success" style="width:20%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 h-100" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border-left:4px solid #f59e0b !important;">
+                <div class="card-body text-center p-3">
+                    <div class="small fw-bold text-warning mb-1"><i class="bi bi-balance-scale me-1"></i>MODERADO (7.5%)</div>
+                    <div class="fs-3 fw-bold text-warning" id="res-moderado">—</div>
+                    <div class="small text-muted" id="res-moderado-ganancia">—</div>
+                    <div class="mt-2">
+                        <div class="small text-muted mb-1">Riesgo</div>
+                        <div class="progress" style="height:6px;"><div class="progress-bar bg-warning" style="width:50%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 h-100" style="background:linear-gradient(135deg,#fef2f2,#fee2e2);border-left:4px solid #ef4444 !important;">
+                <div class="card-body text-center p-3">
+                    <div class="small fw-bold text-danger mb-1"><i class="bi bi-lightning-charge me-1"></i>AGRESIVO (12%)</div>
+                    <div class="fs-3 fw-bold text-danger" id="res-agresivo">—</div>
+                    <div class="small text-muted" id="res-agresivo-ganancia">—</div>
+                    <div class="mt-2">
+                        <div class="small text-muted mb-1">Riesgo</div>
+                        <div class="progress" style="height:6px;"><div class="progress-bar bg-danger" style="width:85%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-3 p-2 rounded text-center" style="background:rgba(124,58,237,0.06)">
+        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>Capital aportado total: <strong id="sim-aportado">—</strong> · Simulación orientativa, no garantiza resultados futuros.</small>
+    </div>
+</div>
+ 
+    <script>
+    function calcSimulador(capital, mensual, anos, tasa) {
+        const r = tasa / 100 / 12;
+        const n = anos * 12;
+        const futuroCapital = capital * Math.pow(1 + r, n);
+        const futuroMensual = mensual * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+        return futuroCapital + futuroMensual;
+    }
+    
+    function actualizarSimulador() {
+        const capital = parseFloat(document.getElementById('sim-capital').value);
+        const mensual = parseFloat(document.getElementById('sim-mensual').value);
+        const anos = parseFloat(document.getElementById('sim-anos').value);
+        const aportado = capital + mensual * anos * 12;
+    
+        document.getElementById('sim-capital-val').textContent = capital.toLocaleString('es-ES') + '€';
+        document.getElementById('sim-mensual-val').textContent = mensual.toLocaleString('es-ES') + '€/mes';
+        document.getElementById('sim-anos-val').textContent = anos + ' años';
+        document.getElementById('sim-aportado').textContent = aportado.toLocaleString('es-ES') + '€';
+    
+        const fmt = v => v.toLocaleString('es-ES', {maximumFractionDigits: 0}) + '€';
+        const gan = (total, aportado) => {
+            const g = total - aportado;
+            return (g >= 0 ? '+' : '') + fmt(g) + ' de ganancia';
+        };
+    
+        [['conservador', 4], ['moderado', 7.5], ['agresivo', 12]].forEach(([id, tasa]) => {
+            const total = calcSimulador(capital, mensual, anos, tasa);
+            document.getElementById('res-' + id).textContent = fmt(total);
+            document.getElementById('res-' + id + '-ganancia').textContent = gan(total, aportado);
+        });
+    }
+    actualizarSimulador();
+    </script>
+    
         </div>
 
         {{-- MÓDULO 4: EDUCACIÓN FINANCIERA --}}
@@ -925,6 +1176,120 @@
                     </div>
                 </div>
             </div>
+            {{-- ============================================================
+     ELEMENTO INTERACTIVO 3: CALCULADORA DE FISCALIDAD
+     Insertar al FINAL del módulo "Fiscalidad" (module-5)
+     justo antes del </div> que cierra ese content-panel
+     ============================================================ --}}
+ 
+<div class="fiscal-box mt-4" style="border: 2px solid #7c3aed;">
+    <h5 class="fw-bold mb-2" style="color:#581c87;">
+        <i class="bi bi-receipt me-2"></i>Calculadora de Plusvalías e IRPF — Interactiva
+    </h5>
+    <p class="text-muted small mb-4">Introduce los datos de tu operación y calcula automáticamente cuánto pagarás a Hacienda.</p>
+ 
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <label class="small fw-bold mb-1" style="color:#581c87;">Precio de compra (€/acción)</label>
+            <input type="number" id="fisc-compra" class="form-control" value="100" min="0" step="0.01" oninput="calcularFiscalidad()">
+        </div>
+        <div class="col-md-3">
+            <label class="small fw-bold mb-1" style="color:#581c87;">Precio de venta (€/acción)</label>
+            <input type="number" id="fisc-venta" class="form-control" value="150" min="0" step="0.01" oninput="calcularFiscalidad()">
+        </div>
+        <div class="col-md-3">
+            <label class="small fw-bold mb-1" style="color:#581c87;">Número de acciones</label>
+            <input type="number" id="fisc-acciones" class="form-control" value="100" min="1" oninput="calcularFiscalidad()">
+        </div>
+        <div class="col-md-3">
+            <label class="small fw-bold mb-1" style="color:#581c87;">Comisiones totales (€)</label>
+            <input type="number" id="fisc-comisiones" class="form-control" value="10" min="0" step="0.01" oninput="calcularFiscalidad()">
+        </div>
+    </div>
+ 
+    <div id="fisc-resultado" class="row g-3">
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">Inversión total</div>
+                <div class="fs-5 fw-bold text-primary" id="fisc-inversion">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">Ganancia bruta</div>
+                <div class="fs-5 fw-bold text-success" id="fisc-ganancia">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">IRPF a pagar</div>
+                <div class="fs-5 fw-bold text-danger" id="fisc-irpf">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 rounded text-center" style="background:linear-gradient(135deg,#f3e8ff,#ede9fe);">
+                <div class="small text-muted mb-1">Ganancia neta</div>
+                <div class="fs-5 fw-bold" style="color:#581c87;" id="fisc-neta">—</div>
+            </div>
+        </div>
+    </div>
+    <div id="fisc-tramos" class="mt-3 p-3 bg-white rounded border" style="display:none;">
+        <div class="small fw-bold mb-2" style="color:#581c87;">Desglose por tramos IRPF:</div>
+        <div id="fisc-tramos-detalle" class="small text-muted"></div>
+    </div>
+    <div class="mt-3 p-2 rounded text-center" style="background:rgba(124,58,237,0.06)">
+        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>Cálculo basado en tramos IRPF 2026 (base del ahorro). Consulta siempre con un asesor fiscal.</small>
+    </div>
+</div>
+ 
+    <script>
+    function calcularFiscalidad() {
+        const compra = parseFloat(document.getElementById('fisc-compra').value) || 0;
+        const venta = parseFloat(document.getElementById('fisc-venta').value) || 0;
+        const acciones = parseFloat(document.getElementById('fisc-acciones').value) || 0;
+        const comisiones = parseFloat(document.getElementById('fisc-comisiones').value) || 0;
+    
+        const inversion = compra * acciones;
+        const ventaTotal = venta * acciones;
+        const ganancia = ventaTotal - inversion - comisiones;
+        const fmt = v => v.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '€';
+    
+        document.getElementById('fisc-inversion').textContent = fmt(inversion);
+        document.getElementById('fisc-ganancia').textContent = (ganancia >= 0 ? '+' : '') + fmt(ganancia);
+        document.getElementById('fisc-ganancia').className = 'fs-5 fw-bold ' + (ganancia >= 0 ? 'text-success' : 'text-danger');
+    
+        let irpf = 0;
+        let detalle = '';
+        if (ganancia > 0) {
+            const tramos = [[6000, 0.19], [44000, 0.21], [150000, 0.23], [Infinity, 0.26]];
+            let restante = ganancia;
+            let prevLimite = 0;
+            for (const [limite, tipo] of tramos) {
+                if (restante <= 0) break;
+                const base = Math.min(restante, limite - prevLimite);
+                const impuesto = base * tipo;
+                irpf += impuesto;
+                detalle += `<span class="me-3">Hasta ${limite === Infinity ? '∞' : (prevLimite + base).toLocaleString('es-ES') + '€'}: ${fmt(base)} × ${(tipo*100).toFixed(0)}% = <strong>${fmt(impuesto)}</strong></span>`;
+                restante -= base;
+                prevLimite = limite;
+            }
+        }
+    
+        const neta = ganancia - irpf;
+        document.getElementById('fisc-irpf').textContent = ganancia > 0 ? '-' + fmt(irpf) : fmt(0);
+        document.getElementById('fisc-neta').textContent = (neta >= 0 ? '+' : '') + fmt(neta);
+        document.getElementById('fisc-neta').style.color = neta >= 0 ? '#581c87' : '#dc2626';
+    
+        if (ganancia > 0) {
+            document.getElementById('fisc-tramos').style.display = 'block';
+            document.getElementById('fisc-tramos-detalle').innerHTML = detalle;
+        } else {
+            document.getElementById('fisc-tramos').style.display = 'none';
+        }
+    }
+    calcularFiscalidad();
+    </script>
+    
         </div>
 
         {{-- RECURSOS AVANZADOS --}}
@@ -1060,9 +1425,120 @@
                     </div>
                 </div>
             </div>
+                    {{-- NAVEGACIÓN --}}
+        {{-- ============================================================
+     TEST DEL PACK AVANZADO
+     Insertar DESPUÉS de la navegación final del pack
+     (justo antes del </div> que cierra el container principal)
+     ============================================================ --}}
+ 
+<div class="mt-5 pt-4" style="border-top: 3px solid #7c3aed;">
+    <div class="text-center mb-4">
+        <span class="badge px-4 py-2 fs-6 fw-bold" style="background:#7c3aed;color:white;border-radius:999px;">
+            <i class="bi bi-patch-question me-2"></i>TEST DE CONOCIMIENTOS — PACK AVANZADO
+        </span>
+        <p class="text-muted small mt-2">Comprueba si has asimilado los conceptos clave. 10 preguntas · Respuesta inmediata.</p>
+    </div>
+ 
+    <div id="test-avanzado-container" class="card shadow border-0 p-4">
+        <div id="test-av-pregunta"></div>
+        <div id="test-av-opciones" class="row g-2 mt-3"></div>
+        <div id="test-av-feedback" class="mt-3" style="display:none;"></div>
+        <div id="test-av-nav" class="d-flex justify-content-between align-items-center mt-4">
+            <small class="text-muted" id="test-av-progreso">Pregunta 1 de 10</small>
+            <button id="test-av-siguiente" class="btn btn-sm rounded-pill px-4 text-white" style="background:#7c3aed;display:none;" onclick="siguientePreguntaAv()">Siguiente →</button>
+        </div>
+        <div id="test-av-resultado" style="display:none;" class="text-center p-4"></div>
+    </div>
+</div>
+ 
+    <script>
+    const preguntasAvanzado = [
+        { p: '¿Qué significa RSI en análisis técnico?', ops: ['Relative Strength Index','Real Stock Indicator','Risk Support Index','Revenue Share Income'], r: 0, exp: 'El RSI (Relative Strength Index) mide la velocidad y magnitud de los movimientos de precio. Por encima de 70 indica sobrecompra y por debajo de 30, sobreventa.' },
+        { p: '¿Cuál es la ventaja principal del CopyTrading en eToro?', ops: ['Comisiones más bajas','Copiar automáticamente las operaciones de traders expertos','Acceso a más mercados','Mayor velocidad de ejecución'], r: 1, exp: 'El CopyTrading permite replicar automáticamente las operaciones de traders con historial probado, ideal para quien empieza o no tiene tiempo de operar.' },
+        { p: 'En el Value Investing, ¿qué ratio indica si una empresa está "barata"?', ops: ['RSI bajo 30','PER bajo (Price/Earnings)','Volumen alto','Beta superior a 1'], r: 1, exp: 'Un PER bajo indica que estás pagando poco por cada euro de beneficio. Warren Buffett busca empresas con PER bajo y sólidos fundamentales.' },
+        { p: '¿Cuánto tributan en España las ganancias de capital hasta 6.000€?', ops: ['15%','19%','21%','23%'], r: 1, exp: 'Las ganancias hasta 6.000€ tributan al 19% en la base del ahorro del IRPF según la normativa fiscal española 2026.' },
+        { p: '¿Qué es el Day Trading?', ops: ['Invertir a largo plazo más de 10 años','Comprar y vender dentro del mismo día de sesión','Inversión mensual sistemática','Estrategia de dividendos'], r: 1, exp: 'El Day Trading consiste en abrir y cerrar posiciones en el mismo día, aprovechando movimientos de precio intradiarios.' },
+        { p: '¿Qué significa que una acción tiene un "Dividend Yield" del 4%?', ops: ['La acción ha subido un 4% este año','Paga un dividendo equivalente al 4% de su precio actual','Tiene un PER de 4','Su precio caerá un 4%'], r: 1, exp: 'El Dividend Yield es el dividendo anual dividido por el precio de la acción. Un 4% significa que por cada 1.000€ invertidos recibes 40€ al año en dividendos.' },
+        { p: '¿Cuál de estas plataformas es ideal para inversión pasiva en ETFs con comisiones bajas?', ops: ['eToro','DEGIRO','Trade Republic','Todas son igual de buenas'], r: 1, exp: 'DEGIRO ofrece ETFs gratuitos en su lista "core" y comisiones muy bajas, siendo la opción más eficiente para inversión pasiva en ETFs.' },
+        { p: '¿Qué es el ratio Riesgo/Beneficio (R/R) de 1:2?', ops: ['Por cada 2€ de riesgo puedes ganar 1€','Por cada 1€ de riesgo puedes ganar 2€','Pierdes el doble de lo que ganas','Ganas el doble de lo que pagas en comisiones'], r: 1, exp: 'Un R/R de 1:2 significa que por cada euro arriesgado el objetivo es ganar 2€. Es el mínimo recomendado para que la estrategia sea rentable a largo plazo.' },
+        { p: '¿Qué ocurre con las pérdidas de capital en España respecto al IRPF?', ops: ['Se pierden y no sirven para nada','Compensan ganancias del mismo año y los 4 siguientes','Reducen directamente la base general','Solo compensan dividendos'], r: 1, exp: 'Las pérdidas de capital se pueden compensar con ganancias del mismo año y de los 4 años siguientes, reduciendo la factura fiscal.' },
+        { p: '¿Cuál es la diferencia principal entre un ETF y un fondo de inversión?', ops: ['El ETF es más seguro','Los fondos tienen menor rentabilidad','El ETF cotiza en bolsa en tiempo real; el fondo se valora al cierre del día','No hay diferencia relevante'], r: 2, exp: 'Los ETFs cotizan en bolsa como acciones y pueden comprarse/venderse en tiempo real. Los fondos se valoran una vez al día al cierre del mercado. Además, los traspasos entre fondos no tributan, pero entre ETFs sí.' }
+    ];
+    
+    let testAvIndex = 0, testAvAciertos = 0, testAvRespondida = false;
+    
+    function renderPreguntaAv() {
+        const p = preguntasAvanzado[testAvIndex];
+        document.getElementById('test-av-pregunta').innerHTML = `<h5 class="fw-bold" style="color:#581c87;">${testAvIndex + 1}. ${p.p}</h5>`;
+        document.getElementById('test-av-opciones').innerHTML = p.ops.map((op, i) =>
+            `<div class="col-md-6"><button class="btn btn-outline-secondary w-100 text-start p-3 rounded-3" style="border:2px solid #e9d5ff;" onclick="responderAv(${i})">${op}</button></div>`
+        ).join('');
+        document.getElementById('test-av-feedback').style.display = 'none';
+        document.getElementById('test-av-siguiente').style.display = 'none';
+        document.getElementById('test-av-progreso').textContent = `Pregunta ${testAvIndex + 1} de ${preguntasAvanzado.length}`;
+        testAvRespondida = false;
+    }
+    
+    function responderAv(idx) {
+        if (testAvRespondida) return;
+        testAvRespondida = true;
+        const p = preguntasAvanzado[testAvIndex];
+        const correcta = idx === p.r;
+        if (correcta) testAvAciertos++;
+    
+        const btns = document.querySelectorAll('#test-av-opciones button');
+        btns.forEach((b, i) => {
+            b.disabled = true;
+            if (i === p.r) { b.style.background = '#dcfce7'; b.style.borderColor = '#22c55e'; b.style.color = '#166534'; }
+            if (i === idx && !correcta) { b.style.background = '#fee2e2'; b.style.borderColor = '#ef4444'; b.style.color = '#991b1b'; }
+        });
+    
+        document.getElementById('test-av-feedback').style.display = 'block';
+        document.getElementById('test-av-feedback').innerHTML = `
+            <div class="p-3 rounded-3 ${correcta ? 'bg-success bg-opacity-10 border border-success' : 'bg-danger bg-opacity-10 border border-danger'}">
+                <strong>${correcta ? '✅ ¡Correcto!' : '❌ Incorrecto'}</strong>
+                <p class="small mb-0 mt-1">${p.exp}</p>
+            </div>`;
+        document.getElementById('test-av-siguiente').style.display = 'inline-block';
+        document.getElementById('test-av-siguiente').textContent = testAvIndex < preguntasAvanzado.length - 1 ? 'Siguiente →' : 'Ver resultado';
+    }
+    
+    function siguientePreguntaAv() {
+        testAvIndex++;
+        if (testAvIndex >= preguntasAvanzado.length) {
+            const pct = Math.round((testAvAciertos / preguntasAvanzado.length) * 100);
+            const color = pct >= 70 ? '#22c55e' : pct >= 50 ? '#f59e0b' : '#ef4444';
+            const msg = pct >= 80 ? '¡Excelente dominio del Pack Avanzado!' : pct >= 60 ? 'Buen nivel, repasa los temas fallados.' : 'Te recomendamos repasar los módulos con más calma.';
+            document.getElementById('test-av-pregunta').style.display = 'none';
+            document.getElementById('test-av-opciones').style.display = 'none';
+            document.getElementById('test-av-feedback').style.display = 'none';
+            document.getElementById('test-av-nav').style.display = 'none';
+            document.getElementById('test-av-resultado').style.display = 'block';
+            document.getElementById('test-av-resultado').innerHTML = `
+                <div class="display-4 fw-bold mb-2" style="color:${color}">${pct}%</div>
+                <div class="fs-5 fw-bold mb-2">${testAvAciertos} / ${preguntasAvanzado.length} correctas</div>
+                <p class="text-muted">${msg}</p>
+                <button class="btn rounded-pill px-4 text-white mt-2" style="background:#7c3aed;" onclick="reiniciarTestAv()">Repetir test</button>`;
+        } else {
+            renderPreguntaAv();
+        }
+    }
+    
+    function reiniciarTestAv() {
+        testAvIndex = 0; testAvAciertos = 0; testAvRespondida = false;
+        document.getElementById('test-av-pregunta').style.display = 'block';
+        document.getElementById('test-av-opciones').style.display = 'flex';
+        document.getElementById('test-av-nav').style.display = 'flex';
+        document.getElementById('test-av-resultado').style.display = 'none';
+        renderPreguntaAv();
+    }
+    
+    renderPreguntaAv();
+    </script>
         </div>
 
-        {{-- NAVEGACIÓN --}}
+
         <div class="d-flex justify-content-between align-items-center mt-4 pt-4 border-top">
             <a href="/mis-planes" class="btn btn-outline-secondary rounded-pill px-4"><i class="bi bi-arrow-left me-2"></i>Volver a los planes</a>
             <div class="text-muted small">Pack 2 de 3 · <span class="text-warning fw-bold">Desbloqueado</span></div>

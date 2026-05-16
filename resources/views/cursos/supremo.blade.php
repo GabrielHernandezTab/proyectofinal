@@ -169,8 +169,10 @@
                     </div>
                 </div>
             </div>
+            
         </div>
 
+        
         {{-- NAVEGACIÓN DE MÓDULOS --}}
         <div class="module-nav" id="moduleNav">
 
@@ -877,6 +879,240 @@
                     </div>
                 </div>
             </div>
+            {{-- ============================================================
+     ELEMENTO INTERACTIVO 4: CONSTRUCTOR DE CARTERA
+     Insertar al FINAL del módulo "Gestión Portafolio" (module-6)
+     justo antes del </div> que cierra ese content-panel
+     ============================================================ --}}
+ 
+<div class="elite-card mt-4" style="border-left: 5px solid #f59e0b;">
+    <h5 class="fw-bold mb-2" style="color:#991b1b;">
+        <i class="bi bi-pie-chart-fill me-2"></i>Constructor de Cartera — Interactivo
+    </h5>
+    <p class="text-muted small mb-4">Distribuye tu capital entre activos con los sliders y ve en tiempo real las métricas estimadas de tu cartera.</p>
+ 
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <label class="small fw-bold mb-1" style="color:#991b1b;">Capital total a invertir (€)</label>
+            <input type="number" id="cart-capital" class="form-control" value="50000" min="1000" step="1000" oninput="actualizarCartera()">
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 rounded" style="background:#fef2f2;border:1px solid #fecaca;">
+                <div class="small fw-bold mb-1" style="color:#991b1b;">Total asignado: <span id="cart-total-pct">100%</span></div>
+                <div class="progress" style="height:8px;">
+                    <div id="cart-barra" class="progress-bar" style="width:100%;background:#dc2626;"></div>
+                </div>
+                <small id="cart-aviso" class="text-muted">Ajusta los sliders para distribuir tu cartera</small>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="row g-3 mb-4">
+        @php
+        $activos = [
+            ['id'=>'etf-global','nombre'=>'ETFs Globales (MSCI World)','color'=>'#3b82f6','rent'=>8,'riesgo'=>40,'val'=>40],
+            ['id'=>'acciones','nombre'=>'Acciones individuales','color'=>'#8b5cf6','rent'=>12,'riesgo'=>75,'val'=>20],
+            ['id'=>'bonos','nombre'=>'Bonos corporativos','color'=>'#22c55e','rent'=>4,'riesgo'=>20,'val'=>15],
+            ['id'=>'oro','nombre'=>'Oro (ETF)','color'=>'#f59e0b','rent'=>5,'riesgo'=>30,'val'=>10],
+            ['id'=>'cripto','nombre'=>'Criptomonedas (máx 10%)','color'=>'#ef4444','rent'=>20,'riesgo'=>90,'val'=>5],
+            ['id'=>'liquidez','nombre'=>'Liquidez / Reserva','color'=>'#6b7280','rent'=>2,'riesgo'=>0,'val'=>10],
+        ];
+        @endphp
+        @foreach($activos as $a)
+        <div class="col-md-6">
+            <div class="p-3 rounded border" style="border-color:{{ $a['color'] }}33 !important;">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <label class="small fw-bold" style="color:{{ $a['color'] }}">
+                        <i class="bi bi-circle-fill me-1" style="font-size:8px;color:{{ $a['color'] }}"></i>{{ $a['nombre'] }}
+                    </label>
+                    <span class="badge fw-bold" style="background:{{ $a['color'] }}" id="{{ $a['id'] }}-pct">{{ $a['val'] }}%</span>
+                </div>
+                <input type="range" id="{{ $a['id'] }}" min="0" max="100" step="5" value="{{ $a['val'] }}"
+                    class="form-range" style="accent-color:{{ $a['color'] }}" oninput="actualizarCartera()"
+                    data-rent="{{ $a['rent'] }}" data-riesgo="{{ $a['riesgo'] }}">
+                <div class="d-flex justify-content-between">
+                    <small class="text-muted">Rent. estimada: ~{{ $a['rent'] }}%</small>
+                    <small class="text-muted" id="{{ $a['id'] }}-euros">—</small>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+ 
+    <div class="row g-3" id="cart-metricas">
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">Rentabilidad estimada</div>
+                <div class="fs-4 fw-bold text-success" id="cart-rent">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">Riesgo estimado</div>
+                <div class="fs-4 fw-bold" id="cart-riesgo" style="color:#dc2626">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">Ganancia anual est.</div>
+                <div class="fs-4 fw-bold text-primary" id="cart-ganancia-anual">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 rounded text-center" style="background:linear-gradient(135deg,#fef2f2,#fff5f5);">
+                <div class="small text-muted mb-1">Perfil resultante</div>
+                <div class="fs-6 fw-bold" id="cart-perfil" style="color:#991b1b;">—</div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-3 p-2 rounded text-center" style="background:rgba(220,38,38,0.06)">
+        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>Estimaciones orientativas basadas en rentabilidades históricas. Las inversiones conllevan riesgo.</small>
+    </div>
+</div>
+ 
+    <script>
+    function actualizarCartera() {
+        const ids = ['etf-global','acciones','bonos','oro','cripto','liquidez'];
+        const capital = parseFloat(document.getElementById('cart-capital').value) || 0;
+        let total = 0, rentPonderada = 0, riesgoPonderado = 0;
+    
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            const v = parseFloat(el.value);
+            const rent = parseFloat(el.dataset.rent);
+            const riesgo = parseFloat(el.dataset.riesgo);
+            total += v;
+            rentPonderada += (v / 100) * rent;
+            riesgoPonderado += (v / 100) * riesgo;
+            document.getElementById(id + '-pct').textContent = v + '%';
+            document.getElementById(id + '-euros').textContent = (capital * v / 100).toLocaleString('es-ES') + '€';
+        });
+    
+        const barra = document.getElementById('cart-barra');
+        const aviso = document.getElementById('cart-aviso');
+        document.getElementById('cart-total-pct').textContent = total + '%';
+    
+        if (total > 100) { barra.style.background = '#ef4444'; aviso.textContent = '⚠️ Has superado el 100%. Reduce algún activo.'; aviso.style.color = '#ef4444'; }
+        else if (total < 100) { barra.style.background = '#f59e0b'; aviso.textContent = `Tienes un ${100 - total}% sin asignar.`; aviso.style.color = '#f59e0b'; }
+        else { barra.style.background = '#22c55e'; aviso.textContent = '✅ Cartera al 100%. ¡Perfecto!'; aviso.style.color = '#22c55e'; }
+        barra.style.width = Math.min(total, 100) + '%';
+    
+        const fmt = v => v.toLocaleString('es-ES', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+        document.getElementById('cart-rent').textContent = fmt(rentPonderada) + '%';
+        document.getElementById('cart-riesgo').textContent = fmt(riesgoPonderado) + '/100';
+        document.getElementById('cart-ganancia-anual').textContent = (capital * rentPonderada / 100).toLocaleString('es-ES', {maximumFractionDigits: 0}) + '€';
+    
+        let perfil = riesgoPonderado < 25 ? '🛡️ Conservador' : riesgoPonderado < 50 ? '⚖️ Moderado' : riesgoPonderado < 70 ? '⚡ Agresivo' : '🔥 Muy Agresivo';
+        document.getElementById('cart-perfil').textContent = perfil;
+    }
+    actualizarCartera();
+    </script>
+    {{-- ============================================================
+     ELEMENTO INTERACTIVO 5: CALCULADORA DE TAMAÑO DE POSICIÓN
+     Insertar al FINAL del módulo "Gestión Portafolio" (module-6)
+     justo DESPUÉS del Constructor de Cartera anterior
+     ============================================================ --}}
+ 
+<div class="elite-card mt-4" style="border-left: 5px solid #dc2626;">
+    <h5 class="fw-bold mb-2" style="color:#991b1b;">
+        <i class="bi bi-calculator me-2"></i>Calculadora de Tamaño de Posición — Gestión de Riesgo
+    </h5>
+    <p class="text-muted small mb-4">Calcula exactamente cuántas acciones o lotes puedes comprar respetando tu gestión de riesgo.</p>
+ 
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <label class="small fw-bold mb-1" style="color:#991b1b;">Capital total (€)</label>
+            <input type="number" id="pos-capital" class="form-control" value="20000" oninput="calcularPosicion()">
+        </div>
+        <div class="col-md-3">
+            <label class="small fw-bold mb-1" style="color:#991b1b;">Riesgo por operación (%)</label>
+            <input type="number" id="pos-riesgo" class="form-control" value="1" min="0.1" max="5" step="0.1" oninput="calcularPosicion()">
+            <small class="text-muted">Recomendado: 1-2%</small>
+        </div>
+        <div class="col-md-3">
+            <label class="small fw-bold mb-1" style="color:#991b1b;">Precio de entrada (€)</label>
+            <input type="number" id="pos-entrada" class="form-control" value="100" step="0.01" oninput="calcularPosicion()">
+        </div>
+        <div class="col-md-3">
+            <label class="small fw-bold mb-1" style="color:#991b1b;">Stop Loss (€)</label>
+            <input type="number" id="pos-sl" class="form-control" value="95" step="0.01" oninput="calcularPosicion()">
+        </div>
+    </div>
+ 
+    <div class="row g-3 mb-3">
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">Riesgo máximo €</div>
+                <div class="fs-4 fw-bold text-danger" id="pos-riesgo-eur">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">Distancia al SL</div>
+                <div class="fs-4 fw-bold text-warning" id="pos-dist-sl">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 rounded border text-center" style="background:linear-gradient(135deg,#fef2f2,#fff);">
+                <div class="small text-muted mb-1">Acciones a comprar</div>
+                <div class="fs-3 fw-bold" style="color:#991b1b;" id="pos-acciones">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">Capital comprometido</div>
+                <div class="fs-4 fw-bold text-primary" id="pos-capital-comp">—</div>
+            </div>
+        </div>
+    </div>
+ 
+    <div id="pos-targets" class="p-3 rounded" style="background:#fef2f2;border:1px solid #fecaca;display:none;">
+        <div class="small fw-bold mb-2" style="color:#991b1b;">Niveles de Take Profit sugeridos:</div>
+        <div class="row g-2">
+            <div class="col-md-4"><div class="p-2 bg-white rounded border text-center"><div class="small text-muted">TP 1 (R/R 1:1)</div><div class="fw-bold text-success" id="pos-tp1">—</div></div></div>
+            <div class="col-md-4"><div class="p-2 bg-white rounded border text-center"><div class="small text-muted">TP 2 (R/R 1:2)</div><div class="fw-bold text-success" id="pos-tp2">—</div></div></div>
+            <div class="col-md-4"><div class="p-2 bg-white rounded border text-center"><div class="small text-muted">TP 3 (R/R 1:3)</div><div class="fw-bold text-success" id="pos-tp3">—</div></div></div>
+        </div>
+    </div>
+    <div class="mt-3 p-2 rounded text-center" style="background:rgba(220,38,38,0.06)">
+        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>La regla del 1% significa que nunca arriesgas más del 1% de tu capital en una sola operación.</small>
+    </div>
+</div>
+ 
+    <script>
+    function calcularPosicion() {
+        const capital = parseFloat(document.getElementById('pos-capital').value) || 0;
+        const riesgoPct = parseFloat(document.getElementById('pos-riesgo').value) || 0;
+        const entrada = parseFloat(document.getElementById('pos-entrada').value) || 0;
+        const sl = parseFloat(document.getElementById('pos-sl').value) || 0;
+    
+        const fmt = v => v.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '€';
+        const riesgoEur = capital * riesgoPct / 100;
+        const distSL = Math.abs(entrada - sl);
+    
+        document.getElementById('pos-riesgo-eur').textContent = fmt(riesgoEur);
+        document.getElementById('pos-dist-sl').textContent = distSL > 0 ? fmt(distSL) : '—';
+    
+        if (distSL > 0 && entrada > 0) {
+            const acciones = Math.floor(riesgoEur / distSL);
+            const capitalComp = acciones * entrada;
+            document.getElementById('pos-acciones').textContent = acciones;
+            document.getElementById('pos-capital-comp').textContent = fmt(capitalComp);
+    
+            document.getElementById('pos-targets').style.display = 'block';
+            document.getElementById('pos-tp1').textContent = fmt(entrada + distSL);
+            document.getElementById('pos-tp2').textContent = fmt(entrada + distSL * 2);
+            document.getElementById('pos-tp3').textContent = fmt(entrada + distSL * 3);
+        } else {
+            document.getElementById('pos-acciones').textContent = '—';
+            document.getElementById('pos-capital-comp').textContent = '—';
+            document.getElementById('pos-targets').style.display = 'none';
+        }
+    }
+    calcularPosicion();
+    </script>
+    
+ 
         </div>
 
         {{-- MÓDULO 7: ESTRATEGIAS DE INVERSIÓN PROFESIONAL --}}
@@ -1339,7 +1575,123 @@
                     </div>
                 </div>
             </div>
+
+            {{-- ============================================================
+     ELEMENTO INTERACTIVO 6: SIMULADOR TAX-LOSS HARVESTING
+     Insertar al FINAL del módulo "Fiscalidad Avanzada" (module-9)
+     justo antes del </div> que cierra ese content-panel
+     ============================================================ --}}
+ 
+<div class="optimization-card mt-4" style="border: 2px solid #dc2626;">
+    <h5 class="fw-bold mb-2" style="color:#991b1b;">
+        <i class="bi bi-scissors me-2"></i>Simulador de Tax-Loss Harvesting — ¿Cuánto ahorras?
+    </h5>
+    <p class="text-muted small mb-4">Introduce tus ganancias del año y tus posiciones en pérdida y calcula el ahorro fiscal real si realizas las pérdidas.</p>
+ 
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <label class="small fw-bold mb-1" style="color:#991b1b;">Ganancias realizadas este año (€)</label>
+            <input type="number" id="tlh-ganancias" class="form-control" value="15000" min="0" oninput="calcularTLH()">
         </div>
+        <div class="col-md-4">
+            <label class="small fw-bold mb-1" style="color:#991b1b;">Pérdidas no realizadas disponibles (€)</label>
+            <input type="number" id="tlh-perdidas" class="form-control" value="5000" min="0" oninput="calcularTLH()">
+            <small class="text-muted">Posiciones en tu cartera actualmente en negativo</small>
+        </div>
+        <div class="col-md-4">
+            <label class="small fw-bold mb-1" style="color:#991b1b;">¿Usas todas las pérdidas?</label>
+            <select id="tlh-uso" class="form-select" onchange="calcularTLH()">
+                <option value="todas">Sí, realizo todas las pérdidas</option>
+                <option value="parcial">Solo una parte (especificar %)</option>
+            </select>
+            <div id="tlh-parcial-div" style="display:none;" class="mt-2">
+                <input type="range" id="tlh-parcial-pct" min="10" max="100" step="10" value="50" class="form-range" oninput="calcularTLH()">
+                <small class="text-muted">Usando: <span id="tlh-parcial-val">50</span>% de las pérdidas</small>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="row g-3 mb-3">
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">IRPF SIN harvesting</div>
+                <div class="fs-4 fw-bold text-danger" id="tlh-sin">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">Base imponible reducida</div>
+                <div class="fs-4 fw-bold text-warning" id="tlh-base-red">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 bg-white rounded border text-center">
+                <div class="small text-muted mb-1">IRPF CON harvesting</div>
+                <div class="fs-4 fw-bold text-success" id="tlh-con">—</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 rounded text-center" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #22c55e;">
+                <div class="small text-muted mb-1">💰 Ahorro fiscal</div>
+                <div class="fs-3 fw-bold text-success" id="tlh-ahorro">—</div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-3 p-2 rounded text-center" style="background:rgba(220,38,38,0.06)">
+        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>En España debes esperar 2 meses antes de recomprar el mismo activo. Puedes comprar uno similar mientras tanto.</small>
+    </div>
+</div>
+ 
+    <script>
+    document.getElementById('tlh-uso').addEventListener('change', function() {
+        document.getElementById('tlh-parcial-div').style.display = this.value === 'parcial' ? 'block' : 'none';
+        calcularTLH();
+    });
+    
+    document.getElementById('tlh-parcial-pct').addEventListener('input', function() {
+        document.getElementById('tlh-parcial-val').textContent = this.value;
+    });
+    
+    function calcularIRPF(base) {
+        if (base <= 0) return 0;
+        let impuesto = 0;
+        const tramos = [[6000, 0.19], [44000, 0.21], [150000, 0.23], [Infinity, 0.26]];
+        let restante = base, prev = 0;
+        for (const [lim, tipo] of tramos) {
+            if (restante <= 0) break;
+            const b = Math.min(restante, lim - prev);
+            impuesto += b * tipo;
+            restante -= b; prev = lim;
+        }
+        return impuesto;
+    }
+    
+    function calcularTLH() {
+        const ganancias = parseFloat(document.getElementById('tlh-ganancias').value) || 0;
+        let perdidas = parseFloat(document.getElementById('tlh-perdidas').value) || 0;
+        const uso = document.getElementById('tlh-uso').value;
+        if (uso === 'parcial') {
+            const pct = parseFloat(document.getElementById('tlh-parcial-pct').value) / 100;
+            perdidas = perdidas * pct;
+        }
+    
+        const baseReducida = Math.max(0, ganancias - perdidas);
+        const irpfSin = calcularIRPF(ganancias);
+        const irpfCon = calcularIRPF(baseReducida);
+        const ahorro = irpfSin - irpfCon;
+    
+        const fmt = v => v.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '€';
+        document.getElementById('tlh-sin').textContent = fmt(irpfSin);
+        document.getElementById('tlh-base-red').textContent = fmt(baseReducida);
+        document.getElementById('tlh-con').textContent = fmt(irpfCon);
+        document.getElementById('tlh-ahorro').textContent = '+' + fmt(ahorro);
+    }
+    calcularTLH();
+    </script>
+    
+        </div>
+
+
 
         {{-- RECURSOS ÉLITE --}}
         <div class="mt-5 pt-4 border-top border-2" style="border-color: #fecaca !important;">
@@ -1481,6 +1833,113 @@
                     </div>
                 </div>
             </div>
+            {{-- ============================================================
+     TEST DEL PACK SUPREMO
+     Insertar DESPUÉS de la navegación final del pack
+     (justo antes del </div> que cierra el container principal)
+     ============================================================ --}}
+ 
+<div class="mt-5 pt-4" style="border-top: 3px solid #dc2626;">
+    <div class="text-center mb-4">
+        <span class="badge px-4 py-2 fs-6 fw-bold" style="background:linear-gradient(135deg,#dc2626,#ea580c);color:white;border-radius:999px;">
+            <i class="bi bi-patch-question me-2"></i>TEST DE NIVEL ÉLITE — PACK SUPREMO
+        </span>
+        <p class="text-muted small mt-2">Preguntas de nivel experto sobre análisis avanzado, gestión de cartera y fiscalidad. 10 preguntas · Feedback por respuesta.</p>
+    </div>
+ 
+    <div id="test-supremo-container" class="card shadow border-0 p-4" style="border-top:4px solid #dc2626 !important;">
+        <div id="test-sup-pregunta"></div>
+        <div id="test-sup-opciones" class="row g-2 mt-3"></div>
+        <div id="test-sup-feedback" class="mt-3" style="display:none;"></div>
+        <div id="test-sup-nav" class="d-flex justify-content-between align-items-center mt-4">
+            <small class="text-muted" id="test-sup-progreso">Pregunta 1 de 10</small>
+            <button id="test-sup-siguiente" class="btn btn-sm rounded-pill px-4 text-white" style="background:linear-gradient(135deg,#dc2626,#ea580c);display:none;" onclick="siguientePreguntaSup()">Siguiente →</button>
+        </div>
+        <div id="test-sup-resultado" style="display:none;" class="text-center p-4"></div>
+    </div>
+</div>
+ 
+    <script>
+    const preguntasSupremo = [
+        { p: '¿Qué es un "Order Block" (OB) en Smart Money Concepts?', ops: ['Una orden de compra pendiente','Zona donde los institucionales acumularon posiciones y el precio tiende a reaccionar','Un tipo de bróker institucional','El volumen máximo del día'], r: 1, exp: 'Un Order Block es la última vela bajista antes de un movimiento alcista fuerte (o viceversa). Representa dónde los institucionales tomaron posición y el precio tiende a volver a esa zona.' },
+        { p: '¿Cómo se calcula el Ratio de Sharpe?', ops: ['Rentabilidad / Volatilidad','(Rentabilidad - Tasa libre de riesgo) / Desviación estándar','Beneficio neto / Capital invertido','Ganancia total / Número de operaciones'], r: 1, exp: 'El Ratio de Sharpe mide la rentabilidad ajustada al riesgo. Un ratio >1 es bueno, >2 es excelente. Permite comparar estrategias con diferente nivel de riesgo.' },
+        { p: '¿Qué significa "Tax-Loss Harvesting"?', ops: ['Invertir en activos con ventajas fiscales','Vender activos con pérdidas para compensar ganancias y reducir el IRPF','Usar cuentas offshore para evitar impuestos','Diferir el pago de impuestos hasta la jubilación'], r: 1, exp: 'El Tax-Loss Harvesting consiste en vender posiciones con pérdidas para compensar las ganancias del año, reduciendo la base imponible de forma legal.' },
+        { p: '¿Qué correlación tiene históricamente el Dólar (DXY) con el Oro?', ops: ['Correlación positiva fuerte (suben juntos)','Sin correlación','Correlación negativa (cuando el dólar sube, el oro baja)','Correlación positiva débil'], r: 2, exp: 'El oro y el dólar tienen correlación negativa históricamente. Cuando el dólar se fortalece, el oro en dólares se encarece para compradores internacionales, reduciendo la demanda.' },
+        { p: '¿Qué es el WACC en el análisis DCF?', ops: ['Indicador técnico de sobrecompra','Coste Medio Ponderado de Capital — la tasa de descuento en valoración de empresas','Método de contabilidad de inventarios','Ratio de liquidez corriente'], r: 1, exp: 'El WACC (Weighted Average Cost of Capital) es la tasa mínima de rentabilidad que debe generar una empresa para crear valor. Se usa como tasa de descuento en el modelo DCF.' },
+        { p: '¿Qué indica un "Fair Value Gap" (FVG)?', ops: ['Que la acción está infravalorada fundamentalmente','Una ineficiencia de precio que el mercado tiende a rellenar','El precio justo según análisis fundamental','Un gap entre el precio y su media móvil de 200 sesiones'], r: 1, exp: 'Un FVG es un gap de precio entre tres velas donde la segunda tiene un movimiento tan fuerte que deja un espacio sin negociar. El mercado tiende a volver a rellenar esas ineficiencias.' },
+        { p: '¿Cuándo se debe declarar el Modelo 720 en España?', ops: ['Cuando tienes ganancias superiores a 50.000€','Cuando tienes bienes o cuentas en el extranjero que superen 50.000€ en total','Siempre que tengas cuentas en brókers extranjeros','Solo si tienes propiedades en el extranjero'], r: 1, exp: 'El Modelo 720 debe presentarse cuando el valor agregado de cuentas, valores o inmuebles en el extranjero supera los 50.000€. Plazo: 1-31 de marzo. La sanción por no declarar puede ser de 5.000€ por dato.' },
+        { p: '¿Qué es el "Profit Factor" en una estrategia de trading?', ops: ['El porcentaje de operaciones ganadoras','Beneficio bruto total / Pérdida bruta total','Rentabilidad anual de la estrategia','El ratio R/R medio de todas las operaciones'], r: 1, exp: 'El Profit Factor es el cociente entre el beneficio bruto total y la pérdida bruta total. Un Profit Factor >1.5 indica una estrategia rentable; >2 es muy bueno.' },
+        { p: 'En la estrategia "Iron Condor" de opciones, ¿cuándo se gana?', ops: ['Cuando el activo sube mucho','Cuando el activo baja mucho','Cuando el precio se mantiene dentro de un rango definido','Cuando la volatilidad aumenta significativamente'], r: 2, exp: 'El Iron Condor vende un Call spread y un Put spread simultáneamente. Se gana si el precio permanece dentro de los strikes vendidos al vencimiento. Es ideal para mercados laterales con baja volatilidad.' },
+        { p: '¿Qué indica una Beta de 0.7 en una acción?', ops: ['La acción es un 30% más volátil que el mercado','La acción se mueve un 70% de lo que se mueve el mercado (menos volátil)','La acción tiene una correlación del 70% con el mercado','La acción perderá un 30% si el mercado baja'], r: 1, exp: 'La Beta mide la sensibilidad de un activo respecto al mercado. Beta 0.7 significa que si el mercado sube o baja un 10%, la acción tiende a moverse un 7%. Es un activo defensivo.' }
+    ];
+    
+    let testSupIndex = 0, testSupAciertos = 0, testSupRespondida = false;
+    
+    function renderPreguntaSup() {
+        const p = preguntasSupremo[testSupIndex];
+        document.getElementById('test-sup-pregunta').innerHTML = `<h5 class="fw-bold" style="color:#991b1b;">${testSupIndex + 1}. ${p.p}</h5>`;
+        document.getElementById('test-sup-opciones').innerHTML = p.ops.map((op, i) =>
+            `<div class="col-md-6"><button class="btn w-100 text-start p-3 rounded-3" style="border:2px solid #fecaca;background:white;" onclick="responderSup(${i})">${op}</button></div>`
+        ).join('');
+        document.getElementById('test-sup-feedback').style.display = 'none';
+        document.getElementById('test-sup-siguiente').style.display = 'none';
+        document.getElementById('test-sup-progreso').textContent = `Pregunta ${testSupIndex + 1} de ${preguntasSupremo.length}`;
+        testSupRespondida = false;
+    }
+    
+    function responderSup(idx) {
+        if (testSupRespondida) return;
+        testSupRespondida = true;
+        const p = preguntasSupremo[testSupIndex];
+        const correcta = idx === p.r;
+        if (correcta) testSupAciertos++;
+    
+        const btns = document.querySelectorAll('#test-sup-opciones button');
+        btns.forEach((b, i) => {
+            b.disabled = true;
+            if (i === p.r) { b.style.background = '#dcfce7'; b.style.borderColor = '#22c55e'; b.style.color = '#166534'; }
+            if (i === idx && !correcta) { b.style.background = '#fee2e2'; b.style.borderColor = '#ef4444'; b.style.color = '#991b1b'; }
+        });
+    
+        document.getElementById('test-sup-feedback').style.display = 'block';
+        document.getElementById('test-sup-feedback').innerHTML = `
+            <div class="p-3 rounded-3 ${correcta ? 'bg-success bg-opacity-10 border border-success' : 'bg-danger bg-opacity-10 border border-danger'}">
+                <strong>${correcta ? '✅ ¡Correcto!' : '❌ Incorrecto'}</strong>
+                <p class="small mb-0 mt-1">${p.exp}</p>
+            </div>`;
+        document.getElementById('test-sup-siguiente').style.display = 'inline-block';
+        document.getElementById('test-sup-siguiente').textContent = testSupIndex < preguntasSupremo.length - 1 ? 'Siguiente →' : 'Ver resultado';
+    }
+    
+    function siguientePreguntaSup() {
+        testSupIndex++;
+        if (testSupIndex >= preguntasSupremo.length) {
+            const pct = Math.round((testSupAciertos / preguntasSupremo.length) * 100);
+            const color = pct >= 70 ? '#22c55e' : pct >= 50 ? '#f59e0b' : '#ef4444';
+            const msg = pct >= 80 ? '¡Nivel élite confirmado! Dominas los conceptos del Pack Supremo.' : pct >= 60 ? 'Buen nivel. Repasa los módulos de los temas fallados.' : 'Te recomendamos repasar con más detenimiento antes de continuar.';
+            ['test-sup-pregunta','test-sup-opciones','test-sup-feedback','test-sup-nav'].forEach(id => document.getElementById(id).style.display = 'none');
+            document.getElementById('test-sup-resultado').style.display = 'block';
+            document.getElementById('test-sup-resultado').innerHTML = `
+                <div class="display-4 fw-bold mb-2" style="color:${color}">${pct}%</div>
+                <div class="fs-5 fw-bold mb-2">${testSupAciertos} / ${preguntasSupremo.length} correctas</div>
+                <p class="text-muted">${msg}</p>
+                <button class="btn rounded-pill px-4 text-white mt-2" style="background:linear-gradient(135deg,#dc2626,#ea580c);" onclick="reiniciarTestSup()">Repetir test</button>`;
+        } else {
+            renderPreguntaSup();
+        }
+    }
+    
+    function reiniciarTestSup() {
+        testSupIndex = 0; testSupAciertos = 0; testSupRespondida = false;
+        ['test-sup-pregunta','test-sup-opciones','test-sup-nav'].forEach(id => document.getElementById(id).style.display = 'block');
+        document.getElementById('test-sup-opciones').style.display = 'flex';
+        document.getElementById('test-sup-resultado').style.display = 'none';
+        renderPreguntaSup();
+    }
+    
+    renderPreguntaSup();
+    </script>
+    
         </div>
         {{-- NAVEGACIÓN --}}
         <div class="d-flex justify-content-between align-items-center mt-4 pt-4 border-top">
