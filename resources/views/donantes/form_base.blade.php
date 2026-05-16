@@ -1,14 +1,56 @@
 <style>
-    .form-dark-container { background-color: #1a1a1a; border-radius: 15px; color: white; border: 1px solid #333; }
-    .input-gen-blue { background-color: #00eeff !important; color: black !important; border-radius: 10px; font-weight: bold; border: 2px solid transparent; }
+    .form-dark-container {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border-radius: 20px;
+        color: white;
+        border: 1px solid rgba(0, 238, 255, 0.2);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    .input-gen-blue {
+        background-color: rgba(0, 238, 255, 0.1) !important;
+        color: white !important;
+        border-radius: 10px;
+        font-weight: bold;
+        border: 2px solid rgba(0, 238, 255, 0.4) !important;
+        transition: all 0.3s ease;
+    }
+    .input-gen-blue:focus {
+        background-color: rgba(0, 238, 255, 0.15) !important;
+        border-color: #00eeff !important;
+        box-shadow: 0 0 15px rgba(0, 238, 255, 0.3) !important;
+        color: white !important;
+    }
+    .input-gen-blue option { background-color: #1a1a2e; color: white; }
+    .input-gen-blue::placeholder { color: rgba(255,255,255,0.4); }
     .input-error-border { border: 2px solid #ff4d4d !important; box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); }
     .error-msg { color: #ff4d4d; font-size: 0.8rem; font-weight: bold; margin-top: 5px; display: block; }
-    .btn-gen-green { background-color: #449d44 !important; border-radius: 15px; font-weight: bold; padding: 12px; }
+    .btn-gen-green {
+        background: linear-gradient(135deg, #1DB954, #17a844) !important;
+        border-radius: 15px;
+        font-weight: bold;
+        padding: 14px;
+        border: none;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+    }
+    .btn-gen-green:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(29, 185, 84, 0.4) !important;
+    }
+    .form-label { color: #00eeff !important; font-size: 0.75rem; letter-spacing: 1px; }
+    .titulo-donacion {
+        font-size: 1.4rem;
+        background: linear-gradient(90deg, #00eeff, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 </style>
 
 <div class="form-dark-container shadow-2xl p-6 md:p-8" id="contenedorPrincipal">
-    <h3 class="text-center mb-4 fw-bold text-uppercase text-info">{{ $titulo }}</h3>
-
+    <h3 class="text-center mb-5 fw-bold text-uppercase titulo-donacion">
+        <i class="bi bi-heart-fill me-2" style="color: #00eeff;"></i>{{ $titulo }}
+    </h3>
     <form id="formDonante" action="{{ $action }}" method="POST">
         @csrf
         <input name="id_actual" type="hidden" value="{{ $donante->id ?? '' }}" />

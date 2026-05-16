@@ -58,7 +58,11 @@
                                             </td>
                                             <td>{{ $donante->edad }} años</td>
                                             <td class="fw-bold text-success">{{ number_format($donante->importe, 2) }} €</td>
-                                            <td class="text-muted font-monospace small">{{ $donante->iban }}</td>
+                                            <td class="text-muted font-monospace small">
+                                                <span class="iban-oculto" style="letter-spacing:2px;">
+                                                    {{ str_repeat('*', strlen($donante->iban)) }}
+                                                </span>
+                                            </td>
                                             <td>
                                                 @php $clave = trim($donante->valoracion); @endphp
                                                 <span class="badge {{ $clave == 'PR' ? 'bg-warning text-dark' : 'bg-info' }}">
