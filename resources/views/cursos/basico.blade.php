@@ -725,5 +725,36 @@
     setInterval(enviarProgreso, 300000);
 })();
 </script>
+{{-- BOTÓN VOLVER ARRIBA --}}
+<button id="btn-arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    title="Volver arriba"
+    style="
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        background: linear-gradient(135deg, #0369a1, #0ea5e9);
+        color: white;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 15px rgba(3,105,161,0.4);
+        cursor: pointer;
+        display: none;
+        z-index: 9999;
+        transition: all 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.1)'"
+    onmouseout="this.style.transform='scale(1)'">
+    <i class="bi bi-arrow-up"></i>
+</button>
 
+<script>
+window.addEventListener('scroll', function() {
+    document.getElementById('btn-arriba').style.display = window.scrollY > 400 ? 'flex' : 'none';
+    document.getElementById('btn-arriba').style.alignItems = 'center';
+    document.getElementById('btn-arriba').style.justifyContent = 'center';
+});
+</script>
 </x-app-layout>
