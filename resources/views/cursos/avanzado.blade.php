@@ -118,7 +118,7 @@
                     <p class="lead mb-4 opacity-90">Curso progresivo de menos a más. Estrategias operativas, fiscalidad, diferentes servicios de inversión y educación financiera personalizada.</p>
                     <div class="row g-3 mb-4">
                         <div class="col-6 col-md-3"><div class="stat-box"><div class="num">5</div><div class="label">Módulos</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">Estrategías</div><div class="label">De inversión</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">Gestión</div><div class="label">De riesgo</div></div></div>
                         <div class="col-6 col-md-3"><div class="stat-box"><div class="num">100%</div><div class="label">A tu propio ritmo</div></div></div>
                         <div class="col-6 col-md-3"><div class="stat-box"><div class="num">∞</div><div class="label">Acceso</div></div></div>
                     </div>
