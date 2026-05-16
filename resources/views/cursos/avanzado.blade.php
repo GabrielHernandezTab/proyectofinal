@@ -131,8 +131,7 @@
                 </div>
                 <div class="col-lg-4 text-center mt-4 mt-lg-0">
                     <div class="position-relative">
-                        <iframe width="100%" height="220" src="https://www.youtube.com/embed/EFmHDFjmAOE" title="Análisis Técnico Avanzado" frameborder="0" class="rounded-4 shadow-lg" allowfullscreen></iframe>
-                        <div class="mt-2 text-white-50 small"><i class="bi bi-play-circle me-1"></i> Introducción al Análisis Técnico</div>
+                        <iframe width="100%" height="220" src="https://www.youtube.com/embed/3NMdelx4IIE" title="Curso Completo de Análisis Técnico 2026" frameborder="0" class="rounded-4 shadow-lg" allowfullscreen></iframe>                        <div class="mt-2 text-white-50 small"><i class="bi bi-play-circle me-1"></i> Introducción al Análisis Técnico</div>
                     </div>
                 </div>
             </div>
@@ -1608,7 +1607,38 @@
     setInterval(enviarProgreso, 300000);
 })();
 </script>
+{{-- BOTÓN VOLVER ARRIBA --}}
+<button id="btn-arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    title="Volver arriba"
+    style="
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        background: linear-gradient(135deg, #7c3aed, #a855f7);
+        color: white;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 15px rgba(124,58,237,0.4);
+        cursor: pointer;
+        display: none;
+        z-index: 9999;
+        transition: all 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.1)'"
+    onmouseout="this.style.transform='scale(1)'">
+    <i class="bi bi-arrow-up"></i>
+</button>
 
+<script>
+window.addEventListener('scroll', function() {
+    document.getElementById('btn-arriba').style.display = window.scrollY > 400 ? 'flex' : 'none';
+    document.getElementById('btn-arriba').style.alignItems = 'center';
+    document.getElementById('btn-arriba').style.justifyContent = 'center';
+});
+</script>
 </x-app-layout>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
