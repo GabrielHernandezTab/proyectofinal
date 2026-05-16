@@ -1474,7 +1474,7 @@
         {{-- NAVEGACIÓN --}}
         <div class="d-flex justify-content-between align-items-center mt-4 pt-4 border-top">
             <a href="/mis-planes" class="btn btn-outline-secondary rounded-pill px-4"><i class="bi bi-arrow-left me-2"></i>Volver a los planes</a>
-            <div class="text-muted small">Pack 3 de 3 · <span class="text-warning fw-bold"><i class="bi bi-clock me-1"></i>Se desbloquea en 2 meses</span></div>
+            <div class="text-muted small">Pack 3 de 3 · <span class="text-warning fw-bold">Desbloqueado</span></div>
         </div>
 
     </div>
