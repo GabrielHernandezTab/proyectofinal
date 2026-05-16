@@ -97,10 +97,11 @@
 
                         <hr class="border-secondary">
                         <ul class="list-unstyled mb-4">
-                            <li class="mb-2"><i class="bi bi-check2-all text-primary me-2"></i><strong>60 horas de curso</strong></li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Value Investing & Day Trading</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Simulador de inversiones reales</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Comunidad privada Discord</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Curso progresivo de menos a más</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Diferentes servicios de inversión (eToro recomendado)</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Value Investing, Day Trading y Dividendos</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Educación financiera personal</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Conocimientos sobre fiscalidad</li>
                         </ul>
                         <div class="d-grid mt-auto">
                             <a href="./mis-planes/avanzado"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>

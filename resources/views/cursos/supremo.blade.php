@@ -173,135 +173,21 @@
 
         {{-- NAVEGACIÓN DE MÓDULOS --}}
         <div class="module-nav" id="moduleNav">
-            <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> 3 Vídeos/Semana</button>
-            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-2-circle me-1"></i> Mentoría 1:1</button>
-            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-3-circle me-1"></i> Análisis Profundo</button>
-            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Gráfico Mensual</button>
-            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-5-circle me-1"></i> Informe Detallado</button>
-            <button class="module-nav-btn" onclick="showModule(5)"><i class="bi bi-6-circle me-1"></i> Análisis Técnico Élite</button>
-            <button class="module-nav-btn" onclick="showModule(6)"><i class="bi bi-7-circle me-1"></i> Gestión Portafolio</button>
+
+            <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-2-circle me-1"></i> Mentoría 1:1</button>
+            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-3-circle me-1"></i> Análisis Profundo</button>
+            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-4-circle me-1"></i> Gráfico Mensual</button>
+            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-5-circle me-1"></i> Informe Detallado</button>
+            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-6-circle me-1"></i> Análisis Técnico Élite</button>
+            <button class="module-nav-btn" onclick="showModule(5)"><i class="bi bi-7-circle me-1"></i> Gestión Portafolio</button>
             <button class="module-nav-btn" onclick="showModule(7)"><i class="bi bi-8-circle me-1"></i> Estrategias Pro</button>
             <button class="module-nav-btn" onclick="showModule(8)"><i class="bi bi-9-circle me-1"></i> Herramientas Élite</button>
             <button class="module-nav-btn" onclick="showModule(9)"><i class="bi bi-10-circle me-1"></i> Fiscalidad Avanzada</button>
         </div>
 
-        {{-- MÓDULO 1: 3 VÍDEOS NUEVOS CADA SEMANA --}}
-        <div class="content-panel active" id="module-0">
-            <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-collection-play me-2"></i>3 Vídeos Nuevos Cada Semana</h3>
-            <p class="text-muted mb-4">Contenido fresco, actualizado y adaptado a la situación real del mercado. Análisis de la semana, nuevas estrategias y respuestas a tus preguntas.</p>
 
-            <div class="alert-vip d-flex align-items-center mb-4">
-                <i class="bi bi-broadcast-pin fs-4 me-3 text-warning"></i>
-                <div><strong>Calendario de publicación:</strong> Lunes, Miércoles y Viernes a las 19:00h (hora España). Los vídeos permanecen disponibles indefinidamente.</div>
-            </div>
-
-            <h5 class="fw-bold mb-3">Ejemplo de Programación Semanal Tipo</h5>
-            <div class="weekly-schedule mb-4">
-                <div class="day-box active">
-                    <div class="fw-bold text-danger mb-1">LUN</div>
-                    <i class="bi bi-graph-up-arrow fs-3 text-danger mb-1"></i>
-                    <small class="d-block text-muted">Análisis de Mercado</small>
-                    <small class="d-block text-success fw-bold">19:00h</small>
-                </div>
-                <div class="day-box">
-                    <div class="fw-bold text-muted mb-1">MAR</div>
-                    <i class="bi bi-calendar-check fs-3 text-muted mb-1"></i>
-                    <small class="d-block text-muted">Estudio individual</small>
-                </div>
-                <div class="day-box active">
-                    <div class="fw-bold text-danger mb-1">MIÉ</div>
-                    <i class="bi bi-lightning-charge fs-3 text-danger mb-1"></i>
-                    <small class="d-block text-muted">Nueva Estrategia</small>
-                    <small class="d-block text-success fw-bold">19:00h</small>
-                </div>
-                <div class="day-box">
-                    <div class="fw-bold text-muted mb-1">JUE</div>
-                    <i class="bi bi-journal-text fs-3 text-muted mb-1"></i>
-                    <small class="d-block text-muted">Práctica en demo</small>
-                </div>
-                <div class="day-box active">
-                    <div class="fw-bold text-danger mb-1">VIE</div>
-                    <i class="bi bi-question-circle fs-3 text-danger mb-1"></i>
-                    <small class="d-block text-muted">Preguntas & Respuestas</small>
-                    <small class="d-block text-success fw-bold">19:00h</small>
-                </div>
-                <div class="day-box">
-                    <div class="fw-bold text-muted mb-1">SÁB</div>
-                    <i class="bi bi-camera-video fs-3 text-muted mb-1"></i>
-                    <small class="d-block text-muted">Videollamada mentoría</small>
-                </div>
-                <div class="day-box">
-                    <div class="fw-bold text-muted mb-1">DOM</div>
-                    <i class="bi bi-pause-circle fs-3 text-muted mb-1"></i>
-                    <small class="d-block text-muted">Descanso</small>
-                </div>
-            </div>
-
-            <h5 class="fw-bold mb-3">Contenido de los 3 Vídeos Semanales</h5>
-            <div class="video-grid mb-4">
-                <div class="video-card">
-                    <div class="video-thumb" style="background: linear-gradient(135deg, #dc2626, #991b1b); display:flex;align-items:center;justify-content:center;">
-                        <i class="bi bi-graph-up-arrow text-white fs-1"></i>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-badge tag-red">VÍDEO 1 — LUNES</span>
-                        <h6 class="fw-bold mb-1">Análisis de Mercado Semanal</h6>
-                        <p class="small text-muted mb-2">Repaso de la semana anterior, impacto de noticias macro, movimientos de bancos centrales y preparación para la semana entrante.</p>
-                        <ul class="list-unstyled small mb-0">
-                            <li><i class="bi bi-check2 text-success me-2"></i>Revisión S&P 500, NASDAQ, DAX, IBEX</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Análisis de volatilidad (VIX)</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Sectores en tendencia y rotación</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumb" style="background: linear-gradient(135deg, #ea580c, #dc2626); display:flex;align-items:center;justify-content:center;">
-                        <i class="bi bi-lightning-charge text-white fs-1"></i>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-badge tag-gold">VÍDEO 2 — MIÉRCOLES</span>
-                        <h6 class="fw-bold mb-1">Nueva Estrategia o Técnica</h6>
-                        <p class="small text-muted mb-2">Desglose completo de una estrategia operativa: setup, entrada, gestión de riesgo, casos reales históricos y adaptaciones según mercado.</p>
-                        <ul class="list-unstyled small mb-0">
-                            <li><i class="bi bi-check2 text-success me-2"></i>Smart Money Concepts (SMC)</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Order Flow y Footprint</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Opciones avanzadas (spreads, iron condor)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumb" style="background: linear-gradient(135deg, #7f1d1d, #dc2626); display:flex;align-items:center;justify-content:center;">
-                        <i class="bi bi-people text-white fs-1"></i>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-badge tag-purple">VÍDEO 3 — VIERNES</span>
-                        <h6 class="fw-bold mb-1">Preguntas de la Comunidad</h6>
-                        <p class="small text-muted mb-2">Respondemos en vídeo las dudas más frecuentes de los miembros del Pack Supremo. Casos reales, correcciones de operaciones y análisis de errores.</p>
-                        <ul class="list-unstyled small mb-0">
-                            <li><i class="bi bi-check2 text-success me-2"></i>Revisión de operaciones de alumnos</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Corrección de errores comunes</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Nuevas herramientas y recursos</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="elite-card">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-archive me-2"></i>Biblioteca de Vídeos Anteriores</h5>
-                <p class="text-muted small mb-3">Acceso vitalicio a todos los vídeos publicados desde que te uniste. Organizados por categorías:</p>
-                <div class="row g-2">
-                    <div class="col-md-4"><div class="p-2 bg-light rounded border"><div class="fw-bold">Análisis Técnico Avanzado</div><small class="text-muted">48 vídeos · 96h</small></div></div>
-                    <div class="col-md-4"><div class="p-2 bg-light rounded border"><div class="fw-bold">Estrategias Operativas</div><small class="text-muted">36 vídeos · 72h</small></div></div>
-                    <div class="col-md-4"><div class="p-2 bg-light rounded border"><div class="fw-bold">Macroeconomía y Fundamentos</div><small class="text-muted">24 vídeos · 48h</small></div></div>
-                    <div class="col-md-4"><div class="p-2 bg-light rounded border"><div class="fw-bold">Psicotrading y Disciplina</div><small class="text-muted">18 vídeos · 36h</small></div></div>
-                    <div class="col-md-4"><div class="p-2 bg-light rounded border"><div class="fw-bold">Fiscalidad y Planificación</div><small class="text-muted">12 vídeos · 24h</small></div></div>
-                    <div class="col-md-4"><div class="p-2 bg-light rounded border"><div class="fw-bold">Casos y Correcciones</div><small class="text-muted">30 vídeos · 60h</small></div></div>
-                </div>
-            </div>
-        </div>
-
-        {{-- MÓDULO 2: CLASE PERSONALIZADA POR VIDEOCONFERENCIA SEMANAL --}}
-        <div class="content-panel" id="module-1">
+        {{-- MÓDULO 1: CLASE PERSONALIZADA POR VIDEOCONFERENCIA SEMANAL --}}
+        <div class="content-panel" id="module-0">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-camera-video me-2"></i>Clase Personalizada por Videoconferencia Semanal</h3>
             <p class="text-muted mb-4">El corazón del Pack Supremo. Tu mentor dedicado revisa tu cartera, analiza tus operaciones y te guía personalmente cada semana.</p>
 
@@ -386,8 +272,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 3: ANÁLISIS PROFUNDO DE DATOS E INFORMACIÓN --}}
-        <div class="content-panel" id="module-2">
+        {{-- MÓDULO 2: ANÁLISIS PROFUNDO DE DATOS E INFORMACIÓN --}}
+        <div class="content-panel" id="module-1">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-binoculars me-2"></i>Análisis Profundo de Datos e Información</h3>
             <p class="text-muted mb-4">Datos institucionales, flujo de órdenes, correlaciones macro y análisis de sentimiento que el inversor retail no ve.</p>
 
@@ -498,8 +384,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 4: GRÁFICO DE INVERSIÓN MENSUAL --}}
-        <div class="content-panel" id="module-3">
+        {{-- MÓDULO 3: GRÁFICO DE INVERSIÓN MENSUAL --}}
+        <div class="content-panel" id="module-2">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-bar-chart-line me-2"></i>Gráfico de Inversión Mensual</h3>
             <p class="text-muted mb-4">Seguimiento visual profesional de tu evolución. Curva de equity, drawdown, ratio de Sharpe y métricas avanzadas.</p>
 
@@ -664,8 +550,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 5: INFORME DETALLADO DEL PROCESO CADA MES --}}
-        <div class="content-panel" id="module-4">
+        {{-- MÓDULO 4: INFORME DETALLADO DEL PROCESO CADA MES --}}
+        <div class="content-panel" id="module-3">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-file-earmark-bar-graph me-2"></i>Informe Detallado del Proceso Cada Mes</h3>
             <p class="text-muted mb-4">Documento profesional mensual con tu evolución completa: rendimiento, operaciones, lecciones aprendidas y objetivos para el mes siguiente.</p>
 
@@ -741,8 +627,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 6: ANÁLISIS TÉCNICO Y FUNDAMENTAL AVANZADO --}}
-        <div class="content-panel" id="module-5">
+        {{-- MÓDULO 5: ANÁLISIS TÉCNICO Y FUNDAMENTAL AVANZADO --}}
+        <div class="content-panel" id="module-4">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-magic me-2"></i>Análisis Técnico y Fundamental Avanzado</h3>
             <p class="text-muted mb-4">Técnicas que usan los profesionales de Wall Street. Multi-timeframe, opciones, flujo de órdenes y análisis de balances en profundidad.</p>
 
@@ -889,8 +775,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 7: GESTIÓN Y OPTIMIZACIÓN DE PORTAFOLIO --}}
-        <div class="content-panel" id="module-6">
+        {{-- MÓDULO 6: GESTIÓN Y OPTIMIZACIÓN DE PORTAFOLIO --}}
+        <div class="content-panel" id="module-5">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-briefcase me-2"></i>Gestión y Optimización de Portafolio Profesional</h3>
             <p class="text-muted mb-4">Técnicas de gestión de riesgo usadas por fondos de inversión. Rebalanceo, cobertura, diversificación inteligente y optimización de frontera eficiente.</p>
 
@@ -993,8 +879,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 8: ESTRATEGIAS DE INVERSIÓN PROFESIONAL --}}
-        <div class="content-panel" id="module-7">
+        {{-- MÓDULO 7: ESTRATEGIAS DE INVERSIÓN PROFESIONAL --}}
+        <div class="content-panel" id="module-6">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-trophy me-2"></i>Estrategias de Inversión Profesional</h3>
             <p class="text-muted mb-4">Métodos de inversores legendarios y fondos de élite adaptados al inversor particular. Factor investing, momentum, quality y low volatility.</p>
 
@@ -1139,8 +1025,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 9: HERRAMIENTAS AVANZADAS DE TOMA DE DECISIONES --}}
-        <div class="content-panel" id="module-8">
+        {{-- MÓDULO 8: HERRAMIENTAS AVANZADAS DE TOMA DE DECISIONES --}}
+        <div class="content-panel" id="module-7">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-tools me-2"></i>Herramientas Avanzadas de Toma de Decisiones</h3>
             <p class="text-muted mb-4">Software, plataformas y recursos institucionales que usan los profesionales. Acceso a datos que el inversor retail no tiene.</p>
 
@@ -1310,8 +1196,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 10: FISCALIDAD AVANZADA Y PLANIFICACIÓN FISCAL --}}
-        <div class="content-panel" id="module-9">
+        {{-- MÓDULO 9: FISCALIDAD AVANZADA Y PLANIFICACIÓN FISCAL --}}
+        <div class="content-panel" id="module-8">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-calculator me-2"></i>Fiscalidad Avanzada y Planificación Fiscal</h3>
             <p class="text-muted mb-4">Estrategias legales para minimizar la carga fiscal. Tax-loss harvesting, vehículos eficientes, planificación patrimonial y estructuración internacional.</p>
 

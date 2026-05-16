@@ -140,139 +140,15 @@
 
         {{-- NAVEGACIÓN DE MÓDULOS --}}
         <div class="module-nav" id="moduleNav">
-            <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> Curso Progresivo</button>
-            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-2-circle me-1"></i> Servicios de Inversión</button>
-            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-3-circle me-1"></i> Tipos de Inversión</button>
-            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Rentabilidad por Nivel</button>
-            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-5-circle me-1"></i> Educación Financiera</button>
-            <button class="module-nav-btn" onclick="showModule(5)"><i class="bi bi-6-circle me-1"></i> Fiscalidad</button>
+            <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> Servicios de Inversión</button>
+            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-2-circle me-1"></i> Tipos de Inversión</button>
+            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-3-circle me-1"></i> Rentabilidad por Nivel</button>
+            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Educación Financiera</button>
+            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-5-circle me-1"></i> Fiscalidad</button>
         </div>
 
-        {{-- MÓDULO 1: CURSO PROGRESIVO --}}
-        <div class="content-panel active" id="module-0">
-            <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-collection-play me-2"></i>Vídeos Cada 2 Semanas — Calendario de Contenido</h3>
-            
-            <div class="alert alert-info d-flex align-items-center mb-4">
-                <i class="bi bi-info-circle-fill me-3 fs-4"></i>
-                <div>Los vídeos se publican cada <strong>2 semanas</strong> con una duración de <strong>2 horas cada uno</strong>. El curso es progresivo: cada vídeo construye sobre el anterior. Desde fundamentos hasta estrategias operativas complejas.</div>
-            </div>
-
-            <div class="video-grid mb-4">
-                <div class="video-card">
-                    <div class="video-thumb">
-                        <iframe src="https://www.youtube.com/embed/EFmHDFjmAOE" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-badge tag-purple">SEMANA 1-2</span>
-                        <h6 class="fw-bold mb-1">Fundamentos del Análisis Técnico</h6>
-                        <p class="small text-muted mb-0">Soportes, resistencias, tendencias, estructura de mercado y lectura de gráficos.</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumb" style="background: linear-gradient(135deg, #7c3aed, #a855f7); display:flex;align-items:center;justify-content:center;">
-                        <i class="bi bi-lock-fill text-white fs-1"></i>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-badge tag-orange">SEMANA 3-4</span>
-                        <h6 class="fw-bold mb-1">Indicadores Técnicos Esenciales</h6>
-                        <p class="small text-muted mb-0">RSI, MACD, Medias Móviles, Bollinger Bands y Volumen en profundidad.</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumb" style="background: linear-gradient(135deg, #7c3aed, #a855f7); display:flex;align-items:center;justify-content:center;">
-                        <i class="bi bi-lock-fill text-white fs-1"></i>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-badge tag-orange">SEMANA 5-6</span>
-                        <h6 class="fw-bold mb-1">Patrones de Velas Japonesas</h6>
-                        <p class="small text-muted mb-0">Doji, Hammer, Engulfing, Morning Star, Evening Star y más patrones avanzados.</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumb" style="background: linear-gradient(135deg, #7c3aed, #a855f7); display:flex;align-items:center;justify-content:center;">
-                        <i class="bi bi-lock-fill text-white fs-1"></i>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-badge tag-orange">SEMANA 7-8</span>
-                        <h6 class="fw-bold mb-1">Estrategias de Entrada y Salida</h6>
-                        <p class="small text-muted mb-0">Gestión de riesgo, stop loss, take profit, ratio R/R y sizing de posiciones.</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumb" style="background: linear-gradient(135deg, #581c87, #7c3aed); display:flex;align-items:center;justify-content:center;">
-                        <i class="bi bi-lock-fill text-white fs-1"></i>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-badge tag-red">SEMANA 9-10</span>
-                        <h6 class="fw-bold mb-1">Day Trading en Vivo</h6>
-                        <p class="small text-muted mb-0">Operativa real en mercados: setups, gestión de emociones y bitácora de trading.</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumb" style="background: linear-gradient(135deg, #581c87, #7c3aed); display:flex;align-items:center;justify-content:center;">
-                        <i class="bi bi-lock-fill text-white fs-1"></i>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-badge tag-red">SEMANA 11-12</span>
-                        <h6 class="fw-bold mb-1">Value Investing y Análisis Fundamental</h6>
-                        <p class="small text-muted mb-0">Ratios financieros, valoración de empresas y métodos de inversores legendarios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="strategy-card">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-calendar-week me-2"></i>Plan de Estudio Recomendado — 6 Meses</h5>
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <div class="text-center p-3 bg-light rounded h-100">
-                            <div class="fs-1 fw-bold text-primary">Mes 1-2</div>
-                            <small class="text-muted d-block mb-2">Semanas 1-4</small>
-                            <hr>
-                            <ul class="list-unstyled small text-start">
-                                <li><i class="bi bi-check2 text-success me-2"></i>Análisis técnico básico</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Indicadores principales</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Práctica en cuenta demo</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Identificación de tendencias</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="text-center p-3 bg-light rounded h-100">
-                            <div class="fs-1 fw-bold text-primary">Mes 3-4</div>
-                            <small class="text-muted d-block mb-2">Semanas 5-8</small>
-                            <hr>
-                            <ul class="list-unstyled small text-start">
-                                <li><i class="bi bi-check2 text-success me-2"></i>Patrones de velas avanzados</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Fibonacci y zonas clave</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Gestión de riesgo profesional</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Primera operativa real (micro)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="text-center p-3 bg-light rounded h-100">
-                            <div class="fs-1 fw-bold text-primary">Mes 5-6</div>
-                            <small class="text-muted d-block mb-2">Semanas 9-12</small>
-                            <hr>
-                            <ul class="list-unstyled small text-start">
-                                <li><i class="bi bi-check2 text-success me-2"></i>Day Trading con criterio</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Value Investing básico</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Dividendos y renta pasiva</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Plan de trading personalizado</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tip-box">
-                <h6 class="fw-bold mb-2"><i class="bi bi-lightbulb me-2"></i>Consejo del Mentor</h6>
-                <p class="small mb-0">No saltes etapas. Cada vídeo de 2 horas requiere <strong>4-6 horas de práctica adicional</strong> en cuenta demo antes de pasar al siguiente. La constancia vence al talento.</p>
-            </div>
-        </div>
-
-        {{-- MÓDULO 2: SERVICIOS DE INVERSIÓN --}}
-        <div class="content-panel" id="module-1">
+        {{-- MÓDULO 1: SERVICIOS DE INVERSIÓN --}}
+        <div class="content-panel" id="module-0">
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-shop me-2"></i>Diferentes Servicios de Inversión — Plataformas Profesionales</h3>
 
             <div class="etoro-highlight mb-4">
@@ -402,8 +278,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 3: TIPOS DE INVERSIÓN --}}
-        <div class="content-panel" id="module-2">
+        {{-- MÓDULO 2: TIPOS DE INVERSIÓN --}}
+        <div class="content-panel" id="module-1">
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-diagram-3 me-2"></i>Tipos de Inversiones — Estrategias Detalladas</h3>
 
             <div class="strategy-card">
@@ -578,8 +454,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 4: RENTABILIDAD POR NIVEL --}}
-        <div class="content-panel" id="module-3">
+        {{-- MÓDULO 3: RENTABILIDAD POR NIVEL --}}
+        <div class="content-panel" id="module-2">
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-bar-chart-line me-2"></i>Ejemplos Según Nivel de Rentabilidad Deseado</h3>
 
             <div class="alert alert-info d-flex align-items-center mb-4">
@@ -731,8 +607,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 5: EDUCACIÓN FINANCIERA --}}
-        <div class="content-panel" id="module-4">
+        {{-- MÓDULO 4: EDUCACIÓN FINANCIERA --}}
+        <div class="content-panel" id="module-3">
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-mortarboard me-2"></i>Educación Financiera Personal — Construye Tu Conocimiento</h3>
 
             <div class="row g-4 mb-4">
@@ -881,8 +757,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 6: FISCALIDAD --}}
-        <div class="content-panel" id="module-5">
+        {{-- MÓDULO 5: FISCALIDAD --}}
+        <div class="content-panel" id="module-4">
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-receipt me-2"></i>Fiscalidad de las Inversiones en España</h3>
 
             <div class="alert alert-warning d-flex align-items-center mb-4">
