@@ -174,15 +174,15 @@
         {{-- NAVEGACIÓN DE MÓDULOS --}}
         <div class="module-nav" id="moduleNav">
 
-            <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-2-circle me-1"></i> Mentoría 1:1</button>
-            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-3-circle me-1"></i> Análisis Profundo</button>
-            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-4-circle me-1"></i> Gráfico Mensual</button>
-            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-5-circle me-1"></i> Informe Detallado</button>
-            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-6-circle me-1"></i> Análisis Técnico Élite</button>
-            <button class="module-nav-btn" onclick="showModule(5)"><i class="bi bi-7-circle me-1"></i> Gestión Portafolio</button>
-            <button class="module-nav-btn" onclick="showModule(7)"><i class="bi bi-8-circle me-1"></i> Estrategias Pro</button>
-            <button class="module-nav-btn" onclick="showModule(8)"><i class="bi bi-9-circle me-1"></i> Herramientas Élite</button>
-            <button class="module-nav-btn" onclick="showModule(9)"><i class="bi bi-10-circle me-1"></i> Fiscalidad Avanzada</button>
+            <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> Mentoría 1:1</button>
+            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-2-circle me-1"></i> Análisis Profundo</button>
+            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-3-circle me-1"></i> Gráfico Mensual</button>
+            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Informe Detallado</button>
+            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-5-circle me-1"></i> Análisis Técnico Élite</button>
+            <button class="module-nav-btn" onclick="showModule(5)"><i class="bi bi-6-circle me-1"></i> Gestión Portafolio</button>
+            <button class="module-nav-btn" onclick="showModule(6)"><i class="bi bi-7-circle me-1"></i> Estrategias Pro</button>
+            <button class="module-nav-btn" onclick="showModule(7)"><i class="bi bi-8-circle me-1"></i> Herramientas Élite</button>
+            <button class="module-nav-btn" onclick="showModule(8)"><i class="bi bi-9-circle me-1"></i> Fiscalidad Avanzada</button>
         </div>
 
 
