@@ -197,19 +197,19 @@
                                     <tr>
                                         <td><span class="tag tag-blue">Inicial</span></td>
                                         <td><i class="bi bi-unlock-fill text-success me-1"></i> Al registrarte</td>
-                                        <td>8 módulos · Fundamentos</td>
+                                        <td>Fundamentos básicos</td>
                                         <td>Principiante</td>
                                     </tr>
                                     <tr>
                                         <td><span class="tag tag-orange">Avanzado</span></td>
                                         <td><i class="bi bi-clock me-1"></i> 2 semanas</td>
-                                        <td>Vídeos cada 2 semanas · 2h c/u</td>
+                                        <td>Temario avanzado</td>
                                         <td>Intermedio</td>
                                     </tr>
                                     <tr>
                                         <td><span class="tag tag-green">Supremo</span></td>
                                         <td><i class="bi bi-clock me-1"></i> 2 meses</td>
-                                        <td>3 vídeos/semana + Mentoría 1:1</td>
+                                        <td>Mentorías personalizadas</td>
                                         <td>Profesional</td>
                                     </tr>
                                 </tbody>

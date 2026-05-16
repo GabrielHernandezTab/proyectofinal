@@ -148,12 +148,12 @@
                 <div class="col-lg-8">
                     <div class="vip-badge mb-3"><i class="bi bi-stars"></i> NIVEL ÉLITE — ACCESO TOTAL</div>
                     <h1 class="display-4 fw-bold mb-3">Pack Supremo</h1>
-                    <p class="lead mb-4 opacity-90">La experiencia definitiva en formación financiera. 3 vídeos nuevos cada semana, mentoría personalizada 1:1 por videollamada semanal, alertas VIP en tiempo real 24/7, análisis profundo de datos y planificación fiscal avanzada.</p>
+                    <p class="lead mb-4 opacity-90">La experiencia definitiva en formación financiera. Mentoría personalizada 1:1 por videollamada semanal, alertas VIP en tiempo real 24/7, análisis profundo de datos y planificación fiscal avanzada.</p>
                     <div class="row g-3 mb-4">
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">3</div><div class="label">Vídeos/semana</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">9</div><div class="label">Módulos</div></div></div>
                         <div class="col-6 col-md-3"><div class="stat-box"><div class="num">1:1</div><div class="label">Mentoría semanal</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">24/7</div><div class="label">Alertas VIP</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">∞</div><div class="label">Vitalicio</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">24/7</div><div class="label">Soporte/dudas</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">∞</div><div class="label">Acceso</div></div></div>
                     </div>
                     <div class="d-flex gap-3 flex-wrap">
                         <span class="badge bg-warning text-dark px-3 py-2"><i class="bi bi-camera-video me-1"></i> Videollamada semanal</span>

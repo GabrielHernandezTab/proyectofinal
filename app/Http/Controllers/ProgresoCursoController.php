@@ -18,7 +18,7 @@ class ProgresoCursoController extends Controller
 
         $request->validate([
             'curso'    => 'required|in:basico,avanzado,supremo',
-            'segundos' => 'required|integer|min:1|max:3600',
+            'segundos' => 'required|integer|min:1|max:10800',
         ]);
 
         $usuario = Auth::user();

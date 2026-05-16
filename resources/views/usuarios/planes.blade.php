@@ -140,14 +140,14 @@
                 <p>Por el momento, solo se puede ir desbloqueando cursos con el paso del tiempo. En un futuro tendremos pensado añadir diferentes cursos que serán de pago.</p>
             </div>
 
-            <button class="accordion">¿Qué pasa si no puedo completar un curso dentro del mes?</button>
+            <button class="accordion">¿Qué pasa si no puedo completar un curso dentro del tiempo establecido?</button>
             <div class="panel">
                 <p>No hay problema. Todos los materiales permanecen disponibles y puedes retomar las lecciones cuando quieras. Cuando se creen nuevos cursos que sean de pagos te permitiran acceder al contenido incluso después de la cancelación de la suscripción.</p>
             </div>
 
             <button class="accordion">¿Puedo recibir soporte personalizado?</button>
             <div class="panel">
-                <p>Sí, los planes Avanzado y Supremo incluyen soporte vía email y videollamadas semanales con mentores. El plan Supremo incluye soporte prioritario y atención personalizada.</p>
+                <p>Sí, los planes Avanzado y Supremo incluyen soporte vía email. El plan Supremo incluye soporte prioritario y atención personalizada.</p>
             </div>
         </div>
 </x-app-layout>

@@ -13,9 +13,9 @@ class ProgresoCurso extends Model
     // Tiempo máximo considerado "completado" (por curso, en segundos)
     // basico: 30 min, avanzado: 60 min, supremo: 90 min
     public static $maxSegundos = [
-        'basico'   => 1800,
-        'avanzado' => 3600,
-        'supremo'  => 5400,
+        'basico'   => 3600,
+        'avanzado' => 7200,
+        'supremo'  => 10800,
     ];
 
     public function porcentaje(): int

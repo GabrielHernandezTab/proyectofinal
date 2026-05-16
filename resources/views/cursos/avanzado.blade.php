@@ -117,9 +117,9 @@
                     <h1 class="display-4 fw-bold mb-3">Pack Avanzado</h1>
                     <p class="lead mb-4 opacity-90">Curso progresivo de menos a más. Estrategias operativas, fiscalidad, diferentes servicios de inversión y educación financiera personalizada.</p>
                     <div class="row g-3 mb-4">
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">6</div><div class="label">Módulos</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">2h</div><div class="label">Por vídeo</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">2 sem</div><div class="label">Frecuencia</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">5</div><div class="label">Módulos</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">Estrategías</div><div class="label">De inversión</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">100%</div><div class="label">A tu propio ritmo</div></div></div>
                         <div class="col-6 col-md-3"><div class="stat-box"><div class="num">∞</div><div class="label">Acceso</div></div></div>
                     </div>
                     <div class="d-flex gap-3 flex-wrap">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="col-lg-4 text-center mt-4 mt-lg-0">
                     <div class="position-relative">
-                        <iframe width="100%" height="220" src="https://www.youtube.com/embed/3NMdelx4IIE" title="Curso Completo de Análisis Técnico 2026" frameborder="0" class="rounded-4 shadow-lg" allowfullscreen></iframe>                        <div class="mt-2 text-white-50 small"><i class="bi bi-play-circle me-1"></i> Introducción al Análisis Técnico</div>
+                    <iframe width="100%" height="220" src="https://www.youtube.com/embed/3NMdelx4IIE" title="Curso Completo de Análisis Técnico 2026" frameborder="0" class="rounded-4 shadow-lg" allowfullscreen></iframe>                        <div class="mt-2 text-white-50 small"><i class="bi bi-play-circle me-1"></i> Introducción al Análisis Técnico</div>
                     </div>
                 </div>
             </div>
