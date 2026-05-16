@@ -37,6 +37,8 @@ app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         'rol' => 'Súper Admin', // 
         'created_at' => '2026-01-10 12:00:00'
     ]);
+
+    
     $authNerea->assignRole($adminRole);
 
     $authJuan = User::create([
