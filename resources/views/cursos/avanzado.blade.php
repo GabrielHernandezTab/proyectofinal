@@ -928,6 +928,13 @@
         </div>
 
         {{-- RECURSOS AVANZADOS --}}
+        <div class="mt-5 pt-4 border-top border-2" style="border-color: #e9d5ff !important;">
+            <div class="text-center mb-4">
+                <span class="badge px-4 py-2 fs-6 fw-bold" style="background-color: #f3e8ff; color: #6b21a8; border-radius: 999px; letter-spacing: 0.05em;">
+                    <i class="bi bi-bookmark-star me-2"></i>MATERIAL COMPLEMENTARIO
+                </span>
+            </div>
+        </div>
         <div class="card shadow border-0 p-4 mb-5">
             <h4 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-bookmarks me-2"></i>Recursos y Herramientas del Pack Avanzado</h4>
             <div class="row g-3">
@@ -994,9 +1001,15 @@
             </div>
         </div>
 
-        {{-- FAQ --}}
+       {{-- FAQ --}}
         <div class="mb-5">
-            <h4 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-question-circle me-2"></i>Preguntas Frecuentes del Pack Avanzado</h4>
+            <div class="text-center mb-4">
+                <span class="badge px-4 py-2 fs-6 fw-bold" style="background-color: #f3e8ff; color: #6b21a8; border-radius: 999px; letter-spacing: 0.05em;">
+                    <i class="bi bi-question-diamond me-2"></i>PREGUNTAS FRECUENTES
+                </span>
+            </div>
+            <h4 class="fw-bold mb-4" style="color:#581c87;">
+                <i class="bi bi-question-circle me-2"></i>Preguntas Frecuentes del Pack Avanzado</h4>
             <div class="accordion-custom" id="faqAccordion">
                 <div class="accordion-item">
                     <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
