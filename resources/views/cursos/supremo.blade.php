@@ -1183,6 +1183,7 @@
                 <p class="small mb-0 mt-1">${p.exp}</p>
             </div>`;
         document.getElementById('test-sup-siguiente').style.display = 'inline-block';
+        document.getElementById('test-sup-siguiente').textContent = testSupIndex < preguntasSupremo.length - 1 ? 'Siguiente →' : 'Ver resultado';
     }
     
     function siguientePreguntaSup() {
