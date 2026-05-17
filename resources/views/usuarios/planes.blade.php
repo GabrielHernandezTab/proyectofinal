@@ -54,12 +54,6 @@
             <h1 class="display-4 fw-bold">Accede a tu curso</h1>
             <p class="lead text-muted">Selecciona el plan que mejor se adapte a tus objetivos financieros y nivel de experiencia.</p>
             <p class="text-muted small">Se ruega que cada alumno se adapte a su nivel</p>
-
-            <div class="d-flex justify-content-center gap-3">
-                <span class="badge bg-light text-dark border"><i class="bi bi-shield-check text-primary"></i> Pago Seguro</span>
-                <span class="badge bg-light text-dark border"><i class="bi bi-clock-history text-primary"></i> Acceso 24/7</span>
-                <span class="badge bg-light text-dark border"><i class="bi bi-people text-primary"></i> +5,000 Alumnos</span>
-            </div>
         </div>
 
         <!-- Tarjetas de Planes -->

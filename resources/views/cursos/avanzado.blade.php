@@ -116,18 +116,6 @@
                 <div class="col-lg-8">
                     <h1 class="display-4 fw-bold mb-3">Pack Avanzado</h1>
                     <p class="lead mb-4 opacity-90">Curso progresivo de menos a más. Estrategias operativas, fiscalidad, diferentes servicios de inversión y educación financiera personalizada.</p>
-                    <div class="row g-3 mb-4">
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">5</div><div class="label">Módulos</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">Gestión</div><div class="label">De riesgo</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">100%</div><div class="label">A tu propio ritmo</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">∞</div><div class="label">Acceso</div></div></div>
-                    </div>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <span class="badge bg-white text-primary px-3 py-2"><i class="bi bi-check-circle me-1"></i> Curso progresivo</span>
-                        <span class="badge bg-white text-primary px-3 py-2"><i class="bi bi-check-circle me-1"></i> eToro recomendado</span>
-                        <span class="badge bg-white text-primary px-3 py-2"><i class="bi bi-check-circle me-1"></i> Fiscalidad incluida</span>
-                        <span class="badge bg-white text-primary px-3 py-2"><i class="bi bi-check-circle me-1"></i> Day Trading, Value, Dividendos</span>
-                    </div>
                 </div>
                 <div class="col-lg-4 text-center mt-4 mt-lg-0">
                     <div class="position-relative">
@@ -142,8 +130,7 @@
             <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> Servicios de Inversión</button>
             <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-2-circle me-1"></i> Tipos de Inversión</button>
             <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-3-circle me-1"></i> Rentabilidad por Nivel</button>
-            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Educación Financiera</button>
-            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-5-circle me-1"></i> Fiscalidad</button>
+            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Fiscalidad</button>
         </div>
 
         {{-- MÓDULO 1: SERVICIOS DE INVERSIÓN --}}
@@ -738,189 +725,8 @@
                     <div class="col-md-4"><div class="p-2 bg-white rounded border text-center"><div class="fw-bold text-danger">Compro más</div><small class="text-muted">Perfil: Agresivo</small></div></div>
                 </div>
             </div>
-            {{-- ============================================================
-     ELEMENTO INTERACTIVO 2: SIMULADOR DE ESTRATEGIA
-     Insertar al FINAL del módulo "Rentabilidad por Nivel" (module-3)
-     justo antes del </div> que cierra ese content-panel
-     ============================================================ --}}
- 
-<div class="strategy-card mt-4" style="border-top: 4px solid #7c3aed;">
-    <h5 class="fw-bold mb-2" style="color:#581c87;">
-        <i class="bi bi-calculator me-2"></i>Simulador de Estrategia de Inversión — Interactivo
-    </h5>
-    <p class="text-muted small mb-4">Ajusta los parámetros y compara en tiempo real cómo crecería tu dinero con cada perfil de inversión.</p>
- 
-    <div class="row g-4 mb-4">
-        <div class="col-md-4">
-            <label class="small fw-bold mb-1" style="color:#581c87;">Capital inicial</label>
-            <div class="d-flex align-items-center gap-2">
-                <input type="range" id="sim-capital" min="1000" max="100000" step="500" value="10000" class="form-range flex-grow-1" oninput="actualizarSimulador()">
-                <span id="sim-capital-val" class="fw-bold small" style="min-width:70px;color:#581c87;">10.000€</span>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <label class="small fw-bold mb-1" style="color:#581c87;">Aportación mensual</label>
-            <div class="d-flex align-items-center gap-2">
-                <input type="range" id="sim-mensual" min="0" max="2000" step="50" value="200" class="form-range flex-grow-1" oninput="actualizarSimulador()">
-                <span id="sim-mensual-val" class="fw-bold small" style="min-width:70px;color:#581c87;">200€/mes</span>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <label class="small fw-bold mb-1" style="color:#581c87;">Años de inversión</label>
-            <div class="d-flex align-items-center gap-2">
-                <input type="range" id="sim-anos" min="1" max="30" step="1" value="10" class="form-range flex-grow-1" oninput="actualizarSimulador()">
-                <span id="sim-anos-val" class="fw-bold small" style="min-width:50px;color:#581c87;">10 años</span>
-            </div>
-        </div>
-    </div>
- 
-    <div class="row g-3" id="sim-resultados">
-        <div class="col-md-4">
-            <div class="card border-0 h-100" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-left:4px solid #22c55e !important;">
-                <div class="card-body text-center p-3">
-                    <div class="small fw-bold text-success mb-1"><i class="bi bi-shield-check me-1"></i>CONSERVADOR (4%)</div>
-                    <div class="fs-3 fw-bold text-success" id="res-conservador">—</div>
-                    <div class="small text-muted" id="res-conservador-ganancia">—</div>
-                    <div class="mt-2">
-                        <div class="small text-muted mb-1">Riesgo</div>
-                        <div class="progress" style="height:6px;"><div class="progress-bar bg-success" style="width:20%"></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-0 h-100" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border-left:4px solid #f59e0b !important;">
-                <div class="card-body text-center p-3">
-                    <div class="small fw-bold text-warning mb-1"><i class="bi bi-balance-scale me-1"></i>MODERADO (7.5%)</div>
-                    <div class="fs-3 fw-bold text-warning" id="res-moderado">—</div>
-                    <div class="small text-muted" id="res-moderado-ganancia">—</div>
-                    <div class="mt-2">
-                        <div class="small text-muted mb-1">Riesgo</div>
-                        <div class="progress" style="height:6px;"><div class="progress-bar bg-warning" style="width:50%"></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-0 h-100" style="background:linear-gradient(135deg,#fef2f2,#fee2e2);border-left:4px solid #ef4444 !important;">
-                <div class="card-body text-center p-3">
-                    <div class="small fw-bold text-danger mb-1"><i class="bi bi-lightning-charge me-1"></i>AGRESIVO (12%)</div>
-                    <div class="fs-3 fw-bold text-danger" id="res-agresivo">—</div>
-                    <div class="small text-muted" id="res-agresivo-ganancia">—</div>
-                    <div class="mt-2">
-                        <div class="small text-muted mb-1">Riesgo</div>
-                        <div class="progress" style="height:6px;"><div class="progress-bar bg-danger" style="width:85%"></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="mt-3 p-2 rounded text-center" style="background:rgba(124,58,237,0.06)">
-        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>Capital aportado total: <strong id="sim-aportado">—</strong> · Simulación orientativa, no garantiza resultados futuros.</small>
-    </div>
-</div>
- 
-    <script>
-    function calcSimulador(capital, mensual, anos, tasa) {
-        const r = tasa / 100 / 12;
-        const n = anos * 12;
-        const futuroCapital = capital * Math.pow(1 + r, n);
-        const futuroMensual = mensual * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
-        return futuroCapital + futuroMensual;
-    }
-    
-    function actualizarSimulador() {
-        const capital = parseFloat(document.getElementById('sim-capital').value);
-        const mensual = parseFloat(document.getElementById('sim-mensual').value);
-        const anos = parseFloat(document.getElementById('sim-anos').value);
-        const aportado = capital + mensual * anos * 12;
-    
-        document.getElementById('sim-capital-val').textContent = capital.toLocaleString('es-ES') + '€';
-        document.getElementById('sim-mensual-val').textContent = mensual.toLocaleString('es-ES') + '€/mes';
-        document.getElementById('sim-anos-val').textContent = anos + ' años';
-        document.getElementById('sim-aportado').textContent = aportado.toLocaleString('es-ES') + '€';
-    
-        const fmt = v => v.toLocaleString('es-ES', {maximumFractionDigits: 0}) + '€';
-        const gan = (total, aportado) => {
-            const g = total - aportado;
-            return (g >= 0 ? '+' : '') + fmt(g) + ' de ganancia';
-        };
-    
-        [['conservador', 4], ['moderado', 7.5], ['agresivo', 12]].forEach(([id, tasa]) => {
-            const total = calcSimulador(capital, mensual, anos, tasa);
-            document.getElementById('res-' + id).textContent = fmt(total);
-            document.getElementById('res-' + id + '-ganancia').textContent = gan(total, aportado);
-        });
-    }
-    actualizarSimulador();
-    </script>
-    
-        </div>
 
-        {{-- MÓDULO 4: EDUCACIÓN FINANCIERA --}}
-        <div class="content-panel" id="module-3">
-            <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-mortarboard me-2"></i>Educación Financiera Personal — Construye Tu Conocimiento</h3>
-
-            <div class="row g-4 mb-4">
-                <div class="col-md-6">
-                    <div class="strategy-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-brain me-2"></i>Psicología del Inversor</h5>
-                        <p class="text-muted small mb-3">El 80% del éxito en inversión es psicológico. Conoce los sesgos que te hacen perder dinero.</p>
-                        
-                        <div class="mb-3">
-                            <h6 class="fw-bold small text-danger mb-2"><i class="bi bi-emoji-frown me-2"></i>Sesgos a Evitar:</h6>
-                            <ul class="list-unstyled small">
-                                <li class="mb-2"><strong>FOMO (Fear Of Missing Out):</strong> Comprar porque "todo el mundo lo hace" → compras caro</li>
-                                <li class="mb-2"><strong>Pánico:</strong> Vender en caídas → cristalizas pérdidas</li>
-                                <li class="mb-2"><strong>Confirmación:</strong> Solo buscas info que apoye tu postura → ignoras riesgos</li>
-                                <li class="mb-2"><strong>Anclaje:</strong> Te aferras al precio de compra → no ves la realidad actual</li>
-                                <li class="mb-2"><strong>Sobreconfianza:</strong> "Llevo 3 meses ganando" → aumentas riesgo → crash</li>
-                            </ul>
-                        </div>
-
-                        <div class="success-box mb-0">
-                            <h6 class="fw-bold small mb-2"><i class="bi bi-emoji-smile me-2"></i>Rutina del Trader Disciplinado:</h6>
-                            <ol class="small mb-0">
-                                <li>Revisar calendario económico antes de operar</li>
-                                <li>Escribir plan de trading antes de cada sesión</li>
-                                <li>Respetar stop loss sin excepciones</li>
-                                <li>Revisar operaciones al cierre (journaling)</li>
-                                <li>Descansar 1 día a la semana sin mirar mercados</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="strategy-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-journal-text me-2"></i>Bitácora de Trading</h5>
-                        <p class="text-muted small mb-3">Registra cada operación. Es la herramienta más poderosa para mejorar.</p>
-
-                        <div class="table-responsive mb-3">
-                            <table class="data-table">
-                                <thead>
-                                    <tr><th>Campo</th><th>Qué anotar</th><th>Por qué</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><strong>Fecha/Hora</strong></td><td>Día y hora exacta</td><td>Identificar patrones temporales</td></tr>
-                                    <tr><td><strong>Activo</strong></td><td>Ticker y mercado</td><td>Qué operas mejor/peor</td></tr>
-                                    <tr><td><strong>Dirección</strong></td><td>Largo/Corto</td><td>Tendencia a favor/en contra</td></tr>
-                                    <tr><td><strong>Entrada</strong></td><td>Precio y razón</td><td>Evaluar setup</td></tr>
-                                    <tr><td><strong>Salida</strong></td><td>Precio y razón</td><td>Gestión de salida</td></tr>
-                                    <tr><td><strong>R/R</strong></td><td>Planificado vs real</td><td>Disciplina en planificación</td></tr>
-                                    <tr><td><strong>Emoción</strong></td><td>Del 1-10 antes/después</td><td>Impacto emocional</td></tr>
-                                    <tr><td><strong>Aprendizaje</strong></td><td>1 frase clave</td><td>Refuerzo positivo</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="tip-box mb-0">
-                            <p class="small mb-0"><i class="bi bi-lightbulb me-2"></i><strong>Plantilla gratuita:</strong> Descarga nuestra plantilla de Excel para bitácora en la sección de recursos. Incluye fórmulas automáticas de estadísticas.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="strategy-card">
+                        <div class="strategy-card">
                 <h5 class="fw-bold text-primary mb-3"><i class="bi bi-book-half me-2"></i>Biblioteca de Conocimiento Recomendada</h5>
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -1007,7 +813,11 @@
             </div>
         </div>
 
-        {{-- MÓDULO 5: FISCALIDAD --}}
+    
+        </div>
+
+
+        {{-- MÓDULO 4: FISCALIDAD --}}
         <div class="content-panel" id="module-4">
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-receipt me-2"></i>Fiscalidad de las Inversiones en España</h3>
 
@@ -1018,7 +828,7 @@
 
             <div class="fiscal-box mb-4">
                 <h5 class="fw-bold mb-3"><i class="bi bi-calculator me-2"></i>IRPF — Base del Ahorro (2026)</h5>
-                <p class="text-muted small mb-3">Las ganancias de inversión (plusvalías) y dividendos tributan en la base del ahorro del IRPF con los siguientes tramos:</p>
+                <p class="text-muted small mb-3">Las ganancias de inversión y dividendos tributan en la base del ahorro del IRPF con los siguientes tramos:</p>
                 
                 <div class="table-responsive">
                     <table class="data-table">
@@ -1183,7 +993,7 @@
  
 <div class="fiscal-box mt-4" style="border: 2px solid #7c3aed;">
     <h5 class="fw-bold mb-2" style="color:#581c87;">
-        <i class="bi bi-receipt me-2"></i>Calculadora de Plusvalías e IRPF — Interactiva
+        <i class="bi bi-receipt me-2"></i>Calculadora de ganancias e IRPF — Interactiva
     </h5>
     <p class="text-muted small mb-4">Introduce los datos de tu operación y calcula automáticamente cuánto pagarás a Hacienda.</p>
  

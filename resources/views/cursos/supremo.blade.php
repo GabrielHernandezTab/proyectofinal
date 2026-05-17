@@ -149,19 +149,6 @@
                     <div class="vip-badge mb-3"><i class="bi bi-stars"></i> NIVEL ÉLITE — ACCESO TOTAL</div>
                     <h1 class="display-4 fw-bold mb-3">Pack Supremo</h1>
                     <p class="lead mb-4 opacity-90">La experiencia definitiva en formación financiera. Mentoría personalizada 1:1 por videollamada semanal, alertas VIP en tiempo real 24/7, análisis profundo de datos y planificación fiscal avanzada.</p>
-                    <div class="row g-3 mb-4">
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">9</div><div class="label">Módulos</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">1:1</div><div class="label">Mentoría semanal</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">24/7</div><div class="label">Soporte/dudas</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">∞</div><div class="label">Acceso</div></div></div>
-                    </div>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <span class="badge bg-warning text-dark px-3 py-2"><i class="bi bi-camera-video me-1"></i> Videollamada semanal</span>
-                        <span class="badge bg-warning text-dark px-3 py-2"><i class="bi bi-broadcast me-1"></i> Señales en tiempo real</span>
-                        <span class="badge bg-warning text-dark px-3 py-2"><i class="bi bi-graph-up-arrow me-1"></i> Análisis avanzado</span>
-                        <span class="badge bg-warning text-dark px-3 py-2"><i class="bi bi-calculator me-1"></i> Fiscalidad élite</span>
-                    </div>
-                </div>
                 <div class="col-lg-4 text-center mt-4 mt-lg-0">
                     <div class="position-relative">
                         <iframe width="100%" height="240" src="https://www.youtube.com/embed/PHe0bXAIuk0" title="Estrategias de inversores élite" frameborder="0" class="rounded-4 shadow-lg" allowfullscreen></iframe>
@@ -177,14 +164,10 @@
         <div class="module-nav" id="moduleNav">
 
             <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> Mentoría 1:1</button>
-            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-2-circle me-1"></i> Análisis Profundo</button>
-            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-3-circle me-1"></i> Gráfico Mensual</button>
-            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Informe Detallado</button>
-            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-5-circle me-1"></i> Análisis Técnico Élite</button>
-            <button class="module-nav-btn" onclick="showModule(5)"><i class="bi bi-6-circle me-1"></i> Gestión Portafolio</button>
-            <button class="module-nav-btn" onclick="showModule(6)"><i class="bi bi-7-circle me-1"></i> Estrategias Pro</button>
-            <button class="module-nav-btn" onclick="showModule(7)"><i class="bi bi-8-circle me-1"></i> Herramientas Élite</button>
-            <button class="module-nav-btn" onclick="showModule(8)"><i class="bi bi-9-circle me-1"></i> Fiscalidad Avanzada</button>
+            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-4-circle me-1"></i> Informe Detallado</button>
+            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-6-circle me-1"></i> Gestión Portafolio</button>
+            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-8-circle me-1"></i> Herramientas Élite</button>
+            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-9-circle me-1"></i> Fiscalidad Avanzada</button>
         </div>
 
 
@@ -263,19 +246,7 @@
                 </div>
             </div>
 
-            <div class="elite-card-gold">
-                <h5 class="fw-bold mb-3"><i class="bi bi-gift me-2 text-warning"></i>Bonificación: Contacto Directo entre Sesiones</h5>
-                <p class="text-muted small mb-3">Además de la videollamada semanal, tienes acceso a:</p>
-                <div class="row g-3">
-                    <div class="col-md-4"><div class="text-center p-3 bg-white rounded shadow-sm"><i class="bi bi-envelope-at fs-2 text-primary mb-2"></i><div class="fw-bold">Email Prioritario</div><small class="text-muted">Respuesta en <4h laborables</small></div></div>
-                    <div class="col-md-4"><div class="text-center p-3 bg-white rounded shadow-sm"><i class="bi bi-whatsapp fs-2 text-success mb-2"></i><div class="fw-bold">WhatsApp Urgente</div><small class="text-muted">Para dudas de operativa en vivo</small></div></div>
-                    <div class="col-md-4"><div class="text-center p-3 bg-white rounded shadow-sm"><i class="bi bi-chat-dots fs-2 text-info mb-2"></i><div class="fw-bold">Chat Privado</div><small class="text-muted">En la plataforma de GeN Trading</small></div></div>
-                </div>
-            </div>
-        </div>
-
-        {{-- MÓDULO 2: ANÁLISIS PROFUNDO DE DATOS E INFORMACIÓN --}}
-        <div class="content-panel" id="module-1">
+        
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-binoculars me-2"></i>Análisis Profundo de Datos e Información</h3>
             <p class="text-muted mb-4">Datos institucionales, flujo de órdenes, correlaciones macro y análisis de sentimiento que el inversor retail no ve.</p>
 
@@ -386,174 +357,9 @@
             </div>
         </div>
 
-        {{-- MÓDULO 3: GRÁFICO DE INVERSIÓN MENSUAL --}}
+
+        {{-- MÓDULO 3: INFORME DETALLADO DEL PROCESO CADA MES --}}
         <div class="content-panel" id="module-2">
-            <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-bar-chart-line me-2"></i>Gráfico de Inversión Mensual</h3>
-            <p class="text-muted mb-4">Seguimiento visual profesional de tu evolución. Curva de equity, drawdown, ratio de Sharpe y métricas avanzadas.</p>
-
-            <div class="row g-4 mb-4">
-                <div class="col-md-3">
-                    <div class="metric-card">
-                        <div class="metric-value" id="metricEquity">24.580€</div>
-                        <small class="text-muted d-block">Capital Actual</small>
-                        <small class="text-success"><i class="bi bi-arrow-up me-1"></i>+18.5% YTD</small>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="metric-card">
-                        <div class="metric-value" id="metricDrawdown">-4.2%</div>
-                        <small class="text-muted d-block">Drawdown Máximo</small>
-                        <small class="text-success"><i class="bi bi-check-circle me-1"></i>Bajo control</small>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="metric-card">
-                        <div class="metric-value" id="metricSharpe">1.34</div>
-                        <small class="text-muted d-block">Ratio de Sharpe</small>
-                        <small class="text-success"><i class="bi bi-check-circle me-1"></i>Excelente (>1)</small>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="metric-card">
-                        <div class="metric-value" id="metricWinRate">62%</div>
-                        <small class="text-muted d-block">Win Rate</small>
-                        <small class="text-warning"><i class="bi bi-arrow-up me-1"></i>+5% vs mes anterior</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="elite-card mb-4">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-graph-up me-2"></i>Ejemplo de Gráfico de Equity Mensual</h5>
-                <div class="chart-placeholder">
-                    <i class="bi bi-bar-chart-line fs-1 text-muted mb-2"></i>
-                    <p class="text-muted mb-2">Curva de Equity — Últimos 12 meses</p>
-                    <div style="height: 200px; background: linear-gradient(to top, rgba(220,38,38,0.1) 0%, transparent 100%); border-radius: 8px; position: relative; overflow: hidden;">
-                        <svg viewBox="0 0 800 200" style="width: 100%; height: 100%;">
-                            <defs>
-                                <linearGradient id="equityGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.3" />
-                                    <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M0,180 Q50,170 100,165 T200,150 T300,140 T400,120 T500,110 T600,90 T700,70 T800,50" fill="none" stroke="#dc2626" stroke-width="3"/>
-                            <path d="M0,180 Q50,170 100,165 T200,150 T300,140 T400,120 T500,110 T600,90 T700,70 T800,50 L800,200 L0,200 Z" fill="url(#equityGradient)"/>
-                            <circle cx="100" cy="165" r="4" fill="#dc2626"/>
-                            <circle cx="300" cy="140" r="4" fill="#dc2626"/>
-                            <circle cx="500" cy="110" r="4" fill="#dc2626"/>
-                            <circle cx="700" cy="70" r="4" fill="#dc2626"/>
-                        </svg>
-                    </div>
-                    <div class="row text-center mt-3 g-2">
-                        <div class="col"><small class="text-muted">Ene: 20.000€</small></div>
-                        <div class="col"><small class="text-muted">Mar: 21.200€</small></div>
-                        <div class="col"><small class="text-muted">Jun: 22.800€</small></div>
-                        <div class="col"><small class="text-muted">Sep: 23.500€</small></div>
-                        <div class="col"><small class="text-muted">Dic: 24.580€</small></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-pie-chart me-2"></i>Composición de Cartera Actual (Ejemplo)</h5>
-                        <div class="portfolio-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <div class="fw-bold">MSCI World ETF</div>
-                                    <small class="text-muted">Amundi · CW8</small>
-                                </div>
-                                <div class="text-end">
-                                    <div class="fw-bold text-primary">35%</div>
-                                    <small class="text-success">+12.4%</small>
-                                </div>
-                            </div>
-                            <div class="comparison-bar"><div class="comparison-fill bg-primary" style="width:35%"></div></div>
-                        </div>
-                        <div class="portfolio-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <div class="fw-bold">S&P 500 ETF</div>
-                                    <small class="text-muted">Vanguard · VUSA</small>
-                                </div>
-                                <div class="text-end">
-                                    <div class="fw-bold text-primary">25%</div>
-                                    <small class="text-success">+15.2%</small>
-                                </div>
-                            </div>
-                            <div class="comparison-bar"><div class="comparison-fill bg-info" style="width:25%"></div></div>
-                        </div>
-                        <div class="portfolio-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <div class="fw-bold">Oro (ETF)</div>
-                                    <small class="text-muted">iShares · SGLD</small>
-                                </div>
-                                <div class="text-end">
-                                    <div class="fw-bold text-primary">15%</div>
-                                    <small class="text-success">+8.7%</small>
-                                </div>
-                            </div>
-                            <div class="comparison-bar"><div class="comparison-fill bg-warning" style="width:15%"></div></div>
-                        </div>
-                        <div class="portfolio-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <div class="fw-bold">Bonos Corporativos</div>
-                                    <small class="text-muted">iShares · CORP</small>
-                                </div>
-                                <div class="text-end">
-                                    <div class="fw-bold text-primary">15%</div>
-                                    <small class="text-danger">-1.2%</small>
-                                </div>
-                            </div>
-                            <div class="comparison-bar"><div class="comparison-fill bg-success" style="width:15%"></div></div>
-                        </div>
-                        <div class="portfolio-item mb-0">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <div class="fw-bold">Liquidez / Trading</div>
-                                    <small class="text-muted">Cash + Posiciones corto plazo</small>
-                                </div>
-                                <div class="text-end">
-                                    <div class="fw-bold text-primary">10%</div>
-                                    <small class="text-muted">0%</small>
-                                </div>
-                            </div>
-                            <div class="comparison-bar"><div class="comparison-fill bg-secondary" style="width:10%"></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-clipboard-data me-2"></i>Métricas Avanzadas del Mes</h5>
-                        <div class="table-responsive">
-                            <table class="data-table">
-                                <thead>
-                                    <tr><th>Métrica</th><th>Valor</th><th>Benchmark</th><th>Estado</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>Ratio Sharpe</td><td><strong>1.34</strong></td><td>1.0</td><td><span class="tag tag-green">Superior</span></td></tr>
-                                    <tr><td>Ratio Sortino</td><td><strong>2.1</strong></td><td>1.5</td><td><span class="tag tag-green">Superior</span></td></tr>
-                                    <tr><td>Alpha (vs S&P 500)</td><td><strong>+4.2%</strong></td><td>0%</td><td><span class="tag tag-green">Positivo</span></td></tr>
-                                    <tr><td>Beta</td><td><strong>0.85</strong></td><td>1.0</td><td><span class="tag tag-blue">Defensivo</span></td></tr>
-                                    <tr><td>Max Drawdown</td><td><strong>-4.2%</strong></td><td>-10%</td><td><span class="tag tag-green">Excelente</span></td></tr>
-                                    <tr><td>Recovery Time</td><td><strong>18 días</strong></td><td>60 días</td><td><span class="tag tag-green">Rápido</span></td></tr>
-                                    <tr><td>Profit Factor</td><td><strong>1.8</strong></td><td>1.5</td><td><span class="tag tag-green">Bueno</span></td></tr>
-                                    <tr><td>Expectativa matemática</td><td><strong>+1.2%</strong></td><td>+0.5%</td><td><span class="tag tag-green">Positiva</span></td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="info-box mb-0 mt-3">
-                            <small class="text-muted"><i class="bi bi-info-circle me-2"></i><strong>Ratio de Sharpe:</strong> Rentabilidad ajustada al riesgo. >1 es bueno, >2 es excelente. Calculado como (Rentabilidad - Tipo libre de riesgo) / Desviación estándar.</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- MÓDULO 4: INFORME DETALLADO DEL PROCESO CADA MES --}}
-        <div class="content-panel" id="module-3">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-file-earmark-bar-graph me-2"></i>Informe Detallado del Proceso Cada Mes</h3>
             <p class="text-muted mb-4">Documento profesional mensual con tu evolución completa: rendimiento, operaciones, lecciones aprendidas y objetivos para el mes siguiente.</p>
 
@@ -627,158 +433,7 @@
                     <p class="small text-muted mb-0"><strong>Objetivo junio:</strong> Mantener win rate >60%, subir ratio R/R medio a 1:2.5, reducir operaciones impulsivas a 0.</p>
                 </div>
             </div>
-        </div>
 
-        {{-- MÓDULO 5: ANÁLISIS TÉCNICO Y FUNDAMENTAL AVANZADO --}}
-        <div class="content-panel" id="module-4">
-            <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-magic me-2"></i>Análisis Técnico y Fundamental Avanzado</h3>
-            <p class="text-muted mb-4">Técnicas que usan los profesionales de Wall Street. Multi-timeframe, opciones, flujo de órdenes y análisis de balances en profundidad.</p>
-
-            <div class="row g-4 mb-4">
-                <div class="col-md-6">
-                    <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-layers me-2"></i>Análisis Multi-Timeframe (MTF)</h5>
-                        <p class="text-muted small mb-3">La clave de la precisión: analizar desde el marco semanal hasta el de entrada en 15 minutos.</p>
-                        
-                        <div class="table-responsive mb-3">
-                            <table class="data-table">
-                                <thead>
-                                    <tr><th>Timeframe</th><th>Propósito</th><th>Qué buscar</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><strong>Semanal / Diario</strong></td><td>Tendencia mayor</td><td>Estructura de mercado, OB semanales</td></tr>
-                                    <tr><td><strong>4H / 1H</strong></td><td>Zona de interés</td><td>FVG, puntos de liquidez, CHoCH</td></tr>
-                                    <tr><td><strong>15min / 5min</strong></td><td>Entrada precisa</td><td>Confirmación con indicadores, patrón de velas</td></tr>
-                                    <tr><td><strong>1min</strong></td><td>Timing exacto</td><td>Footprint, delta, absorción</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="tip-box mb-0">
-                            <h6 class="fw-bold small mb-2"><i class="bi bi-lightbulb me-2"></i>Regla de 3 Timeframes</h6>
-                            <p class="small mb-0">Nunca operes contra la tendencia del timeframe superior. Si el diario es bajista, solo busca ventas en 1H/15min. El timeframe de entrada debe confirmar, no contradecir.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-currency-exchange me-2"></i>Opciones Financieras Avanzadas</h5>
-                        <p class="text-muted small mb-3">Más allá de Calls y Puts básicas: estrategias multi-pata para cobertura, ingresos y apalancamiento controlado.</p>
-
-                        <h6 class="fw-bold small mb-2">Estrategias Avanzadas:</h6>
-                        <div class="scenario-box">
-                            <div class="mb-2"><span class="tag tag-green">Cobertura</span></div>
-                            <p class="small text-muted mb-1"><strong>Protective Put:</strong> Comprar put mientras mantienes la acción. Seguro contra caídas. Coste: prima de la put.</p>
-                        </div>
-                        <div class="scenario-box">
-                            <div class="mb-2"><span class="tag tag-blue">Ingresos</span></div>
-                            <p class="small text-muted mb-1"><strong Aquí tienes el Pack Supremo completo, continuando desde donde se cortó:
-
-```html
-                            <p class="small text-muted mb-1"><strong>Covered Call:</strong> Vender call de una acción que ya posees. Generas ingresos por la prima. Riesgo: te pueden "llamar" la acción si sube mucho.</p>
-                        </div>
-                        <div class="scenario-box">
-                            <div class="mb-2"><span class="tag tag-purple">Neutral</span></div>
-                            <p class="small text-muted mb-1"><strong>Iron Condor:</strong> Vender call spread + put spread. Ganas si el precio se mantiene en rango. Ideal para mercados laterales bajos en volatilidad.</p>
-                        </div>
-                        <div class="scenario-box mb-0">
-                            <div class="mb-2"><span class="tag tag-red">Apalancamiento</span></div>
-                            <p class="small text-muted mb-0"><strong>Call Spread Alcista:</strong> Comprar call ATM, vender call OTM. Reduce coste de la prima pero limita ganancia máxima.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="elite-card mb-4">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-building me-2"></i>Análisis Fundamental Avanzado — Lectura de Balances</h5>
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold small mb-2">Cuenta de Resultados (Income Statement):</h6>
-                        <div class="table-responsive">
-                            <table class="data-table">
-                                <thead>
-                                    <tr><th>Métrica</th><th>Qué mide</th><th>Red Flag</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><strong>Ingresos</strong></td><td>Ventas totales</td><td>Crecimiento <0% 2 años seguidos</td></tr>
-                                    <tr><td><strong>EBITDA</strong></td><td>Beneficio operativo bruto</td><td>Margen EBITDA decreciente</td></tr>
-                                    <tr><td><strong>Net Income</strong></td><td>Beneficio neto</td><td>Negativo 3 trimestres</td></tr>
-                                    <tr><td><strong>EPS</strong></td><td>Beneficio por acción</td><td>Crecimiento EPS < inflación</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="fw-bold small mb-2">Balance General (Balance Sheet):</h6>
-                        <div class="table-responsive">
-                            <table class="data-table">
-                                <thead>
-                                    <tr><th>Métrica</th><th>Qué mide</th><th>Red Flag</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><strong>Ratio de liquidez</strong></td><td>Activo corriente / Pasivo corriente</td><td>&lt;1 (insolvencia técnica)</td></tr>
-                                    <tr><td><strong>Deuda neta / EBITDA</strong></td><td>Capacidad de pago</td><td>&gt;4x (endeudamiento excesivo)</td></tr>
-                                    <tr><td><strong>ROIC</strong></td><td>Rentabilidad del capital invertido</td><td>&lt;WACC (destruye valor)</td></tr>
-                                    <tr><td><strong>Free Cash Flow</strong></td><td>Dinero real generado</td><td>Negativo 2+ años</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="success-box mt-3 mb-0">
-                    <h6 class="fw-bold small mb-2"><i class="bi bi-search me-2"></i>Caso de Estudio: Identificando Problemas en un Balance</h6>
-                    <p class="small text-muted mb-2"><strong>Empresa XYZ (2025):</strong> Ingresos crecen un 15%, pero...</p>
-                    <div class="row g-2">
-                        <div class="col-md-3"><div class="p-2 bg-white rounded border text-center"><div class="fw-bold text-danger">Deuda/EBITDA: 5.2x</div><small class="text-muted">Peligroso</small></div></div>
-                        <div class="col-md-3"><div class="p-2 bg-white rounded border text-center"><div class="fw-bold text-warning">FCF: -120M€</div><small class="text-muted">Quema de caja</small></div></div>
-                        <div class="col-md-3"><div class="p-2 bg-white rounded border text-center"><div class="fw-bold text-warning">ROIC: 4.5%</div><small class="text-muted">Bajo WACC (8%)</small></div></div>
-                        <div class="col-md-3"><div class="p-2 bg-white rounded border text-center"><div class="fw-bold text-danger">Burn rate: 18 meses</div><small class="text-muted">Sin financiación, quiebra</small></div></div>
-                    </div>
-                    <p class="small text-muted mt-2 mb-0"><strong>Conclusión:</strong> Aunque los ingresos crecen, la empresa destruye valor. El crecimiento es insostenible sin generación de caja. <strong>Evitar.</strong></p>
-                </div>
-            </div>
-
-            <div class="elite-card">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-broadcast me-2"></i>Alertas VIP en Tiempo Real — Canal Privado</h5>
-                <p class="text-muted small mb-3">Acceso exclusivo al canal privado donde publicamos señales en tiempo real con todos los parámetros para replicar nuestras operaciones.</p>
-
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <div class="signal-box">
-                            <div class="mb-2"><span class="badge bg-success">SEÑAL LARGA — EUR/USD</span></div>
-                            <div class="mb-1"><span class="label">🎯 Entrada:</span> <span class="entry">1.0850</span></div>
-                            <div class="mb-1"><span class="label">🛑 Stop Loss:</span> <span class="sl">1.0810 (-40 pips)</span></div>
-                            <div class="mb-1"><span class="label">✅ Take Profit 1:</span> <span class="value">1.0890 (+40 pips)</span></div>
-                            <div class="mb-1"><span class="label">✅ Take Profit 2:</span> <span class="value">1.0940 (+90 pips)</span></div>
-                            <div class="mb-1"><span class="label">📐 R/R:</span> <span class="value">1:2.25</span></div>
-                            <div class="mb-1"><span class="label">📊 Tamaño:</span> <span class="value">0.5 lotes (5€/pip)</span></div>
-                            <div class="mb-0"><span class="label">💰 Riesgo total:</span> <span class="sl">200€ (1% de cuenta)</span></div>
-                            <hr style="border-color: #334155; margin: 0.75rem 0;">
-                            <div class="label"><i class="bi bi-info-circle me-1"></i> Razón: Rebote en soporte semanal + RSI divergencia alcista H4 + Macro favorable post-NFP</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="fw-bold small mb-2">¿Qué incluyen las alertas VIP?</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>Activo y dirección:</strong> Par de divisas, índice, acción o materia prima</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>Precio de entrada exacto:</strong> Con margen de tolerancia (±5 pips)</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>Stop Loss y Take Profit:</strong> Niveles concretos con ratio R/R</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>Tamaño de posición:</strong> Recomendación basada en tu capital</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>Razonamiento completo:</strong> Por qué, en qué timeframe, qué indicadores</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>Actualizaciones:</strong> Si movemos SL a break-even o cerramos antes</li>
-                            <li class="mb-0"><i class="bi bi-check2-circle text-success me-2"></i><strong>Horario:</strong> 24/7, máxima actividad 8:00-22:00 CET</li>
-                        </ul>
-                        <div class="warning-box mb-0 mt-2">
-                            <small class="text-muted"><i class="bi bi-exclamation-triangle me-1"></i> <strong>Disclaimer:</strong> Las alertas son educativas. Tú decides si operas. Nunca arriesgues más del 1-2% por operación.</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- MÓDULO 6: GESTIÓN Y OPTIMIZACIÓN DE PORTAFOLIO --}}
-        <div class="content-panel" id="module-5">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-briefcase me-2"></i>Gestión y Optimización de Portafolio Profesional</h3>
             <p class="text-muted mb-4">Técnicas de gestión de riesgo usadas por fondos de inversión. Rebalanceo, cobertura, diversificación inteligente y optimización de frontera eficiente.</p>
 
@@ -1007,113 +662,11 @@
     }
     actualizarCartera();
     </script>
-    {{-- ============================================================
-     ELEMENTO INTERACTIVO 5: CALCULADORA DE TAMAÑO DE POSICIÓN
-     Insertar al FINAL del módulo "Gestión Portafolio" (module-6)
-     justo DESPUÉS del Constructor de Cartera anterior
-     ============================================================ --}}
- 
-<div class="elite-card mt-4" style="border-left: 5px solid #dc2626;">
-    <h5 class="fw-bold mb-2" style="color:#991b1b;">
-        <i class="bi bi-calculator me-2"></i>Calculadora de Tamaño de Posición — Gestión de Riesgo
-    </h5>
-    <p class="text-muted small mb-4">Calcula exactamente cuántas acciones o lotes puedes comprar respetando tu gestión de riesgo.</p>
- 
-    <div class="row g-3 mb-4">
-        <div class="col-md-3">
-            <label class="small fw-bold mb-1" style="color:#991b1b;">Capital total (€)</label>
-            <input type="number" id="pos-capital" class="form-control" value="20000" oninput="calcularPosicion()">
-        </div>
-        <div class="col-md-3">
-            <label class="small fw-bold mb-1" style="color:#991b1b;">Riesgo por operación (%)</label>
-            <input type="number" id="pos-riesgo" class="form-control" value="1" min="0.1" max="5" step="0.1" oninput="calcularPosicion()">
-            <small class="text-muted">Recomendado: 1-2%</small>
-        </div>
-        <div class="col-md-3">
-            <label class="small fw-bold mb-1" style="color:#991b1b;">Precio de entrada (€)</label>
-            <input type="number" id="pos-entrada" class="form-control" value="100" step="0.01" oninput="calcularPosicion()">
-        </div>
-        <div class="col-md-3">
-            <label class="small fw-bold mb-1" style="color:#991b1b;">Stop Loss (€)</label>
-            <input type="number" id="pos-sl" class="form-control" value="95" step="0.01" oninput="calcularPosicion()">
-        </div>
-    </div>
- 
-    <div class="row g-3 mb-3">
-        <div class="col-md-3">
-            <div class="p-3 bg-white rounded border text-center">
-                <div class="small text-muted mb-1">Riesgo máximo €</div>
-                <div class="fs-4 fw-bold text-danger" id="pos-riesgo-eur">—</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-3 bg-white rounded border text-center">
-                <div class="small text-muted mb-1">Distancia al SL</div>
-                <div class="fs-4 fw-bold text-warning" id="pos-dist-sl">—</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-3 rounded border text-center" style="background:linear-gradient(135deg,#fef2f2,#fff);">
-                <div class="small text-muted mb-1">Acciones a comprar</div>
-                <div class="fs-3 fw-bold" style="color:#991b1b;" id="pos-acciones">—</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-3 bg-white rounded border text-center">
-                <div class="small text-muted mb-1">Capital comprometido</div>
-                <div class="fs-4 fw-bold text-primary" id="pos-capital-comp">—</div>
-            </div>
-        </div>
-    </div>
- 
-    <div id="pos-targets" class="p-3 rounded" style="background:#fef2f2;border:1px solid #fecaca;display:none;">
-        <div class="small fw-bold mb-2" style="color:#991b1b;">Niveles de Take Profit sugeridos:</div>
-        <div class="row g-2">
-            <div class="col-md-4"><div class="p-2 bg-white rounded border text-center"><div class="small text-muted">TP 1 (R/R 1:1)</div><div class="fw-bold text-success" id="pos-tp1">—</div></div></div>
-            <div class="col-md-4"><div class="p-2 bg-white rounded border text-center"><div class="small text-muted">TP 2 (R/R 1:2)</div><div class="fw-bold text-success" id="pos-tp2">—</div></div></div>
-            <div class="col-md-4"><div class="p-2 bg-white rounded border text-center"><div class="small text-muted">TP 3 (R/R 1:3)</div><div class="fw-bold text-success" id="pos-tp3">—</div></div></div>
-        </div>
-    </div>
-    <div class="mt-3 p-2 rounded text-center" style="background:rgba(220,38,38,0.06)">
-        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>La regla del 1% significa que nunca arriesgas más del 1% de tu capital en una sola operación.</small>
-    </div>
-</div>
- 
-    <script>
-    function calcularPosicion() {
-        const capital = parseFloat(document.getElementById('pos-capital').value) || 0;
-        const riesgoPct = parseFloat(document.getElementById('pos-riesgo').value) || 0;
-        const entrada = parseFloat(document.getElementById('pos-entrada').value) || 0;
-        const sl = parseFloat(document.getElementById('pos-sl').value) || 0;
-    
-        const fmt = v => v.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '€';
-        const riesgoEur = capital * riesgoPct / 100;
-        const distSL = Math.abs(entrada - sl);
-    
-        document.getElementById('pos-riesgo-eur').textContent = fmt(riesgoEur);
-        document.getElementById('pos-dist-sl').textContent = distSL > 0 ? fmt(distSL) : '—';
-    
-        if (distSL > 0 && entrada > 0) {
-            const acciones = Math.floor(riesgoEur / distSL);
-            const capitalComp = acciones * entrada;
-            document.getElementById('pos-acciones').textContent = acciones;
-            document.getElementById('pos-capital-comp').textContent = fmt(capitalComp);
-    
-            document.getElementById('pos-targets').style.display = 'block';
-            document.getElementById('pos-tp1').textContent = fmt(entrada + distSL);
-            document.getElementById('pos-tp2').textContent = fmt(entrada + distSL * 2);
-            document.getElementById('pos-tp3').textContent = fmt(entrada + distSL * 3);
-        } else {
-            document.getElementById('pos-acciones').textContent = '—';
-            document.getElementById('pos-capital-comp').textContent = '—';
-            document.getElementById('pos-targets').style.display = 'none';
-        }
-    }
-    calcularPosicion();
-    </script>
     
  
+
         </div>
+
 
         {{-- MÓDULO 7: ESTRATEGIAS DE INVERSIÓN PROFESIONAL --}}
         <div class="content-panel" id="module-6">
@@ -1574,121 +1127,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {{-- ============================================================
-     ELEMENTO INTERACTIVO 6: SIMULADOR TAX-LOSS HARVESTING
-     Insertar al FINAL del módulo "Fiscalidad Avanzada" (module-9)
-     justo antes del </div> que cierra ese content-panel
-     ============================================================ --}}
- 
-<div class="optimization-card mt-4" style="border: 2px solid #dc2626;">
-    <h5 class="fw-bold mb-2" style="color:#991b1b;">
-        <i class="bi bi-scissors me-2"></i>Simulador de Tax-Loss Harvesting — ¿Cuánto ahorras?
-    </h5>
-    <p class="text-muted small mb-4">Introduce tus ganancias del año y tus posiciones en pérdida y calcula el ahorro fiscal real si realizas las pérdidas.</p>
- 
-    <div class="row g-3 mb-4">
-        <div class="col-md-4">
-            <label class="small fw-bold mb-1" style="color:#991b1b;">Ganancias realizadas este año (€)</label>
-            <input type="number" id="tlh-ganancias" class="form-control" value="15000" min="0" oninput="calcularTLH()">
-        </div>
-        <div class="col-md-4">
-            <label class="small fw-bold mb-1" style="color:#991b1b;">Pérdidas no realizadas disponibles (€)</label>
-            <input type="number" id="tlh-perdidas" class="form-control" value="5000" min="0" oninput="calcularTLH()">
-            <small class="text-muted">Posiciones en tu cartera actualmente en negativo</small>
-        </div>
-        <div class="col-md-4">
-            <label class="small fw-bold mb-1" style="color:#991b1b;">¿Usas todas las pérdidas?</label>
-            <select id="tlh-uso" class="form-select" onchange="calcularTLH()">
-                <option value="todas">Sí, realizo todas las pérdidas</option>
-                <option value="parcial">Solo una parte (especificar %)</option>
-            </select>
-            <div id="tlh-parcial-div" style="display:none;" class="mt-2">
-                <input type="range" id="tlh-parcial-pct" min="10" max="100" step="10" value="50" class="form-range" oninput="calcularTLH()">
-                <small class="text-muted">Usando: <span id="tlh-parcial-val">50</span>% de las pérdidas</small>
-            </div>
-        </div>
-    </div>
- 
-    <div class="row g-3 mb-3">
-        <div class="col-md-3">
-            <div class="p-3 bg-white rounded border text-center">
-                <div class="small text-muted mb-1">IRPF SIN harvesting</div>
-                <div class="fs-4 fw-bold text-danger" id="tlh-sin">—</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-3 bg-white rounded border text-center">
-                <div class="small text-muted mb-1">Base imponible reducida</div>
-                <div class="fs-4 fw-bold text-warning" id="tlh-base-red">—</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-3 bg-white rounded border text-center">
-                <div class="small text-muted mb-1">IRPF CON harvesting</div>
-                <div class="fs-4 fw-bold text-success" id="tlh-con">—</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-3 rounded text-center" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #22c55e;">
-                <div class="small text-muted mb-1">💰 Ahorro fiscal</div>
-                <div class="fs-3 fw-bold text-success" id="tlh-ahorro">—</div>
-            </div>
-        </div>
-    </div>
-    <div class="mt-3 p-2 rounded text-center" style="background:rgba(220,38,38,0.06)">
-        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>En España debes esperar 2 meses antes de recomprar el mismo activo. Puedes comprar uno similar mientras tanto.</small>
-    </div>
-</div>
- 
-    <script>
-    document.getElementById('tlh-uso').addEventListener('change', function() {
-        document.getElementById('tlh-parcial-div').style.display = this.value === 'parcial' ? 'block' : 'none';
-        calcularTLH();
-    });
-    
-    document.getElementById('tlh-parcial-pct').addEventListener('input', function() {
-        document.getElementById('tlh-parcial-val').textContent = this.value;
-    });
-    
-    function calcularIRPF(base) {
-        if (base <= 0) return 0;
-        let impuesto = 0;
-        const tramos = [[6000, 0.19], [44000, 0.21], [150000, 0.23], [Infinity, 0.26]];
-        let restante = base, prev = 0;
-        for (const [lim, tipo] of tramos) {
-            if (restante <= 0) break;
-            const b = Math.min(restante, lim - prev);
-            impuesto += b * tipo;
-            restante -= b; prev = lim;
-        }
-        return impuesto;
-    }
-    
-    function calcularTLH() {
-        const ganancias = parseFloat(document.getElementById('tlh-ganancias').value) || 0;
-        let perdidas = parseFloat(document.getElementById('tlh-perdidas').value) || 0;
-        const uso = document.getElementById('tlh-uso').value;
-        if (uso === 'parcial') {
-            const pct = parseFloat(document.getElementById('tlh-parcial-pct').value) / 100;
-            perdidas = perdidas * pct;
-        }
-    
-        const baseReducida = Math.max(0, ganancias - perdidas);
-        const irpfSin = calcularIRPF(ganancias);
-        const irpfCon = calcularIRPF(baseReducida);
-        const ahorro = irpfSin - irpfCon;
-    
-        const fmt = v => v.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '€';
-        document.getElementById('tlh-sin').textContent = fmt(irpfSin);
-        document.getElementById('tlh-base-red').textContent = fmt(baseReducida);
-        document.getElementById('tlh-con').textContent = fmt(irpfCon);
-        document.getElementById('tlh-ahorro').textContent = '+' + fmt(ahorro);
-    }
-    calcularTLH();
-    </script>
-    
+            </div>    
         </div>
 
 

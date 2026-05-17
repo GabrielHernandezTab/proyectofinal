@@ -96,17 +96,6 @@
                     <span class="badge bg-warning text-dark mb-3 px-3 py-2"><i class="bi bi-unlock-fill me-2"></i>DESBLOQUEADO AL REGISTRARSE</span>
                     <h1 class="display-4 fw-bold mb-3">Pack Inicial</h1>
                     <p class="lead mb-4 opacity-90">Tu primer paso hacia la libertad financiera. Fundamentos sólidos, ejemplos reales y herramientas prácticas para empezar a invertir con confianza desde el día uno.</p>
-                    <div class="row g-3 mb-4">
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">8</div><div class="label">Módulos</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">100%</div><div class="label">Gratuito</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">∞</div><div class="label">Acceso</div></div></div>
-                        <div class="col-6 col-md-3"><div class="stat-box"><div class="num">0€</div><div class="label">Coste</div></div></div>
-                    </div>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <span class="badge bg-white text-primary px-3 py-2"><i class="bi bi-check-circle me-1"></i> Sin conocimientos previos</span>
-                        <span class="badge bg-white text-primary px-3 py-2"><i class="bi bi-check-circle me-1"></i> Desde 1€</span>
-                        <span class="badge bg-white text-primary px-3 py-2"><i class="bi bi-check-circle me-1"></i> Autoaprendizaje</span>
-                    </div>
                 </div>
                 <div class="col-lg-5 text-center mt-4 mt-lg-0">
                     <div class="position-relative">
