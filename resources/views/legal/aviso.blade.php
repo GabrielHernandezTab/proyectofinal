@@ -103,7 +103,7 @@
                                     <li class="mb-2"><strong>Actividad:</strong> Desarrollo de software de análisis de mercados financieros y educación en trading.</li>
                                     <li><strong>Sostenibilidad:</strong> Proyecto financiado mediante alianzas publicitarias y contribuciones de la comunidad.</li>
                                 </ul>
-                            ¡
+                            
                         </section>
 
                         <section class="mb-5">
