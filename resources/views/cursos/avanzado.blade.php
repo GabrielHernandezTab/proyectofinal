@@ -130,7 +130,6 @@
             <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> Servicios de Inversión</button>
             <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-2-circle me-1"></i> Tipos de Inversión</button>
             <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-3-circle me-1"></i> Rentabilidad por Nivel</button>
-            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Fiscalidad</button>
         </div>
 
         {{-- MÓDULO 1: SERVICIOS DE INVERSIÓN --}}
@@ -813,12 +812,7 @@
             </div>
         </div>
 
-    
-        </div>
-
-
-        {{-- MÓDULO 4: FISCALIDAD --}}
-        <div class="content-panel" id="module-4">
+                {{-- FISCALIDAD --}}
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-receipt me-2"></i>Fiscalidad de las Inversiones en España</h3>
 
             <div class="alert alert-warning d-flex align-items-center mb-4">
@@ -1099,7 +1093,11 @@
     calcularFiscalidad();
     </script>
     
+    
         </div>
+
+
+
 
         {{-- RECURSOS AVANZADOS --}}
         <div class="mt-5 pt-4 border-top border-2" style="border-color: #e9d5ff !important;">
