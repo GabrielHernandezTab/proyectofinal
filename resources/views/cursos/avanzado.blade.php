@@ -810,10 +810,8 @@
                     <div class="col-md-6 col-lg-4"><div class="p-2 bg-light rounded"><strong>Volatilidad</strong><br><small class="text-muted">Magnitud de las fluctuaciones de precio</small></div></div>
                 </div>
             </div>
-        </div>
-
-                {{-- FISCALIDAD --}}
-                <br>
+            {{-- FISCALIDAD --}}
+            <br>
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-receipt me-2"></i>Fiscalidad de las Inversiones en España</h3>
 
             <div class="alert alert-warning d-flex align-items-center mb-4">
@@ -1096,10 +1094,11 @@
     
     
         </div>
+                    </div>
 
 
 
-
+        </div>
         {{-- RECURSOS AVANZADOS --}}
         <div class="mt-5 pt-4 border-top border-2" style="border-color: #e9d5ff !important;">
             <div class="text-center mb-4">
