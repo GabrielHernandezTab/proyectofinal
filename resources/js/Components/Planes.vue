@@ -57,7 +57,6 @@
     {
       nombre: 'Pack incial',
       precio: 'Gratis',
-      subtitulo: 'Acceso básico',
       icon: 'bi-gift',
       horas: '30 horas de curso',
       horas: '',
@@ -77,7 +76,6 @@
       nombre: 'Pack Avanzado',
       precio: 'Gratis',
       icon: 'bi-lightning-charge',
-      horas: '60 horas de curso',
       btnText: 'Empieza ya!',
       destacado: true,
       features: [
@@ -94,7 +92,6 @@
       nombre: 'Pack Supremo',
       precio: 'Gratis',
       icon: 'bi-crown',
-      horas: '100 horas de curso',
       btnText: 'Empieza ya!',
       destacado: false,
       features: [
