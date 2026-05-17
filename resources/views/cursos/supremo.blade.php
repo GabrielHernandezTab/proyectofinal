@@ -163,9 +163,8 @@
 
             <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> Mentoría 1:1</button>
             <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-4-circle me-1"></i> Informe Detallado</button>
-            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-6-circle me-1"></i> Gestión Portafolio</button>
-            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-8-circle me-1"></i> Herramientas Élite</button>
-            <button class="module-nav-btn" onclick="showModule(4)"><i class="bi bi-9-circle me-1"></i> Fiscalidad Avanzada</button>
+            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-8-circle me-1"></i> Herramientas Élite</button>
+            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-9-circle me-1"></i> Fiscalidad Avanzada</button>
         </div>
 
 
@@ -244,7 +243,7 @@
                 </div>
             </div>
 
-        
+            <br>
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-binoculars me-2"></i>Análisis Profundo de Datos e Información</h3>
             <p class="text-muted mb-4">Datos institucionales, flujo de órdenes, correlaciones macro y análisis de sentimiento que el inversor retail no ve.</p>
 
@@ -356,8 +355,8 @@
         </div>
 
 
-        {{-- MÓDULO 3: INFORME DETALLADO DEL PROCESO CADA MES --}}
-        <div class="content-panel" id="module-2">
+        {{-- MÓDULO 2: INFORME DETALLADO DEL PROCESO CADA MES --}}
+        <div class="content-panel" id="module-1">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-file-earmark-bar-graph me-2"></i>Informe Detallado del Proceso Cada Mes</h3>
             <p class="text-muted mb-4">Documento profesional mensual con tu evolución completa: rendimiento, operaciones, lecciones aprendidas y objetivos para el mes siguiente.</p>
 
@@ -812,8 +811,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 8: HERRAMIENTAS AVANZADAS DE TOMA DE DECISIONES --}}
-        <div class="content-panel" id="module-7">
+        {{-- MÓDULO 3: HERRAMIENTAS AVANZADAS DE TOMA DE DECISIONES --}}
+        <div class="content-panel" id="module-2">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-tools me-2"></i>Herramientas Avanzadas de Toma de Decisiones</h3>
             <p class="text-muted mb-4">Software, plataformas y recursos institucionales que usan los profesionales. Acceso a datos que el inversor retail no tiene.</p>
 
@@ -983,8 +982,8 @@
             </div>
         </div>
 
-        {{-- MÓDULO 9: FISCALIDAD AVANZADA Y PLANIFICACIÓN FISCAL --}}
-        <div class="content-panel" id="module-8">
+        {{-- MÓDULO 4: FISCALIDAD AVANZADA Y PLANIFICACIÓN FISCAL --}}
+        <div class="content-panel" id="module-3">
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-calculator me-2"></i>Fiscalidad Avanzada y Planificación Fiscal</h3>
             <p class="text-muted mb-4">Estrategias legales para minimizar la carga fiscal. Tax-loss harvesting, vehículos eficientes, planificación patrimonial y estructuración internacional.</p>
 
