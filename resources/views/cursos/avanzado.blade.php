@@ -813,6 +813,7 @@
         </div>
 
                 {{-- FISCALIDAD --}}
+                <br>
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-receipt me-2"></i>Fiscalidad de las Inversiones en España</h3>
 
             <div class="alert alert-warning d-flex align-items-center mb-4">
@@ -1219,7 +1220,7 @@
                         ¿Cuándo se desbloquea el Pack Supremo?
                     </button>
                     <div class="accordion-body">
-                        <p>El Pack Supremo se desbloquea automáticamente <strong>2 meses después</strong> de tu registro. Incluye mentoría 1:1, alertas VIP en tiempo real, análisis profundo y planificación fiscal avanzada.</p>
+                        <p>El Pack Supremo se desbloquea automáticamente <strong>2 meses después</strong> de tu registro. Incluye mentoría 1:1, análisis profundo y planificación fiscal avanzada.</p>
                         <div class="tip-box mb-0"><strong>Consejo:</strong> Aprovecha estas 2 semanas (Avanzado) y los 2 meses siguientes para asimilar todo el contenido. El Pack Supremo asume que dominas todo lo del Avanzado.</div>
                     </div>
                 </div>
@@ -1228,7 +1229,7 @@
                         ¿Tengo que pagar algo por los packs?
                     </button>
                     <div class="accordion-body">
-                        <p class="mb-0"><strong>No.</strong> Todos los packs de GeN Trading son <strong>100% gratuitos</strong>. No hay costes ocultos, no hay suscripciones, no hay upsells. Nuestro modelo de negocio se basa en otros servicios. Tu única inversión es <strong>tu tiempo y dedicación</strong>.</p>
+                        <p class="mb-0"><strong>No.</strong> Todos los packs de GeN Trading son <strong>100% gratuitos</strong>. No hay costes ocultos, no hay suscripciones. Tu única inversión es <strong>tu tiempo y dedicación</strong>.</p>
                     </div>
                 </div>
             </div>

@@ -122,11 +122,11 @@
                                 <div class="section-number me-3 shadow-sm">02</div>
                                 <h2 class="h4 mb-0 text-dark fw-bold text-uppercase">Uso de los Datos</h2>
                             </div>
-                            <div class="privacy-highlight shadow-sm mb-3">
+                            
                                 <p class="mb-0">
-                                    Utilizamos su información exclusivamente para la mejora de nuestros algoritmos, la entrega de alertas en tiempo real y la seguridad de su cuenta. <strong>Nunca vendemos sus datos personales a terceros con fines comerciales.</strong>
+                                    Utilizamos su información exclusivamente para la mejora de nuestros algoritmos. <strong>Nunca vendemos sus datos personales a terceros con fines comerciales.</strong>
                                 </p>
-                            </div>
+                          
                         </section>
 
                         <section class="mb-5">
@@ -139,33 +139,19 @@
                             </p>
                         </section>
 
-                        <section class="mb-5">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="section-number me-3 shadow-sm">04</div>
-                                <h2 class="h4 mb-0 text-dark fw-bold text-uppercase">Publicidad y Cookies</h2>
-                            </div>
-                            <p class="text-justify">
-                                Dado que Gen Trading se financia parcialmente mediante <strong>alianzas publicitarias</strong>, utilizamos cookies de terceros para mostrar anuncios relevantes. Al utilizar la plataforma, usted acepta el uso de estas herramientas de seguimiento con fines estadísticos y publicitarios.
-                            </p>
-                        </section>
-
                         <section class="mb-5 border-top pt-4">
                             <div class="d-flex align-items-center mb-3">
-                                <div class="section-number me-3 shadow-sm">05</div>
+                                <div class="section-number me-3 shadow-sm">04</div>
                                 <h2 class="h5 mb-0 text-dark fw-bold text-uppercase">Sus Derechos</h2>
                             </div>
                             <p class="text-justify small text-muted">
-                                Usted tiene derecho a acceder, rectificar, cancelar u oponerse al tratamiento de sus datos personales. Para ejercer estos derechos o solicitar la eliminación definitiva de su cuenta y datos asociados, puede contactarnos directamente.
+                                Usted tiene derecho a acceder, rectificar, cancelar u oponerse al tratamiento de sus datos personales. Para ejercer estos derechos o solicitar la eliminación definitiva de su cuenta y datos asociados, puede contactarnos directamente o darse de baja en su perfil de usuario.
                             </p>
                         </section>
 
                     </div>
 
                     <div class="mt-5 pt-4 border-top d-flex flex-column flex-sm-row justify-content-between align-items-center gap-4">
-                        <div class="text-center text-sm-start">
-                            <p class="mb-0 text-muted small fw-bold text-uppercase">Protección de Datos</p>
-                            <a href="mailto:info@gentrading.es" class="text-primary text-decoration-none small">privacidad@gentrading.es</a>
-                        </div>
                         <a href="{{ url('/') }}" class="btn btn-dark rounded-pill px-5 py-3 fw-bold shadow hover-lift transition-all w-100 w-sm-auto text-uppercase tracking-tighter">
                             Aceptar y Volver
                         </a>

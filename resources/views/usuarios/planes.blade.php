@@ -87,7 +87,7 @@
                     </span>
                     <div class="card-body p-4 d-flex flex-column">
                         <h5 class="card-title text-uppercase text-muted">Pack Avanzado</h5>
-                        <p class="text-muted small">Ideal para personas que ya tienen conocimientos en el tema.</p>
+                        <p class="text-muted small">Ideal para personas que ya tienen conocimientos previos.</p>
 
                         <hr class="border-secondary">
                         <ul class="list-unstyled mb-4">
@@ -96,6 +96,7 @@
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Value Investing, Day Trading y Dividendos</li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Educación financiera personal</li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Conocimientos sobre fiscalidad</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Test de conocimientos nivel avanzado</li>
                         </ul>
                         <div class="d-grid mt-auto">
                             <a href="./mis-planes/avanzado"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>
@@ -112,10 +113,14 @@
                         <h5 class="card-title text-uppercase text-secondary">Pack Supremo</h5>
                         <hr class="border-secondary">
                         <ul class="list-unstyled mb-4">
-                            <li class="mb-2"><i class="bi bi-star-fill text-warning me-2"></i><strong>Mentorías con expertos</strong></li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Alertas de trading en vivo</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Planificación fiscal avanzada</li>
+                            <li class="mb-2"><i class="bi bi-star-fill text-warning me-2"></i><strong>Mentorías personalizadas</strong></li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Informes detallados</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Herramientas avanzadas</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Herramientas avanzadas</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Gestión de carteras</li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Acceso Vitalicio a materiales</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Recursos exclusivos</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Test de conocimientos nivel experto</li>
                         </ul>
                         <div class="d-grid mt-auto">
                             <a href="./mis-planes/supremo"class="btn btn-info rounded-pill text-dark fw-bold btn-animate">Ir a el curso</a>

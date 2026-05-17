@@ -162,9 +162,9 @@
         <div class="module-nav" id="moduleNav">
 
             <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> Mentoría 1:1</button>
-            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-4-circle me-1"></i> Informe Detallado</button>
-            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-8-circle me-1"></i> Herramientas Élite</button>
-            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-9-circle me-1"></i> Fiscalidad Avanzada</button>
+            <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-2-circle me-1"></i> Informe Detallado</button>
+            <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-3-circle me-1"></i> Herramientas Élite</button>
+            <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Fiscalidad Avanzada</button>
         </div>
 
 
@@ -431,6 +431,7 @@
                 </div>
             </div>
 
+            <br>
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-briefcase me-2"></i>Gestión y Optimización de Portafolio Profesional</h3>
             <p class="text-muted mb-4">Técnicas de gestión de riesgo usadas por fondos de inversión. Rebalanceo, cobertura, diversificación inteligente y optimización de frontera eficiente.</p>
 
@@ -926,60 +927,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="elite-card">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-file-earmark-spreadsheet me-2"></i>Plantillas Exclusivas del Pack Supremo</h5>
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <div class="scenario-box">
-                            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-calculator me-2"></i>Calculadora de Posición Avanzada</h6>
-                            <p class="small text-muted mb-2">Excel con macros que calcula automáticamente:</p>
-                            <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-check2 text-success me-2"></i>Tamaño óptimo según riesgo % y distancia al SL</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Ajuste por correlación con otras posiciones abiertas</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Proyección de P&L en diferentes escenarios</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Alerta si el riesgo total excede umbrales</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="scenario-box">
-                            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-journal-check me-2"></i>Bitácora de Trading Profesional</h6>
-                            <p class="small text-muted mb-2">Plantilla Google Sheets con:</p>
-                            <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-check2 text-success me-2"></i>Dashboard automático con estadísticas</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Curva de equity en tiempo real</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Análisis de sesgos emocionales</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Export a PDF para mentorías</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="scenario-box mb-0">
-                            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-pie-chart me-2"></i>Planificador de Cartera</h6>
-                            <p class="small text-muted mb-2">Herramienta para diseñar y rebalancear:</p>
-                            <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-check2 text-success me-2"></i>Simulación de eficiencia de frontera</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Backtest de la cartera propuesta</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Análisis de drawdown histórico</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Proyección de jubilación (FIRE)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="scenario-box mb-0">
-                            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-receipt me-2"></i>Tracker Fiscal Automático</h6>
-                            <p class="small text-muted mb-2">Registro de todas tus operaciones para declaración:</p>
-                            <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-check2 text-success me-2"></i>Cálculo automático de plusvalías</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Compensación de pérdidas</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Divisas: tipo de cambio automático</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Export listo para modelo D6 y Renta</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         {{-- MÓDULO 4: FISCALIDAD AVANZADA Y PLANIFICACIÓN FISCAL --}}
@@ -1102,7 +1049,7 @@
                                     <tr><th>Concepto</th><th>Casilla</th><th>Qué incluir</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>Plusvalías acciones</td><td>0027</td><td>Ganancias/pérdidas de venta de acciones</td></tr>
+                                    <tr><td>Inversión en acciones</td><td>0027</td><td>Ganancias/pérdidas de venta de acciones</td></tr>
                                     <tr><td>Dividendos nacionales</td><td>0028</td><td>Dividendos de empresas españolas</td></tr>
                                     <tr><td>Dividendos extranjeros</td><td>0029</td><td>Dividendos del extranjero (con retención)</td></tr>
                                     <tr><td>Rendimientos ETF/fondos</td><td>0030</td><td>Distribuciones de ETFs y fondos</td></tr>
@@ -1118,9 +1065,6 @@
                             <p class="small text-muted mb-2"><strong>Plazo:</strong> 1-31 de marzo del año siguiente.</p>
                             <p class="small text-muted mb-2"><strong>Sanción por no declarar:</strong> 5.000€ por dato (mínimo 10.000€).</p>
                             <p class="small text-muted mb-0"><strong>Incluye:</strong> Cuentas en eToro, Interactive Brokers, cuentas bancarias fuera de España, cripto en exchanges extranjeros.</p>
-                        </div>
-                        <div class="optimization-card mb-0">
-                            <p class="small text-muted mb-0"><i class="bi bi-info-circle me-2"></i><strong>Tip:</strong> Usa nuestro Tracker Fiscal Automático (plantilla Excel incluida) para generar el resumen listo para tu asesor.</p>
                         </div>
                     </div>
                 </div>
@@ -1218,7 +1162,7 @@
                         ¿Cuándo se desbloquea el Pack Supremo?
                     </button>
                     <div class="accordion-body">
-                        <p>El Pack Supremo se desbloquea automáticamente <strong>2 meses después</strong> de tu registro en GeN Trading. Recibirás una notificación por email y SMS. No requiere pago ni acción adicional.</p>
+                        <p>El Pack Supremo se desbloquea automáticamente <strong>2 meses después</strong> de tu registro en GeN Trading. No requiere pago ni acción adicional.</p>
                         <div class="tip-box mb-0">
                             <strong>Recomendación:</strong> Aprovecha estos 2 meses para dominar el Pack Avanzado. El Supremo asume conocimientos sólidos de análisis técnico, gestión de riesgo y fiscalidad básica.
                         </div>
@@ -1229,17 +1173,8 @@
                         ¿La mentoría 1:1 es real con una persona?
                     </button>
                     <div class="accordion-body">
-                        <p><strong>Sí.</strong> Cada miembro del Pack Supremo tiene asignado un mentor senior real (no un bot ni un asistente). Son traders e inversores profesionales con años de experiencia en gestión de carteras.</p>
+                        <p><strong>Sí.</strong> Cada miembro del Pack Supremo tiene asignado un mentor real.</p>
                         <p class="mb-0">Las sesiones son por videollamada (Google Meet, Zoom o Teams a tu elección), duran 60 minutos y son semanales. Puedes contactar a tu mentor por email/WhatsApp entre sesiones para dudas urgentes.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
-                        ¿Las alertas VIP garantizan beneficios?
-                    </button>
-                    <div class="accordion-body">
-                        <p><strong>No.</strong> Ninguna alerta, señal o estrategia garantiza beneficios. Las alertas VIP son <strong>educativas</strong>: te mostramos en tiempo real cómo analizamos el mercado y qué operaríamos nosotros.</p>
-                        <p class="mb-0">Tú decides si operas, con qué tamaño y si sigues el plan completo. Nunca arriesgues más del 1-2% de tu capital en una sola operación, incluso si es nuestra alerta.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -1247,7 +1182,7 @@
                         ¿Tengo que pagar algo por el Pack Supremo?
                     </button>
                     <div class="accordion-body">
-                        <p class="mb-0"><strong>Absolutamente no.</strong> Todos los packs de GeN Trading son <strong>100% gratuitos</strong> para usuarios registrados. No hay costes ocultos, no hay suscripciones premium, no hay upsells. Nuestro modelo de negocio se basa en otros servicios profesionales (asesoría, gestión de carteras institucional). Tu única inversión es tu tiempo, dedicación y disciplina.</p>
+                        <p class="mb-0"><strong>Absolutamente no.</strong> Todos los packs de GeN Trading son <strong>100% gratuitos</strong> para usuarios registrados. Tu única inversión es tu tiempo, dedicación y disciplina.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -1256,7 +1191,6 @@
                     </button>
                     <div class="accordion-body">
                         <p>No. Los packs se desbloquean secuencialmente por tiempo, no por elección. Esto garantiza que todos los miembros del Pack Supremo tengan una base sólida.</p>
-                        <p class="mb-0">Sin embargo, puedes acelerar tu aprendizaje: completa los vídeos del Pack Inicial rápidamente y empieza el Avanzado en cuanto se desbloquee (2 semanas). Así llegarás al Supremo con mejor preparación.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -1265,7 +1199,7 @@
                     </button>
                     <div class="accordion-body">
                         <p>Si no puedes asistir a tu sesión programada, avisa con <strong>mínimo 24 horas de antelación</strong> por email o WhatsApp. Reprogramamos para la siguiente semana sin problema.</p>
-                        <p class="mb-0">Si faltas sin avisar, la sesión se considera consumida. Tienes derecho a <strong>1 reprogramación de emergencia al mes</strong> (aviso con menos de 24h por causas justificadas).</p>
+                        <p class="mb-0">Si faltas sin avisar, la sesión se considera consumida.</p>
                     </div>
                 </div>
             </div>

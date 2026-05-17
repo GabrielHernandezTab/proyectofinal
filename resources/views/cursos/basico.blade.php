@@ -93,7 +93,6 @@
         <div class="hero-inicial">
             <div class="row align-items-center position-relative">
                 <div class="col-lg-7">
-                    <span class="badge bg-warning text-dark mb-3 px-3 py-2"><i class="bi bi-unlock-fill me-2"></i>DESBLOQUEADO AL REGISTRARSE</span>
                     <h1 class="display-4 fw-bold mb-3">Pack Inicial</h1>
                     <p class="lead mb-4 opacity-90">Tu primer paso hacia la libertad financiera. Fundamentos sólidos, ejemplos reales y herramientas prácticas para empezar a invertir con confianza desde el día uno.</p>
                 </div>
@@ -625,7 +624,7 @@
                         ¿Cómo se desbloquea el Pack Avanzado?
                     </button>
                     <div class="accordion-body">
-                        <p>El Pack Avanzado se desbloquea automáticamente <strong>2 semanas después</strong> de tu registro. Recibirás una notificación por email. No requiere pago ni acción adicional por tu parte.</p>
+                        <p>El Pack Avanzado se desbloquea automáticamente <strong>2 semanas después</strong> de tu registro. No requiere pago ni acción adicional por tu parte.</p>
                     </div>
                 </div>
             </div>

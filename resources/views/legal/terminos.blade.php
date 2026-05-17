@@ -106,7 +106,7 @@
                                 <h2 class="h5 mb-0 text-danger fw-bold text-uppercase">Advertencia de Riesgo Significativo</h2>
                             </div>
                             <p class="mb-0">
-                                El comercio de activos financieros (Trading) implica un alto nivel de riesgo y puede no ser adecuado para todos los inversores. El apalancamiento genera riesgos adicionales. <strong>Gen Trading</strong> proporciona herramientas educativas, análisis técnico y señales algorítmicas, pero <strong>no actúa como asesor financiero, bróker o gestor de carteras</strong>. Usted es responsable de la pérdida total o parcial de su capital.
+                                El comercio de activos financieros (Trading) implica un alto nivel de riesgo y puede no ser adecuado para todos los inversores. El apalancamiento genera riesgos adicionales. <strong>Gen Trading</strong> proporciona herramientas educativas, análisis técnico y señales algorítmicas, actuando como mentor financiero durante las videollamadas personalizadas, pero <strong> no como bróker o gestor de carteras</strong>. Usted es responsable de la pérdida total o parcial de su capital.
                             </p>
                         </section>
 
@@ -127,8 +127,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="p-3 border rounded-3 bg-light h-100">
-                                        <span class="subsection-title mt-0"><i class="bi bi-broadcast me-2"></i>Señales de Ejecución</span>
-                                        <p class="small text-muted mb-0">Alertas informativas que no constituyen una orden de compra directa.</p>
+                                        <span class="subsection-title mt-0"><i class="bi bi-broadcast me-2"></i>Filtrado de Mercados</span>
+                                        <p class="small text-muted mb-0">Selección de portales financieros oficiales para evitar intermediarios no regulados o fraudulentos.</p>
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                                 <h2 class="h4 mb-0 text-dark fw-bold text-uppercase">Propiedad de los Algoritmos</h2>
                             </div>
                             <p class="text-justify">
-                                -Todo el código fuente, lógica de indicadores, estrategias automatizadas y la arquitectura de la plataforma son propiedad exclusiva de <strong>Gen Trading</strong>. Queda estrictamente prohibida la ingeniería inversa, copia de estrategias para su reventa o el uso de "web scrapers" para extraer datos de señales sin consentimiento expreso por escrito.
+                                -Todo el código fuente, estrategias automatizadas y la arquitectura de la plataforma son propiedad exclusiva de <strong>Gen Trading</strong>. Queda estrictamente prohibida la ingeniería inversa, copia de estrategias para su reventa o el uso de "web scrapers" para extraer datos de señales sin consentimiento expreso por escrito.
                             </p>
                         </section>
 
@@ -156,16 +156,15 @@
         
         <div class="row g-3 mt-2">
             <div class="col-md-6">
-                <div class="p-3 border rounded-3 bg-light h-100 shadow-sm">
+                
                     <span class="fw-bold d-block mb-2 text-dark"><i class="bi bi-megaphone me-2"></i>Alianzas Publicitarias</span>
                     <p class="small text-muted mb-0">La plataforma incluye espacios publicitarios estratégicos coordinados con socios del sector financiero. Gen Trading no se hace responsable de las ofertas de terceros en dichos anuncios.</p>
-                </div>
+                
             </div>
             <div class="col-md-6">
                 <div class="p-3 border rounded-3 bg-light h-100 shadow-sm">
                     <span class="fw-bold d-block mb-2 text-dark"><i class="bi bi-heart-pulse me-2"></i>Respaldo Comunitario</span>
-                    <p class="small text-muted mb-0">Aceptamos contribuciones voluntarias destinadas íntegramente al I+D y mantenimiento de servidores. Estas aportaciones se consideran donaciones a fondo perdido y no otorgan derechos de propiedad ni gobernanza sobre los algoritmos.</p>
-                </div>
+                    <p class="small text-muted mb-0">Aceptamos contribuciones voluntarias destinadas íntegramente al I+D y mantenimiento de servidores. Estas aportaciones se consideran donaciones a fondo perdido y no otorgan derechos de propiedad ni gobernanza sobre los algoritmos.
             </div>
         </div>
 
@@ -181,17 +180,13 @@
                                 <h2 class="h5 mb-0 text-dark fw-bold text-uppercase">Limitación de Responsabilidad</h2>
                             </div>
                             <p class="text-justify small text-muted">
-                                Gen Trading no garantiza resultados financieros específicos. Los fallos en la conexión a internet del usuario, errores en las APIs de los Exchanges (Binance, Bybit, MetaTrader, etc.) o retrasos en la ejecución de órdenes son riesgos técnicos ajenos a nuestra infraestructura. No nos hacemos responsables de pérdidas por negligencia del usuario en la protección de sus claves API.
+                                Gen Trading no garantiza resultados financieros específicos. Los fallos en la conexión a internet del usuario o retrasos en la ejecución de órdenes son riesgos técnicos ajenos a nuestra infraestructura. No nos hacemos responsables de pérdidas por negligencia del usuario en la protección de sus claves API.
                             </p>
                         </section>
 
                     </div>
 
                     <div class="mt-5 pt-4 border-top d-flex flex-column flex-sm-row justify-content-between align-items-center gap-4">
-                        <div class="text-center text-sm-start">
-                            <p class="mb-0 text-muted small fw-bold">DEPARTAMENTO LEGAL</p>
-                            <a href="mailto:info@gentrading.es" class="text-primary text-decoration-none small">legal@gentrading.es</a>
-                        </div>
                         <a href="{{ url('/') }}" class="btn btn-dark rounded-pill px-5 py-3 fw-bold shadow hover-lift transition-all w-100 w-sm-auto text-uppercase tracking-tighter">
                             Entendido y Volver
                         </a>

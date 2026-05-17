@@ -96,14 +96,14 @@
                                 <h2 class="h4 mb-0 text-dark fw-bold text-uppercase">Información Identificativa</h2>
                             </div>
                             <p class="mb-4">En cumplimiento con el deber de información, se exponen los siguientes datos del titular del sitio web:</p>
-                            <div class="info-box shadow-sm">
+                            
                                 <ul class="list-unstyled mb-0">
                                     <li class="mb-2"><strong>Denominación:</strong> Gen Trading Group</li>
                                     <li class="mb-2"><strong>Email de contacto:</strong> info@gentrading.es</li>
                                     <li class="mb-2"><strong>Actividad:</strong> Desarrollo de software de análisis de mercados financieros y educación en trading.</li>
                                     <li><strong>Sostenibilidad:</strong> Proyecto financiado mediante alianzas publicitarias y contribuciones de la comunidad.</li>
                                 </ul>
-                            </div>
+                            ¡
                         </section>
 
                         <section class="mb-5">
@@ -153,10 +153,6 @@
                     </div>
 
                     <div class="mt-5 pt-4 border-top d-flex flex-column flex-sm-row justify-content-between align-items-center gap-4">
-                        <div class="text-center text-sm-start">
-                            <p class="mb-0 text-muted small fw-bold text-uppercase">Contacto Administrativo</p>
-                            <a href="mailto:info@gentrading.es" class="text-primary text-decoration-none small">info@gentrading.es</a>
-                        </div>
                         <a href="{{ url('/') }}" class="btn btn-dark rounded-pill px-5 py-3 fw-bold shadow hover-lift transition-all w-100 w-sm-auto text-uppercase tracking-tighter">
                             Aceptar y Volver
                         </a>

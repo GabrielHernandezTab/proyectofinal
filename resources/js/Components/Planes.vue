@@ -100,7 +100,6 @@
       features: [
         'Clase personalizada por videoconferencia semanal',
         'Análisis profundo de datos e información',
-        'Gráfico de inversión mensual',
         'Informe detallado del proceso cada mes',
         'Clases explicativas por videollamada',
         'Análisis técnico y fundamental avanzado',
