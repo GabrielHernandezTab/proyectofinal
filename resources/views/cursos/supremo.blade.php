@@ -143,19 +143,18 @@
     <div class="container py-5">
 
         {{-- HERO --}}
-        <div class="hero-supremo">
+                <div class="hero-supremo">
             <div class="row align-items-center position-relative">
                 <div class="col-lg-8">
-                    <div class="vip-badge mb-3"><i class="bi bi-stars"></i> NIVEL ÉLITE — ACCESO TOTAL</div>
                     <h1 class="display-4 fw-bold mb-3">Pack Supremo</h1>
-                    <p class="lead mb-4 opacity-90">La experiencia definitiva en formación financiera. Mentoría personalizada 1:1 por videollamada semanal, alertas VIP en tiempo real 24/7, análisis profundo de datos y planificación fiscal avanzada.</p>
+                    <p class="lead mb-4 opacity-90">La experiencia definitiva en formación financiera. Mentoría personalizada 1:1 por videollamada semanal, análisis profundo de datos y planificación fiscal avanzada.</p>
+                </div>
                 <div class="col-lg-4 text-center mt-4 mt-lg-0">
                     <div class="position-relative">
-                        <iframe width="100%" height="240" src="https://www.youtube.com/embed/PHe0bXAIuk0" title="Estrategias de inversores élite" frameborder="0" class="rounded-4 shadow-lg" allowfullscreen></iframe>
+                    <iframe width="100%" height="240" src="https://www.youtube.com/embed/PHe0bXAIuk0" title="Estrategias de inversores élite" frameborder="0" class="rounded-4 shadow-lg" allowfullscreen></iframe>                        <div class="mt-2 text-white-50 small"><i class="bi bi-play-circle me-1"></i> Introducción al Análisis Técnico</div>
                     </div>
                 </div>
             </div>
-           </div> 
         </div>
 
         
