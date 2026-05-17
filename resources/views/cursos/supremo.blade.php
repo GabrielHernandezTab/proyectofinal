@@ -152,11 +152,10 @@
                 <div class="col-lg-4 text-center mt-4 mt-lg-0">
                     <div class="position-relative">
                         <iframe width="100%" height="240" src="https://www.youtube.com/embed/PHe0bXAIuk0" title="Estrategias de inversores élite" frameborder="0" class="rounded-4 shadow-lg" allowfullscreen></iframe>
-                        <div class="mt-2 text-white-50 small"><i class="bi bi-play-circle me-1"></i> Estrategias de los mejores inversores del mundo</div>
                     </div>
                 </div>
             </div>
-            
+           </div> 
         </div>
 
         
