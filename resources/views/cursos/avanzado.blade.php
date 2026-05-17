@@ -136,30 +136,6 @@
         <div class="content-panel" id="module-0">
             <h3 class="fw-bold mb-4" style="color:#581c87;"><i class="bi bi-shop me-2"></i>Diferentes Servicios de Inversión — Plataformas Profesionales</h3>
 
-            <div class="etoro-highlight mb-4">
-                <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <span class="badge bg-warning text-dark mb-2"><i class="bi bi-star-fill me-1"></i> RECOMENDADO POR GENTRADING</span>
-                        <h4 class="fw-bold mb-2">eToro — Plataforma Social de Trading</h4>
-                        <p class="text-muted mb-3">eToro es nuestra plataforma recomendada para el Pack Avanzado. Combina trading tradicional con funciones sociales únicas: CopyTrading, comunidad activa y más de 3.000 activos disponibles.</p>
-                        <div class="row g-2 mb-3">
-                            <div class="col-6"><div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i><small>0% comisión en acciones</small></div></div>
-                            <div class="col-6"><div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i><small>CopyTrading disponible</small></div></div>
-                            <div class="col-6"><div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i><small>App móvil completa</small></div></div>
-                            <div class="col-6"><div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i><small>Regulada por CySEC, FCA, ASIC</small></div></div>
-                        </div>
-                        <a href="https://www.etoro.com" target="_blank" class="btn btn-primary rounded-pill px-4"><i class="bi bi-box-arrow-up-right me-2"></i>Visitar eToro</a>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <div class="bg-white rounded-3 p-3 shadow-sm">
-                            <i class="bi bi-people-fill fs-1 text-primary mb-2"></i>
-                            <div class="fw-bold">30M+ usuarios</div>
-                            <small class="text-muted">En 140 países</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <h5 class="fw-bold mb-3">Comparativa Completa de Plataformas 2026</h5>
             <div class="table-responsive mb-4">
                 <table class="data-table">
