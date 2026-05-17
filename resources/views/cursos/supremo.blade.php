@@ -189,17 +189,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="contact-method">
-                            <i class="bi bi-envelope-fill text-info fs-2"></i>
-                            <div>
-                                <strong class="d-block mb-1 fs-5">Vía Email</strong>
-                                <p class="small mb-2 text-white-50">Escríbenos indicando tu disponibilidad:</p>
-                                <a href="mailto:info@gentrading.es" class="text-info fw-bold text-decoration-none fs-4">info@gentrading.es</a>
-                                <p class="small text-white-50 mt-2"><i class="bi bi-reply me-1"></i> Respuesta en menos de 24h laborables</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="alert-vip" style="background: rgba(255,255,255,0.05); border-color: rgba(245,158,11,0.5);">
@@ -214,10 +203,9 @@
                             <div class="mentor-avatar"><i class="bi bi-person"></i></div>
                             <div>
                                 <h5 class="fw-bold mb-0">Tu Mentor Dedicado</h5>
-                                <small class="text-muted">Experto con 10+ años en mercados</small>
                             </div>
                         </div>
-                        <p class="text-muted small mb-3">Cada miembro del Pack Supremo tiene asignado un mentor senior con experiencia comprobada en gestión de carteras y trading profesional.</p>
+                        <p class="text-muted small mb-3">Cada miembro del Pack Supremo tiene asignado un mentor con conocimientos en gestión de carteras y trading profesional.</p>
                         <h6 class="fw-bold small mb-2">Qué hace tu mentor:</h6>
                         <ul class="list-unstyled small">
                             <li class="mb-2"><i class="bi bi-check2-circle text-danger me-2"></i>Revisa tu cartera semanalmente posición por posición</li>
@@ -245,13 +233,13 @@
 
             <br>
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-binoculars me-2"></i>Análisis Profundo de Datos e Información</h3>
-            <p class="text-muted mb-4">Datos institucionales, flujo de órdenes, correlaciones macro y análisis de sentimiento que el inversor retail no ve.</p>
+            <p class="text-muted mb-4">Datos institucionales, flujo de órdenes, correlaciones y análisis que el inversor no ve.</p>
 
             <div class="row g-4 mb-4">
                 <div class="col-md-6">
                     <div class="elite-card h-100">
                         <h5 class="fw-bold text-primary mb-3"><i class="bi bi-building me-2"></i>Análisis Fundamental Profundo</h5>
-                        <p class="text-muted small mb-3">Más allá del PER y el ROE. Análisis DCF completo, valoración por múltiplos y análisis de moats competitivos.</p>
+                        <p class="text-muted small mb-3">Más allá del PER. Análisis DCF completo, valoración por múltiplos y análisis de moats competitivos.</p>
                         
                         <h6 class="fw-bold small mb-2">Metodología DCF (Discounted Cash Flow):</h6>
                         <div class="table-responsive mb-3">
@@ -367,10 +355,9 @@
                         <div class="scenario-box">
                             <h6 class="fw-bold text-primary mb-2"><span class="badge bg-danger me-2">1</span>Resumen Ejecutivo</h6>
                             <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-dot text-muted me-2"></i>Rentabilidad mensual y acumulada YTD</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Comparativa vs benchmark (S&P 500, MSCI World)</li>
+                                <li><i class="bi bi-dot text-muted me-2"></i>Rentabilidad mensual y acumulada</li>
+                                <li><i class="bi bi-dot text-muted me-2"></i>Comparativa (S&P 500, MSCI World)</li>
                                 <li><i class="bi bi-dot text-muted me-2"></i>Principales contribuyentes y detractores</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Estado emocional y disciplina (1-10)</li>
                             </ul>
                         </div>
                     </div>
@@ -380,7 +367,6 @@
                             <ul class="list-unstyled small mb-0">
                                 <li><i class="bi bi-dot text-muted me-2"></i>Número de trades: ganadores vs perdedores</li>
                                 <li><i class="bi bi-dot text-muted me-2"></i>Ratio R/R medio alcanzado</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Tiempo medio en posición</li>
                                 <li><i class="bi bi-dot text-muted me-2"></i>Errores recurrentes identificados</li>
                             </ul>
                         </div>
@@ -389,10 +375,9 @@
                         <div class="scenario-box">
                             <h6 class="fw-bold text-primary mb-2"><span class="badge bg-danger me-2">3</span>Evolución de Cartera</h6>
                             <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-dot text-muted me-2"></i>Gráfico de equity del mes</li>
+                                <li><i class="bi bi-dot text-muted me-2"></i>Gráfico del mes</li>
                                 <li><i class="bi bi-dot text-muted me-2"></i>Cambios en composición (rebalanceos)</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Exposición por sectores y geografías</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Concentración máxima por posición</li>
+                                <li><i class="bi bi-dot text-muted me-2"></i>Exposición por sectores</li>
                             </ul>
                         </div>
                     </div>
@@ -401,7 +386,6 @@
                             <h6 class="fw-bold text-primary mb-2"><span class="badge bg-danger me-2">4</span>Plan del Mes Siguiente</h6>
                             <ul class="list-unstyled small mb-0">
                                 <li><i class="bi bi-dot text-muted me-2"></i>Objetivo de rentabilidad realista</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Máximo drawdown aceptable</li>
                                 <li><i class="bi bi-dot text-muted me-2"></i>Estrategias prioritarias</li>
                                 <li><i class="bi bi-dot text-muted me-2"></i>Áreas de mejora concretas</li>
                                 <li><i class="bi bi-dot text-muted me-2"></i>Eventos macro a vigilar</li>
@@ -410,27 +394,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="elite-card-gold">
-                <h5 class="fw-bold mb-3"><i class="bi bi-envelope-paper me-2 text-warning"></i>Ejemplo Extracto de Informe Mensual</h5>
-                <div class="p-3 bg-white rounded border" style="font-family: 'Georgia', serif;">
-                    <div class="text-center mb-3">
-                        <h6 class="fw-bold text-uppercase text-muted" style="letter-spacing: 0.2em;">GeN Trading — Informe Mensual</h6>
-                        <div class="fw-bold fs-5">Miembro: [Tu Nombre] · Mayo 2026</div>
-                    </div>
-                    <hr>
-                    <div class="row text-center mb-3">
-                        <div class="col-3"><div class="fw-bold text-success">+3.8%</div><small class="text-muted">Rent. mensual</small></div>
-                        <div class="col-3"><div class="fw-bold text-primary">+18.5%</div><small class="text-muted">YTD</small></div>
-                        <div class="col-3"><div class="fw-bold text-primary">24.580€</div><small class="text-muted">Capital</small></div>
-                        <div class="col-3"><div class="fw-bold text-warning">8/10</div><small class="text-muted">Disciplina</small></div>
-                    </div>
-                    <p class="small text-muted mb-2"><strong>Destacado del mes:</strong> La rotación hacia utilities anticipó correctamente la caída del NASDAQ (-5%). Tu posición en XLU generó +8.2% mientras el mercado caía.</p>
-                    <p class="small text-muted mb-2"><strong>Área de mejora:</strong> Cerraste 2 operaciones ganadoras demasiado pronto (take profit parcial innecesario). El ratio R/R real fue 1:1.8 vs 1:3 planificado. Próximo mes: dejar correr las ganancias según plan.</p>
-                    <p class="small text-muted mb-0"><strong>Objetivo junio:</strong> Mantener win rate >60%, subir ratio R/R medio a 1:2.5, reducir operaciones impulsivas a 0.</p>
-                </div>
-            </div>
-
             <br>
             <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-briefcase me-2"></i>Gestión y Optimización de Portafolio Profesional</h3>
             <p class="text-muted mb-4">Técnicas de gestión de riesgo usadas por fondos de inversión. Rebalanceo, cobertura, diversificación inteligente y optimización de frontera eficiente.</p>
@@ -517,20 +480,6 @@
                             <p class="small text-muted mb-0"><strong>Oro y bonos:</strong> Tradicionalmente correlacionados negativamente con equities en crisis.</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <h6 class="fw-bold small mb-2">Ejemplo de Cobertura con Put:</h6>
-                        <div class="bg-light rounded p-3 mb-3">
-                            <p class="small text-muted mb-2"><strong>Cartera:</strong> 100.000€ en MSCI World ETF</p>
-                            <p class="small text-muted mb-2"><strong>Miedo:</strong> Corrección del 20% en próximos 3 meses</p>
-                            <p class="small text-muted mb-2"><strong>Cobertura:</strong> Comprar put CW8 strike 90% a 3 meses</p>
-                            <p class="small text-muted mb-2"><strong>Coste:</strong> ~1.500€ (1.5% de cartera)</p>
-                            <p class="small text-muted mb-0"><strong>Resultado si cae 20%:</strong> Pérdida en ETF: -20.000€. Ganancia en Put: +18.500€. <strong>Pérdida neta: -1.500€ (solo el coste de la prima)</strong></p>
-                        </div>
-                        <div class="warning-box mb-0">
-                            <small class="text-muted"><i class="bi bi-exclamation-triangle me-1"></i> <strong>Importante:</strong> La cobertura tiene coste. Si el mercado sube, pierdes la prima de la put. Usa solo cuando la valoración sea extrema o tengas eventos de riesgo conocidos.</small>
-                        </div>
-                    </div>
-                </div>
             </div>
             {{-- ============================================================
      ELEMENTO INTERACTIVO 4: CONSTRUCTOR DE CARTERA
@@ -824,15 +773,13 @@
                             <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-bar-chart-line fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-0">TradingView Premium</h6>
-                                <span class="badge bg-success">Incluido</span>
                             </div>
                         </div>
                         <p class="small text-muted mb-2">La plataforma de gráficos profesional más completa. Alertas ilimitadas, 25 indicadores por gráfico, data export, Pine Script.</p>
                         <ul class="list-unstyled small mb-0">
                             <li><i class="bi bi-check2 text-success me-2"></i>8 gráficos en pantalla</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Alertas ilimitadas</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Segundo-based intervals</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Volume profile avanzado</li>
+¡                            <li><i class="bi bi-check2 text-success me-2"></i>Volume profile avanzado</li>
                         </ul>
                     </div>
                 </div>
@@ -842,13 +789,11 @@
                             <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-bank fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-0">Koyfin / Simply Wall St</h6>
-                                <span class="badge bg-success">Incluido</span>
                             </div>
                         </div>
                         <p class="small text-muted mb-2">Análisis fundamental profesional. Ratios, comparativas sectoriales, DCF automático, visualizaciones de datos.</p>
                         <ul class="list-unstyled small mb-0">
                             <li><i class="bi bi-check2 text-success me-2"></i>Screeners avanzados</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Comparativa peer-to-peer</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Gráficos de sanity checks</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Export a Excel</li>
                         </ul>
@@ -860,7 +805,6 @@
                             <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-pie-chart fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-0">Portfolio Visualizer</h6>
-                                <span class="badge bg-success">Incluido</span>
                             </div>
                         </div>
                         <p class="small text-muted mb-2">Backtesting y optimización de carteras con datos históricos desde 1972. Análisis de factor, Monte Carlo, eficiencia.</p>
@@ -868,7 +812,6 @@
                             <li><i class="bi bi-check2 text-success me-2"></i>Backtesting 50+ años</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Optimización Mean-Variance</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Simulación Monte Carlo</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Análisis de withdrawal rates</li>
                         </ul>
                     </div>
                 </div>
@@ -878,7 +821,6 @@
                             <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-newspaper fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-0">Bloomberg / Refinitiv</h6>
-                                <span class="badge bg-warning text-dark">Descuento</span>
                             </div>
                         </div>
                         <p class="small text-muted mb-2">Terminal Bloomberg y Refinitiv Eikon con descuento para miembros. Datos en tiempo real, noticias, análisis de analistas.</p>
@@ -886,7 +828,6 @@
                             <li><i class="bi bi-check2 text-success me-2"></i>Datos institucionales</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Consensus de analistas</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Research reports</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>ESG scores</li>
                         </ul>
                     </div>
                 </div>
@@ -896,13 +837,11 @@
                             <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-graph-up-arrow fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-0">Unusual Whales</h6>
-                                <span class="badge bg-success">Incluido</span>
                             </div>
                         </div>
                         <p class="small text-muted mb-2">Seguimiento del flujo de opciones inusuales. Detecta movimientos institucionales antes de que ocurran.</p>
                         <ul class="list-unstyled small mb-0">
                             <li><i class="bi bi-check2 text-success me-2"></i>Flow de opciones en tiempo real</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Dark pool prints</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Insider trading tracker</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Alertas de sweeps inusuales</li>
                         </ul>
@@ -914,13 +853,11 @@
                             <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-robot fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-0">APIs y Algo-Trading</h6>
-                                <span class="badge bg-success">Incluido</span>
                             </div>
                         </div>
                         <p class="small text-muted mb-2">Acceso a APIs de Interactive Brokers y Alpaca para automatizar estrategias. Código Python incluido.</p>
                         <ul class="list-unstyled small mb-0">
                             <li><i class="bi bi-check2 text-success me-2"></i>Scripts Python listos</li>
-                            <li><i class="bi bi-check2 text-success me-2"></i>Backtesting con Backtrader</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Ejecución automatizada</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Machine learning básico</li>
                         </ul>
@@ -990,11 +927,6 @@
                                         <td>Liquidez restringida hasta jubilación</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>PIAS</strong></td>
-                                        <td><span class="tag tag-green">Rentas exentas</span></td>
-                                        <td>Costes y complejidad</td>
-                                    </tr>
-                                    <tr>
                                         <td><strong>Cuenta Naranja/Depósito</strong></td>
                                         <td><span class="tag tag-orange">Sin ventaja</span></td>
                                         <td>Tributan como rendimientos del capital</td>
@@ -1008,33 +940,6 @@
                             <p class="small text-muted mb-0">Si planeas hacer aportaciones mensuales y rebalancear trimestralmente, los <strong>fondos de inversión</strong> son más eficientes fiscalmente porque los traspasos no tributan. Si compras y mantienes sin tocar, los <strong>ETFs</strong> son más baratos en comisiones.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="elite-card mb-4">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-globe me-2"></i>Planificación Fiscal Internacional</h5>
-                <p class="text-muted small mb-3">Para inversores con patrimonio significativo o residencia fiscal en múltiples jurisdicciones.</p>
-
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold small mb-2">Consideraciones para No Residentes:</h6>
-                        <div class="scenario-box">
-                            <p class="small text-muted mb-2"><strong>Beckham Law (España):</strong> Para trabajadores desplazados a España. Tributación como no residente los primeros 6 años. Tipo fijo del 24% en rentas hasta 600.000€.</p>
-                            <p class="small text-muted mb-0"><strong>Convenios de doble imposición:</strong> Evitan que pagues dos veces por la misma renta. Ej: dividendos de USA tienen retención del 15% en origen, se compensa en España.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="fw-bold small mb-2">Estructuración Patrimonial:</h6>
-                        <div class="scenario-box">
-                            <p class="small text-muted mb-2"><strong>Sociedad patrimonial:</strong> Para patrimonios >1M€. Permite diferir impuestos, planificar sucesiones y optimizar rentas.</p>
-                            <p class="small text-muted mb-0"><strong>Trusts y fundaciones:</strong> Para planificación sucesoria internacional. Requieren asesoramiento fiscal y legal especializado.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="warning-box mt-3 mb-0">
-                    <h6 class="fw-bold small mb-2"><i class="bi bi-exclamation-triangle me-2"></i>Paraísos Fiscales y CRS</h6>
-                    <p class="small text-muted mb-0">El <strong>Common Reporting Standard (CRS)</strong> obliga a bancos de 100+ países a informar sobre cuentas de no residentes. <strong>No existe opacidad fiscal legal.</strong> La planificación debe ser transparente y dentro de la ley. Cualquier estructura offshore requiere declaración en el modelo 720.</p>
                 </div>
             </div>
 
@@ -1239,7 +1144,7 @@
         { p: '¿Qué indica un "Fair Value Gap" (FVG)?', ops: ['Que la acción está infravalorada fundamentalmente','Una ineficiencia de precio que el mercado tiende a rellenar','El precio justo según análisis fundamental','Un gap entre el precio y su media móvil de 200 sesiones'], r: 1, exp: 'Un FVG es un gap de precio entre tres velas donde la segunda tiene un movimiento tan fuerte que deja un espacio sin negociar. El mercado tiende a volver a rellenar esas ineficiencias.' },
         { p: '¿Cuándo se debe declarar el Modelo 720 en España?', ops: ['Cuando tienes ganancias superiores a 50.000€','Cuando tienes bienes o cuentas en el extranjero que superen 50.000€ en total','Siempre que tengas cuentas en brókers extranjeros','Solo si tienes propiedades en el extranjero'], r: 1, exp: 'El Modelo 720 debe presentarse cuando el valor agregado de cuentas, valores o inmuebles en el extranjero supera los 50.000€. Plazo: 1-31 de marzo. La sanción por no declarar puede ser de 5.000€ por dato.' },
         { p: '¿Qué es el "Profit Factor" en una estrategia de trading?', ops: ['El porcentaje de operaciones ganadoras','Beneficio bruto total / Pérdida bruta total','Rentabilidad anual de la estrategia','El ratio R/R medio de todas las operaciones'], r: 1, exp: 'El Profit Factor es el cociente entre el beneficio bruto total y la pérdida bruta total. Un Profit Factor >1.5 indica una estrategia rentable; >2 es muy bueno.' },
-        { p: 'En la estrategia "Iron Condor" de opciones, ¿cuándo se gana?', ops: ['Cuando el activo sube mucho','Cuando el activo baja mucho','Cuando el precio se mantiene dentro de un rango definido','Cuando la volatilidad aumenta significativamente'], r: 2, exp: 'El Iron Condor vende un Call spread y un Put spread simultáneamente. Se gana si el precio permanece dentro de los strikes vendidos al vencimiento. Es ideal para mercados laterales con baja volatilidad.' },
+        { p: 'En la estrategia "Iron Condor" de opciones, ¿cuándo se gana?', ops: ['Cuando el activo sube mucho','Cuando el activo baja mucho','Cuando el precio se mantiene dentro de un rango definido','Cuando la volatilidad aumenta significativamente'], r: 2, exp: 'Se gana si el precio permanece dentro de los strikes vendidos al vencimiento. Es ideal para mercados laterales con baja volatilidad.' },
         { p: '¿Qué indica una Beta de 0.7 en una acción?', ops: ['La acción es un 30% más volátil que el mercado','La acción se mueve un 70% de lo que se mueve el mercado (menos volátil)','La acción tiene una correlación del 70% con el mercado','La acción perderá un 30% si el mercado baja'], r: 1, exp: 'La Beta mide la sensibilidad de un activo respecto al mercado. Beta 0.7 significa que si el mercado sube o baja un 10%, la acción tiende a moverse un 7%. Es un activo defensivo.' }
     ];
     
@@ -1278,7 +1183,6 @@
                 <p class="small mb-0 mt-1">${p.exp}</p>
             </div>`;
         document.getElementById('test-sup-siguiente').style.display = 'inline-block';
-        document.getElementById('test-sup-siguiente').textContent = testSupIndex < preguntasSupremo.length - 1 ? 'Siguiente →' : 'Ver resultado';
     }
     
     function siguientePreguntaSup() {

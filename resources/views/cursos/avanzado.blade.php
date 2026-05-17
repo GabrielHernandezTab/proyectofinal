@@ -410,20 +410,6 @@
                             <small class="text-muted d-block mt-2"><i class="bi bi-info-circle me-1"></i> Datos orientativos. Realiza tu propio análisis antes de invertir.</small>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="bg-light rounded p-3 h-100">
-                            <h6 class="fw-bold mb-2"><i class="bi bi-book me-2"></i>Lecturas Recomendadas</h6>
-                            <ul class="list-unstyled small">
-                                <li class="mb-2"><a href="#" class="text-decoration-none"><i class="bi bi-book-fill text-primary me-2"></i>"El inversor inteligente" — Benjamin Graham</a></li>
-                                <li class="mb-2"><a href="#" class="text-decoration-none"><i class="bi bi-book-fill text-primary me-2"></i>"La guerra de Buffett" — Roger Lowenstein</a></li>
-                                <li class="mb-2"><a href="#" class="text-decoration-none"><i class="bi bi-book-fill text-primary me-2"></i>"Análisis de estados financieros" — Martin Fridson</a></li>
-                                <li class="mb-2"><a href="#" class="text-decoration-none"><i class="bi bi-book-fill text-primary me-2"></i>"Common Stocks and Uncommon Profits" — Philip Fisher</a></li>
-                            </ul>
-                            <div class="mt-3 p-2 bg-white rounded border">
-                                <small class="text-muted"><i class="bi bi-clock me-1"></i> Horizonte temporal: <strong>3-10 años</strong></small>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -446,20 +432,6 @@
                         <div class="danger-box">
                             <h6 class="fw-bold mb-2"><i class="bi bi-exclamation-triangle me-2"></i>Regla de Oro del Day Trading</h6>
                             <p class="small mb-0">Nunca arriesgues más del <strong>1% de tu capital</strong> en una sola operación. Con una cuenta de 5.000€, el riesgo máximo por trade es 50€. Así puedes tener 20 operaciones perdedoras seguidas y seguir en el juego.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="example-trade h-100">
-                            <div class="mb-2"><span class="label">📊 SETUP LARGO — AAPL</span></div>
-                            <div class="mb-1"><span class="label">Fecha:</span> <span class="value">15 Mayo 2026</span></div>
-                            <div class="mb-1"><span class="label">Entrada:</span> <span class="value">$187.50</span></div>
-                            <div class="mb-1"><span class="label">Stop Loss:</span> <span class="warning">$186.00 (-$1.50)</span></div>
-                            <div class="mb-1"><span class="label">Take Profit:</span> <span class="value">$190.50 (+$3.00)</span></div>
-                            <div class="mb-1"><span class="label">R/R:</span> <span class="value">1:2</span></div>
-                            <div class="mb-1"><span class="label">Tamaño:</span> <span class="value">33 acciones ($1,650)</span></div>
-                            <div class="mb-0"><span class="label">Riesgo total:</span> <span class="warning">$49.50 (0.99% de 5,000€)</span></div>
-                            <hr style="border-color: #334155; margin: 0.75rem 0;">
-                            <div class="label"><i class="bi bi-info-circle me-1"></i> Razón: Ruptura de máximo premarket + volumen 2x medio + RSI 58 (no sobrecomprado)</div>
                         </div>
                     </div>
                 </div>
@@ -498,28 +470,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="bg-light rounded p-3 h-100">
-                            <h6 class="fw-bold mb-2"><i class="bi bi-lightbulb me-2"></i>Estrategia DRIP</h6>
-                            <p class="small text-muted mb-2">Reinversión Automática de Dividendos (Dividend Reinvestment Plan):</p>
-                            <ul class="list-unstyled small">
-                                <li><i class="bi bi-check2 text-success me-2"></i>Compra fraccionaria de acciones</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Sin comisiones de reinversión</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Efecto compuesto acelerado</li>
-                                <li><i class="bi bi-check2 text-success me-2"></i>Disponible en eToro, DEGIRO</li>
-                            </ul>
-                            <div class="mt-2 p-2 bg-white rounded border">
-                                <small class="text-muted"><i class="bi bi-clock me-1"></i> Horizonte: <strong>10-30 años</strong></small>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
             <div class="strategy-card">
                 <span class="badge bg-primary mb-2">ESTRATEGIA DIVERSIFICADA</span>
                 <h4 class="fw-bold mb-3">Swing Trading — Trading a Medio Plazo</h4>
-                <p class="text-muted mb-3">Mantener posiciones de 2 a 10 días capturando movimientos tendenciales. Menos estrés que el day trading, más rentabilidad potencial que buy & hold.</p>
+                <p class="text-muted mb-3">Mantener posiciones de 2 a 10 días capturando movimientos tendenciales. Menos estrés que el day trading.</p>
                 
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -532,19 +489,6 @@
                             <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i><strong>Indicadores clave:</strong> EMA 20/50, RSI, Volumen</li>
                         </ul>
                     </div>
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Setup Swing Clásico:</h6>
-                        <div class="scenario-box">
-                            <ol class="small mb-0">
-                                <li class="mb-1">Identificar tendencia alcista en diario</li>
-                                <li class="mb-1">Esperar retroceso a EMA 20 o 50</li>
-                                <li class="mb-1">Confirmar con RSI entre 40-60</li>
-                                <li class="mb-1">Volumen en aumento en el rebote</li>
-                                <li class="mb-1">Entrada en ruptura de máximo del retroceso</li>
-                                <li class="mb-0">Stop bajo el mínimo del retroceso</li>
-                            </ol>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -555,7 +499,7 @@
 
             <div class="alert alert-info d-flex align-items-center mb-4">
                 <i class="bi bi-info-circle-fill me-3 fs-4"></i>
-                <div>La rentabilidad está directamente relacionada con el riesgo asumido. <strong>No existe rentabilidad alta sin riesgo</strong>. Ajusta tu estrategia a tu tolerancia al riesgo y horizonte temporal.</div>
+                <div>La rentabilidad está directamente relacionada con el riesgo asumido. <strong>No existe rentabilidad alta sin riesgo</strong>.</div>
             </div>
 
             <div class="row g-4 mb-4">
@@ -841,7 +785,7 @@
                         
                         <h6 class="fw-bold small text-success mb-2"><i class="bi bi-check-circle me-2"></i>Sí Tributa:</h6>
                         <ul class="list-unstyled small mb-3">
-                            <li class="mb-1"><i class="bi bi-dot text-success me-2"></i>Venta de acciones con ganancia (plusvalía)</li>
+                            <li class="mb-1"><i class="bi bi-dot text-success me-2"></i>Venta de acciones con ganancia</li>
                             <li class="mb-1"><i class="bi bi-dot text-success me-2"></i>Dividendos recibidos</li>
                             <li class="mb-1"><i class="bi bi-dot text-success me-2"></i>Intereses de bonos y depósitos</li>
                             <li class="mb-1"><i class="bi bi-dot text-success me-2"></i>Ganancias en CFDs y Forex</li>
@@ -853,7 +797,6 @@
                             <li class="mb-1"><i class="bi bi-dot text-danger me-2"></i>Traspasos entre fondos de inversión (no ETFs)</li>
                             <li class="mb-1"><i class="bi bi-dot text-danger me-2"></i>Reinversión de dividendos en ampliaciones</li>
                             <li class="mb-1"><i class="bi bi-dot text-danger me-2"></i>Pérdidas compensables con ganancias</li>
-                            <li class="mb-1"><i class="bi bi-dot text-danger me-2"></i>Primera vivienda (exención bajo ciertas condiciones)</li>
                         </ul>
                     </div>
                 </div>
@@ -871,7 +814,7 @@
 
                         <div class="mb-3">
                             <h6 class="fw-bold small">2. Traspaso entre Fondos (No ETFs)</h6>
-                            <p class="small text-muted mb-1">Cambiar de fondo de inversión a otro no genera evento tributario. Solo pagas al rescatar definitivamente.</p>
+                            <p class="small text-muted mb-1">Cambiar de fondo de inversión a otro no genera evento tributario.</p>
                         </div>
 
                         <div class="mb-3">
