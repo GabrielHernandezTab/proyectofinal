@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; 
 use Illuminate\Support\Facades\Hash;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 class UsuarioController extends Controller
 {
@@ -108,9 +107,23 @@ public function edit(Request $request, $id) {
     public function exportarPdf()
     {
         $usuarios = User::orderBy('nombre')->get();
-        $pdf = Pdf::loadView('pdf.usuarios-listado', compact('usuarios'))
-                ->setPaper('a4', 'portrait');
-        return $pdf->download('listado-usuarios-' . now()->format('Y-m-d') . '.pdf');
+        
+        // Usar dompdf directamente sin el Facade de Laravel
+        $options = new \Dompdf\Options();
+        $options->set('defaultFont', 'DejaVu Sans');
+        $options->set('isRemoteEnabled', true);
+        
+        $dompdf = new \Dompdf\Dompdf($options);
+        $dompdf->setPaper('A4', 'portrait');
+        
+        $html = view('pdf.usuarios-listado', compact('usuarios'))->render();
+        $dompdf->loadHtml($html);
+        $dompdf->render();
+        
+        return response($dompdf->output(), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'attachment; filename="listado-usuarios-' . now()->format('Y-m-d') . '.pdf"'
+        ]);
     }
     
 }

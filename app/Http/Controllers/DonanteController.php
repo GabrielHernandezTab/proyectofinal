@@ -6,7 +6,6 @@ use App\Models\Donante;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 class DonanteController extends Controller
 {
@@ -99,9 +98,22 @@ class DonanteController extends Controller
             }
             
             $valoraciones = Donante::$valoraciones;
-            $pdf = Pdf::loadView('pdf.recibo-donacion', compact('donacion', 'valoraciones'))
-                    ->setPaper('a4', 'portrait');
-            return $pdf->download('recibo-donacion-' . $donacion->id . '.pdf');
+            
+            $options = new \Dompdf\Options();
+            $options->set('defaultFont', 'DejaVu Sans');
+            $options->set('isRemoteEnabled', true);
+            
+            $dompdf = new \Dompdf\Dompdf($options);
+            $dompdf->setPaper('A4', 'portrait');
+            
+            $html = view('pdf.recibo-donacion', compact('donacion', 'valoraciones'))->render();
+            $dompdf->loadHtml($html);
+            $dompdf->render();
+            
+            return response($dompdf->output(), 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'attachment; filename="recibo-donacion-' . $donacion->id . '.pdf"'
+            ]);
         }
 
         public function misDonaciones()
