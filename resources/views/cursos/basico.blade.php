@@ -8,130 +8,111 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
     <style>
-        :root { --primary: #0ea5e9; --secondary: #06b6d4; --accent: #f59e0b; --dark: #0f172a; }
+        :root { --primary: #1a73e8; --text: #333; --muted: #666; --border: #ddd; --bg: #f5f5f5; }
 
         .hero-inicial { 
-            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #0891b2 100%); 
-            border-radius: 20px; 
-            padding: 3.5rem 2rem; 
+            background: #1a73e8; 
+            border-radius: 8px; 
+            padding: 2.5rem 2rem; 
             color: white; 
-            margin-bottom: 3rem; 
-            position: relative; 
-            overflow: hidden; 
-        }
-        .hero-inicial::before { 
-            content: ''; 
-            position: absolute; 
-            top: -50%; 
-            right: -20%; 
-            width: 500px; 
-            height: 500px; 
-            background: rgba(255,255,255,0.05); 
-            border-radius: 50%; 
+            margin-bottom: 2.5rem; 
         }
 
-        .timeline-container { position: relative; padding-left: 2rem; }
+        .timeline-container { position: relative; padding-left: 1.5rem; }
         .timeline-container::before { 
             content: ''; 
             position: absolute; 
             left: 0; 
             top: 0; 
             bottom: 0; 
-            width: 3px; 
-            background: linear-gradient(to bottom, #0ea5e9, #06b6d4); 
-            border-radius: 3px; 
+            width: 2px; 
+            background: #ccc; 
         }
-        .timeline-item { position: relative; margin-bottom: 2.5rem; padding-left: 1.5rem; }
+        .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 1.25rem; }
         .timeline-item::before { 
             content: ''; 
             position: absolute; 
-            left: -2.35rem; 
-            top: 0.5rem; 
-            width: 16px; 
-            height: 16px; 
-            background: #0ea5e9; 
+            left: -1.85rem; 
+            top: 0.4rem; 
+            width: 12px; 
+            height: 12px; 
+            background: #1a73e8; 
             border-radius: 50%; 
-            border: 3px solid white; 
-            box-shadow: 0 0 0 3px #0ea5e9; 
+            border: 2px solid white; 
         }
         .timeline-card { 
             background: white; 
-            border-radius: 14px; 
-            padding: 1.75rem; 
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06); 
-            border-left: 4px solid #0ea5e9; 
+            border-radius: 8px; 
+            padding: 1.5rem; 
+            border: 1px solid #e0e0e0; 
         }
 
         .module-badge { 
             display: inline-flex; 
             align-items: center; 
             gap: 6px; 
-            background: #e0f2fe; 
-            color: #0369a1; 
-            padding: 0.3rem 0.8rem; 
-            border-radius: 999px; 
+            background: #e8f0fe; 
+            color: #1a73e8; 
+            padding: 0.25rem 0.6rem; 
+            border-radius: 4px; 
             font-size: 0.8rem; 
             font-weight: 600; 
             margin-bottom: 0.75rem; 
         }
 
         .info-card { 
-            background: #f8fafc; 
-            border-radius: 12px; 
-            padding: 1.25rem; 
-            border: 1px solid #e2e8f0; 
-            margin-bottom: 1.25rem; 
+            background: #fafafa; 
+            border-radius: 6px; 
+            padding: 1rem; 
+            border: 1px solid #e0e0e0; 
+            margin-bottom: 1rem; 
         }
 
         .warning-box { 
-            background: #fffbeb; 
-            border-left: 4px solid #f59e0b; 
-            padding: 1rem 1.25rem; 
-            border-radius: 8px; 
+            background: #fff8e1; 
+            border-left: 3px solid #f9a825; 
+            padding: 0.875rem 1rem; 
+            border-radius: 4px; 
             margin: 1rem 0; 
         }
 
         .success-box { 
-            background: #f0fdf4; 
-            border-left: 4px solid #22c55e; 
-            padding: 1rem 1.25rem; 
-            border-radius: 8px; 
+            background: #e8f5e9; 
+            border-left: 3px solid #43a047; 
+            padding: 0.875rem 1rem; 
+            border-radius: 4px; 
             margin: 1rem 0; 
         }
 
         .app-card { 
             background: white; 
-            border-radius: 14px; 
+            border-radius: 8px; 
             padding: 1.25rem; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
-            border: 1px solid #e2e8f0; 
-            transition: transform 0.2s; 
+            border: 1px solid #e0e0e0; 
         }
-        .app-card:hover { transform: translateY(-3px); }
 
         .calc-container { 
-            background: #1e293b; 
-            border-radius: 16px; 
-            padding: 1.75rem; 
+            background: #263238; 
+            border-radius: 8px; 
+            padding: 1.5rem; 
             color: white; 
         }
         .calc-input { 
-            background: rgba(255,255,255,0.08); 
-            border: 1px solid rgba(255,255,255,0.15); 
-            border-radius: 8px; 
-            padding: 0.65rem 1rem; 
+            background: rgba(255,255,255,0.1); 
+            border: 1px solid rgba(255,255,255,0.2); 
+            border-radius: 4px; 
+            padding: 0.5rem 0.75rem; 
             color: white; 
             width: 100%; 
         }
         .calc-input:focus { 
             outline: none; 
-            border-color: #0ea5e9; 
-            background: rgba(255,255,255,0.12); 
+            border-color: #1a73e8; 
         }
         .calc-result { 
-            background: rgba(255,255,255,0.06); 
-            border-radius: 10px; 
-            padding: 1.25rem; 
+            background: rgba(255,255,255,0.05); 
+            border-radius: 6px; 
+            padding: 1rem; 
             text-align: center; 
             margin-top: 1rem; 
         }
@@ -139,69 +120,63 @@
         .resource-tile { 
             display: flex; 
             align-items: center; 
-            gap: 1rem; 
-            padding: 0.9rem 1.1rem; 
-            background: #f8fafc; 
-            border-radius: 10px; 
+            gap: 0.875rem; 
+            padding: 0.75rem 1rem; 
+            background: #fafafa; 
+            border-radius: 6px; 
             text-decoration: none; 
-            color: #334155; 
-            transition: all 0.2s; 
-            border: 1px solid #e2e8f0; 
-            margin-bottom: 0.75rem;
+            color: #333; 
+            border: 1px solid #e0e0e0; 
+            margin-bottom: 0.5rem;
         }
         .resource-tile:hover { 
-            background: #f1f5f9; 
-            color: #0ea5e9; 
-            border-color: #0ea5e9; 
+            background: #f0f0f0; 
+            color: #1a73e8; 
         }
 
-        .data-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+        .data-table { width: 100%; border-collapse: collapse; }
         .data-table th { 
-            background: #f8fafc; 
-            padding: 0.75rem 1rem; 
+            background: #f5f5f5; 
+            padding: 0.625rem 0.875rem; 
             text-align: left; 
             font-weight: 600; 
-            color: #475569; 
+            color: #555; 
             font-size: 0.8rem; 
-            text-transform: uppercase; 
-            letter-spacing: 0.03em; 
-            border-bottom: 2px solid #e2e8f0; 
+            border-bottom: 1px solid #ddd; 
         }
         .data-table td { 
-            padding: 0.875rem 1rem; 
-            border-bottom: 1px solid #f1f5f9; 
-            color: #334155; 
+            padding: 0.75rem 0.875rem; 
+            border-bottom: 1px solid #eee; 
+            color: #333; 
         }
-        .data-table tr:hover td { background: #f8fafc; }
 
         .tag { 
             display: inline-block; 
-            padding: 0.2rem 0.6rem; 
-            border-radius: 999px; 
+            padding: 0.15rem 0.5rem; 
+            border-radius: 4px; 
             font-size: 0.72rem; 
             font-weight: 600; 
         }
-        .tag-green { background: #dcfce7; color: #166534; }
-        .tag-blue { background: #dbeafe; color: #1e40af; }
-        .tag-orange { background: #ffedd5; color: #9a3412; }
+        .tag-green { background: #e8f5e9; color: #2e7d32; }
+        .tag-blue { background: #e3f2fd; color: #1565c0; }
+        .tag-orange { background: #fff3e0; color: #e65100; }
 
-        .comparison-bar { height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; margin-top: 0.4rem; }
-        .comparison-fill { height: 100%; border-radius: 3px; }
+        .comparison-bar { height: 4px; background: #e0e0e0; border-radius: 2px; overflow: hidden; margin-top: 0.3rem; }
+        .comparison-fill { height: 100%; border-radius: 2px; }
 
         .accordion-custom { border: none; background: none; }
         .accordion-custom .accordion-item { 
-            border: none; 
-            margin-bottom: 0.6rem; 
-            border-radius: 10px; 
+            border: 1px solid #e0e0e0; 
+            margin-bottom: 0.5rem; 
+            border-radius: 6px; 
             overflow: hidden; 
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04); 
             background: white; 
         }
         .accordion-custom .accordion-button { 
-            background: #f8fafc; 
-            padding: 1rem 1.25rem; 
+            background: #fafafa; 
+            padding: 0.875rem 1rem; 
             font-weight: 600; 
-            color: #334155; 
+            color: #333; 
             border: none; 
             width: 100%; 
             text-align: left;
@@ -209,38 +184,32 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: all 0.2s;
         }
-        .accordion-custom .accordion-button:hover { background: #e0f2fe; color: #0369a1; }
-        .accordion-custom .accordion-button.active { background: #e0f2fe; color: #0369a1; }
+        .accordion-custom .accordion-button:hover { background: #f0f0f0; }
+        .accordion-custom .accordion-button.active { background: #e3f2fd; color: #1565c0; }
         .accordion-custom .accordion-button::after { 
             content: '\F282'; 
             font-family: 'bootstrap-icons'; 
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
+            font-size: 1rem;
+            transition: transform 0.2s;
             margin-left: auto;
         }
         .accordion-custom .accordion-button.active::after { transform: rotate(180deg); }
         .accordion-custom .accordion-body { 
             background: white; 
-            padding: 1.25rem; 
+            padding: 1rem; 
             display: none;
-            border-top: 1px solid #f1f5f9;
+            border-top: 1px solid #eee;
         }
-        .accordion-custom .accordion-body.show { display: block; animation: fadeIn 0.3s ease; }
+        .accordion-custom .accordion-body.show { display: block; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .highlight-number { font-size: 2rem; font-weight: 700; color: #0ea5e9; line-height: 1; }
+        .highlight-number { font-size: 1.5rem; font-weight: 700; color: #1a73e8; line-height: 1; }
 
         .section-title { 
             font-weight: 700; 
-            color: #0369a1; 
-            margin-bottom: 1.5rem; 
-            font-size: 1.4rem;
+            color: #1a73e8; 
+            margin-bottom: 1.25rem; 
+            font-size: 1.25rem;
         }
     </style>
 
@@ -248,14 +217,14 @@
 
         {{-- HERO --}}
         <div class="hero-inicial">
-            <div class="row align-items-center position-relative">
+            <div class="row align-items-center">
                 <div class="col-lg-7">
                     <h1 class="display-5 fw-bold mb-3">Pack Inicial</h1>
-                    <p class="lead mb-4 opacity-90">Aquí empieza todo. Sin rodeos, sin tecnicismos absurdos. Te explico cómo funciona esto de invertir para que empieces con buen pie desde el primer día.</p>
+                    <p class="lead mb-4">Aquí empieza todo. Sin rodeos, sin tecnicismos absurdos. Te explico cómo funciona esto de invertir para que empieces con buen pie desde el primer día.</p>
                 </div>
                 <div class="col-lg-5 text-center mt-4 mt-lg-0">
                     <div class="position-relative">
-                        <iframe width="100%" height="220" src="https://www.youtube.com/embed/r2e-Nf2Vemc" title="Introducción a la inversión" frameborder="0" class="rounded-4 shadow" allowfullscreen></iframe>
+                        <iframe width="100%" height="220" src="https://www.youtube.com/embed/r2e-Nf2Vemc" title="Introducción a la inversión" frameborder="0" class="rounded-2" allowfullscreen></iframe>
                         <div class="mt-2 text-white-50 small">Curso Completo de Finanzas Personales — Adrián Saenz</div>
                     </div>
                 </div>
@@ -376,7 +345,7 @@
 
                         <div class="row g-3 mb-3">
                             <div class="col-md-4">
-                                <div class="card h-100 border-0 shadow-sm">
+                                <div class="card h-100 border">
                                     <div class="card-body text-center p-3">
                                         <i class="bi bi-piggy-bank fs-1 text-primary mb-2"></i>
                                         <h6 class="fw-bold">Plan de Ahorro Sistemático</h6>
@@ -388,7 +357,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="card h-100 border-0 shadow-sm">
+                                <div class="card h-100 border">
                                     <div class="card-body text-center p-3">
                                         <i class="bi bi-bank fs-1 text-success mb-2"></i>
                                         <h6 class="fw-bold">Letras del Tesoro</h6>
@@ -400,7 +369,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="card h-100 border-0 shadow-sm">
+                                <div class="card h-100 border">
                                     <div class="card-body text-center p-3">
                                         <i class="bi bi-coin fs-1 text-warning mb-2"></i>
                                         <h6 class="fw-bold">Fondos Indexados</h6>
@@ -522,7 +491,7 @@
                             <div class="col-md-6 col-lg-4">
                                 <div class="app-card">
                                     <div class="d-flex align-items-center gap-3 mb-2">
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width:44px;height:44px;"><i class="bi bi-bank"></i></div>
+                                        <div class="bg-primary text-white rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;"><i class="bi bi-bank"></i></div>
                                         <div>
                                             <h6 class="fw-bold mb-0">Trade Republic</h6>
                                             <small class="text-muted">Neobanco alemán</small>
@@ -533,13 +502,13 @@
                                         <span class="tag tag-green">Desde 1€</span>
                                         <span class="tag tag-blue">App sencilla</span>
                                     </div>
-                                    <a href="https://traderepublic.com/es-es" target="_blank" class="btn btn-outline-primary btn-sm w-100 rounded-pill">Visitar web</a>
+                                    <a href="https://traderepublic.com/es-es" target="_blank" class="btn btn-outline-primary btn-sm w-100">Visitar web</a>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div class="app-card">
                                     <div class="d-flex align-items-center gap-3 mb-2">
-                                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width:44px;height:44px;"><i class="bi bi-shield-check"></i></div>
+                                        <div class="bg-success text-white rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;"><i class="bi bi-shield-check"></i></div>
                                         <div>
                                             <h6 class="fw-bold mb-0">DEGIRO</h6>
                                             <small class="text-muted">Bróker holandés</small>
@@ -550,13 +519,13 @@
                                         <span class="tag tag-green">CNMV</span>
                                         <span class="tag tag-blue">50+ mercados</span>
                                     </div>
-                                    <a href="https://www.degiro.es" target="_blank" class="btn btn-outline-success btn-sm w-100 rounded-pill">Visitar web</a>
+                                    <a href="https://www.degiro.es" target="_blank" class="btn btn-outline-success btn-sm w-100">Visitar web</a>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div class="app-card">
                                     <div class="d-flex align-items-center gap-3 mb-2">
-                                        <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center" style="width:44px;height:44px;"><i class="bi bi-robot"></i></div>
+                                        <div class="bg-info text-white rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;"><i class="bi bi-robot"></i></div>
                                         <div>
                                             <h6 class="fw-bold mb-0">Indexa Capital</h6>
                                             <small class="text-muted">Robo-advisor español</small>
@@ -567,7 +536,7 @@
                                         <span class="tag tag-green">Automático</span>
                                         <span class="tag tag-blue">España</span>
                                     </div>
-                                    <a href="https://indexacapital.com" target="_blank" class="btn btn-outline-info btn-sm w-100 rounded-pill">Visitar web</a>
+                                    <a href="https://indexacapital.com" target="_blank" class="btn btn-outline-info btn-sm w-100">Visitar web</a>
                                 </div>
                             </div>
                         </div>
@@ -603,7 +572,7 @@
 
                         <div class="row g-3 mb-3">
                             <div class="col-md-6">
-                                <div class="card border-0 shadow-sm h-100">
+                                <div class="card border h-100">
                                     <div class="card-body">
                                         <h6 class="fw-bold text-success">Cartera Conservadora</h6>
                                         <p class="small text-muted mb-2">Para perfiles que prefieren no arriesgar:</p>
@@ -617,7 +586,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="card border-0 shadow-sm h-100">
+                                <div class="card border h-100">
                                     <div class="card-body">
                                         <h6 class="fw-bold text-primary">Cartera Moderada</h6>
                                         <p class="small text-muted mb-2">Equilibrio entre seguridad y crecimiento:</p>
@@ -694,7 +663,7 @@
         </div>
 
         {{-- RECURSOS GRATUITOS --}}
-        <div class="card shadow-sm border-0 p-4 mb-5">
+        <div class="card border p-4 mb-5">
             <h4 class="section-title">Recursos que Uso y Recomiendo</h4>
             <p class="text-muted mb-3">Estas son las webs y herramientas que consulto habitualmente. Todas gratuitas y de confianza.</p>
             <div class="row g-3">
@@ -790,7 +759,7 @@
 
         {{-- NAVEGACIÓN --}}
         <div class="d-flex justify-content-between align-items-center mt-4 pt-4 border-top">
-            <a href="/mis-planes" class="btn btn-outline-secondary rounded-pill px-4"><i class="bi bi-arrow-left me-2"></i>Volver a los planes</a>
+            <a href="/mis-planes" class="btn btn-outline-secondary px-4"><i class="bi bi-arrow-left me-2"></i>Volver a los planes</a>
             <div class="text-muted small">Pack 1 de 3 · <span class="text-success fw-bold">Desbloqueado</span></div>
         </div>
 
@@ -874,23 +843,20 @@
     title="Volver arriba"
     style="
         position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 44px;
-        height: 44px;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        border: none;
-        background: linear-gradient(135deg, #0369a1, #0ea5e9);
-        color: white;
-        font-size: 1.2rem;
-        box-shadow: 0 4px 12px rgba(3,105,161,0.35);
+        border: 1px solid #ccc;
+        background: white;
+        color: #333;
+        font-size: 1rem;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         cursor: pointer;
         display: none;
         z-index: 9999;
-        transition: all 0.3s ease;
-    "
-    onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 20px rgba(3,105,161,0.5)';"
-    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(3,105,161,0.35)';">
+    ">
     <i class="bi bi-arrow-up"></i>
 </button>
 
