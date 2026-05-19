@@ -104,5 +104,12 @@ class DonanteController extends Controller
             return $pdf->download('recibo-donacion-' . $donacion->id . '.pdf');
         }
 
+        public function misDonaciones()
+        {
+            $donaciones = Donante::where('usuario_id', auth()->id())->get();
+            $valoracion = Donante::$valoraciones ?? ['PR' => 'Premium', 'ES' => 'Estándar'];
+            return view('donantes.mis-donaciones', compact('donaciones', 'valoracion'));
+        }
+
 }
 

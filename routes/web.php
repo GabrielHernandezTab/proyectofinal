@@ -49,6 +49,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/progreso-curso', [\App\Http\Controllers\ProgresoCursoController::class, 'guardar'])->name('progreso.guardar');
     
     // Grupo auth general (cualquier usuario autenticado):
+    Route::get('/mis-donaciones', [DonanteController::class, 'misDonaciones'])->name('donaciones.mias');
     Route::get('/mi-donacion/{id}/recibo', [DonanteController::class, 'reciboPdf'])->name('donacion.recibo.pdf');
 });
 
