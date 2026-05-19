@@ -40,7 +40,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/mis-planes', [PlanController::class, 'index'])->name('usuarios.planes');
 
 
- // PLANES
+    // PLANES
     Route::get('mis-planes/basico',[PlanController::class, 'basico']);
     Route::get('mis-planes/avanzado',[PlanController::class, 'avanzado']);
     Route::get('mis-planes/supremo',[PlanController::class, 'supremo']);
@@ -48,6 +48,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // PROGRESO DE CURSOS
     Route::post('/progreso-curso', [\App\Http\Controllers\ProgresoCursoController::class, 'guardar'])->name('progreso.guardar');
     
+    // Grupo auth general (cualquier usuario autenticado):
+    Route::get('/mi-donacion/{id}/recibo', [DonanteController::class, 'reciboPdf'])->name('donacion.recibo.pdf');
 });
 
 /*
@@ -83,6 +85,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/administradores', [AdministradorController::class, 'index'])->name('administradores.index');
     Route::match(['get', 'post'], '/administrador/{oper}/{id?}', [AdministradorController::class, 'operacion']);
 
+    // INFORMES PDF
+    Route::get('/admin/usuarios/exportar-pdf', [UsuarioController::class, 'exportarPdf'])->name('usuarios.exportar.pdf');
+    Route::get('/donante/{id}/recibo-pdf', [DonanteController::class, 'reciboPdf'])->name('donante.recibo.pdf');
 });
    
 

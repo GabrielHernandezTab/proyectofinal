@@ -50,6 +50,10 @@
                                             <td>
                                                 <div class="btn-group shadow-sm">
                                                     <button onclick="cargarOperacion('{{ $donante->id }}', 'show')" class="btn btn-sm btn-outline-primary" title="Ver"><i class="bi bi-search"></i></button>
+                                                    {{-- BOTÓN RECIBO PDF --}}
+                                                    <a href="{{ route('donante.recibo.pdf', $donante->id) }}" class="btn btn-sm btn-outline-danger" title="Descargar Recibo PDF" target="_blank">
+                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                    </a>
                                                 </div>
                                             </td>
                                             <td>

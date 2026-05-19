@@ -6,6 +6,7 @@ use App\Models\Donante;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class DonanteController extends Controller
 {
@@ -85,6 +86,22 @@ class DonanteController extends Controller
         
             // EL USUARIO SIEMPRE VE LA VISTA COMPLETA (CREATE)
             return view('donantes.create', compact('donante', 'valoraciones', 'oper', 'disabled', 'datos'));
+        }
+
+        // Método para generar recibo PDF de una donación (acceso tanto para admin como para usuario normal)
+        public function reciboPdf($id)
+        {
+            $donacion = Donante::with('usuario')->findOrFail($id);
+            
+            // Seguridad: el usuario solo puede ver su propio recibo (admin puede ver todos)
+            if (!auth()->user()->hasRole('admin') && $donacion->usuario_id !== auth()->id()) {
+                abort(403);
+            }
+            
+            $valoraciones = Donante::$valoraciones;
+            $pdf = Pdf::loadView('pdf.recibo-donacion', compact('donacion', 'valoraciones'))
+                    ->setPaper('a4', 'portrait');
+            return $pdf->download('recibo-donacion-' . $donacion->id . '.pdf');
         }
 
 }

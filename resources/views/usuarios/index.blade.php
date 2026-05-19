@@ -11,6 +11,12 @@
 
     <div class="container pt-4">
         @role('admin')
+            {{-- BOTÓN EXPORTAR PDF --}}
+            <div class="d-flex justify-content-end mb-3">
+                <a href="{{ route('usuarios.exportar.pdf') }}" class="btn btn-danger">
+                    <i class="bi bi-file-earmark-pdf"></i> Exportar a PDF
+                </a>
+            </div>
             {{-- TABLA ORIGINAL CALCADA --}}
             <table class="table">
                 <thead>

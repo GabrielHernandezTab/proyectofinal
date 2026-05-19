@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; 
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UsuarioController extends Controller
 {
@@ -101,6 +102,15 @@ public function edit(Request $request, $id) {
         }
 
         return view('usuarios.create', compact('usuario', 'oper', 'disabled', 'datos'));
+    }
+
+    //Exportar listado de usuarios a PDF (solo para admin)
+    public function exportarPdf()
+    {
+        $usuarios = User::orderBy('nombre')->get();
+        $pdf = Pdf::loadView('pdf.usuarios-listado', compact('usuarios'))
+                ->setPaper('a4', 'portrait');
+        return $pdf->download('listado-usuarios-' . now()->format('Y-m-d') . '.pdf');
     }
     
 }
