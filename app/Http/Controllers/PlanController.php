@@ -25,7 +25,7 @@ class PlanController extends Controller
         $rolesPermitidos = ['Usuario Avanzado', 'Usuario Experto', 'admin'];
 
         if (!$user->hasAnyRole($rolesPermitidos)) {
-            abort(403, 'Todavía no tienes acceso al Pack Avanzado. Se desbloquea 2 semanas después de tu registro.');
+            return response()->view('errors.403-pack-avanzado', [], 200);
         }
 
         return view('cursos.avanzado'); 
@@ -38,7 +38,7 @@ class PlanController extends Controller
         $rolesPermitidos = ['Usuario Experto', 'admin'];
 
         if (!$user->hasAnyRole($rolesPermitidos)) {
-            abort(403, 'Todavía no tienes acceso al Pack Supremo. Se desbloquea 2 meses después de tu registro.');
+            return response()->view('errors.403-pack-supremo', [], 200);
         }
 
         return view('cursos.supremo'); 
