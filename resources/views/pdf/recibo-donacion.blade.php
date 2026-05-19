@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Recibo de Donación #{{ $donacion->id }}</title>
+    <title>Recibo de Donacion #{{ $donacion->id }}</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: DejaVu Sans, sans-serif;
             font-size: 13px;
             color: #1a1a2e;
             background: #ffffff;
         }
-
-        /* ── CABECERA ── */
         .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+            background: #1a1a2e;
             color: white;
-            padding: 30px 40px;
+            padding: 25px 35px;
             margin-bottom: 0;
         }
         .header-inner {
@@ -31,7 +28,7 @@
             width: 60%;
         }
         .header-logo h1 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 4px;
@@ -66,8 +63,6 @@
             font-size: 20px;
             font-weight: 700;
         }
-
-        /* ── FRANJA VERDE DE CONFIRMACIÓN ── */
         .confirm-bar {
             background: #38a169;
             color: white;
@@ -78,13 +73,9 @@
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-
-        /* ── CUERPO ── */
         .body {
-            padding: 35px 40px;
+            padding: 30px 35px;
         }
-
-        /* ── SECCIÓN DONANTE ── */
         .section-title {
             font-size: 10px;
             font-weight: 700;
@@ -95,11 +86,10 @@
             padding-bottom: 6px;
             margin-bottom: 14px;
         }
-
         .info-grid {
             display: table;
             width: 100%;
-            margin-bottom: 28px;
+            margin-bottom: 25px;
         }
         .info-col {
             display: table-cell;
@@ -108,7 +98,6 @@
             padding-right: 20px;
         }
         .info-col:last-child { padding-right: 0; }
-
         .info-item {
             margin-bottom: 12px;
         }
@@ -124,15 +113,13 @@
             font-weight: 600;
             color: #1a202c;
         }
-
-        /* ── CAJA IMPORTE ── */
         .amount-box {
             background: #f7fafc;
             border: 2px solid #e2e8f0;
             border-radius: 10px;
-            padding: 24px 30px;
+            padding: 20px 25px;
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 25px;
         }
         .amount-label {
             font-size: 11px;
@@ -142,20 +129,20 @@
             margin-bottom: 8px;
         }
         .amount-value {
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 700;
             color: #1a1a2e;
             line-height: 1;
         }
         .amount-value span {
-            font-size: 22px;
+            font-size: 20px;
             vertical-align: top;
             margin-top: 6px;
             display: inline-block;
             color: #4a5568;
         }
         .stars {
-            font-size: 20px;
+            font-size: 18px;
             color: #f6c90e;
             margin-top: 10px;
         }
@@ -164,12 +151,10 @@
             color: #718096;
             margin-top: 4px;
         }
-
-        /* ── TABLA DETALLES ── */
         .details-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 28px;
+            margin-bottom: 25px;
         }
         .details-table th {
             background: #1a1a2e;
@@ -177,11 +162,11 @@
             font-size: 10px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 10px 14px;
+            padding: 10px 12px;
             text-align: left;
         }
         .details-table td {
-            padding: 11px 14px;
+            padding: 10px 12px;
             font-size: 12px;
             border-bottom: 1px solid #e2e8f0;
         }
@@ -192,11 +177,9 @@
             text-align: right;
             font-weight: 600;
         }
-
-        /* ── PIE DE PÁGINA ── */
         .footer {
             border-top: 2px solid #e2e8f0;
-            padding-top: 18px;
+            padding-top: 15px;
             margin-top: 10px;
         }
         .footer-inner {
@@ -224,10 +207,10 @@
             display: inline-block;
             border: 2px solid #38a169;
             border-radius: 50%;
-            width: 54px;
-            height: 54px;
+            width: 50px;
+            height: 50px;
             text-align: center;
-            padding-top: 10px;
+            padding-top: 8px;
             margin-top: 6px;
         }
         .valid-seal span {
@@ -242,65 +225,62 @@
     </style>
 </head>
 <body>
-
-    {{-- CABECERA --}}
     <div class="header">
         <div class="header-inner">
             <div class="header-logo">
-                <h1>🌱 Tu Proyecto</h1>
-                <p>Certificado de Donación</p>
+                <h1>Gen Trading</h1>
+                <p>Certificado de Donacion</p>
             </div>
             <div class="header-badge">
                 <div class="badge-box">
-                    <div class="label">Recibo N.º</div>
+                    <div class="label">Recibo N.</div>
                     <div class="number">#{{ str_pad($donacion->id, 5, '0', STR_PAD_LEFT) }}</div>
                 </div>
             </div>
         </div>
     </div>
 
-    {{-- BARRA DE CONFIRMACIÓN --}}
-    <div class="confirm-bar">✔ Donación Confirmada y Procesada</div>
+    <div class="confirm-bar">Donacion Confirmada y Procesada</div>
 
     <div class="body">
-
-        {{-- DATOS DEL DONANTE --}}
         <div class="section-title">Datos del Donante</div>
         <div class="info-grid">
             <div class="info-col">
                 <div class="info-item">
                     <div class="field-label">Nombre completo</div>
-                    <div class="field-value">{{ $donacion->usuario->nombre }}</div>
+                    <div class="field-value">{{ $donacion->usuario->nombre ?? 'N/A' }}</div>
                 </div>
                 <div class="info-item">
-                    <div class="field-label">Correo electrónico</div>
-                    <div class="field-value">{{ $donacion->usuario->email }}</div>
+                    <div class="field-label">Correo electronico</div>
+                    <div class="field-value">{{ $donacion->usuario->email ?? 'N/A' }}</div>
                 </div>
             </div>
             <div class="info-col">
                 <div class="info-item">
                     <div class="field-label">Edad declarada</div>
-                    <div class="field-value">{{ $donacion->edad }} años</div>
+                    <div class="field-value">{{ $donacion->edad }} anos</div>
                 </div>
                 <div class="info-item">
-                    <div class="field-label">Fecha de donación</div>
+                    <div class="field-label">Fecha de donacion</div>
                     <div class="field-value">{{ $donacion->created_at->format('d/m/Y') }}</div>
                 </div>
             </div>
         </div>
 
-        {{-- IMPORTE DESTACADO --}}
         <div class="amount-box">
             <div class="amount-label">Importe Donado</div>
             <div class="amount-value">
-                <span>€</span>{{ number_format($donacion->importe, 2, ',', '.') }}
+                <span>EUR</span>{{ number_format($donacion->importe, 2, ',', '.') }}
             </div>
-            <div class="stars">{{ $valoraciones[$donacion->valoracion] ?? $donacion->valoracion }}</div>
-            <div class="stars-label">Valoración de la experiencia</div>
+            @php
+                $val = trim($donacion->valoracion ?? '');
+                $textoVal = isset($valoraciones[$val]) ? $valoraciones[$val] : $val;
+            @endphp
+            <div class="stars">{{ $textoVal }}</div>
+            <div class="stars-label">Valoracion de la experiencia</div>
         </div>
 
-        {{-- TABLA DE DETALLES --}}
-        <div class="section-title">Detalles de la Transacción</div>
+        <div class="section-title">Detalles de la Transaccion</div>
         <table class="details-table">
             <thead>
                 <tr>
@@ -312,7 +292,7 @@
             <tbody>
                 <tr>
                     <td>Referencia</td>
-                    <td>Donación voluntaria</td>
+                    <td>Donacion voluntaria</td>
                     <td class="td-right">#{{ str_pad($donacion->id, 5, '0', STR_PAD_LEFT) }}</td>
                 </tr>
                 <tr>
@@ -322,35 +302,33 @@
                 <tr>
                     <td>Importe</td>
                     <td>Euros (EUR)</td>
-                    <td class="td-right">{{ number_format($donacion->importe, 2, ',', '.') }} €</td>
+                    <td class="td-right">{{ number_format($donacion->importe, 2, ',', '.') }} EUR</td>
                 </tr>
                 <tr>
                     <td>Fecha</td>
                     <td>{{ $donacion->created_at->format('d/m/Y H:i') }}</td>
-                    <td class="td-right">—</td>
+                    <td class="td-right">-</td>
                 </tr>
             </tbody>
         </table>
 
-        {{-- PIE --}}
         <div class="footer">
             <div class="footer-inner">
                 <div class="footer-left">
-                    <p>Este documento es el justificante oficial de su donación.</p>
-                    <p style="margin-top:4px">Consérvelo para cualquier consulta futura.</p>
+                    <p>Este documento es el justificante oficial de su donacion.</p>
+                    <p style="margin-top:4px">Conserve para cualquier consulta futura.</p>
                     <p style="margin-top:8px; font-size:9px;">
-                        Documento generado automáticamente. No requiere firma.
+                        Documento generado automaticamente. No requiere firma.
                     </p>
                 </div>
                 <div class="footer-right">
-                    <div class="generated">Generado el {{ now()->format('d/m/Y \a \l\a\s H:i') }}</div>
+                    <div class="generated">Generado el {{ now()->format('d/m/Y') }}</div>
                     <div class="valid-seal">
-                        <span>VÁLIDO</span>
+                        <span>VALIDO</span>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 </html>
