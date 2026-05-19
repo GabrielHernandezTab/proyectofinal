@@ -22,8 +22,7 @@ class PlanController extends Controller
     {
         $user = Auth::user();
 
-        // Solo pueden entrar: Usuario Avanzado, Usuario Experto, Admin, Súper Admin
-        $rolesPermitidos = ['Usuario Avanzado', 'Usuario Experto', 'Admin', 'Súper Admin'];
+        $rolesPermitidos = ['Usuario Avanzado', 'Usuario Experto', 'admin'];
 
         if (!$user->hasAnyRole($rolesPermitidos)) {
             abort(403, 'Todavía no tienes acceso al Pack Avanzado. Se desbloquea 2 semanas después de tu registro.');
@@ -36,8 +35,7 @@ class PlanController extends Controller
     {
         $user = Auth::user();
 
-        // Solo pueden entrar: Usuario Experto, Admin, Súper Admin
-        $rolesPermitidos = ['Usuario Experto', 'Admin', 'Súper Admin'];
+        $rolesPermitidos = ['Usuario Experto', 'admin'];
 
         if (!$user->hasAnyRole($rolesPermitidos)) {
             abort(403, 'Todavía no tienes acceso al Pack Supremo. Se desbloquea 2 meses después de tu registro.');
