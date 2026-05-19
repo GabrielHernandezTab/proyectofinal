@@ -1,4 +1,4 @@
-{{-- resources/views/packs/supremo.blade.php --}}
+{{-- resources/views/cursos/supremo.blade.php --}}
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800">{{ __('Pack Supremo — Experiencia Élite') }}</h2>
@@ -8,190 +8,250 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
     <style>
-        :root { --primary: #dc2626; --secondary: #ea580c; --accent: #f59e0b; --dark: #7f1d1d; --gold: #d97706; }
-        .hero-supremo { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #7f1d1d 70%, #dc2626 100%); border-radius: 24px; padding: 4rem 2rem; color: white; margin-bottom: 3rem; position: relative; overflow: hidden; }
-        .hero-supremo::before { content: ''; position: absolute; top: -50%; right: -30%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(220,38,38,0.15) 0%, transparent 70%); }
-        .hero-supremo::after { content: ''; position: absolute; bottom: -30%; left: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(234,88,12,0.1) 0%, transparent 70%); }
-        .vip-badge { background: linear-gradient(90deg, #f59e0b, #ea580c, #dc2626); color: white; font-weight: 800; padding: 0.6rem 1.5rem; border-radius: 999px; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 4px 15px rgba(245,158,11,0.4); }
-        .stat-box { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 16px; padding: 1.25rem; text-align: center; border: 1px solid rgba(255,255,255,0.15); }
-        .stat-box .num { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .stat-box .label { font-size: 0.85rem; opacity: 0.85; }
-        .module-nav { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; margin-bottom: 2rem; }
-        .module-nav-btn { white-space: nowrap; padding: 0.75rem 1.25rem; border-radius: 12px; border: 2px solid #fee2e2; background: white; color: #dc2626; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-        .module-nav-btn.active, .module-nav-btn:hover { background: linear-gradient(135deg, #dc2626, #ea580c); color: white; border-color: #dc2626; }
-        .content-panel { display: none; animation: fadeIn 0.4s ease; }
-        .content-panel.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .elite-card { background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border-left: 5px solid #dc2626; margin-bottom: 1.5rem; }
-        .elite-card-gold { background: linear-gradient(135deg, #fffbeb, #fef3c7); border-radius: 20px; padding: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border: 2px solid #f59e0b; margin-bottom: 1.5rem; }
-        .tip-box { background: linear-gradient(135deg, #fef2f2, #fff1f2); border-left: 4px solid #dc2626; padding: 1.25rem 1.5rem; border-radius: 12px; margin: 1rem 0; }
-        .warning-box { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.25rem 1.5rem; border-radius: 12px; margin: 1rem 0; }
-        .success-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1.25rem 1.5rem; border-radius: 12px; margin: 1rem 0; }
-        .info-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.25rem 1.5rem; border-radius: 12px; margin: 1rem 0; }
-        .data-table { width: 100%; border-collapse: separate; border-spacing: 0; }
-        .data-table th { background: linear-gradient(135deg, #fef2f2, #fff1f2); padding: 1rem; text-align: left; font-weight: 700; color: #991b1b; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #fecaca; }
-        .data-table td { padding: 1rem; border-bottom: 1px solid #fee2e2; color: #334155; }
-        .data-table tr:hover td { background: #fef2f2; }
-        .tag { display: inline-block; padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; }
-        .tag-gold { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white; }
-        .tag-red { background: #fee2e2; color: #991b1b; }
-        .tag-green { background: #dcfce7; color: #166534; }
-        .tag-blue { background: #dbeafe; color: #1e40af; }
-        .tag-purple { background: #f3e8ff; color: #6b21a8; }
-        .resource-tile { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: linear-gradient(135deg, #fef2f2, #fff5f5); border-radius: 12px; text-decoration: none; color: #334155; transition: all 0.2s; border: 1px solid #fecaca; }
-        .resource-tile:hover { background: #fee2e2; color: #dc2626; border-color: #dc2626; transform: translateX(5px); }
-        .highlight-number { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #dc2626, #ea580c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
-        .signal-box { background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 16px; padding: 1.5rem; color: #e2e8f0; font-family: 'Courier New', monospace; border: 1px solid #334155; }
-        .signal-box .label { color: #94a3b8; font-size: 0.8rem; }
-        .signal-box .value { color: #22c55e; font-weight: 700; }
-        .signal-box .entry { color: #fbbf24; font-weight: 700; }
-        .signal-box .sl { color: #ef4444; font-weight: 700; }
-        .contact-box { background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81); border-radius: 20px; padding: 2.5rem; color: white; border: 1px solid rgba(245,158,11,0.3); }
-        .contact-method { background: rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; }
-        .contact-method:hover { background: rgba(255,255,255,0.12); border-color: rgba(245,158,11,0.5); }
-        .portfolio-item { background: white; border-radius: 12px; padding: 1rem; border: 1px solid #e2e8f0; margin-bottom: 0.75rem; transition: all 0.2s; }
-        .portfolio-item:hover { border-color: #dc2626; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .chart-placeholder { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: 12px; padding: 2rem; text-align: center; border: 2px dashed #cbd5e1; }
-        /* === ACORDEÓN CORREGIDO === */
-        .accordion-custom { border: none; background: none; }
-        .accordion-custom .accordion-item { 
-            border: none; 
-            margin-bottom: 0.75rem; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
-            background: white; 
+        body { font-family: Georgia, 'Times New Roman', serif; }
+
+        .hero-supremo {
+            background: #1a1a2e;
+            border-radius: 6px;
+            padding: 3rem 2rem;
+            color: white;
+            margin-bottom: 2.5rem;
+            border-left: 4px solid #c0392b;
         }
-        .accordion-custom .accordion-button { 
-            background: linear-gradient(135deg, #fef2f2, #fff5f5); 
-            padding: 1.25rem 1.5rem; 
-            font-weight: 700; 
-            color: #7f1d1d; 
-            border: none; 
-            width: 100%; 
+        .module-nav { display: flex; gap: 0.4rem; overflow-x: auto; padding-bottom: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .module-nav-btn {
+            white-space: nowrap;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            border: 1px solid #bbb;
+            background: #f8f8f8;
+            color: #333;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: Georgia, serif;
+            font-size: 0.9rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .module-nav-btn.active, .module-nav-btn:hover {
+            background: #c0392b;
+            color: white;
+            border-color: #c0392b;
+        }
+        .content-panel { display: none; }
+        .content-panel.active { display: block; }
+
+        .elite-card {
+            background: white;
+            border-radius: 4px;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-left: 3px solid #c0392b;
+            margin-bottom: 1.25rem;
+        }
+        .elite-card-gold {
+            background: #fffef5;
+            border-radius: 4px;
+            padding: 1.5rem;
+            border: 1px solid #e6c84a;
+            margin-bottom: 1.25rem;
+        }
+        .tip-box { background: #fdf8f8; border-left: 3px solid #c0392b; padding: 1rem 1.25rem; border-radius: 3px; margin: 0.75rem 0; }
+        .warning-box { background: #fffdf0; border-left: 3px solid #d4a017; padding: 1rem 1.25rem; border-radius: 3px; margin: 0.75rem 0; }
+        .success-box { background: #f5fdf7; border-left: 3px solid #2ecc71; padding: 1rem 1.25rem; border-radius: 3px; margin: 0.75rem 0; }
+        .info-box { background: #f5f9ff; border-left: 3px solid #3498db; padding: 1rem 1.25rem; border-radius: 3px; margin: 0.75rem 0; }
+
+        .data-table { width: 100%; border-collapse: collapse; }
+        .data-table th {
+            background: #f2f2f2;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: #333;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 2px solid #ccc;
+        }
+        .data-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #eee; color: #444; font-size: 0.93rem; }
+        .data-table tr:hover td { background: #fafafa; }
+
+        .tag { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: 0.78rem; font-weight: 600; }
+        .tag-red { background: #fde8e8; color: #8b1a1a; }
+        .tag-green { background: #e8f5ec; color: #1a6b35; }
+        .tag-blue { background: #e8f0fd; color: #1a3a8b; }
+        .tag-purple { background: #f0eafd; color: #4a1a8b; }
+        .tag-gold { background: #fdf5e0; color: #7a5a00; }
+
+        .resource-tile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: #fafafa;
+            border-radius: 3px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 0.5rem;
+            transition: background 0.15s;
+        }
+        .resource-tile:hover { background: #f0f0f0; color: #c0392b; }
+
+        .contact-box {
+            background: #1a1a2e;
+            border-radius: 4px;
+            padding: 2rem;
+            color: white;
+            border: 1px solid #333;
+        }
+        .contact-method {
+            background: rgba(255,255,255,0.07);
+            border-radius: 4px;
+            padding: 1.25rem;
+            margin-bottom: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .scenario-box {
+            background: #fafafa;
+            border-radius: 4px;
+            padding: 1.25rem;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 0.75rem;
+        }
+        .tool-card {
+            background: white;
+            border-radius: 4px;
+            padding: 1.25rem;
+            border: 1px solid #ddd;
+            margin-bottom: 0.75rem;
+            transition: border-color 0.2s;
+        }
+        .tool-card:hover { border-color: #c0392b; }
+
+        .optimization-card {
+            background: #f5fdf7;
+            border-radius: 4px;
+            padding: 1.25rem;
+            border: 1px solid #b2dfca;
+        }
+        .alert-vip {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212,160,23,0.4);
+            border-radius: 4px;
+            padding: 1rem;
+        }
+
+        .progress-timeline { position: relative; padding-left: 1.75rem; }
+        .progress-timeline::before { content: ''; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: #ccc; }
+        .progress-item { position: relative; margin-bottom: 1.25rem; font-size: 0.93rem; color: #444; }
+        .progress-item::before { content: ''; position: absolute; left: -1.6rem; top: 0.3rem; width: 12px; height: 12px; background: #c0392b; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px #c0392b; }
+
+        .mentor-avatar {
+            width: 70px; height: 70px; border-radius: 50%;
+            background: #c0392b;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.75rem; font-weight: 700;
+            border: 2px solid #e6c84a;
+        }
+
+        /* Acordeón */
+        .accordion-custom { border: none; background: none; }
+        .accordion-custom .accordion-item {
+            border: 1px solid #ddd;
+            margin-bottom: 0.5rem;
+            border-radius: 3px;
+            background: white;
+        }
+        .accordion-custom .accordion-button {
+            background: #f8f8f8;
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            color: #333;
+            border: none;
+            width: 100%;
             text-align: left;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: all 0.2s;
+            font-family: Georgia, serif;
+            font-size: 0.95rem;
+            transition: background 0.15s;
+        }
+        .accordion-custom .accordion-button:hover { background: #f0f0f0; }
+        .accordion-custom .accordion-button.active { background: #fdf0f0; color: #8b1a1a; }
+        .accordion-custom .accordion-button::after {
+            content: '\F282';
+            font-family: 'bootstrap-icons';
             font-size: 1rem;
-            border-radius: 12px;
-        }
-        .accordion-custom .accordion-button:hover { 
-            background: linear-gradient(135deg, #fee2e2, #fecaca); 
-            color: #991b1b; 
-        }
-        .accordion-custom .accordion-button.active { 
-            background: linear-gradient(135deg, #fee2e2, #fecaca); 
-            color: #991b1b; 
-            box-shadow: none; 
-            border-radius: 12px 12px 0 0;
-        }
-        .accordion-custom .accordion-button::after { 
-            content: '\F282'; 
-            font-family: 'bootstrap-icons'; 
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.25s;
             margin-left: auto;
         }
-        .accordion-custom .accordion-button.active::after { 
-            transform: rotate(180deg); 
-        }
-        .accordion-custom .accordion-body { 
-            background: white; 
-            padding: 1.5rem; 
+        .accordion-custom .accordion-button.active::after { transform: rotate(180deg); }
+        .accordion-custom .accordion-body {
+            background: white;
+            padding: 1.25rem;
             display: none;
-            border-top: 1px solid #f1f5f9;
-            border-radius: 0 0 12px 12px;
+            border-top: 1px solid #eee;
+            font-size: 0.93rem;
+            color: #444;
         }
-        .accordion-custom .accordion-body.show { 
-            display: block; 
-            animation: fadeInAccordion 0.3s ease; 
-        }
+        .accordion-custom .accordion-body.show { display: block; }
 
-        @keyframes fadeInAccordion {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .progress-ring { width: 120px; height: 120px; }
-        .mentor-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #ea580c); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 800; border: 3px solid #fbbf24; }
-        .weekly-schedule { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; }
-        .day-box { background: white; border-radius: 12px; padding: 1rem; text-align: center; border: 1px solid #e2e8f0; transition: all 0.2s; }
-        .day-box.active { background: linear-gradient(135deg, #fef2f2, #fee2e2); border-color: #dc2626; }
-        .day-box:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .metric-card { background: white; border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #dc2626; }
-        .metric-value { font-size: 2rem; font-weight: 800; color: #dc2626; }
-        .scenario-box { background: linear-gradient(135deg, #fafafa, #f8fafc); border-radius: 16px; padding: 1.5rem; border: 1px solid #e2e8f0; margin-bottom: 1rem; }
-        .tool-card { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; transition: all 0.3s; }
-        .tool-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); border-color: #dc2626; }
-        .comparison-bar { height: 10px; background: #f1f5f9; border-radius: 5px; overflow: hidden; margin-top: 0.5rem; }
-        .comparison-fill { height: 100%; border-radius: 5px; transition: width 1s ease; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-        .video-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s; }
-        .video-card:hover { transform: translateY(-5px); }
-        .video-thumb { position: relative; padding-top: 56.25%; background: #ddd; }
-        .video-thumb iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .video-info { padding: 1.25rem; }
-        .video-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .alert-vip { background: linear-gradient(135deg, #fef3c7, #fde68a); border: 1px solid #f59e0b; border-radius: 12px; padding: 1rem; }
-        .tax-table th { background: #fef2f2; }
-        .tax-table td { border-bottom: 1px solid #fee2e2; }
-        .optimization-card { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius: 16px; padding: 1.5rem; border: 1px solid #86efac; }
+        h3 { font-size: 1.3rem; }
+        h4 { font-size: 1.15rem; }
+        h5 { font-size: 1rem; }
+        h6 { font-size: 0.9rem; }
+        p, li { font-size: 0.93rem; }
     </style>
 
-    <div class="container py-5">
+    <div class="container py-4">
 
         {{-- HERO --}}
-                <div class="hero-supremo">
-            <div class="row align-items-center position-relative">
+        <div class="hero-supremo">
+            <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold mb-3">Pack Supremo</h1>
-                    <p class="lead mb-4 opacity-90">La experiencia definitiva en formación financiera. Mentoría personalizada 1:1 por videollamada semanal, análisis profundo de datos y planificación fiscal avanzada.</p>
+                    <h1 class="fw-bold mb-3" style="font-size:2rem;">Pack Supremo</h1>
+                    <p class="mb-3" style="opacity:0.85;">La experiencia definitiva en formación financiera. Mentoría personalizada 1:1 por videollamada semanal, análisis profundo de datos y planificación fiscal avanzada.</p>
                 </div>
                 <div class="col-lg-4 text-center mt-4 mt-lg-0">
-                    <div class="position-relative">
-                    <iframe width="100%" height="240" src="https://www.youtube.com/embed/PHe0bXAIuk0" title="Estrategias de inversores élite" frameborder="0" class="rounded-4 shadow-lg" allowfullscreen></iframe>                        <div class="mt-2 text-white-50 small"><i class="bi bi-play-circle me-1"></i> Introducción al Análisis Técnico</div>
-                    </div>
+                    <iframe width="100%" height="220" src="https://www.youtube.com/embed/PHe0bXAIuk0" title="Estrategias de inversores élite" frameborder="0" class="rounded shadow" allowfullscreen></iframe>
+                    <div class="mt-2 small" style="opacity:0.6;"><i class="bi bi-play-circle me-1"></i> Introducción al Análisis Técnico</div>
                 </div>
             </div>
         </div>
 
-        
         {{-- NAVEGACIÓN DE MÓDULOS --}}
         <div class="module-nav" id="moduleNav">
-
             <button class="module-nav-btn active" onclick="showModule(0)"><i class="bi bi-1-circle me-1"></i> Mentoría 1:1</button>
             <button class="module-nav-btn" onclick="showModule(1)"><i class="bi bi-2-circle me-1"></i> Informe Detallado</button>
             <button class="module-nav-btn" onclick="showModule(2)"><i class="bi bi-3-circle me-1"></i> Herramientas Élite</button>
             <button class="module-nav-btn" onclick="showModule(3)"><i class="bi bi-4-circle me-1"></i> Fiscalidad Avanzada</button>
         </div>
 
-
-        {{-- MÓDULO 1: CLASE PERSONALIZADA POR VIDEOCONFERENCIA SEMANAL --}}
-        <div class="content-panel" id="module-0">
-            <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-camera-video me-2"></i>Clase Personalizada por Videoconferencia Semanal</h3>
+        {{-- MÓDULO 1 --}}
+        <div class="content-panel active" id="module-0">
+            <h3 class="fw-bold mb-2" style="color:#8b1a1a;"><i class="bi bi-camera-video me-2"></i>Clase Personalizada por Videoconferencia Semanal</h3>
             <p class="text-muted mb-4">El corazón del Pack Supremo. Tu mentor dedicado revisa tu cartera, analiza tus operaciones y te guía personalmente cada semana.</p>
 
-            <div class="contact-box mb-5">
-                <h4 class="fw-bold mb-4"><i class="bi bi-stars me-2 text-warning"></i>Cómo Programar tu Sesión Semanal de Mentoría</h4>
-                <p class="text-white-50 mb-4">Las videollamadas semanales son sesiones individuales de <strong>60 minutos</strong> con tu mentor asignado. Revisión de cartera, análisis de trades y planificación personalizada.</p>
-                
+            <div class="contact-box mb-4">
+                <h4 class="fw-bold mb-3"><i class="bi bi-stars me-2 text-warning"></i>Cómo Programar tu Sesión Semanal de Mentoría</h4>
+                <p style="opacity:0.75;" class="mb-4">Las videollamadas semanales son sesiones individuales de <strong>60 minutos</strong> con tu mentor asignado. Revisión de cartera, análisis de trades y planificación personalizada.</p>
                 <div class="row g-3 mb-4">
                     <div class="col-md-6">
                         <div class="contact-method">
-                            <i class="bi bi-telephone-fill text-warning fs-2"></i>
-                            <div>
-                                <strong class="d-block mb-1 fs-5">Vía Telefónica / WhatsApp</strong>
-                                <p class="small mb-2 text-white-50">Llama o envía un mensaje para acordar horario:</p>
-                                <a href="tel:+34228455421" class="text-warning fw-bold text-decoration-none fs-4">+34 228 45 54 21</a>
-                                <p class="small text-white-50 mt-2"><i class="bi bi-clock me-1"></i> Lunes a Viernes · 9:00 - 18:00h (Canarias)</p>
+                            <i class="bi bi-telephone-fill text-warning fs-4"></i>
+                            <div class="mt-2">
+                                <strong class="d-block mb-1">Vía Telefónica / WhatsApp</strong>
+                                <p class="small mb-2" style="opacity:0.7;">Llama o envía un mensaje para acordar horario:</p>
+                                <a href="tel:+34228455421" class="text-warning fw-bold text-decoration-none fs-5">+34 228 45 54 21</a>
+                                <p class="small mt-2" style="opacity:0.6;"><i class="bi bi-clock me-1"></i> Lunes a Viernes · 9:00 - 18:00h (Canarias)</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="alert-vip" style="background: rgba(255,255,255,0.05); border-color: rgba(245,158,11,0.5);">
+                <div class="alert-vip">
                     <p class="small mb-0 text-white"><i class="bi bi-info-circle me-2 text-warning"></i><strong>En tu primer contacto indícanos:</strong> tu nombre completo, franja horaria preferida (mañana/tarde) y si prefieres Google Meet, Zoom o Microsoft Teams. Te confirmaremos la cita en menos de 24 horas.</p>
                 </div>
             </div>
@@ -206,7 +266,7 @@
                             </div>
                         </div>
                         <p class="text-muted small mb-3">Cada miembro del Pack Supremo tiene asignado un mentor con conocimientos en gestión de carteras y trading profesional.</p>
-                        <h6 class="fw-bold small mb-2">Qué hace tu mentor:</h6>
+                        <h6 class="fw-bold mb-2">Qué hace tu mentor:</h6>
                         <ul class="list-unstyled small">
                             <li class="mb-2"><i class="bi bi-check2-circle text-danger me-2"></i>Revisa tu cartera semanalmente posición por posición</li>
                             <li class="mb-2"><i class="bi bi-check2-circle text-danger me-2"></i>Analiza cada trade: entradas, salidas, gestión</li>
@@ -219,7 +279,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-calendar-check me-2"></i>Estructura de la Videollamada (60 min)</h5>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-calendar-check me-2"></i>Estructura de la Videollamada (60 min)</h5>
                         <div class="progress-timeline">
                             <div class="progress-item"><strong>0-10 min:</strong> Revisión de la semana anterior y estado emocional</div>
                             <div class="progress-item"><strong>10-25 min:</strong> Análisis detallado de cada posición abierta</div>
@@ -231,17 +291,15 @@
                 </div>
             </div>
 
-            <br>
-            <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-binoculars me-2"></i>Análisis Profundo de Datos e Información</h3>
+            <h3 class="fw-bold mb-2" style="color:#8b1a1a;"><i class="bi bi-binoculars me-2"></i>Análisis Profundo de Datos e Información</h3>
             <p class="text-muted mb-4">Datos institucionales, flujo de órdenes, correlaciones y análisis que el inversor no ve.</p>
 
             <div class="row g-4 mb-4">
                 <div class="col-md-6">
                     <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-building me-2"></i>Análisis Fundamental Profundo</h5>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-building me-2"></i>Análisis Fundamental Profundo</h5>
                         <p class="text-muted small mb-3">Más allá del PER. Análisis DCF completo, valoración por múltiplos y análisis de moats competitivos.</p>
-                        
-                        <h6 class="fw-bold small mb-2">Metodología DCF (Discounted Cash Flow):</h6>
+                        <h6 class="fw-bold mb-2">Metodología DCF (Discounted Cash Flow):</h6>
                         <div class="table-responsive mb-3">
                             <table class="data-table">
                                 <thead>
@@ -256,14 +314,13 @@
                                 </tbody>
                             </table>
                         </div>
-
                         <div class="success-box mb-0">
                             <h6 class="fw-bold small mb-2"><i class="bi bi-calculator me-2"></i>Caso Real: Valoración DCF de Microsoft (2026)</h6>
                             <div class="row g-2 text-center">
-                                <div class="col-6"><div class="bg-white rounded p-2 border"><div class="fw-bold text-primary">FCY 2025</div><div class="text-success fw-bold">75.000M$</div></div></div>
-                                <div class="col-6"><div class="bg-white rounded p-2 border"><div class="fw-bold text-primary">Crecimiento FCF</div><div class="text-success fw-bold">12% anual</div></div></div>
-                                <div class="col-6"><div class="bg-white rounded p-2 border"><div class="fw-bold text-primary">WACC estimado</div><div class="text-success fw-bold">8.5%</div></div></div>
-                                <div class="col-6"><div class="bg-white rounded p-2 border"><div class="fw-bold text-primary">Valor intrínseco</div><div class="text-success fw-bold">~485$/acción</div></div></div>
+                                <div class="col-6"><div class="bg-white rounded p-2 border"><div class="fw-bold">FCY 2025</div><div class="text-success fw-bold">75.000M$</div></div></div>
+                                <div class="col-6"><div class="bg-white rounded p-2 border"><div class="fw-bold">Crecimiento FCF</div><div class="text-success fw-bold">12% anual</div></div></div>
+                                <div class="col-6"><div class="bg-white rounded p-2 border"><div class="fw-bold">WACC estimado</div><div class="text-success fw-bold">8.5%</div></div></div>
+                                <div class="col-6"><div class="bg-white rounded p-2 border"><div class="fw-bold">Valor intrínseco</div><div class="text-success fw-bold">~485$/acción</div></div></div>
                             </div>
                             <small class="text-muted d-block mt-2"><i class="bi bi-info-circle me-1"></i> Precio de mercado actual: ~420$. Margen de seguridad del 15%.</small>
                         </div>
@@ -271,10 +328,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-activity me-2"></i>Smart Money Concepts (SMC)</h5>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-activity me-2"></i>Smart Money Concepts (SMC)</h5>
                         <p class="text-muted small mb-3">Entender cómo piensan y operan los fondos institucionales. Seguir sus huellas en el mercado.</p>
-
-                        <h6 class="fw-bold small mb-2">Conceptos Clave SMC:</h6>
+                        <h6 class="fw-bold mb-2">Conceptos Clave SMC:</h6>
                         <ul class="list-unstyled small mb-3">
                             <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i><strong>Order Blocks (OB):</strong> Zonas donde los institucionales acumularon posiciones</li>
                             <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i><strong>Fair Value Gaps (FVG):</strong> Ineficiencias de precio que el mercado tiende a cerrar</li>
@@ -283,7 +339,6 @@
                             <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i><strong>Break of Structure (BOS):</strong> Confirmación de cambio de tendencia</li>
                             <li class="mb-0"><i class="bi bi-check2 text-danger me-2"></i><strong>Change of Character (CHoCH):</strong> Primer signo de debilidad en tendencia</li>
                         </ul>
-
                         <div class="tip-box mb-0">
                             <h6 class="fw-bold small mb-2"><i class="bi bi-lightbulb me-2"></i>Ejemplo de Operativa SMC</h6>
                             <p class="small mb-0">El precio rompe al alza, deja un FVG en 1.0850-1.0860, luego retrocede a esa zona (donde los institucionales compraron), y desde allí continúa al alza. Entrada en el FVG, SL bajo el mínimo del retroceso.</p>
@@ -293,7 +348,7 @@
             </div>
 
             <div class="elite-card">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-globe me-2"></i>Correlaciones Macro y Análisis Intermercados</h5>
+                <h5 class="fw-bold mb-3"><i class="bi bi-globe me-2"></i>Correlaciones Macro y Análisis Intermercados</h5>
                 <div class="row g-3">
                     <div class="col-md-6">
                         <h6 class="fw-bold small mb-2">Correlaciones Clave a Vigilar:</h6>
@@ -322,7 +377,7 @@
                                 <p class="small text-muted mb-0"><strong>Estrategia:</strong> Overweight en cíclicos, subir beta de cartera</p>
                             </div>
                             <div class="mb-3">
-                                <span class="tag tag-orange mb-2 d-inline-block">PICO / DESACELERACIÓN</span>
+                                <span class="tag mb-2 d-inline-block" style="background:#fff3e0;color:#7a3a00;">PICO / DESACELERACIÓN</span>
                                 <p class="small text-muted mb-1"><strong>Sectores favorables:</strong> Salud, Consumo básico, Utilities</p>
                                 <p class="small text-muted mb-0"><strong>Estrategia:</strong> Rotación defensiva, reducir exposición a cíclicos</p>
                             </div>
@@ -342,67 +397,65 @@
             </div>
         </div>
 
-
-        {{-- MÓDULO 2: INFORME DETALLADO DEL PROCESO CADA MES --}}
+        {{-- MÓDULO 2 --}}
         <div class="content-panel" id="module-1">
-            <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-file-earmark-bar-graph me-2"></i>Informe Detallado del Proceso Cada Mes</h3>
+            <h3 class="fw-bold mb-2" style="color:#8b1a1a;"><i class="bi bi-file-earmark-bar-graph me-2"></i>Informe Detallado del Proceso Cada Mes</h3>
             <p class="text-muted mb-4">Documento profesional mensual con tu evolución completa: rendimiento, operaciones, lecciones aprendidas y objetivos para el mes siguiente.</p>
 
             <div class="elite-card mb-4">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-file-text me-2"></i>Estructura del Informe Mensual (8-12 páginas)</h5>
+                <h5 class="fw-bold mb-3"><i class="bi bi-file-text me-2"></i>Estructura del Informe Mensual (8-12 páginas)</h5>
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="scenario-box">
-                            <h6 class="fw-bold text-primary mb-2"><span class="badge bg-danger me-2">1</span>Resumen Ejecutivo</h6>
+                            <h6 class="fw-bold mb-2"><span class="badge bg-danger me-2">1</span>Resumen Ejecutivo</h6>
                             <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-dot text-muted me-2"></i>Rentabilidad mensual y acumulada</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Comparativa (S&P 500, MSCI World)</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Principales contribuyentes y detractores</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Rentabilidad mensual y acumulada</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Comparativa (S&P 500, MSCI World)</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Principales contribuyentes y detractores</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="scenario-box">
-                            <h6 class="fw-bold text-primary mb-2"><span class="badge bg-danger me-2">2</span>Análisis de Operaciones</h6>
+                            <h6 class="fw-bold mb-2"><span class="badge bg-danger me-2">2</span>Análisis de Operaciones</h6>
                             <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-dot text-muted me-2"></i>Número de trades: ganadores vs perdedores</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Ratio R/R medio alcanzado</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Errores recurrentes identificados</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Número de trades: ganadores vs perdedores</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Ratio R/R medio alcanzado</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Errores recurrentes identificados</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="scenario-box">
-                            <h6 class="fw-bold text-primary mb-2"><span class="badge bg-danger me-2">3</span>Evolución de Cartera</h6>
+                            <h6 class="fw-bold mb-2"><span class="badge bg-danger me-2">3</span>Evolución de Cartera</h6>
                             <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-dot text-muted me-2"></i>Gráfico del mes</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Cambios en composición (rebalanceos)</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Exposición por sectores</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Gráfico del mes</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Cambios en composición (rebalanceos)</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Exposición por sectores</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="scenario-box">
-                            <h6 class="fw-bold text-primary mb-2"><span class="badge bg-danger me-2">4</span>Plan del Mes Siguiente</h6>
+                            <h6 class="fw-bold mb-2"><span class="badge bg-danger me-2">4</span>Plan del Mes Siguiente</h6>
                             <ul class="list-unstyled small mb-0">
-                                <li><i class="bi bi-dot text-muted me-2"></i>Objetivo de rentabilidad realista</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Estrategias prioritarias</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Áreas de mejora concretas</li>
-                                <li><i class="bi bi-dot text-muted me-2"></i>Eventos macro a vigilar</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Objetivo de rentabilidad realista</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Estrategias prioritarias</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Áreas de mejora concretas</li>
+                                <li><i class="bi bi-dot text-muted me-1"></i>Eventos macro a vigilar</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <br>
-            <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-briefcase me-2"></i>Gestión y Optimización de Portafolio Profesional</h3>
+
+            <h3 class="fw-bold mb-2" style="color:#8b1a1a;"><i class="bi bi-briefcase me-2"></i>Gestión y Optimización de Portafolio Profesional</h3>
             <p class="text-muted mb-4">Técnicas de gestión de riesgo usadas por fondos de inversión. Rebalanceo, cobertura, diversificación inteligente y optimización de frontera eficiente.</p>
 
             <div class="row g-4 mb-4">
                 <div class="col-md-6">
                     <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-shield-lock me-2"></i>Gestión de Riesgo Profesional</h5>
-                        
+                        <h5 class="fw-bold mb-3"><i class="bi bi-shield-lock me-2"></i>Gestión de Riesgo Profesional</h5>
                         <h6 class="fw-bold small mb-2">Reglas Inquebrantables:</h6>
                         <div class="scenario-box">
                             <div class="d-flex align-items-start gap-2 mb-2">
@@ -427,7 +480,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <h6 class="fw-bold small mb-2 mt-3">Cálculo de Tamaño de Posición:</h6>
                         <div class="bg-light rounded p-3">
                             <p class="small text-muted mb-2"><strong>Fórmula:</strong> Tamaño = (Capital × Riesgo%) / (Entrada - Stop Loss)</p>
@@ -437,10 +489,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-arrow-repeat me-2"></i>Rebalanceo de Cartera</h5>
-                        <p class="text-muted small mb-3">Mantener las ponderaciones objetivo mediante venta de lo que sube y compra de lo que baja. Compra barato, vende caro de forma sistemática.</p>
-
-                        <h6 class="fw-bold small mb-2">Cartera Modelo y Rebalanceo:</h6>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-arrow-repeat me-2"></i>Rebalanceo de Cartera</h5>
+                        <p class="text-muted small mb-3">Mantener las ponderaciones objetivo mediante venta de lo que sube y compra de lo que baja.</p>
                         <div class="table-responsive mb-3">
                             <table class="data-table">
                                 <thead>
@@ -455,7 +505,6 @@
                                 </tbody>
                             </table>
                         </div>
-
                         <div class="tip-box mb-0">
                             <h6 class="fw-bold small mb-2"><i class="bi bi-calendar me-2"></i>Frecuencia de Rebalanceo</h6>
                             <p class="small mb-0"><strong>Trimestral:</strong> Para carteras de buy & hold. <strong>Mensual:</strong> Para carteras más activas. <strong>Por umbrales:</strong> Cuando un activo se desvía >5% de su objetivo. <strong>Nunca rebalancear en días de pánico.</strong></p>
@@ -465,7 +514,7 @@
             </div>
 
             <div class="elite-card">
-                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-shield-check me-2"></i>Cobertura de Cartera (Hedging)</h5>
+                <h5 class="fw-bold mb-3"><i class="bi bi-shield-check me-2"></i>Cobertura de Cartera (Hedging)</h5>
                 <div class="row g-3">
                     <div class="col-md-6">
                         <h6 class="fw-bold small mb-2">Métodos de Cobertura:</h6>
@@ -480,172 +529,150 @@
                             <p class="small text-muted mb-0"><strong>Oro y bonos:</strong> Tradicionalmente correlacionados negativamente con equities en crisis.</p>
                         </div>
                     </div>
-            </div>
-              </div>
-            {{-- ============================================================
-     ELEMENTO INTERACTIVO 4: CONSTRUCTOR DE CARTERA
-     Insertar al FINAL del módulo "Gestión Portafolio" (module-6)
-     justo antes del </div> que cierra ese content-panel
-     ============================================================ --}}
- 
-<div class="elite-card mt-4" style="border-left: 5px solid #f59e0b;">
-    <h5 class="fw-bold mb-2" style="color:#991b1b;">
-        <i class="bi bi-pie-chart-fill me-2"></i>Constructor de Cartera — Interactivo
-    </h5>
-    <p class="text-muted small mb-4">Distribuye tu capital entre activos con los sliders y ve en tiempo real las métricas estimadas de tu cartera.</p>
- 
-    <div class="row g-3 mb-4">
-        <div class="col-md-6">
-            <label class="small fw-bold mb-1" style="color:#991b1b;">Capital total a invertir (€)</label>
-            <input type="number" id="cart-capital" class="form-control" value="50000" min="1000" step="1000" oninput="actualizarCartera()">
-        </div>
-        <div class="col-md-6">
-            <div class="p-3 rounded" style="background:#fef2f2;border:1px solid #fecaca;">
-                <div class="small fw-bold mb-1" style="color:#991b1b;">Total asignado: <span id="cart-total-pct">100%</span></div>
-                <div class="progress" style="height:8px;">
-                    <div id="cart-barra" class="progress-bar" style="width:100%;background:#dc2626;"></div>
-                </div>
-                <small id="cart-aviso" class="text-muted">Ajusta los sliders para distribuir tu cartera</small>
-            </div>
-        </div>
-    </div>
- 
-    <div class="row g-3 mb-4">
-        @php
-        $activos = [
-            ['id'=>'etf-global','nombre'=>'ETFs Globales (MSCI World)','color'=>'#3b82f6','rent'=>8,'riesgo'=>40,'val'=>40],
-            ['id'=>'acciones','nombre'=>'Acciones individuales','color'=>'#8b5cf6','rent'=>12,'riesgo'=>75,'val'=>20],
-            ['id'=>'bonos','nombre'=>'Bonos corporativos','color'=>'#22c55e','rent'=>4,'riesgo'=>20,'val'=>15],
-            ['id'=>'oro','nombre'=>'Oro (ETF)','color'=>'#f59e0b','rent'=>5,'riesgo'=>30,'val'=>10],
-            ['id'=>'cripto','nombre'=>'Criptomonedas (máx 10%)','color'=>'#ef4444','rent'=>20,'riesgo'=>90,'val'=>5],
-            ['id'=>'liquidez','nombre'=>'Liquidez / Reserva','color'=>'#6b7280','rent'=>2,'riesgo'=>0,'val'=>10],
-        ];
-        @endphp
-        @foreach($activos as $a)
-        <div class="col-md-6">
-            <div class="p-3 rounded border" style="border-color:{{ $a['color'] }}33 !important;">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                    <label class="small fw-bold" style="color:{{ $a['color'] }}">
-                        <i class="bi bi-circle-fill me-1" style="font-size:8px;color:{{ $a['color'] }}"></i>{{ $a['nombre'] }}
-                    </label>
-                    <span class="badge fw-bold" style="background:{{ $a['color'] }}" id="{{ $a['id'] }}-pct">{{ $a['val'] }}%</span>
-                </div>
-                <input type="range" id="{{ $a['id'] }}" min="0" max="100" step="5" value="{{ $a['val'] }}"
-                    class="form-range" style="accent-color:{{ $a['color'] }}" oninput="actualizarCartera()"
-                    data-rent="{{ $a['rent'] }}" data-riesgo="{{ $a['riesgo'] }}">
-                <div class="d-flex justify-content-between">
-                    <small class="text-muted">Rent. estimada: ~{{ $a['rent'] }}%</small>
-                    <small class="text-muted" id="{{ $a['id'] }}-euros">—</small>
                 </div>
             </div>
-        </div>
-        @endforeach
-    </div>
- 
-    <div class="row g-3" id="cart-metricas">
-        <div class="col-md-3">
-            <div class="p-3 bg-white rounded border text-center">
-                <div class="small text-muted mb-1">Rentabilidad estimada</div>
-                <div class="fs-4 fw-bold text-success" id="cart-rent">—</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-3 bg-white rounded border text-center">
-                <div class="small text-muted mb-1">Riesgo estimado</div>
-                <div class="fs-4 fw-bold" id="cart-riesgo" style="color:#dc2626">—</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-3 bg-white rounded border text-center">
-                <div class="small text-muted mb-1">Ganancia anual est.</div>
-                <div class="fs-4 fw-bold text-primary" id="cart-ganancia-anual">—</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-3 rounded text-center" style="background:linear-gradient(135deg,#fef2f2,#fff5f5);">
-                <div class="small text-muted mb-1">Perfil resultante</div>
-                <div class="fs-6 fw-bold" id="cart-perfil" style="color:#991b1b;">—</div>
-            </div>
-        </div>
-    </div>
-    <div class="mt-3 p-2 rounded text-center" style="background:rgba(220,38,38,0.06)">
-        <small class="text-muted"><i class="bi bi-info-circle me-1"></i>Estimaciones orientativas basadas en rentabilidades históricas. Las inversiones conllevan riesgo.</small>
-    </div>
-</div>
- 
-    <script>
-    function actualizarCartera() {
-        const ids = ['etf-global','acciones','bonos','oro','cripto','liquidez'];
-        const capital = parseFloat(document.getElementById('cart-capital').value) || 0;
-        let total = 0, rentPonderada = 0, riesgoPonderado = 0;
-    
-        ids.forEach(id => {
-            const el = document.getElementById(id);
-            const v = parseFloat(el.value);
-            const rent = parseFloat(el.dataset.rent);
-            const riesgo = parseFloat(el.dataset.riesgo);
-            total += v;
-            rentPonderada += (v / 100) * rent;
-            riesgoPonderado += (v / 100) * riesgo;
-            document.getElementById(id + '-pct').textContent = v + '%';
-            document.getElementById(id + '-euros').textContent = (capital * v / 100).toLocaleString('es-ES') + '€';
-        });
-    
-        const barra = document.getElementById('cart-barra');
-        const aviso = document.getElementById('cart-aviso');
-        document.getElementById('cart-total-pct').textContent = total + '%';
-    
-        if (total > 100) { barra.style.background = '#ef4444'; aviso.textContent = '⚠️ Has superado el 100%. Reduce algún activo.'; aviso.style.color = '#ef4444'; }
-        else if (total < 100) { barra.style.background = '#f59e0b'; aviso.textContent = `Tienes un ${100 - total}% sin asignar.`; aviso.style.color = '#f59e0b'; }
-        else { barra.style.background = '#22c55e'; aviso.textContent = '✅ Cartera al 100%. ¡Perfecto!'; aviso.style.color = '#22c55e'; }
-        barra.style.width = Math.min(total, 100) + '%';
-    
-        const fmt = v => v.toLocaleString('es-ES', {minimumFractionDigits: 1, maximumFractionDigits: 1});
-        document.getElementById('cart-rent').textContent = fmt(rentPonderada) + '%';
-        document.getElementById('cart-riesgo').textContent = fmt(riesgoPonderado) + '/100';
-        document.getElementById('cart-ganancia-anual').textContent = (capital * rentPonderada / 100).toLocaleString('es-ES', {maximumFractionDigits: 0}) + '€';
-    
-        let perfil = riesgoPonderado < 25 ? '🛡️ Conservador' : riesgoPonderado < 50 ? '⚖️ Moderado' : riesgoPonderado < 70 ? '⚡ Agresivo' : '🔥 Muy Agresivo';
-        document.getElementById('cart-perfil').textContent = perfil;
-    }
-    actualizarCartera();
-    </script>
-    
- 
 
+            {{-- CONSTRUCTOR DE CARTERA --}}
+            <div class="elite-card mt-4" style="border-left: 3px solid #d4a017;">
+                <h5 class="fw-bold mb-2" style="color:#7a5a00;"><i class="bi bi-pie-chart-fill me-2"></i>Constructor de Cartera — Interactivo</h5>
+                <p class="text-muted small mb-4">Distribuye tu capital entre activos con los sliders y ve en tiempo real las métricas estimadas de tu cartera.</p>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label class="small fw-bold mb-1">Capital total a invertir (€)</label>
+                        <input type="number" id="cart-capital" class="form-control" value="50000" min="1000" step="1000" oninput="actualizarCartera()">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 rounded" style="background:#fafafa;border:1px solid #ddd;">
+                            <div class="small fw-bold mb-1">Total asignado: <span id="cart-total-pct">100%</span></div>
+                            <div class="progress" style="height:6px;">
+                                <div id="cart-barra" class="progress-bar" style="width:100%;background:#c0392b;"></div>
+                            </div>
+                            <small id="cart-aviso" class="text-muted">Ajusta los sliders para distribuir tu cartera</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    @php
+                    $activos = [
+                        ['id'=>'etf-global','nombre'=>'ETFs Globales (MSCI World)','color'=>'#3b82f6','rent'=>8,'riesgo'=>40,'val'=>40],
+                        ['id'=>'acciones','nombre'=>'Acciones individuales','color'=>'#8b5cf6','rent'=>12,'riesgo'=>75,'val'=>20],
+                        ['id'=>'bonos','nombre'=>'Bonos corporativos','color'=>'#22c55e','rent'=>4,'riesgo'=>20,'val'=>15],
+                        ['id'=>'oro','nombre'=>'Oro (ETF)','color'=>'#d4a017','rent'=>5,'riesgo'=>30,'val'=>10],
+                        ['id'=>'cripto','nombre'=>'Criptomonedas (máx 10%)','color'=>'#c0392b','rent'=>20,'riesgo'=>90,'val'=>5],
+                        ['id'=>'liquidez','nombre'=>'Liquidez / Reserva','color'=>'#6b7280','rent'=>2,'riesgo'=>0,'val'=>10],
+                    ];
+                    @endphp
+                    @foreach($activos as $a)
+                    <div class="col-md-6">
+                        <div class="p-3 rounded border">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label class="small fw-bold" style="color:{{ $a['color'] }}">{{ $a['nombre'] }}</label>
+                                <span class="badge fw-bold" style="background:{{ $a['color'] }}" id="{{ $a['id'] }}-pct">{{ $a['val'] }}%</span>
+                            </div>
+                            <input type="range" id="{{ $a['id'] }}" min="0" max="100" step="5" value="{{ $a['val'] }}"
+                                class="form-range" style="accent-color:{{ $a['color'] }}" oninput="actualizarCartera()"
+                                data-rent="{{ $a['rent'] }}" data-riesgo="{{ $a['riesgo'] }}">
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">Rent. estimada: ~{{ $a['rent'] }}%</small>
+                                <small class="text-muted" id="{{ $a['id'] }}-euros">—</small>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white rounded border text-center">
+                            <div class="small text-muted mb-1">Rentabilidad estimada</div>
+                            <div class="fs-5 fw-bold text-success" id="cart-rent">—</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white rounded border text-center">
+                            <div class="small text-muted mb-1">Riesgo estimado</div>
+                            <div class="fs-5 fw-bold text-danger" id="cart-riesgo">—</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white rounded border text-center">
+                            <div class="small text-muted mb-1">Ganancia anual est.</div>
+                            <div class="fs-5 fw-bold" id="cart-ganancia-anual">—</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-light rounded border text-center">
+                            <div class="small text-muted mb-1">Perfil resultante</div>
+                            <div class="fs-6 fw-bold" id="cart-perfil">—</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <small class="text-muted"><i class="bi bi-info-circle me-1"></i>Estimaciones orientativas basadas en rentabilidades históricas. Las inversiones conllevan riesgo.</small>
+                </div>
+            </div>
+
+            <script>
+            function actualizarCartera() {
+                const ids = ['etf-global','acciones','bonos','oro','cripto','liquidez'];
+                const capital = parseFloat(document.getElementById('cart-capital').value) || 0;
+                let total = 0, rentPonderada = 0, riesgoPonderado = 0;
+                ids.forEach(id => {
+                    const el = document.getElementById(id);
+                    const v = parseFloat(el.value);
+                    const rent = parseFloat(el.dataset.rent);
+                    const riesgo = parseFloat(el.dataset.riesgo);
+                    total += v;
+                    rentPonderada += (v / 100) * rent;
+                    riesgoPonderado += (v / 100) * riesgo;
+                    document.getElementById(id + '-pct').textContent = v + '%';
+                    document.getElementById(id + '-euros').textContent = (capital * v / 100).toLocaleString('es-ES') + '€';
+                });
+                const barra = document.getElementById('cart-barra');
+                const aviso = document.getElementById('cart-aviso');
+                document.getElementById('cart-total-pct').textContent = total + '%';
+                if (total > 100) { barra.style.background = '#c0392b'; aviso.textContent = '⚠️ Has superado el 100%. Reduce algún activo.'; aviso.style.color = '#c0392b'; }
+                else if (total < 100) { barra.style.background = '#d4a017'; aviso.textContent = `Tienes un ${100 - total}% sin asignar.`; aviso.style.color = '#d4a017'; }
+                else { barra.style.background = '#27ae60'; aviso.textContent = '✅ Cartera al 100%. ¡Perfecto!'; aviso.style.color = '#27ae60'; }
+                barra.style.width = Math.min(total, 100) + '%';
+                const fmt = v => v.toLocaleString('es-ES', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+                document.getElementById('cart-rent').textContent = fmt(rentPonderada) + '%';
+                document.getElementById('cart-riesgo').textContent = fmt(riesgoPonderado) + '/100';
+                document.getElementById('cart-ganancia-anual').textContent = (capital * rentPonderada / 100).toLocaleString('es-ES', {maximumFractionDigits: 0}) + '€';
+                let perfil = riesgoPonderado < 25 ? '🛡️ Conservador' : riesgoPonderado < 50 ? '⚖️ Moderado' : riesgoPonderado < 70 ? '⚡ Agresivo' : '🔥 Muy Agresivo';
+                document.getElementById('cart-perfil').textContent = perfil;
+            }
+            actualizarCartera();
+            </script>
         </div>
 
-
-
-        {{-- MÓDULO 3: HERRAMIENTAS AVANZADAS DE TOMA DE DECISIONES --}}
+        {{-- MÓDULO 3 --}}
         <div class="content-panel" id="module-2">
-            <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-tools me-2"></i>Herramientas Avanzadas de Toma de Decisiones</h3>
+            <h3 class="fw-bold mb-2" style="color:#8b1a1a;"><i class="bi bi-tools me-2"></i>Herramientas Avanzadas de Toma de Decisiones</h3>
             <p class="text-muted mb-4">Software, plataformas y recursos institucionales que usan los profesionales. Acceso a datos que el inversor retail no tiene.</p>
 
             <div class="row g-3 mb-4">
                 <div class="col-md-4">
                     <div class="tool-card h-100">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-bar-chart-line fs-4"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-0">TradingView Premium</h6>
-                            </div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="bg-primary text-white rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;"><i class="bi bi-bar-chart-line"></i></div>
+                            <h6 class="fw-bold mb-0">TradingView Premium</h6>
                         </div>
                         <p class="small text-muted mb-2">La plataforma de gráficos profesional más completa. Alertas ilimitadas, 25 indicadores por gráfico, data export, Pine Script.</p>
                         <ul class="list-unstyled small mb-0">
                             <li><i class="bi bi-check2 text-success me-2"></i>8 gráficos en pantalla</li>
                             <li><i class="bi bi-check2 text-success me-2"></i>Alertas ilimitadas</li>
-¡                            <li><i class="bi bi-check2 text-success me-2"></i>Volume profile avanzado</li>
+                            <li><i class="bi bi-check2 text-success me-2"></i>Volume profile avanzado</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="tool-card h-100">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-bank fs-4"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Koyfin / Simply Wall St</h6>
-                            </div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="bg-success text-white rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;"><i class="bi bi-bank"></i></div>
+                            <h6 class="fw-bold mb-0">Koyfin / Simply Wall St</h6>
                         </div>
                         <p class="small text-muted mb-2">Análisis fundamental profesional. Ratios, comparativas sectoriales, DCF automático, visualizaciones de datos.</p>
                         <ul class="list-unstyled small mb-0">
@@ -657,11 +684,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="tool-card h-100">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-pie-chart fs-4"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Portfolio Visualizer</h6>
-                            </div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="bg-warning text-white rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;"><i class="bi bi-pie-chart"></i></div>
+                            <h6 class="fw-bold mb-0">Portfolio Visualizer</h6>
                         </div>
                         <p class="small text-muted mb-2">Backtesting y optimización de carteras con datos históricos desde 1972. Análisis de factor, Monte Carlo, eficiencia.</p>
                         <ul class="list-unstyled small mb-0">
@@ -673,11 +698,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="tool-card h-100">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-newspaper fs-4"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Bloomberg / Refinitiv</h6>
-                            </div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="bg-info text-white rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;"><i class="bi bi-newspaper"></i></div>
+                            <h6 class="fw-bold mb-0">Bloomberg / Refinitiv</h6>
                         </div>
                         <p class="small text-muted mb-2">Terminal Bloomberg y Refinitiv Eikon con descuento para miembros. Datos en tiempo real, noticias, análisis de analistas.</p>
                         <ul class="list-unstyled small mb-0">
@@ -689,11 +712,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="tool-card h-100">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-graph-up-arrow fs-4"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Unusual Whales</h6>
-                            </div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="bg-danger text-white rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;"><i class="bi bi-graph-up-arrow"></i></div>
+                            <h6 class="fw-bold mb-0">Unusual Whales</h6>
                         </div>
                         <p class="small text-muted mb-2">Seguimiento del flujo de opciones inusuales. Detecta movimientos institucionales antes de que ocurran.</p>
                         <ul class="list-unstyled small mb-0">
@@ -705,11 +726,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="tool-card h-100">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;"><i class="bi bi-robot fs-4"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-0">APIs y Algo-Trading</h6>
-                            </div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="bg-secondary text-white rounded d-flex align-items-center justify-content-center" style="width:40px;height:40px;"><i class="bi bi-robot"></i></div>
+                            <h6 class="fw-bold mb-0">APIs y Algo-Trading</h6>
                         </div>
                         <p class="small text-muted mb-2">Acceso a APIs de Interactive Brokers y Alpaca para automatizar estrategias. Código Python incluido.</p>
                         <ul class="list-unstyled small mb-0">
@@ -722,31 +741,29 @@
             </div>
         </div>
 
-        {{-- MÓDULO 4: FISCALIDAD AVANZADA Y PLANIFICACIÓN FISCAL --}}
+        {{-- MÓDULO 4 --}}
         <div class="content-panel" id="module-3">
-            <h3 class="fw-bold mb-2" style="color:#991b1b;"><i class="bi bi-calculator me-2"></i>Fiscalidad Avanzada y Planificación Fiscal</h3>
+            <h3 class="fw-bold mb-2" style="color:#8b1a1a;"><i class="bi bi-calculator me-2"></i>Fiscalidad Avanzada y Planificación Fiscal</h3>
             <p class="text-muted mb-4">Estrategias legales para minimizar la carga fiscal. Tax-loss harvesting, vehículos eficientes, planificación patrimonial y estructuración internacional.</p>
 
             <div class="alert alert-warning d-flex align-items-center mb-4">
-                <i class="bi bi-exclamation-triangle-fill me-3 fs-4"></i>
+                <i class="bi bi-exclamation-triangle-fill me-3 fs-5"></i>
                 <div><strong>Aviso legal:</strong> La información es orientativa y de carácter educativo. La fiscalidad puede cambiar. <strong>Consulta siempre con un asesor fiscal</strong> para tu situación particular.</div>
             </div>
 
             <div class="row g-4 mb-4">
                 <div class="col-md-6">
                     <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-scissors me-2"></i>Tax-Loss Harvesting Avanzado</h5>
-                        <p class="text-muted small mb-3">Vender activos con pérdidas para compensar ganancias y reducir la factura fiscal de forma legal. Estrategia usada por todos los fondos de inversión.</p>
-
+                        <h5 class="fw-bold mb-3"><i class="bi bi-scissors me-2"></i>Tax-Loss Harvesting Avanzado</h5>
+                        <p class="text-muted small mb-3">Vender activos con pérdidas para compensar ganancias y reducir la factura fiscal de forma legal.</p>
                         <h6 class="fw-bold small mb-2">Estrategia Paso a Paso:</h6>
                         <div class="progress-timeline mb-3">
                             <div class="progress-item"><strong>Paso 1:</strong> Identificar posiciones con pérdidas no realizadas al final del año fiscal</div>
                             <div class="progress-item"><strong>Paso 2:</strong> Vender las posiciones en pérdida (realizar la pérdida)</div>
-                            <div class="progress-item"><strong>Paso 3:</strong> Esperar 2 meses (para evitar la "compra venta" en España) o comprar activo similar pero no idéntico</div>
+                            <div class="progress-item"><strong>Paso 3:</strong> Esperar 2 meses o comprar activo similar pero no idéntico</div>
                             <div class="progress-item"><strong>Paso 4:</strong> La pérdida compensa ganancias del mismo año o los 4 siguientes</div>
                             <div class="progress-item"><strong>Paso 5:</strong> Reinvertir el ahorro fiscal en nuevas posiciones</div>
                         </div>
-
                         <div class="optimization-card mb-0">
                             <h6 class="fw-bold small mb-2"><i class="bi bi-lightbulb me-2"></i>Caso Real: Tax-Loss Harvesting</h6>
                             <p class="small text-muted mb-2"><strong>Situación:</strong> Ganancias de 15.000€ en 2026. Tienes acciones de Tesla con -5.000€ de pérdida no realizada.</p>
@@ -758,39 +775,20 @@
                 </div>
                 <div class="col-md-6">
                     <div class="elite-card h-100">
-                        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-building me-2"></i>Vehículos de Inversión Eficientes Fiscalmente</h5>
-
-                        <h6 class="fw-bold small mb-2">Comparativa de Vehículos:</h6>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-building me-2"></i>Vehículos de Inversión Eficientes Fiscalmente</h5>
                         <div class="table-responsive mb-3">
                             <table class="data-table">
                                 <thead>
                                     <tr><th>Vehículo</th><th>Ventaja fiscal</th><th>Inconveniente</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><strong>Fondos de inversión</strong></td>
-                                        <td><span class="tag tag-green">Traspaso sin tributar</span></td>
-                                        <td>Comisiones más altas que ETFs</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>ETFs</strong></td>
-                                        <td><span class="tag tag-green">Comisiones bajas</span></td>
-                                        <td>Traspaso entre ETFs sí tributa</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Plan de pensiones</strong></td>
-                                        <td><span class="tag tag-green">Deducción IRPF</span></td>
-                                        <td>Liquidez restringida hasta jubilación</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Cuenta Naranja/Depósito</strong></td>
-                                        <td><span class="tag tag-orange">Sin ventaja</span></td>
-                                        <td>Tributan como rendimientos del capital</td>
-                                    </tr>
+                                    <tr><td><strong>Fondos de inversión</strong></td><td><span class="tag tag-green">Traspaso sin tributar</span></td><td>Comisiones más altas que ETFs</td></tr>
+                                    <tr><td><strong>ETFs</strong></td><td><span class="tag tag-green">Comisiones bajas</span></td><td>Traspaso entre ETFs sí tributa</td></tr>
+                                    <tr><td><strong>Plan de pensiones</strong></td><td><span class="tag tag-green">Deducción IRPF</span></td><td>Liquidez restringida hasta jubilación</td></tr>
+                                    <tr><td><strong>Cuenta/Depósito</strong></td><td><span class="tag" style="background:#fff3e0;color:#7a3a00;">Sin ventaja</span></td><td>Tributan como rendimientos del capital</td></tr>
                                 </tbody>
                             </table>
                         </div>
-
                         <div class="tip-box mb-0">
                             <h6 class="fw-bold small mb-2"><i class="bi bi-lightbulb me-2"></i>Estrategia: Fondos vs ETFs para Buy & Hold</h6>
                             <p class="small text-muted mb-0">Si planeas hacer aportaciones mensuales y rebalancear trimestralmente, los <strong>fondos de inversión</strong> son más eficientes fiscalmente porque los traspasos no tributan. Si compras y mantienes sin tocar, los <strong>ETFs</strong> son más baratos en comisiones.</p>
@@ -800,7 +798,7 @@
             </div>
 
             <div class="elite-card-gold">
-                <h5 class="fw-bold mb-3"><i class="bi bi-receipt-cutoff me-2 text-warning"></i>Guía Práctica: Declaración de la Renta con Inversiones</h5>
+                <h5 class="fw-bold mb-3"><i class="bi bi-receipt-cutoff me-2"></i>Guía Práctica: Declaración de la Renta con Inversiones</h5>
                 <div class="row g-3">
                     <div class="col-md-6">
                         <h6 class="fw-bold small mb-2">Casillas Principales (Modelo 100):</h6>
@@ -829,350 +827,227 @@
                         </div>
                     </div>
                 </div>
-            </div>    
-        </div>
-
-
-
-        {{-- RECURSOS ÉLITE --}}
-        <div class="mt-5 pt-4 border-top border-2" style="border-color: #fecaca !important;">
-            <div class="text-center mb-4">
-                <span class="badge px-4 py-2 fs-6 fw-bold" style="background-color: #fef2f2; color: #991b1b; border-radius: 999px; letter-spacing: 0.05em;">
-                    <i class="bi bi-bookmark-star me-2"></i>MATERIAL COMPLEMENTARIO
-                </span>
             </div>
         </div>
-        <div class="card shadow border-0 p-4 mb-5">
-            <h4 class="fw-bold mb-4" style="color:#991b1b;"><i class="bi bi-bookmarks me-2"></i>Recursos Exclusivos Pack Supremo</h4>                <i class="bi bi-bookmarks me-2"></i>Recursos Exclusivos Pack Supremo</h4>
-            <div class="row g-3">
+
+        {{-- RECURSOS --}}
+        <div class="mt-5 pt-4 border-top">
+            <h5 class="fw-bold mb-3" style="color:#8b1a1a;"><i class="bi bi-bookmarks me-2"></i>Recursos Exclusivos Pack Supremo</h5>
+            <div class="row g-2">
                 <div class="col-md-6">
-                    <a href="https://www.bloomberg.com/markets" target="_blank" class="resource-tile">
-                        <i class="bi bi-globe2 fs-5 text-danger"></i>
-                        <div>
-                            <strong>Bloomberg Markets</strong>
-                            <small class="d-block text-muted">La fuente de datos financieros más importante del mundo. Noticias en tiempo real.</small>
-                        </div>
-                    </a>
-                    <a href="https://fred.stlouisfed.org" target="_blank" class="resource-tile">
-                        <i class="bi bi-bank fs-5 text-primary"></i>
-                        <div>
-                            <strong>FRED — Federal Reserve Economic Data</strong>
-                            <small class="d-block text-muted">Datos macroeconómicos oficiales de la Fed. 800.000+ series temporales.</small>
-                        </div>
-                    </a>
-                    <a href="https://www.sec.gov/cgi-bin/browse-edgar" target="_blank" class="resource-tile">
-                        <i class="bi bi-file-earmark-text fs-5 text-success"></i>
-                        <div>
-                            <strong>SEC EDGAR — Informes de Empresas</strong>
-                            <small class="d-block text-muted">Balances y cuentas reales de cualquier empresa cotizada en USA.</small>
-                        </div>
-                    </a>
-                    <a href="https://www.koyfin.com" target="_blank" class="resource-tile">
-                        <i class="bi bi-bar-chart-line fs-5 text-info"></i>
-                        <div>
-                            <strong>Koyfin — Análisis Fundamental</strong>
-                            <small class="d-block text-muted">Análisis de ratios financieros y comparación de empresas cotizadas.</small>
-                        </div>
-                    </a>
+                    <a href="https://www.bloomberg.com/markets" target="_blank" class="resource-tile"><i class="bi bi-globe2 text-danger"></i><div><strong>Bloomberg Markets</strong><small class="d-block text-muted">La fuente de datos financieros más importante del mundo.</small></div></a>
+                    <a href="https://fred.stlouisfed.org" target="_blank" class="resource-tile"><i class="bi bi-bank text-primary"></i><div><strong>FRED — Federal Reserve Economic Data</strong><small class="d-block text-muted">Datos macroeconómicos oficiales de la Fed. 800.000+ series temporales.</small></div></a>
+                    <a href="https://www.sec.gov/cgi-bin/browse-edgar" target="_blank" class="resource-tile"><i class="bi bi-file-earmark-text text-success"></i><div><strong>SEC EDGAR — Informes de Empresas</strong><small class="d-block text-muted">Balances y cuentas reales de cualquier empresa cotizada en USA.</small></div></a>
+                    <a href="https://www.koyfin.com" target="_blank" class="resource-tile"><i class="bi bi-bar-chart-line text-info"></i><div><strong>Koyfin — Análisis Fundamental</strong><small class="d-block text-muted">Análisis de ratios financieros y comparación de empresas cotizadas.</small></div></a>
                 </div>
                 <div class="col-md-6">
-                    <a href="https://simplywall.st" target="_blank" class="resource-tile">
-                        <i class="bi bi-graph-up-arrow fs-5 text-warning"></i>
-                        <div>
-                            <strong>Simply Wall St</strong>
-                            <small class="d-block text-muted">Visualización gráfica del análisis fundamental de cualquier empresa.</small>
-                        </div>
-                    </a>
-                    <a href="https://www.portfoliovisualizer.com" target="_blank" class="resource-tile">
-                        <i class="bi bi-pie-chart fs-5 text-danger"></i>
-                        <div>
-                            <strong>Portfolio Visualizer</strong>
-                            <small class="d-block text-muted">Backtesting y optimización de carteras con datos históricos reales.</small>
-                        </div>
-                    </a>
-                    <a href="https://unusualwhales.com" target="_blank" class="resource-tile">
-                        <i class="bi bi-activity fs-5 text-purple"></i>
-                        <div>
-                            <strong>Unusual Whales</strong>
-                            <small class="d-block text-muted">Seguimiento del flujo de opciones y movimientos institucionales.</small>
-                        </div>
-                    </a>
-                    <a href="https://www.agenciatributaria.gob.es" target="_blank" class="resource-tile">
-                        <i class="bi bi-calculator fs-5 text-primary"></i>
-                        <div>
-                            <strong>Agencia Tributaria (AEAT)</strong>
-                            <small class="d-block text-muted">Información oficial sobre fiscalidad de inversiones en España.</small>
-                        </div>
-                    </a>
+                    <a href="https://simplywall.st" target="_blank" class="resource-tile"><i class="bi bi-graph-up-arrow text-warning"></i><div><strong>Simply Wall St</strong><small class="d-block text-muted">Visualización gráfica del análisis fundamental de cualquier empresa.</small></div></a>
+                    <a href="https://www.portfoliovisualizer.com" target="_blank" class="resource-tile"><i class="bi bi-pie-chart text-danger"></i><div><strong>Portfolio Visualizer</strong><small class="d-block text-muted">Backtesting y optimización de carteras con datos históricos reales.</small></div></a>
+                    <a href="https://unusualwhales.com" target="_blank" class="resource-tile"><i class="bi bi-activity text-secondary"></i><div><strong>Unusual Whales</strong><small class="d-block text-muted">Seguimiento del flujo de opciones y movimientos institucionales.</small></div></a>
+                    <a href="https://www.agenciatributaria.gob.es" target="_blank" class="resource-tile"><i class="bi bi-calculator text-primary"></i><div><strong>Agencia Tributaria (AEAT)</strong><small class="d-block text-muted">Información oficial sobre fiscalidad de inversiones en España.</small></div></a>
                 </div>
             </div>
         </div>
 
         {{-- FAQ --}}
-        <div class="mb-5">
-            <div class="text-center mb-4">
-                <span class="badge px-4 py-2 fs-6 fw-bold" style="background-color: #fef2f2; color: #991b1b; border-radius: 999px; letter-spacing: 0.05em;">
-                    <i class="bi bi-question-diamond me-2"></i>PREGUNTAS FRECUENTES
-                </span>
-            </div>
-            <h4 class="fw-bold mb-4" style="color:#991b1b;">
-                <i class="bi bi-question-circle me-2"></i>Preguntas Frecuentes del Pack Supremo            </h4>
+        <div class="mt-5 mb-4">
+            <h5 class="fw-bold mb-3" style="color:#8b1a1a;"><i class="bi bi-question-circle me-2"></i>Preguntas Frecuentes del Pack Supremo</h5>
             <div class="accordion-custom" id="faqAccordion">
                 <div class="accordion-item">
-                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
-                        ¿Cuándo se desbloquea el Pack Supremo?
-                    </button>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">¿Cuándo se desbloquea el Pack Supremo?</button>
                     <div class="accordion-body">
                         <p>El Pack Supremo se desbloquea automáticamente <strong>2 meses después</strong> de tu registro en GeN Trading. No requiere pago ni acción adicional.</p>
-                        <div class="tip-box mb-0">
-                            <strong>Recomendación:</strong> Aprovecha estos 2 meses para dominar el Pack Avanzado. El Supremo asume conocimientos sólidos de análisis técnico, gestión de riesgo y fiscalidad básica.
-                        </div>
+                        <div class="tip-box mb-0"><strong>Recomendación:</strong> Aprovecha estos 2 meses para dominar el Pack Avanzado. El Supremo asume conocimientos sólidos de análisis técnico, gestión de riesgo y fiscalidad básica.</div>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
-                        ¿La mentoría 1:1 es real con una persona?
-                    </button>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">¿La mentoría 1:1 es real con una persona?</button>
                     <div class="accordion-body">
                         <p><strong>Sí.</strong> Cada miembro del Pack Supremo tiene asignado un mentor real.</p>
                         <p class="mb-0">Las sesiones son por videollamada (Google Meet, Zoom o Teams a tu elección), duran 60 minutos y son semanales. Puedes contactar a tu mentor por email/WhatsApp entre sesiones para dudas urgentes.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
-                        ¿Tengo que pagar algo por el Pack Supremo?
-                    </button>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">¿Tengo que pagar algo por el Pack Supremo?</button>
                     <div class="accordion-body">
                         <p class="mb-0"><strong>Absolutamente no.</strong> Todos los packs de GeN Trading son <strong>100% gratuitos</strong> para usuarios registrados. Tu única inversión es tu tiempo, dedicación y disciplina.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
-                        ¿Puedo saltarme el Pack Avanzado e ir directo al Supremo?
-                    </button>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">¿Puedo saltarme el Pack Avanzado e ir directo al Supremo?</button>
                     <div class="accordion-body">
                         <p>No. Los packs se desbloquean secuencialmente por tiempo, no por elección. Esto garantiza que todos los miembros del Pack Supremo tengan una base sólida.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">
-                        ¿Qué pasa si no puedo asistir a la videollamada semanal?
-                    </button>
+                    <button class="accordion-button" type="button" onclick="toggleAccordion(this)">¿Qué pasa si no puedo asistir a la videollamada semanal?</button>
                     <div class="accordion-body">
                         <p>Si no puedes asistir a tu sesión programada, avisa con <strong>mínimo 24 horas de antelación</strong> por email o WhatsApp. Reprogramamos para la siguiente semana sin problema.</p>
                         <p class="mb-0">Si faltas sin avisar, la sesión se considera consumida.</p>
                     </div>
                 </div>
             </div>
-            {{-- ============================================================
-     TEST DEL PACK SUPREMO
-     Insertar DESPUÉS de la navegación final del pack
-     (justo antes del </div> que cierra el container principal)
-     ============================================================ --}}
- 
-<div class="mt-5 pt-4" style="border-top: 3px solid #dc2626;">
-    <div class="text-center mb-4">
-        <span class="badge px-4 py-2 fs-6 fw-bold" style="background:linear-gradient(135deg,#dc2626,#ea580c);color:white;border-radius:999px;">
-            <i class="bi bi-patch-question me-2"></i>TEST DE NIVEL ÉLITE — PACK SUPREMO
-        </span>
-        <p class="text-muted small mt-2">Preguntas de nivel experto sobre análisis avanzado, gestión de cartera y fiscalidad. 10 preguntas · Feedback por respuesta.</p>
-    </div>
- 
-    <div id="test-supremo-container" class="card shadow border-0 p-4" style="border-top:4px solid #dc2626 !important;">
-        <div id="test-sup-pregunta"></div>
-        <div id="test-sup-opciones" class="row g-2 mt-3"></div>
-        <div id="test-sup-feedback" class="mt-3" style="display:none;"></div>
-        <div id="test-sup-nav" class="d-flex justify-content-between align-items-center mt-4">
-            <small class="text-muted" id="test-sup-progreso">Pregunta 1 de 10</small>
-            <button id="test-sup-siguiente" class="btn btn-sm rounded-pill px-4 text-white" style="background:linear-gradient(135deg,#dc2626,#ea580c);display:none;" onclick="siguientePreguntaSup()">Siguiente →</button>
         </div>
-        <div id="test-sup-resultado" style="display:none;" class="text-center p-4"></div>
-    </div>
-</div>
- 
-    <script>
-    const preguntasSupremo = [
-        { p: '¿Qué es un "Order Block" (OB) en Smart Money Concepts?', ops: ['Una orden de compra pendiente','Zona donde los institucionales acumularon posiciones y el precio tiende a reaccionar','Un tipo de bróker institucional','El volumen máximo del día'], r: 1, exp: 'Un Order Block es la última vela bajista antes de un movimiento alcista fuerte (o viceversa). Representa dónde los institucionales tomaron posición y el precio tiende a volver a esa zona.' },
-        { p: '¿Cómo se calcula el Ratio de Sharpe?', ops: ['Rentabilidad / Volatilidad','(Rentabilidad - Tasa libre de riesgo) / Desviación estándar','Beneficio neto / Capital invertido','Ganancia total / Número de operaciones'], r: 1, exp: 'El Ratio de Sharpe mide la rentabilidad ajustada al riesgo. Un ratio >1 es bueno, >2 es excelente. Permite comparar estrategias con diferente nivel de riesgo.' },
-        { p: '¿Qué significa "Tax-Loss Harvesting"?', ops: ['Invertir en activos con ventajas fiscales','Vender activos con pérdidas para compensar ganancias y reducir el IRPF','Usar cuentas offshore para evitar impuestos','Diferir el pago de impuestos hasta la jubilación'], r: 1, exp: 'El Tax-Loss Harvesting consiste en vender posiciones con pérdidas para compensar las ganancias del año, reduciendo la base imponible de forma legal.' },
-        { p: '¿Qué correlación tiene históricamente el Dólar (DXY) con el Oro?', ops: ['Correlación positiva fuerte (suben juntos)','Sin correlación','Correlación negativa (cuando el dólar sube, el oro baja)','Correlación positiva débil'], r: 2, exp: 'El oro y el dólar tienen correlación negativa históricamente. Cuando el dólar se fortalece, el oro en dólares se encarece para compradores internacionales, reduciendo la demanda.' },
-        { p: '¿Qué es el WACC en el análisis DCF?', ops: ['Indicador técnico de sobrecompra','Coste Medio Ponderado de Capital — la tasa de descuento en valoración de empresas','Método de contabilidad de inventarios','Ratio de liquidez corriente'], r: 1, exp: 'El WACC (Weighted Average Cost of Capital) es la tasa mínima de rentabilidad que debe generar una empresa para crear valor. Se usa como tasa de descuento en el modelo DCF.' },
-        { p: '¿Qué indica un "Fair Value Gap" (FVG)?', ops: ['Que la acción está infravalorada fundamentalmente','Una ineficiencia de precio que el mercado tiende a rellenar','El precio justo según análisis fundamental','Un gap entre el precio y su media móvil de 200 sesiones'], r: 1, exp: 'Un FVG es un gap de precio entre tres velas donde la segunda tiene un movimiento tan fuerte que deja un espacio sin negociar. El mercado tiende a volver a rellenar esas ineficiencias.' },
-        { p: '¿Cuándo se debe declarar el Modelo 720 en España?', ops: ['Cuando tienes ganancias superiores a 50.000€','Cuando tienes bienes o cuentas en el extranjero que superen 50.000€ en total','Siempre que tengas cuentas en brókers extranjeros','Solo si tienes propiedades en el extranjero'], r: 1, exp: 'El Modelo 720 debe presentarse cuando el valor agregado de cuentas, valores o inmuebles en el extranjero supera los 50.000€. Plazo: 1-31 de marzo. La sanción por no declarar puede ser de 5.000€ por dato.' },
-        { p: '¿Qué es el "Profit Factor" en una estrategia de trading?', ops: ['El porcentaje de operaciones ganadoras','Beneficio bruto total / Pérdida bruta total','Rentabilidad anual de la estrategia','El ratio R/R medio de todas las operaciones'], r: 1, exp: 'El Profit Factor es el cociente entre el beneficio bruto total y la pérdida bruta total. Un Profit Factor >1.5 indica una estrategia rentable; >2 es muy bueno.' },
-        { p: 'En la estrategia "Iron Condor" de opciones, ¿cuándo se gana?', ops: ['Cuando el activo sube mucho','Cuando el activo baja mucho','Cuando el precio se mantiene dentro de un rango definido','Cuando la volatilidad aumenta significativamente'], r: 2, exp: 'Se gana si el precio permanece dentro de los strikes vendidos al vencimiento. Es ideal para mercados laterales con baja volatilidad.' },
-        { p: '¿Qué indica una Beta de 0.7 en una acción?', ops: ['La acción es un 30% más volátil que el mercado','La acción se mueve un 70% de lo que se mueve el mercado (menos volátil)','La acción tiene una correlación del 70% con el mercado','La acción perderá un 30% si el mercado baja'], r: 1, exp: 'La Beta mide la sensibilidad de un activo respecto al mercado. Beta 0.7 significa que si el mercado sube o baja un 10%, la acción tiende a moverse un 7%. Es un activo defensivo.' }
-    ];
-    
-    let testSupIndex = 0, testSupAciertos = 0, testSupRespondida = false;
-    
-    function renderPreguntaSup() {
-        const p = preguntasSupremo[testSupIndex];
-        document.getElementById('test-sup-pregunta').innerHTML = `<h5 class="fw-bold" style="color:#991b1b;">${testSupIndex + 1}. ${p.p}</h5>`;
-        document.getElementById('test-sup-opciones').innerHTML = p.ops.map((op, i) =>
-            `<div class="col-md-6"><button class="btn w-100 text-start p-3 rounded-3" style="border:2px solid #fecaca;background:white;" onclick="responderSup(${i})">${op}</button></div>`
-        ).join('');
-        document.getElementById('test-sup-feedback').style.display = 'none';
-        document.getElementById('test-sup-siguiente').style.display = 'none';
-        document.getElementById('test-sup-progreso').textContent = `Pregunta ${testSupIndex + 1} de ${preguntasSupremo.length}`;
-        testSupRespondida = false;
-    }
-    
-    function responderSup(idx) {
-        if (testSupRespondida) return;
-        testSupRespondida = true;
-        const p = preguntasSupremo[testSupIndex];
-        const correcta = idx === p.r;
-        if (correcta) testSupAciertos++;
-    
-        const btns = document.querySelectorAll('#test-sup-opciones button');
-        btns.forEach((b, i) => {
-            b.disabled = true;
-            if (i === p.r) { b.style.background = '#dcfce7'; b.style.borderColor = '#22c55e'; b.style.color = '#166534'; }
-            if (i === idx && !correcta) { b.style.background = '#fee2e2'; b.style.borderColor = '#ef4444'; b.style.color = '#991b1b'; }
-        });
-    
-        document.getElementById('test-sup-feedback').style.display = 'block';
-        document.getElementById('test-sup-feedback').innerHTML = `
-            <div class="p-3 rounded-3 ${correcta ? 'bg-success bg-opacity-10 border border-success' : 'bg-danger bg-opacity-10 border border-danger'}">
-                <strong>${correcta ? '✅ ¡Correcto!' : '❌ Incorrecto'}</strong>
-                <p class="small mb-0 mt-1">${p.exp}</p>
-            </div>`;
-        document.getElementById('test-sup-siguiente').style.display = 'inline-block';
-        document.getElementById('test-sup-siguiente').textContent = testSupIndex < preguntasSupremo.length - 1 ? 'Siguiente →' : 'Ver resultado';
-    }
-    
-    function siguientePreguntaSup() {
-        testSupIndex++;
-        if (testSupIndex >= preguntasSupremo.length) {
-            const pct = Math.round((testSupAciertos / preguntasSupremo.length) * 100);
-            const color = pct >= 70 ? '#22c55e' : pct >= 50 ? '#f59e0b' : '#ef4444';
-            const msg = pct >= 80 ? '¡Nivel élite confirmado! Dominas los conceptos del Pack Supremo.' : pct >= 60 ? 'Buen nivel. Repasa los módulos de los temas fallados.' : 'Te recomendamos repasar con más detenimiento antes de continuar.';
-            ['test-sup-pregunta','test-sup-opciones','test-sup-feedback','test-sup-nav'].forEach(id => document.getElementById(id).style.display = 'none');
-            document.getElementById('test-sup-resultado').style.display = 'block';
-            document.getElementById('test-sup-resultado').innerHTML = `
-                <div class="display-4 fw-bold mb-2" style="color:${color}">${pct}%</div>
-                <div class="fs-5 fw-bold mb-2">${testSupAciertos} / ${preguntasSupremo.length} correctas</div>
-                <p class="text-muted">${msg}</p>
-                <button class="btn rounded-pill px-4 text-white mt-2" style="background:linear-gradient(135deg,#dc2626,#ea580c);" onclick="reiniciarTestSup()">Repetir test</button>`;
-        } else {
+
+        {{-- TEST --}}
+        <div class="mt-4 pt-4 border-top">
+            <h5 class="fw-bold mb-1" style="color:#8b1a1a;"><i class="bi bi-patch-question me-2"></i>Test de Nivel Élite — Pack Supremo</h5>
+            <p class="text-muted small mb-4">Preguntas de nivel experto sobre análisis avanzado, gestión de cartera y fiscalidad. 10 preguntas · Feedback por respuesta.</p>
+
+            <div id="test-supremo-container" class="border rounded p-4 bg-white">
+                <div id="test-sup-pregunta"></div>
+                <div id="test-sup-opciones" class="row g-2 mt-3"></div>
+                <div id="test-sup-feedback" class="mt-3" style="display:none;"></div>
+                <div id="test-sup-nav" class="d-flex justify-content-between align-items-center mt-4">
+                    <small class="text-muted" id="test-sup-progreso">Pregunta 1 de 10</small>
+                    <button id="test-sup-siguiente" class="btn btn-sm btn-danger rounded px-4" style="display:none;" onclick="siguientePreguntaSup()">Siguiente →</button>
+                </div>
+                <div id="test-sup-resultado" style="display:none;" class="text-center p-4"></div>
+            </div>
+        </div>
+
+        <script>
+        const preguntasSupremo = [
+            { p: '¿Qué es un "Order Block" (OB) en Smart Money Concepts?', ops: ['Una orden de compra pendiente','Zona donde los institucionales acumularon posiciones y el precio tiende a reaccionar','Un tipo de bróker institucional','El volumen máximo del día'], r: 1, exp: 'Un Order Block es la última vela bajista antes de un movimiento alcista fuerte (o viceversa). Representa dónde los institucionales tomaron posición y el precio tiende a volver a esa zona.' },
+            { p: '¿Cómo se calcula el Ratio de Sharpe?', ops: ['Rentabilidad / Volatilidad','(Rentabilidad - Tasa libre de riesgo) / Desviación estándar','Beneficio neto / Capital invertido','Ganancia total / Número de operaciones'], r: 1, exp: 'El Ratio de Sharpe mide la rentabilidad ajustada al riesgo. Un ratio >1 es bueno, >2 es excelente. Permite comparar estrategias con diferente nivel de riesgo.' },
+            { p: '¿Qué significa "Tax-Loss Harvesting"?', ops: ['Invertir en activos con ventajas fiscales','Vender activos con pérdidas para compensar ganancias y reducir el IRPF','Usar cuentas offshore para evitar impuestos','Diferir el pago de impuestos hasta la jubilación'], r: 1, exp: 'El Tax-Loss Harvesting consiste en vender posiciones con pérdidas para compensar las ganancias del año, reduciendo la base imponible de forma legal.' },
+            { p: '¿Qué correlación tiene históricamente el Dólar (DXY) con el Oro?', ops: ['Correlación positiva fuerte (suben juntos)','Sin correlación','Correlación negativa (cuando el dólar sube, el oro baja)','Correlación positiva débil'], r: 2, exp: 'El oro y el dólar tienen correlación negativa históricamente. Cuando el dólar se fortalece, el oro en dólares se encarece para compradores internacionales, reduciendo la demanda.' },
+            { p: '¿Qué es el WACC en el análisis DCF?', ops: ['Indicador técnico de sobrecompra','Coste Medio Ponderado de Capital — la tasa de descuento en valoración de empresas','Método de contabilidad de inventarios','Ratio de liquidez corriente'], r: 1, exp: 'El WACC (Weighted Average Cost of Capital) es la tasa mínima de rentabilidad que debe generar una empresa para crear valor. Se usa como tasa de descuento en el modelo DCF.' },
+            { p: '¿Qué indica un "Fair Value Gap" (FVG)?', ops: ['Que la acción está infravalorada fundamentalmente','Una ineficiencia de precio que el mercado tiende a rellenar','El precio justo según análisis fundamental','Un gap entre el precio y su media móvil de 200 sesiones'], r: 1, exp: 'Un FVG es un gap de precio entre tres velas donde la segunda tiene un movimiento tan fuerte que deja un espacio sin negociar. El mercado tiende a volver a rellenar esas ineficiencias.' },
+            { p: '¿Cuándo se debe declarar el Modelo 720 en España?', ops: ['Cuando tienes ganancias superiores a 50.000€','Cuando tienes bienes o cuentas en el extranjero que superen 50.000€ en total','Siempre que tengas cuentas en brókers extranjeros','Solo si tienes propiedades en el extranjero'], r: 1, exp: 'El Modelo 720 debe presentarse cuando el valor agregado de cuentas, valores o inmuebles en el extranjero supera los 50.000€. Plazo: 1-31 de marzo. La sanción por no declarar puede ser de 5.000€ por dato.' },
+            { p: '¿Qué es el "Profit Factor" en una estrategia de trading?', ops: ['El porcentaje de operaciones ganadoras','Beneficio bruto total / Pérdida bruta total','Rentabilidad anual de la estrategia','El ratio R/R medio de todas las operaciones'], r: 1, exp: 'El Profit Factor es el cociente entre el beneficio bruto total y la pérdida bruta total. Un Profit Factor >1.5 indica una estrategia rentable; >2 es muy bueno.' },
+            { p: 'En la estrategia "Iron Condor" de opciones, ¿cuándo se gana?', ops: ['Cuando el activo sube mucho','Cuando el activo baja mucho','Cuando el precio se mantiene dentro de un rango definido','Cuando la volatilidad aumenta significativamente'], r: 2, exp: 'Se gana si el precio permanece dentro de los strikes vendidos al vencimiento. Es ideal para mercados laterales con baja volatilidad.' },
+            { p: '¿Qué indica una Beta de 0.7 en una acción?', ops: ['La acción es un 30% más volátil que el mercado','La acción se mueve un 70% de lo que se mueve el mercado (menos volátil)','La acción tiene una correlación del 70% con el mercado','La acción perderá un 30% si el mercado baja'], r: 1, exp: 'La Beta mide la sensibilidad de un activo respecto al mercado. Beta 0.7 significa que si el mercado sube o baja un 10%, la acción tiende a moverse un 7%. Es un activo defensivo.' }
+        ];
+
+        let testSupIndex = 0, testSupAciertos = 0, testSupRespondida = false;
+
+        function renderPreguntaSup() {
+            const p = preguntasSupremo[testSupIndex];
+            document.getElementById('test-sup-pregunta').innerHTML = `<h6 class="fw-bold" style="color:#8b1a1a;">${testSupIndex + 1}. ${p.p}</h6>`;
+            document.getElementById('test-sup-opciones').innerHTML = p.ops.map((op, i) =>
+                `<div class="col-md-6"><button class="btn btn-outline-secondary w-100 text-start p-2 rounded" style="font-size:0.88rem;" onclick="responderSup(${i})">${op}</button></div>`
+            ).join('');
+            document.getElementById('test-sup-feedback').style.display = 'none';
+            document.getElementById('test-sup-siguiente').style.display = 'none';
+            document.getElementById('test-sup-progreso').textContent = `Pregunta ${testSupIndex + 1} de ${preguntasSupremo.length}`;
+            testSupRespondida = false;
+        }
+
+        function responderSup(idx) {
+            if (testSupRespondida) return;
+            testSupRespondida = true;
+            const p = preguntasSupremo[testSupIndex];
+            const correcta = idx === p.r;
+            if (correcta) testSupAciertos++;
+            const btns = document.querySelectorAll('#test-sup-opciones button');
+            btns.forEach((b, i) => {
+                b.disabled = true;
+                if (i === p.r) { b.style.background = '#e8f5ec'; b.style.borderColor = '#27ae60'; b.style.color = '#1a6b35'; }
+                if (i === idx && !correcta) { b.style.background = '#fde8e8'; b.style.borderColor = '#c0392b'; b.style.color = '#8b1a1a'; }
+            });
+            document.getElementById('test-sup-feedback').style.display = 'block';
+            document.getElementById('test-sup-feedback').innerHTML = `
+                <div class="p-3 rounded border ${correcta ? 'border-success' : 'border-danger'}" style="background:${correcta ? '#f5fdf7' : '#fdf5f5'}">
+                    <strong>${correcta ? '✅ Correcto' : '❌ Incorrecto'}</strong>
+                    <p class="small mb-0 mt-1">${p.exp}</p>
+                </div>`;
+            document.getElementById('test-sup-siguiente').style.display = 'inline-block';
+            document.getElementById('test-sup-siguiente').textContent = testSupIndex < preguntasSupremo.length - 1 ? 'Siguiente →' : 'Ver resultado';
+        }
+
+        function siguientePreguntaSup() {
+            testSupIndex++;
+            if (testSupIndex >= preguntasSupremo.length) {
+                const pct = Math.round((testSupAciertos / preguntasSupremo.length) * 100);
+                const color = pct >= 70 ? '#27ae60' : pct >= 50 ? '#d4a017' : '#c0392b';
+                const msg = pct >= 80 ? '¡Nivel élite confirmado! Dominas los conceptos del Pack Supremo.' : pct >= 60 ? 'Buen nivel. Repasa los módulos de los temas fallados.' : 'Te recomendamos repasar con más detenimiento antes de continuar.';
+                ['test-sup-pregunta','test-sup-opciones','test-sup-feedback','test-sup-nav'].forEach(id => document.getElementById(id).style.display = 'none');
+                document.getElementById('test-sup-resultado').style.display = 'block';
+                document.getElementById('test-sup-resultado').innerHTML = `
+                    <div class="display-4 fw-bold mb-2" style="color:${color}">${pct}%</div>
+                    <div class="fs-5 fw-bold mb-2">${testSupAciertos} / ${preguntasSupremo.length} correctas</div>
+                    <p class="text-muted">${msg}</p>
+                    <button class="btn btn-danger rounded px-4 mt-2" onclick="reiniciarTestSup()">Repetir test</button>`;
+            } else {
+                renderPreguntaSup();
+            }
+        }
+
+        function reiniciarTestSup() {
+            testSupIndex = 0; testSupAciertos = 0; testSupRespondida = false;
+            ['test-sup-pregunta','test-sup-opciones','test-sup-nav'].forEach(id => document.getElementById(id).style.display = 'block');
+            document.getElementById('test-sup-opciones').style.display = 'flex';
+            document.getElementById('test-sup-resultado').style.display = 'none';
             renderPreguntaSup();
         }
-    }
-    
-    function reiniciarTestSup() {
-        testSupIndex = 0; testSupAciertos = 0; testSupRespondida = false;
-        ['test-sup-pregunta','test-sup-opciones','test-sup-nav'].forEach(id => document.getElementById(id).style.display = 'block');
-        document.getElementById('test-sup-opciones').style.display = 'flex';
-        document.getElementById('test-sup-resultado').style.display = 'none';
+
         renderPreguntaSup();
-    }
-    
-    renderPreguntaSup();
-    </script>
-    
-        </div>
+        </script>
+
         {{-- NAVEGACIÓN --}}
         <div class="d-flex justify-content-between align-items-center mt-4 pt-4 border-top">
-            <a href="/mis-planes" class="btn btn-outline-secondary rounded-pill px-4"><i class="bi bi-arrow-left me-2"></i>Volver a los planes</a>
-            <div class="text-muted small">Pack 3 de 3 · <span class="text-warning fw-bold">Desbloqueado</span></div>
+            <a href="/mis-planes" class="btn btn-outline-secondary rounded px-4"><i class="bi bi-arrow-left me-2"></i>Volver a los planes</a>
+            <div class="text-muted small">Pack 3 de 3 · <span class="fw-bold">Desbloqueado</span></div>
         </div>
 
     </div>
 
     <script>
-                // Función para acordeones personalizados (evita conflicto con Alpine.js)
-            function toggleAccordion(button) {
-                const item = button.parentElement;
-                const body = button.nextElementSibling;
-                const isOpen = body.classList.contains('show');
-                
-                // Cerrar todos los del mismo grupo (comportamiento acordeón)
-                const parent = item.parentElement;
-                parent.querySelectorAll('.accordion-body.show').forEach(openBody => {
-                    if (openBody !== body) {
-                        openBody.classList.remove('show');
-                        openBody.previousElementSibling.classList.remove('active');
-                    }
-                });
-                
-                // Toggle actual
-                if (isOpen) {
-                    body.classList.remove('show');
-                    button.classList.remove('active');
-                } else {
-                    body.classList.add('show');
-                    button.classList.add('active');
-                }
+    function toggleAccordion(button) {
+        const item = button.parentElement;
+        const body = button.nextElementSibling;
+        const isOpen = body.classList.contains('show');
+        const parent = item.parentElement;
+        parent.querySelectorAll('.accordion-body.show').forEach(openBody => {
+            if (openBody !== body) {
+                openBody.classList.remove('show');
+                openBody.previousElementSibling.classList.remove('active');
             }
-        function showModule(index) {
-            document.querySelectorAll('.content-panel').forEach(panel => {
-                panel.classList.remove('active');
-            });
-            document.querySelectorAll('.module-nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.getElementById('module-' + index).classList.add('active');
-            document.querySelectorAll('.module-nav-btn')[index].classList.add('active');
-        }
-    </script>
-
-<script>
-(function() {
-    const inicio = Date.now();
-    const curso  = "supremo";
-    const token  = document.querySelector("meta[name=\"csrf-token\"]")?.getAttribute("content");
-
-    function enviarProgreso() {
-        const segundos = Math.round((Date.now() - inicio) / 1000);
-        if (segundos < 5) return;
-        fetch("/progreso-curso", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": token,
-            },
-            body: JSON.stringify({ curso: curso, segundos: segundos }),
-            keepalive: true,
         });
+        if (isOpen) { body.classList.remove('show'); button.classList.remove('active'); }
+        else { body.classList.add('show'); button.classList.add('active'); }
     }
 
-    window.addEventListener("beforeunload", enviarProgreso);
-    setInterval(enviarProgreso, 300000);
-})();
-</script>
-{{-- BOTÓN VOLVER ARRIBA --}}
-<button id="btn-arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-    title="Volver arriba"
-    style="
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border: none;
-        background: linear-gradient(135deg, #dc2626, #ea580c);
-        color: white;
-        font-size: 1.3rem;
-        box-shadow: 0 4px 15px rgba(220,38,38,0.4);
-        cursor: pointer;
-        display: none;
-        z-index: 9999;
-        transition: all 0.3s ease;
-    "
-    onmouseover="this.style.transform='scale(1.1)'"
-    onmouseout="this.style.transform='scale(1)'">
-    <i class="bi bi-arrow-up"></i>
-</button>
+    function showModule(index) {
+        document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.module-nav-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('module-' + index).classList.add('active');
+        document.querySelectorAll('.module-nav-btn')[index].classList.add('active');
+    }
+    </script>
 
-<script>
-window.addEventListener('scroll', function() {
-    document.getElementById('btn-arriba').style.display = window.scrollY > 400 ? 'flex' : 'none';
-    document.getElementById('btn-arriba').style.alignItems = 'center';
-    document.getElementById('btn-arriba').style.justifyContent = 'center';
-});
-</script>
+    <script>
+    (function() {
+        const inicio = Date.now();
+        const curso = "supremo";
+        const token = document.querySelector("meta[name=\"csrf-token\"]")?.getAttribute("content");
+        function enviarProgreso() {
+            const segundos = Math.round((Date.now() - inicio) / 1000);
+            if (segundos < 5) return;
+            fetch("/progreso-curso", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": token },
+                body: JSON.stringify({ curso: curso, segundos: segundos }),
+                keepalive: true,
+            });
+        }
+        window.addEventListener("beforeunload", enviarProgreso);
+        setInterval(enviarProgreso, 300000);
+    })();
+    </script>
+
+    <button id="btn-arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba"
+        style="position:fixed;bottom:25px;right:25px;width:42px;height:42px;border-radius:50%;border:1px solid #ccc;background:#fff;color:#c0392b;font-size:1.1rem;box-shadow:0 2px 8px rgba(0,0,0,0.15);cursor:pointer;display:none;z-index:9999;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+    <script>
+    window.addEventListener('scroll', function() {
+        const btn = document.getElementById('btn-arriba');
+        btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+        btn.style.alignItems = 'center';
+        btn.style.justifyContent = 'center';
+    });
+    </script>
+
 </x-app-layout>
-
-
