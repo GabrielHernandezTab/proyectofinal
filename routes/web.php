@@ -91,28 +91,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/donante/{id}/recibo-pdf', [DonanteController::class, 'reciboPdf'])->name('donante.recibo.pdf');
 
 
-
-
-    //añadido como prueba QUITAR
-    Route::get('/test-dompdf', function() {
-    try {
-        // Verificar si la clase existe
-        if (!class_exists('\Dompdf\Dompdf')) {
-            return 'ERROR: Clase \Dompdf\Dompdf NO existe. Revisa vendor/dompdf/dompdf/src/';
-        }
-        
-        $dompdf = new \Dompdf\Dompdf();
-        $dompdf->loadHtml('<h1>Test PDF</h1><p>Si ves esto, dompdf funciona.</p>');
-        $dompdf->render();
-        
-        return response($dompdf->output(), 200, [
-            'Content-Type' => 'application/pdf',
-            'Content-Disposition' => 'inline; filename="test.pdf"'
-        ]);
-    } catch (\Exception $e) {
-        return 'ERROR: ' . $e->getMessage() . '<br>Archivo: ' . $e->getFile() . '<br>Línea: ' . $e->getLine();
-    }
-});
 });
    
 
