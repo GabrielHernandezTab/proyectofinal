@@ -19,6 +19,7 @@
 }
 </style>
 
+<body>
 
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left"
      style="display:none"
@@ -87,4 +88,4 @@ function w3_close() {
 }
 </script>
 
-
+</body>
